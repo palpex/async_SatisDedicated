@@ -7,6 +7,8 @@ BRIDGE_LIB="${SATIS_BRIDGE_LIB:-${BUILD_DIR}/libsatis_task_bridge.so}"
 SERVER_DIR="${SATIS_SERVER_DIR:-${SCRIPT_DIR}/server}"
 SERVER_SCRIPT="${SATIS_SERVER_SCRIPT:-${SERVER_DIR}/FactoryServer.sh}"
 ASYNC_TICK="${SATIS_ASYNC_TICK:-1}"
+FACTORY_CVARS="${SATIS_FACTORY_CVARS:-}"
+CVAR_ARGS=()
 
 echo "================================================================="
 echo "   Satisfactory Dedicated Server - Task Bridge Launcher"
@@ -42,6 +44,14 @@ if [[ ! -x "${SERVER_SCRIPT}" ]]; then
     echo "ERROR: ${SERVER_SCRIPT} is not executable."
     exit 1
 fi
+if [[ -n "${FACTORY_CVARS}" ]]; then
+    if [[ ! "${FACTORY_CVARS}" =~ ^[A-Za-z0-9_.-]+=([A-Za-z0-9_.-]+)(,[A-Za-z0-9_.-]+=([A-Za-z0-9_.-]+))*$ ]]; then
+        echo "ERROR: SATIS_FACTORY_CVARS must be comma-separated name=value pairs." >&2
+        exit 1
+    fi
+    IFS=, read -r -a _cvar_pairs <<< "${FACTORY_CVARS}"
+    for _pair in "${_cvar_pairs[@]}"; do CVAR_ARGS+=("-${_pair}"); done
+fi
 if [[ "${ASYNC_TICK}" != 0 && "${ASYNC_TICK}" != 1 && "${ASYNC_TICK}" != true && "${ASYNC_TICK}" != false ]]; then
     echo "ERROR: SATIS_ASYNC_TICK must be 0, 1, true, or false."
     exit 1
@@ -51,6 +61,7 @@ PRELOAD_VALUE="${BRIDGE_LIB}${LD_PRELOAD:+:${LD_PRELOAD}}"
 echo ">> Configuration:"
 echo "   - LD_PRELOAD: ${PRELOAD_VALUE}"
 echo "   - SATIS_ASYNC_TICK: ${ASYNC_TICK}"
+if [[ -n "${FACTORY_CVARS}" ]]; then echo "   - SATIS_FACTORY_CVARS: ${FACTORY_CVARS}"; fi
 echo "   - Server Target: ${SERVER_SCRIPT}"
 
 # Satisfactory / Unreal Engine refuses to run with root privileges.
@@ -70,10 +81,10 @@ if [[ $(id -u) -eq 0 ]]; then
     fi
     echo ">> Notice: Unreal Engine refuses to run as root. Switching to user '${RUN_USER}'."
     echo "================================================================="
-    exec runuser -u "${RUN_USER}" -- env LD_PRELOAD="${PRELOAD_VALUE}" SATIS_ASYNC_TICK="${ASYNC_TICK}" "${SERVER_SCRIPT}" "$@"
+    exec runuser -u "${RUN_USER}" -- env LD_PRELOAD="${PRELOAD_VALUE}" SATIS_ASYNC_TICK="${ASYNC_TICK}" "${SERVER_SCRIPT}" "${CVAR_ARGS[@]}" "$@"
 else
     echo ">> Launching Satisfactory Dedicated Server with Task Bridge..."
     echo "================================================================="
-    exec env LD_PRELOAD="${PRELOAD_VALUE}" SATIS_ASYNC_TICK="${ASYNC_TICK}" "${SERVER_SCRIPT}" "$@"
+    exec env LD_PRELOAD="${PRELOAD_VALUE}" SATIS_ASYNC_TICK="${ASYNC_TICK}" "${SERVER_SCRIPT}" "${CVAR_ARGS[@]}" "$@"
 fi
 

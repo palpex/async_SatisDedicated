@@ -43,6 +43,14 @@ SATIS_BRIDGE_LIB="$PWD/libsatis_task_bridge.so" SATIS_SERVER_DIR=/srv/satisfacto
 
 The archive contains project-owned binaries/tools/docs only. Obtain the game server from Steam. Library paths containing whitespace or colons are unsupported by LD_PRELOAD; the launcher rejects them. Server paths and arguments may contain spaces.
 
+## Startup CVar experiments
+
+The launcher can forward a controlled set of Unreal console variables before the server process starts. This is intended for matched A/B experiments and is not a live memory edit:
+
+
+
+Use only names supported by the target build. For this validated build, the internal parallel paths already report enabled. Never change  in a running process; back up the save, restart for each value, verify the effective setting in startup logs or memory telemetry, and compare the same workload. The launcher rejects malformed values.
+
 ## Run locally
 
 Run as the unprivileged account that owns the server files. The server path defaults to `./server/FactoryServer.sh`; set `SATIS_SERVER_DIR` for another installation.

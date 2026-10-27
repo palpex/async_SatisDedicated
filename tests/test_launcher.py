@@ -35,6 +35,12 @@ def test_arguments_and_disabled_mode(launch):
     data = json.loads(result.stdout.splitlines()[-1])
     assert data == {"args": ["-log", "value with spaces", "literal;$(not-executed)"], "async": "0"}
 
+def test_startup_cvars_are_forwarded(launch):
+    result = launch("-log", SATIS_FACTORY_CVARS="t.ParallelTickGroupSize=100,t.UseParallelTick=1", SATIS_USER="service")
+    assert result.returncode == 0, result.stderr
+    data = json.loads(result.stdout.splitlines()[-1])
+    assert data["args"][:2] == ["-t.ParallelTickGroupSize=100", "-t.UseParallelTick=1"]
+
 def test_root_and_invalid_input(launch):
     for overrides, message in [({}, "do not run"), ({"SATIS_USER": "root"}, "unprivileged"), ({"SATIS_ASYNC_TICK": "bad"}, "must be"), ({"SATIS_BRIDGE_LIB": "/missing/library.so"}, "does not exist")]:
         result = launch(**overrides)
