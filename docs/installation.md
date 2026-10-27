@@ -45,11 +45,14 @@ The archive contains project-owned binaries/tools/docs only. Obtain the game ser
 
 ## Startup CVar experiments
 
-The launcher can forward a controlled set of Unreal console variables before the server process starts. This is intended for matched A/B experiments and is not a live memory edit:
+The launcher forwards startup Unreal console variables for matched A/B experiments. Example:
 
+    SATIS_FACTORY_CVARS="t.ParallelTickGroupSize=100,t.UseParallelTick=1" \
+    SATIS_SERVER_DIR=/srv/satisfactory/SatisfactoryDedicatedServer \
+    SATIS_USER=satisfactory \
+    ./run_async_server.sh -unattended -log
 
-
-Use only names supported by the target build. For this validated build, the internal parallel paths already report enabled. Never change  in a running process; back up the save, restart for each value, verify the effective setting in startup logs or memory telemetry, and compare the same workload. The launcher rejects malformed values.
+Use only names supported by the target build. Never change  in a running process; back up the save, restart for each value, verify the setting after startup, and compare the same workload.
 
 ## Run locally
 
