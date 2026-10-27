@@ -82,6 +82,9 @@ bool factory_layout_supported{};
 // Published on the Game Thread during initialization; sampled only at tick entry.
 const bool* gc_active{};
 const bool* saving_package{};
+// TickFactoryActors calls UE::GC::MarkAsReachable when this flag is set.
+// That GC reachability path is not safe to run from our worker lane.
+const bool* incremental_reachability_pending{};
 
 void task_add_ref(void* task) {
     __atomic_fetch_add(reinterpret_cast<std::uint32_t*>(static_cast<char*>(task)+8),1u,__ATOMIC_RELAXED);
@@ -296,6 +299,8 @@ extern "C" int satis_task_bridge_init() {
 
     gc_active=static_cast<const bool*>(dlsym(RTLD_DEFAULT,"GIsGarbageCollecting"));
     saving_package=static_cast<const bool*>(dlsym(RTLD_DEFAULT,"GIsSavingPackage"));
+    incremental_reachability_pending=static_cast<const bool*>(dlsym(
+        RTLD_DEFAULT,"_ZN2UE2GC33GIsIncrementalReachabilityPendingE"));
     // Core compatibility alone cannot validate the actor member offsets below.
     void* factory=dlopen("libFactoryServer-FactoryGame-Linux-Shipping.so",RTLD_NOW|RTLD_NOLOAD);
     if(factory) {
@@ -557,7 +562,8 @@ extern "C" void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThr
     // Only inspect the build-specific actor layout from its owning thread.
     // GC/save flags are an entry guard, not a cross-frame lifetime lock.
     if(!factory_layout_supported || !gc_active || !saving_package ||
-       tid()!=*game_thread_id || *gc_active || *saving_package) {
+       !incremental_reachability_pending || tid()!=*game_thread_id ||
+       *gc_active || *saving_package || *incremental_reachability_pending) {
         run_synchronously();
         return;
     }

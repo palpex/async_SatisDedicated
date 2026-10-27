@@ -55,6 +55,7 @@ int main() {
     bool inactive=false;
     gc_active=&inactive;
     saving_package=&inactive;
+    incremental_reachability_pending=&inactive;
     factory_layout_supported=true;
     initialized.store(true);
     async_tick_enabled.store(true);
@@ -98,18 +99,23 @@ int main() {
     hook(tick,0.03f,0,1,&completion);
     assert(original_calls==6 && !queued_function.heap);
     gc_active=&inactive;
-    factory_layout_supported=false;
+    bool incremental_pending=true;
+    incremental_reachability_pending=&incremental_pending;
     hook(tick,0.03f,0,1,&completion);
     assert(original_calls==7 && !queued_function.heap);
+    incremental_reachability_pending=&inactive;
+    factory_layout_supported=false;
+    hook(tick,0.03f,0,1,&completion);
+    assert(original_calls==8 && !queued_function.heap);
     factory_layout_supported=true;
 
     // Eligible work returns before executing or signaling its completion gate.
     hook(tick,0.03f,0,1,&completion);
-    assert(original_calls==7 && queued_function.heap && binds==2 && signals==2);
+    assert(original_calls==8 && queued_function.heap && binds==2 && signals==2);
     assert(satis_async_dispatch_count()==1 && satis_async_completed_count()==0);
     drain();
-    assert(original_calls==8 && observed_lane==255u && signals==3);
+    assert(original_calls==9 && observed_lane==255u && signals==3);
     assert(satis_async_completed_count()==1 && satis_task_outstanding()==0);
-    assert(satis_async_sync_fallback_count()==7);
+    assert(satis_async_sync_fallback_count()==8);
     for(void* event:allocated_events) delete[] static_cast<unsigned char*>(event);
 }

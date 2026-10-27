@@ -59,11 +59,12 @@ To transition the server to an asynchronous execution model:
 | Missing AddNested | Engine DontCompleteUntil uses AddNested for executing tasks | Return an error; never call AddPrerequisites on an executing task as a substitute |
 | Factory layout mismatch | Core ABI identity alone says nothing about FactoryGame member offsets | Check FactoryGame GNU build-ID 7dd11ed7c1cc5e43 and ExecuteTick offset before reading layout |
 | GC/package save already active at entry | Exported GIsGarbageCollecting and GIsSavingPackage flags | Execute inline; flags do not lock out a future GC/save |
+| Incremental reachability pending | TickFactoryActors calls UE::GC::MarkAsReachable while `UE::GC::GIsIncrementalReachabilityPending` is set | Execute inline; do not run the GC reachability path on a worker |
 | Worker thread identity | Thread tags and IsInGameThread checks are engine contracts | Preserve checks; no task-tag spoofing; pass CurrentThread=255 for the worker call |
 
 The previous claim that task-tag value 2 meant ParallelGameThread was incorrect: this build compares IsInParallelGameThread against 0x40000002. Tag 2 claims the actual Game Thread. Assigning that tag or overriding IsInGameThread does not make UObject access thread-safe; both mechanisms have been removed.
 
-The migration count is sampled at tick entry. It cannot prove no migration will become pending later in the tick; a broader split between worker computation and Game Thread world mutations remains necessary. This alpha has not established global protection against actor destruction, world transitions, incremental GC, or simultaneous access by all other subsystems. Completion gating protects the declared parent task, not every unrelated engine operation. Internal ParallelFor joins remain in the original factory implementation.
+The migration count and incremental reachability flag are sampled at tick entry. It cannot prove no migration will become pending later in the tick; a broader split between worker computation and Game Thread world mutations remains necessary. This alpha has not established global protection against actor destruction, world transitions, incremental GC, or simultaneous access by all other subsystems. Completion gating protects the declared parent task, not every unrelated engine operation. Internal ParallelFor joins remain in the original factory implementation.
 
 Tests/tick_contract.cpp executes the actual hook against synthetic ABI functions under address/undefined-behavior sanitizers. It verifies fallback, no early signal, worker lane, completion and cleanup control flow. It cannot prove Unreal gameplay safety. Historical REA probes remain stored separately from the new anonymous observational JSON.
 
