@@ -49,6 +49,12 @@ To transition the server to an asynchronous execution model:
 2. Offload building and conveyor ticks to non-blocking TaskGraph worker batches.
 3. Guard against GC, actor destruction, and world transitions during pending asynchronous worker phases.
 
+## Parallel-group tuning boundary
+
+The FactoryGame build already enables its internal parallel paths (`UseParallelBuildablesTick`, grouped conveyors, conveyor load balancing, and unbalanced scheduling). `ParallelGroupSize` is a live engine variable used to size internal arrays and partition work. A controlled production test that changed it from 100 to 32 while the process was running produced `Array index out of bounds: 52 into an array of size 32` in `AFGBuildableSubsystem::TickFactoryActors`, followed by signal 11. The value was restored to 100 by the service restart and the post-restart process remained clean.
+
+This variable must not be mutated through `/proc` or another live memory write. Any future tuning must be applied before process startup through a supported configuration or launch-time console-variable mechanism, then verified after initialization. Until that path is identified and tested, the validated value remains 100.
+
 ## Guarded alpha: findings and remaining boundaries
 
 | Case | Evidence | Bridge behavior |

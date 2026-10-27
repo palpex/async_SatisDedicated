@@ -84,6 +84,10 @@ When enabled via `satis_async_set_enabled(1)` or `SATIS_ASYNC_TICK=1`:
 - `satis_async_tick_count` / `satis_async_dispatch_count`: Performance metrics for intercepted ticks.
 - `satis_async_sync_fallback_count`: Counts ticks kept on the Game Thread because the subsystem reported pending conveyor-group migration or actor-spawn work.
 
+## Internal parallelism tuning
+
+The shipped FactoryGame binary already has internal parallel buildable, grouped-conveyor, load-balancing, and unbalanced scheduling paths enabled on the validated server. Do not change `ParallelGroupSize` in a running process: a live mutation from 100 to 32 caused an `Array index out of bounds` assertion in `TickFactoryActors` and a server restart. Tuning must be a startup-only experiment with a full save backup and a matched A/B run.
+
 ## Game-thread safety boundary
 
 The bridge keeps ticks with conveyor-group migration detected at entry on the Game Thread. `AFGBuildableSubsystem::MigrateConveyorGroupToChainActor` creates and finishes Unreal actors, and the engine requires that lifecycle work on the Game Thread. Other factory ticks remain eligible for asynchronous dispatch. The bridge does not spoof `IsInGameThread` or change Unreal's thread-local task tags. This entry check is not a general proof of actor-lifecycle safety.

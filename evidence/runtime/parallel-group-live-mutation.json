@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-27",
+  "test": "ParallelGroupSize live mutation",
+  "validated_start_value": 100,
+  "requested_live_value": 32,
+  "result": "crash_and_systemd_restart",
+  "assertion": "Array index out of bounds: 52 into an array of size 32",
+  "location": "AFGBuildableSubsystem::TickFactoryActors",
+  "signal": 11,
+  "rollback": "service restart restored the process with ParallelGroupSize=100",
+  "post_restart_matching_errors": 0,
+  "policy": "never mutate this variable in a running process"
+}
