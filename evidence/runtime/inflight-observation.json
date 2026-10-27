@@ -1,0 +1,170 @@
+{
+  "started_at": "2026-10-27T20:13:14.199986+00:00",
+  "ended_at": "2026-10-27T20:14:14.352671+00:00",
+  "scope": "bounded observation; no baseline speedup inferred",
+  "samples": [
+    {
+      "at": "2026-10-27T20:13:14.199991+00:00",
+      "pid": 249749,
+      "bridge": {
+        "loaded": true,
+        "library_sha256": "11ec067112233b6d311a238d415a23333698f359dd2abaeb0790ef879e6aaa99",
+        "ticks": 0,
+        "inflight": 0,
+        "dispatched": 0,
+        "completed": 0,
+        "fallbacks": 0,
+        "enabled": 0
+      },
+      "api_error": "URLError"
+    },
+    {
+      "at": "2026-10-27T20:13:28.220779+00:00",
+      "pid": 249749,
+      "bridge": {
+        "loaded": true,
+        "library_sha256": "11ec067112233b6d311a238d415a23333698f359dd2abaeb0790ef879e6aaa99",
+        "ticks": 8,
+        "inflight": 0,
+        "dispatched": 8,
+        "completed": 8,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 56.13,
+      "process_cpu_pct": 106.49,
+      "active_other_threads": 18,
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 26.236581802368164,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T20:13:41.035399+00:00",
+      "pid": 249749,
+      "bridge": {
+        "loaded": true,
+        "library_sha256": "11ec067112233b6d311a238d415a23333698f359dd2abaeb0790ef879e6aaa99",
+        "ticks": 306,
+        "inflight": 0,
+        "dispatched": 306,
+        "completed": 306,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 40.8,
+      "process_cpu_pct": 151.66,
+      "active_other_threads": 19,
+      "api": {
+        "numConnectedPlayers": 1,
+        "averageTickRate": 29.201370239257812,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T20:13:51.189891+00:00",
+      "pid": 249749,
+      "bridge": {
+        "loaded": true,
+        "library_sha256": "11ec067112233b6d311a238d415a23333698f359dd2abaeb0790ef879e6aaa99",
+        "ticks": 604,
+        "inflight": 0,
+        "dispatched": 604,
+        "completed": 604,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 59.6,
+      "process_cpu_pct": 215.45,
+      "active_other_threads": 19,
+      "api": {
+        "numConnectedPlayers": 2,
+        "averageTickRate": 29.83516502380371,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T20:14:01.327790+00:00",
+      "pid": 249749,
+      "bridge": {
+        "loaded": true,
+        "library_sha256": "11ec067112233b6d311a238d415a23333698f359dd2abaeb0790ef879e6aaa99",
+        "ticks": 905,
+        "inflight": 0,
+        "dispatched": 905,
+        "completed": 905,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 60.07,
+      "process_cpu_pct": 163.84,
+      "active_other_threads": 21,
+      "api": {
+        "numConnectedPlayers": 2,
+        "averageTickRate": 29.831411361694336,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T20:14:11.467317+00:00",
+      "pid": 249749,
+      "bridge": {
+        "loaded": true,
+        "library_sha256": "11ec067112233b6d311a238d415a23333698f359dd2abaeb0790ef879e6aaa99",
+        "ticks": 1207,
+        "inflight": 0,
+        "dispatched": 1207,
+        "completed": 1207,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 60.45,
+      "process_cpu_pct": 166.56,
+      "active_other_threads": 18,
+      "api": {
+        "numConnectedPlayers": 2,
+        "averageTickRate": 29.893545150756836,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T20:14:14.200079+00:00",
+      "pid": 249749,
+      "bridge": {
+        "loaded": true,
+        "library_sha256": "11ec067112233b6d311a238d415a23333698f359dd2abaeb0790ef879e6aaa99",
+        "ticks": 1289,
+        "inflight": 0,
+        "dispatched": 1289,
+        "completed": 1289,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 58.56,
+      "process_cpu_pct": 170.92,
+      "active_other_threads": 16,
+      "api": {
+        "numConnectedPlayers": 2,
+        "averageTickRate": 29.811208724975586,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    }
+  ],
+  "journal_counts": {
+    "assertions": 0,
+    "fatal_signals": 0,
+    "critical_errors": 0,
+    "successful_joins": 2,
+    "inventory_warnings": 8,
+    "netguid_warnings": 0,
+    "component_warnings": 43,
+    "saves": 0
+  }
+}
