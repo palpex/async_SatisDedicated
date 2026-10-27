@@ -83,6 +83,11 @@ When enabled via `satis_async_set_enabled(1)` or `SATIS_ASYNC_TICK=1`:
 - `satis_async_set_enabled` / `satis_async_is_enabled`: Controls dynamic simulation tick offloading.
 - `satis_async_tick_count` / `satis_async_dispatch_count`: Performance metrics for intercepted ticks.
 - `satis_async_sync_fallback_count`: Counts ticks kept on the Game Thread because the subsystem reported pending conveyor-group migration or actor-spawn work.
+- `satis_async_pool_hit_count`: Measures simulation tick contexts and completion handles serviced by the preallocated zero-allocation pool.
+
+## Zero-allocation Hot-path Pool
+
+To eliminate allocator lock contention across thread boundaries during the hot 30 Hz tick loop, the bridge maintains preallocated lock-free pools for `satis_completion` handles and `AsyncTickContext` execution contexts. Each slot is guarded by an atomic CAS flag. On every tick, the Game Thread acquires an available slot in O(1) time without invoking heap allocation. The background TaskGraph worker releases the slot upon completion in O(1) time without invoking heap deallocation. If the pool is temporarily exhausted under an abnormal burst, the bridge gracefully falls back to heap allocation.
 
 ## Internal parallelism tuning
 

@@ -12,9 +12,47 @@
 #include <unistd.h>
 
 struct satis_completion {
-    void* event;
+    void* event{};
     std::atomic<bool> signaled{false};
+    bool pooled{false};
 };
+
+namespace {
+constexpr std::size_t COMPLETION_POOL_SIZE = 32;
+struct CompletionSlot {
+    satis_completion comp{};
+    std::atomic<bool> in_use{false};
+};
+CompletionSlot completion_pool[COMPLETION_POOL_SIZE]{};
+
+satis_completion* acquire_completion() {
+    for(std::size_t i = 0; i < COMPLETION_POOL_SIZE; ++i) {
+        bool expected = false;
+        if(completion_pool[i].in_use.compare_exchange_strong(expected, true, std::memory_order_acq_rel)) {
+            completion_pool[i].comp.event = nullptr;
+            completion_pool[i].comp.signaled.store(false, std::memory_order_relaxed);
+            completion_pool[i].comp.pooled = true;
+            return &completion_pool[i].comp;
+        }
+    }
+    auto* fallback = new(std::nothrow) satis_completion{};
+    if(fallback) fallback->pooled = false;
+    return fallback;
+}
+
+void release_completion(satis_completion* comp) {
+    if(!comp) return;
+    if(comp->pooled) {
+        for(std::size_t i = 0; i < COMPLETION_POOL_SIZE; ++i) {
+            if(&completion_pool[i].comp == comp) {
+                completion_pool[i].in_use.store(false, std::memory_order_release);
+                return;
+            }
+        }
+    }
+    delete comp;
+}
+}
 
 namespace {
 // DWARF Core CU 0x22: TUniqueFunction<void()> size 48; Callable at 0,
@@ -79,6 +117,7 @@ std::atomic<std::uint64_t> async_dispatches{0};
 std::atomic<std::uint64_t> inflight_async_ticks{0};
 std::atomic<std::uint64_t> sync_fallbacks{0};
 std::atomic<std::uint64_t> completed_async_ticks{0};
+std::atomic<std::uint64_t> pool_hits{0};
 bool factory_layout_supported{};
 // Published on the Game Thread during initialization; sampled only at tick entry.
 const bool* gc_active{};
@@ -411,10 +450,10 @@ extern "C" int satis_task_probe_read(satis_task_probe_result* r) {
 
 extern "C" satis_completion* satis_completion_create() {
     if(!initialized.load(std::memory_order_acquire))return nullptr;
-    auto* result=new(std::nothrow) satis_completion{};
+    auto* result=acquire_completion();
     if(!result)return nullptr;
     result->event=event_allocate(168);
-    if(!result->event){delete result;return nullptr;}
+    if(!result->event){release_completion(result);return nullptr;}
     event_construct(result->event);
     // Constructor owns one internal ref; add the external owning handle ref.
     // Same sequence as original AnyTaskCompleted at 0x484ff9..0x48501e.
@@ -449,7 +488,7 @@ extern "C" int satis_completion_signal(satis_completion* completion) {
 extern "C" void satis_completion_release(satis_completion* completion) {
     if(!completion)return;
     task_release(completion->event);
-    delete completion;
+    release_completion(completion);
 }
 
 extern "C" int satis_completion_bind_to_task(satis_completion* completion, void* engine_task) {
@@ -497,6 +536,9 @@ extern "C" std::uint64_t satis_async_sync_fallback_count() {
 extern "C" std::uint64_t satis_async_completed_count() {
     return completed_async_ticks.load(std::memory_order_acquire);
 }
+extern "C" std::uint64_t satis_async_pool_hit_count() {
+    return pool_hits.load(std::memory_order_acquire);
+}
 
 namespace {
 struct AsyncTickContext {
@@ -507,7 +549,52 @@ struct AsyncTickContext {
     std::uint32_t current_thread;
     void* completion_event;
     satis_completion* completion_handle;
+    bool pooled{false};
 };
+
+
+constexpr std::size_t TICK_POOL_SIZE = 32;
+struct TickContextSlot {
+    AsyncTickContext ctx{};
+    std::atomic<bool> in_use{false};
+};
+TickContextSlot tick_context_pool[TICK_POOL_SIZE]{};
+
+AsyncTickContext* acquire_tick_context(
+    ExecuteTickSignature orig, void* this_ptr, float delta_time,
+    std::uint32_t level_tick, std::uint32_t current_thread,
+    void* completion_event, satis_completion* completion_handle
+) {
+    for(std::size_t i = 0; i < TICK_POOL_SIZE; ++i) {
+        bool expected = false;
+        if(tick_context_pool[i].in_use.compare_exchange_strong(expected, true, std::memory_order_acq_rel)) {
+            tick_context_pool[i].ctx = {
+                orig, this_ptr, delta_time, level_tick, current_thread,
+                completion_event, completion_handle, true
+            };
+            pool_hits.fetch_add(1, std::memory_order_relaxed);
+            return &tick_context_pool[i].ctx;
+        }
+    }
+    auto* fallback = new(std::nothrow) AsyncTickContext{
+        orig, this_ptr, delta_time, level_tick, current_thread,
+        completion_event, completion_handle, false
+    };
+    return fallback;
+}
+
+void release_tick_context(AsyncTickContext* ctx) {
+    if(!ctx) return;
+    if(ctx->pooled) {
+        for(std::size_t i = 0; i < TICK_POOL_SIZE; ++i) {
+            if(&tick_context_pool[i].ctx == ctx) {
+                tick_context_pool[i].in_use.store(false, std::memory_order_release);
+                return;
+            }
+        }
+    }
+    delete ctx;
+}
 
 void async_tick_runner(void* opaque) {
     auto* ctx = static_cast<AsyncTickContext*>(opaque);
@@ -523,7 +610,7 @@ void async_tick_runner(void* opaque) {
         satis_completion_signal(ctx->completion_handle);
         satis_completion_release(ctx->completion_handle);
     }
-    delete ctx;
+    release_tick_context(ctx);
 }
 }
 
@@ -614,9 +701,9 @@ extern "C" void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThr
         return;
     }
 
-    auto* ctx = new(std::nothrow) AsyncTickContext{
+    auto* ctx = acquire_tick_context(
         orig, this_ptr, delta_time, level_tick, current_thread, engine_task, comp
-    };
+    );
     if(!ctx) {
         if(comp) {
             satis_completion_signal(comp);
@@ -632,7 +719,7 @@ extern "C" void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThr
     if(queued != 0) {
         async_dispatches.fetch_sub(1, std::memory_order_relaxed);
         inflight_async_ticks.fetch_sub(1, std::memory_order_release);
-        delete ctx;
+        release_tick_context(ctx);
         // The completion was bound, so it must be released even on enqueue failure.
         orig(this_ptr, delta_time, level_tick, current_thread, completion_event_ref);
         satis_completion_signal(comp);

@@ -25,6 +25,7 @@ def bridge():
     lib.satis_async_tick_count.restype = ctypes.c_uint64
     lib.satis_async_dispatch_count.restype = ctypes.c_uint64
     lib.satis_async_sync_fallback_count.restype = ctypes.c_uint64
+    lib.satis_async_pool_hit_count.restype = ctypes.c_uint64
     return lib
 
 def test_initialization_outside_server(bridge):
@@ -57,4 +58,5 @@ def test_async_interceptor_controls(bridge):
     assert bridge.satis_async_tick_count() == 0
     assert bridge.satis_async_dispatch_count() == 0
     assert bridge.satis_async_sync_fallback_count() == 0
+    assert bridge.satis_async_pool_hit_count() == 0
 

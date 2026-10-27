@@ -81,6 +81,8 @@ uint64_t satis_async_inflight_count(void);
 uint64_t satis_async_sync_fallback_count(void);
 // Completed original factory calls; dispatch count includes jobs still in flight.
 uint64_t satis_async_completed_count(void);
+// Zero-allocation pool hits for simulation tick context and completion objects.
+uint64_t satis_async_pool_hit_count(void);
 
 #ifdef __cplusplus
 }
