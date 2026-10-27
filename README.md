@@ -1,6 +1,6 @@
 # async_SatisDedicated
 
-Installation and rollback: [`docs/installation.md`](docs/installation.md) · First release notes: [`v0.1.0-alpha.1`](docs/releases/v0.1.0-alpha.1.md)
+Installation and rollback: [`docs/installation.md`](docs/installation.md) · Latest release notes: [`v0.1.0-alpha.2`](docs/releases/v0.1.0-alpha.2.md)
 
 **Asynchronous and Multithreaded Engine Architecture Bridge for the Official Satisfactory Dedicated Server (Unreal Engine 5).**
 
@@ -14,7 +14,7 @@ Even though certain internal sub-phases utilize `ParallelFor` calls, these are i
 
 This repository documents the reverse-engineering of the official Linux Dedicated Server and provides **`satis_task_bridge`**: a native C/C++ engine bridge that hooks directly into Unreal Engine 5's internal TaskGraph ABI (`AsyncTask`, `FBaseGraphTask`, `FFunctionGraphTask`) to experiment with asynchronous factory tick dispatch and Game Thread continuations. The official server already parallelizes some factory and pipe computation; this project changes tick scheduling, not the entire engine.
 
-> **Experimental alpha:** This bridge targets one validated Steam build (`25782485`). It keeps detected conveyor-migration ticks on the Game Thread and offloads eligible factory simulation ticks; other lifecycle paths remain under investigation. Review [the installation guide](docs/installation.md) and [the first release notes](docs/releases/v0.1.0-alpha.1.md) before using it on a production server.
+> **Experimental alpha:** This bridge targets one validated Steam build (`25782485`). It keeps detected conveyor-migration ticks on the Game Thread and offloads eligible factory simulation ticks; other lifecycle paths remain under investigation. Review [the installation guide](docs/installation.md) and [the latest release notes](docs/releases/v0.1.0-alpha.2.md) before using it on a production server.
 
 ---
 
@@ -24,13 +24,13 @@ The guarded alpha offloads eligible factory ticks and keeps detected conveyor mi
 
 ### Current live observation
 
-A 120-second observation on the Ryzen 7 5825U recorded **3,565 completed asynchronous ticks**, **29.70–29.81 averaged TPS**, and **zero fatal signals or assertions**. This window had **zero connected players**. The first release needs further player-building tests; a short idle observation does not establish production stability.
+A guarded post-deployment observation on the Ryzen 7 5825U recorded **466 completed asynchronous ticks in 30 seconds**, **29.68–29.84 averaged TPS after startup**, and **zero fatal signals or assertions**. This window had **zero connected players**. The observation demonstrates active worker dispatch and clean startup, but it does not establish a gameplay speedup or player-action safety.
 
 ![Observed server TPS over time](docs/assets/gamethread_cpu_reduction.png)
 
 ![Observed CPU usage over time](docs/assets/multithread_cpu_distribution.png)
 
-Charts use [anonymous recorded samples](evidence/runtime/guarded-observation.json). CPU percentages are relative to one logical CPU. Main-thread and total process usage are measured over the same intervals.
+Charts use [anonymous recorded samples](evidence/runtime/guarded-observation.json). The newer deployment record is [guarded-incremental-observation.json](evidence/runtime/guarded-incremental-observation.json). CPU percentages are relative to one logical CPU. Main-thread and total process usage are measured over the same intervals.
 
 ### Standalone compute benchmark
 

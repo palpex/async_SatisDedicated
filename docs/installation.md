@@ -17,7 +17,7 @@ Install GCC or Clang with C++17 support, CMake, Python 3.10+, pytest, and binuti
 ```bash
 git clone https://github.com/palpex/async_SatisDedicated.git
 cd async_SatisDedicated
-git checkout v0.1.0-alpha.1
+git checkout v0.1.0-alpha.2
 ```
 
 ```bash
@@ -32,11 +32,11 @@ The expected library is `build/libsatis_task_bridge.so`. Binary digest tests req
 ## Download the binary release
 
 ```bash
-curl -fLO https://github.com/palpex/async_SatisDedicated/releases/download/v0.1.0-alpha.1/async-satis-v0.1.0-alpha.1-linux-x86_64.tar.gz
-curl -fLO https://github.com/palpex/async_SatisDedicated/releases/download/v0.1.0-alpha.1/async-satis-v0.1.0-alpha.1-linux-x86_64.tar.gz.sha256
-sha256sum -c async-satis-v0.1.0-alpha.1-linux-x86_64.tar.gz.sha256
+curl -fLO https://github.com/palpex/async_SatisDedicated/releases/download/v0.1.0-alpha.2/async-satis-v0.1.0-alpha.2-linux-x86_64.tar.gz
+curl -fLO https://github.com/palpex/async_SatisDedicated/releases/download/v0.1.0-alpha.2/async-satis-v0.1.0-alpha.2-linux-x86_64.tar.gz.sha256
+sha256sum -c async-satis-v0.1.0-alpha.2-linux-x86_64.tar.gz.sha256
 mkdir async-satis-release
-tar -xzf async-satis-v0.1.0-alpha.1-linux-x86_64.tar.gz -C async-satis-release
+tar -xzf async-satis-v0.1.0-alpha.2-linux-x86_64.tar.gz -C async-satis-release
 cd async-satis-release
 SATIS_BRIDGE_LIB="$PWD/libsatis_task_bridge.so" SATIS_SERVER_DIR=/srv/satisfactory/SatisfactoryDedicatedServer ./run_async_server.sh -unattended -log
 ```
@@ -64,7 +64,7 @@ Stop the service, copy the verified library atomically, and retain the previous 
 
 ```bash
 sudo systemctl stop satisfactory.service
-backup_dir=/home/satisfactory/backups/bridge-before-v0.1.0-alpha.1
+backup_dir=/home/satisfactory/backups/bridge-before-v0.1.0-alpha.2
 sudo install -d -m 0700 "$backup_dir"
 # Use a new backup directory for each installation; preserve previous backups.
 sudo tar -czf "$backup_dir/saved.tar.gz" -C /home/satisfactory/.config/Epic/FactoryGame Saved
