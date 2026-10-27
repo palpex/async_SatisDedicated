@@ -65,7 +65,7 @@ SATIS_USER=satisfactory \
 ./run_async_server.sh -unattended -log
 ```
 
-`SATIS_ASYNC_MAX_INFLIGHT=2` optionally bounds outstanding worker ticks; excess ticks fall back synchronously. `SATIS_ASYNC_TICK=0` preloads the bridge while disabling the interceptor for a controlled baseline. `SATIS_BRIDGE_LIB`, `SATIS_BUILD_DIR`, and `SATIS_SERVER_SCRIPT` override the library, build directory, and server script independently. Arguments after the launcher are passed unchanged to `FactoryServer.sh`.
+`SATIS_ASYNC_TICK=0` preloads the bridge while disabling the interceptor for a controlled baseline. `SATIS_BRIDGE_LIB`, `SATIS_BUILD_DIR`, and `SATIS_SERVER_SCRIPT` override the library, build directory, and server script independently. Arguments after the launcher are passed unchanged to `FactoryServer.sh`.
 
 The launcher refuses to silently run as root or switch to `nobody`. When invoked as root, supply an existing `SATIS_USER` service account.
 

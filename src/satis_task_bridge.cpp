@@ -77,7 +77,6 @@ std::atomic<bool> async_tick_enabled{false};
 std::atomic<std::uint64_t> intercepted_ticks{0};
 std::atomic<std::uint64_t> async_dispatches{0};
 std::atomic<std::uint64_t> inflight_async_ticks{0};
-std::uint64_t max_inflight_async_ticks{};
 std::atomic<std::uint64_t> sync_fallbacks{0};
 std::atomic<std::uint64_t> completed_async_ticks{0};
 bool factory_layout_supported{};
@@ -315,13 +314,6 @@ extern "C" int satis_task_bridge_init() {
             factory_layout_supported=check.matched &&
                 reinterpret_cast<std::uintptr_t>(tick)-check.base==0x180cba0;
         }
-    }
-
-    const char* env_max = std::getenv("SATIS_ASYNC_MAX_INFLIGHT");
-    if(env_max && *env_max) {
-        char* end=nullptr;
-        unsigned long long value=std::strtoull(env_max,&end,10);
-        if(end && *end == 0 && value<=1000000ULL) max_inflight_async_ticks=value;
     }
 
     const char* env_async = std::getenv("SATIS_ASYNC_TICK");
@@ -599,11 +591,6 @@ extern "C" void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThr
     if((flags & 0x40000000u) ||
        *reinterpret_cast<const std::int32_t*>(bytes+0x400)!=0 ||
        *reinterpret_cast<const std::int32_t*>(bytes+0x948)!=0) {
-        run_synchronously();
-        return;
-    }
-
-    if(max_inflight_async_ticks && inflight_async_ticks.load(std::memory_order_acquire) >= max_inflight_async_ticks) {
         run_synchronously();
         return;
     }
