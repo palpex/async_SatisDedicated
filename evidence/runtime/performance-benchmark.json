@@ -1,0 +1,39 @@
+{
+  "hardware": {
+    "logical_cores": 4,
+    "worker_threads_used": 3
+  },
+  "configuration": {
+    "tasks_per_frame": 64,
+    "iterations_per_task": 250000,
+    "total_frames_measured": 100,
+    "checksum_match": true
+  },
+  "synchronous_baseline": {
+    "mean_frame_time_ms": 42.3675,
+    "min_frame_time_ms": 41.0344,
+    "max_frame_time_ms": 52.9693,
+    "p95_frame_time_ms": 43.5051,
+    "p99_frame_time_ms": 52.9693,
+    "stddev_jitter_ms": 1.45153,
+    "effective_tps": 23.603
+  },
+  "asynchronous_bridge": {
+    "mean_frame_time_ms": 15.9087,
+    "min_frame_time_ms": 14.382,
+    "max_frame_time_ms": 25.7342,
+    "p95_frame_time_ms": 23.5005,
+    "p99_frame_time_ms": 25.7342,
+    "stddev_jitter_ms": 2.69081,
+    "effective_tps": 62.8588
+  },
+  "gamethread_impact": {
+    "gamethread_stall_mean_ms": 0.0549666,
+    "gamethread_stall_p99_ms": 0.106025,
+    "gamethread_stall_reduction_pct": 99.8703
+  },
+  "summary": {
+    "speedup_factor": 2.66317,
+    "jitter_reduction_pct": -85.3777
+  }
+}

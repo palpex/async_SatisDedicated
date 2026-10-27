@@ -1,0 +1,45 @@
+{
+  "hardware": "Intel Core i5-4570 @ 3.20GHz (4 Cores / 3 Workers)",
+  "sweep": [
+    {
+      "tasks": 16,
+      "sync_mean_ms": 6.26397,
+      "sync_tps": 159.643,
+      "async_mean_ms": 2.54863,
+      "async_tps": 392.368,
+      "speedup": 2.45778,
+      "stall_reduction_pct": 99.1909,
+      "gamethread_stall_mean_ms": 0.0506795
+    },
+    {
+      "tasks": 32,
+      "sync_mean_ms": 12.6804,
+      "sync_tps": 78.8621,
+      "async_mean_ms": 4.79157,
+      "async_tps": 208.7,
+      "speedup": 2.64639,
+      "stall_reduction_pct": 99.6286,
+      "gamethread_stall_mean_ms": 0.0470917
+    },
+    {
+      "tasks": 64,
+      "sync_mean_ms": 25.3188,
+      "sync_tps": 39.4964,
+      "async_mean_ms": 11.621,
+      "async_tps": 86.0512,
+      "speedup": 2.17871,
+      "stall_reduction_pct": 99.7832,
+      "gamethread_stall_mean_ms": 0.0548891
+    },
+    {
+      "tasks": 128,
+      "sync_mean_ms": 50.0951,
+      "sync_tps": 19.962,
+      "async_mean_ms": 23.6849,
+      "async_tps": 42.221,
+      "speedup": 2.11506,
+      "stall_reduction_pct": 99.7469,
+      "gamethread_stall_mean_ms": 0.126794
+    }
+  ]
+}
