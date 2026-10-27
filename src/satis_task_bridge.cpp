@@ -66,6 +66,9 @@ EventAllocate event_allocate{};
 EventConstruct event_construct{};
 TaskUnlock task_unlock{};
 TaskAddPrerequisites task_add_prerequisites{};
+using TaskAddNested = void (*)(void*, void*);
+TaskAddNested task_add_nested{};
+void* engine_handle{};
 CreateWithPrerequisite create_with_prerequisite{};
 
 using ExecuteTickSignature = void (*)(void*, float, std::uint32_t, std::uint32_t, void* const*);
@@ -110,6 +113,41 @@ int check_core_build(dl_phdr_info* info, std::size_t, void* opaque) {
                note->n_descsz==sizeof(expected) &&
                !std::memcmp(reinterpret_cast<void*>(desc),expected,sizeof(expected))) check.matched=true;
             cursor=next;
+        }
+    }
+    return 1;
+}
+struct EngineFinder { std::uintptr_t base{}; bool matched{}; };
+int check_engine_build(dl_phdr_info* info, std::size_t, void* opaque) {
+    auto& check = *static_cast<EngineFinder*>(opaque);
+    if (check.base != 0) {
+        if (info->dlpi_addr != check.base) return 0;
+    } else {
+        if (!info->dlpi_name || !std::strstr(info->dlpi_name, "libFactoryServer-Engine-Linux-Shipping.so")) {
+            return 0;
+        }
+        check.base = info->dlpi_addr;
+    }
+    const unsigned char expected[] = {0xb5, 0x0b, 0xbe, 0x68, 0x22, 0x05, 0xdc, 0x29};
+    for (std::size_t i = 0; i < info->dlpi_phnum; ++i) {
+        const auto& ph = info->dlpi_phdr[i];
+        if (ph.p_type != PT_NOTE) continue;
+        auto cursor = static_cast<std::uintptr_t>(ph.p_vaddr) + check.base;
+        const auto end = cursor + ph.p_memsz;
+        while (cursor + sizeof(ElfW(Nhdr)) <= end) {
+            const auto* note = reinterpret_cast<const ElfW(Nhdr)*>(cursor);
+            const auto name = cursor + sizeof(*note);
+            const auto desc = name + ((note->n_namesz + 3u) & ~std::uint64_t(3));
+            const auto next = desc + ((note->n_descsz + 3u) & ~std::uint64_t(3));
+            if (next > end || next <= cursor) return 1;
+            if (note->n_type == NT_GNU_BUILD_ID && note->n_namesz == 4 &&
+                !std::memcmp(reinterpret_cast<void*>(name), "GNU", 4) &&
+                note->n_descsz == sizeof(expected) &&
+                !std::memcmp(reinterpret_cast<void*>(desc), expected, sizeof(expected))) {
+                check.matched = true;
+                return 1;
+            }
+            cursor = next;
         }
     }
     return 1;
@@ -210,13 +248,13 @@ extern "C" int satis_task_bridge_init() {
         failure="Unsupported Core AsyncTask instructions";return -3;
     }
     const auto base=reinterpret_cast<std::uintptr_t>(info.dli_fbase);
-    struct LocalEntry {std::uintptr_t offset; const char* prefix; std::size_t length;};
+    struct LocalEntry {std::uintptr_t offset; const unsigned char prefix[12]; std::size_t length;};
     const LocalEntry entries[]={
-        {0x4ac890,"UAWAVATS",8},
-        {0x4acb90,"AWAVSHû",8},
-        {0x4aa520,"AWAVATSP",8},
-        {0x4a38e0,"UAWAVATS",8},
-        {0x4b2410,"UAWAVAUATSP",11}
+        {0x4ac890,{0x55,0x41,0x57,0x41,0x56,0x41,0x54,0x53},8},
+        {0x4acb90,{0x41,0x57,0x41,0x56,0x53,0x48,0x89,0xfb},8},
+        {0x4aa520,{0x41,0x57,0x41,0x56,0x41,0x54,0x53,0x50},8},
+        {0x4a38e0,{0x55,0x41,0x57,0x41,0x56,0x41,0x54,0x53},8},
+        {0x4b2410,{0x55,0x41,0x57,0x41,0x56,0x41,0x55,0x41,0x54,0x53,0x50},11}
     };
     for(const auto& entry:entries) {
         if(std::memcmp(reinterpret_cast<void*>(base+entry.offset),entry.prefix,entry.length)) {
@@ -231,6 +269,23 @@ extern "C" int satis_task_bridge_init() {
     game_thread_id=static_cast<std::uint32_t*>(dlsym(RTLD_DEFAULT,"GGameThreadId"));
     if(!game_thread_id || !*game_thread_id) {failure="Game thread is not initialized";return -4;}
     async_task=reinterpret_cast<AsyncTaskFunction>(symbol);
+
+    engine_handle = dlopen("libFactoryServer-Engine-Linux-Shipping.so", RTLD_NOW | RTLD_NOLOAD);
+    EngineFinder eng_finder{};
+    if (engine_handle) {
+        void* sym = dlsym(engine_handle, "AccumulateWithAdditiveScale");
+        Dl_info eng_info{};
+        if (sym && dladdr(sym, &eng_info)) {
+            eng_finder.base = reinterpret_cast<std::uintptr_t>(eng_info.dli_fbase);
+        }
+    }
+    dl_iterate_phdr(check_engine_build, &eng_finder);
+    if (eng_finder.matched) {
+        const unsigned char nested_prefix[] = {0x55, 0x41, 0x57, 0x41, 0x56, 0x41, 0x54, 0x53};
+        if (!std::memcmp(reinterpret_cast<void*>(eng_finder.base + 0x16b4480), nested_prefix, sizeof(nested_prefix))) {
+            task_add_nested = reinterpret_cast<TaskAddNested>(eng_finder.base + 0x16b4480);
+        }
+    }
 
     const char* env_async = std::getenv("SATIS_ASYNC_TICK");
     if(env_async && (!std::strcmp(env_async, "1") || !std::strcmp(env_async, "true"))) {
@@ -369,8 +424,24 @@ extern "C" void satis_completion_release(satis_completion* completion) {
 }
 
 extern "C" int satis_completion_bind_to_task(satis_completion* completion, void* engine_task) {
-    if(!initialized.load(std::memory_order_acquire))return -1;
-    if(!completion || !completion->event || !engine_task)return -2;
+    if(!initialized.load(std::memory_order_acquire)) return -1;
+    if(!completion || !completion->event || !engine_task) return -2;
+
+    const auto* task_bytes = static_cast<const unsigned char*>(engine_task);
+    // Task[0x1c] is the task state / type byte in UE::Tasks::Private::FTaskBase.
+    // 0x2 indicates a named thread task (e.g. GameThread), which accepts prerequisites.
+    // Any other value indicates an executing task function where AddPrerequisites asserts,
+    // and AddNested must be used instead.
+    if(task_bytes[0x1c] == 2) {
+        bool ok = task_add_prerequisites(engine_task, completion->event);
+        return ok ? 0 : 1;
+    }
+
+    if(task_add_nested) {
+        task_add_nested(engine_task, completion->event);
+        return 0;
+    }
+
     bool ok = task_add_prerequisites(engine_task, completion->event);
     return ok ? 0 : 1;
 }

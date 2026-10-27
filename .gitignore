@@ -8,3 +8,4 @@ build/
 evidence/rea-factorygame-session.bundle.json
 .pytest_cache/
 
+backups/
