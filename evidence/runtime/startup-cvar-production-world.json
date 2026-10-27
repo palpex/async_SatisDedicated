@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-27",
+  "scope": "isolated copied production save",
+  "configured_parallel_tick_group_size": 32,
+  "effective_parallel_tick_group_size_after_world_load": 100,
+  "world_loaded": true,
+  "server_api_started": true,
+  "assertions": 0,
+  "fatal_signals": 0,
+  "critical_errors": 0,
+  "observation": "UFGFactoryTickSettings overwrote the ConsoleVariables value during production-world initialization.",
+  "performance_comparison": "not claimed; the requested value was not effective",
+  "next_step": "identify the supported FactoryTickSettings configuration property before tuning"
+}
