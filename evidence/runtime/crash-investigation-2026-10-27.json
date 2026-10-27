@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-27",
+  "host_role": "production Satisfactory server",
+  "confirmed_signature": {
+    "assertion": "IsInGameThread()",
+    "source": "Runtime/CoreUObject/Private/UObject/ScriptCore.cpp:404",
+    "path": [
+      "AFGBuildableSubsystem::MigrateConveyorGroupToChainActor",
+      "AActor::FinishSpawning",
+      "FEditorScriptExecutionGuard"
+    ],
+    "execution_lane": "TaskGraph worker"
+  },
+  "historical_occurrences_utc": ["2026-10-27T12:26:23Z", "2026-10-27T12:28:37Z"],
+  "guarded_process": {
+    "restart_utc": "2026-10-27T13:45:53Z",
+    "async_tick": true,
+    "bridge_sha256": "3f21cd34d4b68097ba72bca0c5a355d734b481fa0ebe0be1a5f58577bfc42665",
+    "systemd_restarts_at_verification": 0,
+    "post_restart_matching_errors": 0
+  },
+  "player_interaction_test": "not available during investigation",
+  "private_identifiers_removed": true
+}
