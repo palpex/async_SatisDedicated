@@ -76,6 +76,8 @@ std::atomic<ExecuteTickSignature> original_execute_tick{nullptr};
 std::atomic<bool> async_tick_enabled{false};
 std::atomic<std::uint64_t> intercepted_ticks{0};
 std::atomic<std::uint64_t> async_dispatches{0};
+std::atomic<std::uint64_t> inflight_async_ticks{0};
+std::uint64_t max_inflight_async_ticks{};
 std::atomic<std::uint64_t> sync_fallbacks{0};
 std::atomic<std::uint64_t> completed_async_ticks{0};
 bool factory_layout_supported{};
@@ -315,6 +317,13 @@ extern "C" int satis_task_bridge_init() {
         }
     }
 
+    const char* env_max = std::getenv("SATIS_ASYNC_MAX_INFLIGHT");
+    if(env_max && *env_max) {
+        char* end=nullptr;
+        unsigned long long value=std::strtoull(env_max,&end,10);
+        if(end && *end == 0 && value<=1000000ULL) max_inflight_async_ticks=value;
+    }
+
     const char* env_async = std::getenv("SATIS_ASYNC_TICK");
     if(env_async && (!std::strcmp(env_async, "1") || !std::strcmp(env_async, "true"))) {
         async_tick_enabled.store(true, std::memory_order_release);
@@ -487,6 +496,9 @@ extern "C" std::uint64_t satis_async_tick_count() {
 extern "C" std::uint64_t satis_async_dispatch_count() {
     return async_dispatches.load(std::memory_order_acquire);
 }
+extern "C" std::uint64_t satis_async_inflight_count() {
+    return inflight_async_ticks.load(std::memory_order_acquire);
+}
 extern "C" std::uint64_t satis_async_sync_fallback_count() {
     return sync_fallbacks.load(std::memory_order_acquire);
 }
@@ -512,6 +524,8 @@ void async_tick_runner(void* opaque) {
     // This call now runs on an AnyThread worker, not the submitting named thread.
     ctx->orig(ctx->this_ptr, ctx->delta_time, ctx->level_tick, 255u, &completion_ptr);
     completed_async_ticks.fetch_add(1, std::memory_order_release);
+
+    inflight_async_ticks.fetch_sub(1, std::memory_order_release);
 
     if(ctx->completion_handle) {
         satis_completion_signal(ctx->completion_handle);
@@ -589,6 +603,11 @@ extern "C" void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThr
         return;
     }
 
+    if(max_inflight_async_ticks && inflight_async_ticks.load(std::memory_order_acquire) >= max_inflight_async_ticks) {
+        run_synchronously();
+        return;
+    }
+
     void* engine_task = (completion_event_ref && *completion_event_ref) ? *completion_event_ref : nullptr;
     // Offloading without completion gating can overlap the next frame, save,
     // actor teardown or GC. Reject asynchronous dispatch if any setup step fails.
@@ -621,9 +640,11 @@ extern "C" void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThr
     }
 
     async_dispatches.fetch_add(1, std::memory_order_relaxed);
+    inflight_async_ticks.fetch_add(1, std::memory_order_acq_rel);
     int queued = satis_task_enqueue(async_tick_runner, ctx, nullptr, SATIS_WORKER_THREAD);
     if(queued != 0) {
         async_dispatches.fetch_sub(1, std::memory_order_relaxed);
+        inflight_async_ticks.fetch_sub(1, std::memory_order_release);
         delete ctx;
         // The completion was bound, so it must be released even on enqueue failure.
         orig(this_ptr, delta_time, level_tick, current_thread, completion_event_ref);

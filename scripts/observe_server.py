@@ -16,6 +16,7 @@ import time
 import urllib.request
 
 COUNTERS = {"ticks": "_ZN12_GLOBAL__N_117intercepted_ticksE",
+            "inflight": "_ZN12_GLOBAL__N_120inflight_async_ticksE",
             "dispatched": "_ZN12_GLOBAL__N_116async_dispatchesE",
             "completed": "_ZN12_GLOBAL__N_121completed_async_ticksE",
             "fallbacks": "_ZN12_GLOBAL__N_114sync_fallbacksE",
