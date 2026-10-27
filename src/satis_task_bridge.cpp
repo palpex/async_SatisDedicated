@@ -432,6 +432,10 @@ extern "C" void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThr
         original_execute_tick.store(orig, std::memory_order_release);
     }
 
+    if(!initialized.load(std::memory_order_acquire)) {
+        satis_task_bridge_init();
+    }
+
     if(!async_tick_enabled.load(std::memory_order_acquire) ||
        !initialized.load(std::memory_order_acquire) || !orig) {
         if(orig) {

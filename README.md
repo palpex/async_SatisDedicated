@@ -116,6 +116,7 @@ The native task bridge (`src/satis_task_bridge.cpp`, `include/satis_task_bridge.
 - Exports an interposition hook for `FFactoryTickFunction::ExecuteTick`.
 - Dynamic control via `satis_async_set_enabled(1)` or `SATIS_ASYNC_TICK=1`.
 - Captures `MyCompletionGraphEvent`, binds an asynchronous completion event, and offloads factory ticking to worker threads without freezing the Game Thread.
+- Lazy auto-initialization upon the first tick invocation.
 - Runtime counters: `satis_async_tick_count()` and `satis_async_dispatch_count()`.
 
 ---
@@ -142,20 +143,20 @@ The implementation has been verified in the live running official Satisfactory D
 
 ---
 
-## 7. Building & Running Tests
+## 7. Building, Testing, & Operating
 
-### Prerequisites
+### 7.1 Prerequisites
 - CMake 3.20+
 - GCC / Clang with C++17 support
 - Python 3.10+ with `pytest`
 
-### Build
+### 7.2 Build
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo
 cmake --build build -j$(nproc)
 ```
 
-### Run Tests & Benchmarks
+### 7.3 Run Tests & Benchmarks
 ```bash
 # 1. Run unit & safety tests via Pytest
 pytest -v tests/
@@ -170,6 +171,17 @@ python3 tests/verify_runtime_evidence.py
 python3 scripts/run_scaling_sweep.py
 ```
 
+### 7.4 Running the Dedicated Server with Async Bridge
+Use the provided launcher script to start the dedicated server with the asynchronous bridge preloaded:
+
+```bash
+# Launch server with asynchronous task bridge enabled:
+./run_async_server.sh -log -unattended
+
+# Monitor live server state and tick rate in another terminal:
+python3 scripts/monitor_server.py
+```
+
 ---
 
 ## 8. Repository Layout
@@ -178,6 +190,7 @@ python3 scripts/run_scaling_sweep.py
 .
 ├── CMakeLists.txt              # CMake build configuration
 ├── README.md                   # Project documentation and guide
+├── run_async_server.sh         # Dedicated server async launcher script
 ├── benchmarks/                 # Simulation benchmark suite
 │   └── benchmark_simulation.cpp# Multi-threaded benchmark & statistics generator
 ├── docs/                       # In-depth architectural & analysis reports
@@ -199,7 +212,9 @@ python3 scripts/run_scaling_sweep.py
 │   │   └── scaling-sweep.json         # 16-to-128 task scaling data
 │   └── rea-factorygame-session.bundle.json.gz # Compressed REA Ghidra session bundle
 ├── scripts/                    # Reverse-engineering and DWARF inspection utilities
-│   └── run_scaling_sweep.py    # Automation script for performance scaling tests
+│   ├── run_scaling_sweep.py    # Automation script for performance scaling tests
+│   ├── monitor_server.py       # Live server health & TPS monitor
+│   └── server_api.py           # HTTPS API client for test server
 └── tests/                      # Automated test suite
     ├── test_bridge_safety.py   # Standalone safety & boundary invariant tests
     ├── test_evidence_integrity.py # SHA-256 and probe integrity tests
