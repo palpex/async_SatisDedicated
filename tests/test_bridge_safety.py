@@ -24,6 +24,8 @@ def bridge():
     lib.satis_async_is_enabled.restype = ctypes.c_int
     lib.satis_async_tick_count.restype = ctypes.c_uint64
     lib.satis_async_dispatch_count.restype = ctypes.c_uint64
+    lib.satis_async_sync_fallback_count.restype = ctypes.c_uint64
+    lib._Z14IsInGameThreadv.restype = ctypes.c_bool
     return lib
 
 def test_initialization_outside_server(bridge):
@@ -55,4 +57,7 @@ def test_async_interceptor_controls(bridge):
     assert bridge.satis_async_is_enabled() == 0
     assert bridge.satis_async_tick_count() == 0
     assert bridge.satis_async_dispatch_count() == 0
+    assert bridge.satis_async_sync_fallback_count() == 0
+    # Outside server and outside async tick, fallback returns true
+    assert bridge._Z14IsInGameThreadv() is True
 

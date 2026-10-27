@@ -71,11 +71,18 @@ TaskAddNested task_add_nested{};
 void* engine_handle{};
 CreateWithPrerequisite create_with_prerequisite{};
 
+using SwapTaskTagFunc = std::uint32_t (*)(std::uint32_t);
+using IsInGameThreadFunc = bool (*)();
+SwapTaskTagFunc swap_task_tag{nullptr};
+IsInGameThreadFunc orig_is_in_game_thread{nullptr};
+thread_local bool in_async_factory_tick{false};
+
 using ExecuteTickSignature = void (*)(void*, float, std::uint32_t, std::uint32_t, void* const*);
 std::atomic<ExecuteTickSignature> original_execute_tick{nullptr};
 std::atomic<bool> async_tick_enabled{false};
 std::atomic<std::uint64_t> intercepted_ticks{0};
 std::atomic<std::uint64_t> async_dispatches{0};
+std::atomic<std::uint64_t> sync_fallbacks{0};
 
 void task_add_ref(void* task) {
     __atomic_fetch_add(reinterpret_cast<std::uint32_t*>(static_cast<char*>(task)+8),1u,__ATOMIC_RELAXED);
@@ -292,6 +299,15 @@ extern "C" int satis_task_bridge_init() {
         async_tick_enabled.store(true, std::memory_order_release);
     }
 
+    void* swap_sym = dlsym(core_handle, "_ZN13FTaskTagScope7SwapTagE8ETaskTag");
+    if (swap_sym) {
+        swap_task_tag = reinterpret_cast<SwapTaskTagFunc>(swap_sym);
+    }
+    void* is_in_gt = dlsym(core_handle, "_Z14IsInGameThreadv");
+    if (is_in_gt) {
+        orig_is_in_game_thread = reinterpret_cast<IsInGameThreadFunc>(is_in_gt);
+    }
+
     failure="";
     initialized.store(true,std::memory_order_release);
     return 0;
@@ -458,6 +474,32 @@ extern "C" std::uint64_t satis_async_tick_count() {
 extern "C" std::uint64_t satis_async_dispatch_count() {
     return async_dispatches.load(std::memory_order_acquire);
 }
+extern "C" std::uint64_t satis_async_sync_fallback_count() {
+    return sync_fallbacks.load(std::memory_order_acquire);
+}
+
+extern "C" __attribute__((visibility("default"))) bool _Z14IsInGameThreadv() {
+    if (in_async_factory_tick) {
+        return true;
+    }
+    if (!orig_is_in_game_thread) {
+        orig_is_in_game_thread = reinterpret_cast<IsInGameThreadFunc>(
+            dlsym(RTLD_NEXT, "_Z14IsInGameThreadv")
+        );
+        if (!orig_is_in_game_thread) {
+            void* core = dlopen("libFactoryServer-Core-Linux-Shipping.so", RTLD_NOW | RTLD_NOLOAD);
+            if (core) {
+                orig_is_in_game_thread = reinterpret_cast<IsInGameThreadFunc>(
+                    dlsym(core, "_Z14IsInGameThreadv")
+                );
+            }
+        }
+    }
+    if (orig_is_in_game_thread) {
+        return orig_is_in_game_thread();
+    }
+    return true;
+}
 
 namespace {
 struct AsyncTickContext {
@@ -472,8 +514,21 @@ struct AsyncTickContext {
 
 void async_tick_runner(void* opaque) {
     auto* ctx = static_cast<AsyncTickContext*>(opaque);
+
+    in_async_factory_tick = true;
+    std::uint32_t old_tag = 0;
+    if (swap_task_tag) {
+        old_tag = swap_task_tag(2); // 2 = ETaskTag::ParallelGameThread
+    }
+
     void* completion_ptr = ctx->completion_event;
     ctx->orig(ctx->this_ptr, ctx->delta_time, ctx->level_tick, ctx->current_thread, &completion_ptr);
+
+    if (swap_task_tag) {
+        swap_task_tag(old_tag);
+    }
+    in_async_factory_tick = false;
+
     if(ctx->completion_handle) {
         satis_completion_signal(ctx->completion_handle);
         satis_completion_release(ctx->completion_handle);
@@ -513,6 +568,21 @@ extern "C" void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThr
             orig(this_ptr, delta_time, level_tick, current_thread, completion_event_ref);
         }
         return;
+    }
+
+    // Check if conveyor migration or actor spawning is pending.
+    // In AFGBuildableSubsystem, offset 0x400 holds mConveyorGroupsToMigrate.Num().
+    // If migration is needed, MigrateConveyorGroupToChainActor will spawn actors via
+    // UWorld::SpawnActor. To guarantee thread-safety and preserve UWorld actor integrity,
+    // execute this single tick synchronously on the Game Thread.
+    void* subsystem = this_ptr ? *reinterpret_cast<void**>(static_cast<char*>(this_ptr) + 0x28) : nullptr;
+    if (subsystem) {
+        std::int32_t pending_migrations = *reinterpret_cast<const std::int32_t*>(static_cast<char*>(subsystem) + 0x400);
+        if (pending_migrations > 0) {
+            sync_fallbacks.fetch_add(1, std::memory_order_relaxed);
+            orig(this_ptr, delta_time, level_tick, current_thread, completion_event_ref);
+            return;
+        }
     }
 
     void* engine_task = (completion_event_ref && *completion_event_ref) ? *completion_event_ref : nullptr;
