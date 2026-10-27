@@ -52,7 +52,7 @@ The launcher forwards startup Unreal console variables for matched A/B experimen
     SATIS_USER=satisfactory \
     ./run_async_server.sh -unattended -log
 
-Use only names supported by the target build. Never change  in a running process; back up the save, restart for each value, verify the setting after startup, and compare the same workload.
+Use only names supported by the target build. Never change `t.ParallelTickGroupSize` in a running process; back up the save, restart for each value, verify the setting after startup, and compare the same workload.
 
 ## Run locally
 
