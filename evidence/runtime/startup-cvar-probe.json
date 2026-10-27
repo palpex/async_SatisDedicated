@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-27",
+  "scope": "isolated startup probe with a copied production save/config tree",
+  "cvar": "t.ParallelTickGroupSize",
+  "command_line_value": 32,
+  "command_line_observed_value": 100,
+  "consolevariables_value": 32,
+  "consolevariables_observed_value": 32,
+  "consolevariables_section": "[ConsoleVariables] in Engine.ini",
+  "results": {
+    "startup_with_32_reached_server_api": true,
+    "startup_with_32_assertions": 0,
+    "startup_with_32_fatal_signals": 0,
+    "startup_with_32_loaded_production_world": false,
+    "performance_comparison": "not claimed because the copied save was not selected by the isolated server settings"
+  },
+  "conclusion": "Use the ConsoleVariables config section for startup experiments; command-line assignment alone did not change the CVar. A loaded-world A/B run is still required."
+}
