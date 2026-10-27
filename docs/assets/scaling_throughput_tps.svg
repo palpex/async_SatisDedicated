@@ -8,8 +8,8 @@
 
   <rect width="800" height="420" rx="12" fill="url(#bgGrad2)" stroke="#30363d" stroke-width="1.5" />
 
-  <text x="40" y="45" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="700">Simulation Tick Rate (TPS) vs. Factory Scale</text>
-  <text x="40" y="70" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">Comparison across factory workload complexity (Higher is better, 30 TPS target baseline)</text>
+  <text x="40" y="45" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19" font-weight="700">Simulation Tick Rate vs. Factory Scale</text>
+  <text x="40" y="70" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">Higher is better; dashed line marks the 30 TPS target</text>
 
   <!-- Legend -->
   <rect x="520" y="35" width="14" height="14" rx="3" fill="#da3633" />
@@ -32,7 +32,7 @@
 
   <!-- 30 TPS Target Threshold Line -->
   <line x1="120" y1="322" x2="740" y2="322" stroke="#d29922" stroke-width="1.5" stroke-dasharray="4,4" />
-  <text x="745" y="326" fill="#d29922" font-family="monospace" font-size="11" font-weight="700">30 TPS Cap</text>
+  <text x="610" y="326" fill="#d29922" font-family="monospace" font-size="11" font-weight="700">30 TPS target</text>
 
   <line x1="120" y1="340" x2="740" y2="340" stroke="#30363d" stroke-width="1.5" />
   <text x="80" y="344" fill="#6e7681" font-family="monospace" font-size="11">0 TPS</text>
@@ -69,6 +69,6 @@
   <text x="644" y="303" fill="#3fb950" font-family="monospace" font-size="11" font-weight="700">50.2</text>
 
   <!-- Annotation callout on 128 Tasks -->
-  <rect x="585" y="385" width="180" height="24" rx="4" fill="#381014" stroke="#da3633" stroke-width="1" />
-  <text x="595" y="401" fill="#f85149" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600">Vanilla drops below 20 TPS!</text>
+  <rect x="585" y="385" width="175" height="24" rx="4" fill="#381014" stroke="#da3633" stroke-width="1" />
+  <text x="593" y="401" fill="#f85149" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600">Synchronous path: 19.7 TPS</text>
 </svg>

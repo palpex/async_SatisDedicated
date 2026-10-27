@@ -8,44 +8,44 @@
 
   <rect width="800" height="450" rx="12" fill="url(#bgGrad3)" stroke="#30363d" stroke-width="1.5" />
 
-  <text x="40" y="45" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="700">Multi-Core Thread Load Distribution (AMD Ryzen 7 5825U)</text>
-  <text x="40" y="70" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">Direct /proc/task sampling on 16 Hardware Threads under live production load</text>
+  <text x="40" y="45" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700">Thread Load Distribution — AMD Ryzen 7 5825U</text>
+  <text x="40" y="70" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">Direct /proc/task sample under production load (16 hardware threads)</text>
 
   <!-- Side-by-side comparison -->
   <!-- Left Side: Vanilla -->
   <rect x="40" y="95" width="345" height="325" rx="8" fill="#161b22" stroke="#da3633" stroke-width="1" />
   <text x="55" y="125" fill="#f85149" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="700">Vanilla Synchronous Architecture</text>
-  <text x="55" y="145" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">1 Core Saturated • 15 Cores Idle</text>
+  <text x="55" y="145" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">One thread saturated • worker pool mostly idle</text>
 
   <rect x="55" y="165" width="315" height="30" rx="4" fill="#21262d" />
   <rect x="55" y="165" width="315" height="30" rx="4" fill="#da3633" />
-  <text x="65" y="185" fill="#ffffff" font-family="monospace" font-size="12" font-weight="700">GameThread: 103.0% (Core 0 PEGGED)</text>
+  <text x="65" y="185" fill="#ffffff" font-family="monospace" font-size="12" font-weight="700">Game Thread: 103.0% (sample)</text>
 
   <rect x="55" y="205" width="315" height="24" rx="4" fill="#21262d" />
-  <text x="65" y="221" fill="#6e7681" font-family="monospace" font-size="11">Worker Thread 1: 0.0% (Idle)</text>
+  <text x="65" y="221" fill="#6e7681" font-family="monospace" font-size="11">Worker Thread 1: 0.0% (baseline sample)</text>
 
   <rect x="55" y="235" width="315" height="24" rx="4" fill="#21262d" />
-  <text x="65" y="251" fill="#6e7681" font-family="monospace" font-size="11">Worker Thread 2: 0.0% (Idle)</text>
+  <text x="65" y="251" fill="#6e7681" font-family="monospace" font-size="11">Worker Thread 2: 0.0% (baseline sample)</text>
 
   <rect x="55" y="265" width="315" height="24" rx="4" fill="#21262d" />
-  <text x="65" y="281" fill="#6e7681" font-family="monospace" font-size="11">Worker Thread 3: 0.0% (Idle)</text>
+  <text x="65" y="281" fill="#6e7681" font-family="monospace" font-size="11">Worker Thread 3: 0.0% (baseline sample)</text>
 
   <rect x="55" y="295" width="315" height="24" rx="4" fill="#21262d" />
-  <text x="65" y="311" fill="#6e7681" font-family="monospace" font-size="11">Worker Threads 4 - 15: 0.0% (Idle)</text>
+  <text x="65" y="311" fill="#6e7681" font-family="monospace" font-size="11">Other worker threads: 0.0% (baseline sample)</text>
 
   <rect x="55" y="335" width="315" height="70" rx="6" fill="#381014" stroke="#da3633" stroke-width="1" />
   <text x="65" y="358" fill="#f85149" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="700">❌ Severe Bottleneck:</text>
-  <text x="65" y="378" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11">Game Thread halts all networking &amp; replication</text>
-  <text x="65" y="394" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11">to process building simulation sequentially.</text>
+  <text x="65" y="378" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11">Game Thread carries the factory tick and</text>
+  <text x="65" y="394" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11">leaves less time for other server work.</text>
 
   <!-- Right Side: Async Task Bridge -->
   <rect x="415" y="95" width="345" height="325" rx="8" fill="#161b22" stroke="#2ea043" stroke-width="1" />
   <text x="430" y="125" fill="#3fb950" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="700">Asynchronous Multi-Threaded Bridge</text>
-  <text x="430" y="145" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">13 Active Threads • 96% Distributed Load</text>
+  <text x="430" y="145" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">13 active workers observed • 96% total process CPU sample</text>
 
   <rect x="430" y="165" width="315" height="30" rx="4" fill="#21262d" />
   <rect x="430" y="165" width="67" height="30" rx="4" fill="#1f6feb" />
-  <text x="440" y="185" fill="#ffffff" font-family="monospace" font-size="12" font-weight="700">GameThread: 21.5% (Smooth)</text>
+  <text x="440" y="185" fill="#ffffff" font-family="monospace" font-size="12" font-weight="700">Game Thread: 21.5% (sample)</text>
 
   <rect x="430" y="205" width="315" height="24" rx="4" fill="#21262d" />
   <rect x="430" y="205" width="75" height="24" rx="4" fill="#2ea043" />
@@ -60,8 +60,8 @@
   <text x="440" y="281" fill="#ffffff" font-family="monospace" font-size="11">IO &amp; Engine Subsystems: ~10.0%</text>
 
   <rect x="430" y="305" width="315" height="100" rx="6" fill="#13231b" stroke="#2ea043" stroke-width="1" />
-  <text x="440" y="328" fill="#3fb950" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="700">✅ True Multi-Threaded Scaling:</text>
+  <text x="440" y="328" fill="#3fb950" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="700">✅ Worker-Pool Offload:</text>
   <text x="440" y="348" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11">Factory simulation ticks are partitioned across</text>
-  <text x="440" y="364" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11">all 16 cores via UE TaskGraph, eliminating</text>
-  <text x="440" y="380" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11">stutters and maintaining locked 29.73 TPS.</text>
+  <text x="440" y="364" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11">the available worker pool via UE TaskGraph, reducing</text>
+  <text x="440" y="380" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11">measured contention while the sample held 29.73 TPS.</text>
 </svg>

@@ -81,13 +81,13 @@ To validate the asynchronous multithreaded architecture under real-world product
 
 | Metric | Vanilla Synchronous (Baseline) | Asynchronous Task Bridge | Production Impact / Gain |
 | :--- | :---: | :---: | :---: |
-| **Main Game Thread CPU** | **103.0%** (Single core 100% pegged) | **21.5%** | **79.1% Game Thread load reduction** |
-| **Worker Pool Utilization** | Idle (~0% across other 15 threads) | **13 active worker threads** (4.5% - 8.0% each) | **Full 16-thread multi-core distribution** |
-| **Total Server CPU** | 103% (Bottlenecked on Core 0) | 96% (Balanced across all cores) | **Eliminated single-core bottleneck** |
-| **Average Tick Rate (TPS)** | 29.71 TPS (At thermal/core limit) | **29.73 TPS** (Rock-solid, locked to 30.0 cap) | **Zero tick drops under heavy factory load** |
-| **Tick Rate Jitter (Std Dev)** | > 0.4200 (Periodic micro-stutters) | **0.0324** | **92.3% reduction in tick jitter / hitching** |
-| **Intercepted Simulation Ticks** | 0 (Unintercepted) | **24,400+ consecutive ticks** | **100.0% dispatch success, 0 dropped tasks** |
-| **Server Crash / Error Rate** | N/A | **0 errors, 0 assertion failures** | **100% production stable** |
+| **Main Game Thread CPU** | **103.0%** (one process thread saturated in the sample) | **21.5%** | **79.1% lower measured Game Thread CPU usage** |
+| **Worker Pool Utilization** | ~0% in the baseline sample | **13 active worker threads** (4.5%–8.0% each in the sample) | **work distributed across the available worker pool** |
+| **Total Server CPU** | 103% (Bottlenecked on Core 0) | 96% (Balanced across all cores) | **lower measured main-thread load** |
+| **Average Tick Rate (TPS)** | 29.71 TPS (baseline sample) | **29.73 TPS** (async sample) | **No tick-rate drop observed during the sample** |
+| **Tick Rate Jitter (Std Dev)** | > 0.4200 (baseline variation) | **0.0324** (async sample) | **92.3% lower measured TPS variation** |
+| **Intercepted Simulation Ticks** | 0 (Unintercepted) | **24,400+ consecutive ticks** | **100.0% dispatch success in the observed window** |
+| **Server Crash / Error Rate** | N/A | **0 errors, 0 assertion failures** | **no crash or assertion observed during the sample** |
 
 ### 5.3 Detailed Thread Breakdown Under Load
 
@@ -116,8 +116,8 @@ Total Server CPU Across All Threads: 96.0% (Evenly distributed across 16 hardwar
 ```
 
 ### 5.4 Production Findings:
-1. **Dramatic Game Thread Relief:** In vanilla, the Game Thread was pegged at 100% capacity solely computing factory tick math. By offloading `FFactoryTickFunction` to the background TaskGraph pool, the Game Thread load plummeted from **103% to 21.5%**. This leaves over 78% of the Game Thread completely free to handle player packet deserialization, physics queries, and network replication without lag.
-2. **Sub-Tick Micro-Stutter Elimination:** The standard deviation of the tick rate dropped to **0.0324**, representing near-perfect frame pacing. Players connecting to the server experience fluid movement, instant inventory interactions, and zero conveyor-belt stutter.
+1. **Dramatic Game Thread Relief:** In vanilla, the Game Thread was pegged at 100% capacity solely computing factory tick math. By offloading `FFactoryTickFunction` to the background TaskGraph pool, the Game Thread load plummeted from **103% to 21.5%**. This left most of the measured Game Thread budget available to handle player packet deserialization, physics queries, and network replication without lag.
+2. **Sub-Tick Micro-Stutter Elimination:** The standard deviation of the tick rate dropped to **0.0324** (async sample), representing near-perfect frame pacing. Players connecting to the server experience fluid movement, instant inventory interactions, and lower measured tick-rate variation.
 3. **Flawless Completion Chaining:** The dynamic task binding logic (`satis_completion_bind_to_task` calling `AddPrerequisites` when `task[0x1c] == 2` and `AddNested` when `task[0x1c] != 2`) seamlessly integrates with Unreal Engine DontCompleteUntil mechanics, preventing assertions and ensuring tick groups finalize cleanly upon worker completion.
 
 

@@ -92,8 +92,8 @@ Detailed metrics measured on an Intel Core i5-4570 @ 3.20GHz (4 physical cores, 
 | **Simulation Determinism** | `0x6e70f61cf35d21b0` | `0x6e70f61cf35d21b0` | **100% exact checksum match** |
 
 ### 2.4 Why the Server Runs Smoother:
-- **No Game Thread Stalls:** In vanilla, every tick halts the Game Thread for 20–50+ ms. With the bridge, Game Thread stall duration drops to **< 60 microseconds**, leaving the main thread completely unblocked to process player network packets, client replication, and RPCs.
-- **Elimination of Tick Drops:** At 128 task groups, vanilla Satisfactory drops to **19.7 TPS** (below the 30 TPS target, causing noticeable lag and desync). The asynchronous bridge maintains **50.2 TPS**.
+- **No Game Thread Stalls:** In the heavy-load benchmark, synchronous ticks spend tens of milliseconds on the Game Thread. With the bridge, Game Thread stall duration drops to **< 60 microseconds**, leaving most of the measured main-thread budget available to process player network packets, client replication, and RPCs.
+- **Elimination of Tick Drops:** At 128 task groups, the benchmark records **19.7 TPS** for the synchronous path and **50.2 TPS** for the asynchronous path; the latter remains above the 30 TPS target in this workload.
 - **No Fork-Join Hitching:** Background tasks run across the TaskGraph pool without blocking barriers, eliminating frame pacing spikes.
 
 ### 2.5 Live Production Deployment (700-hour Endgame Mega-Factory, AMD Ryzen 7 5825U)
@@ -102,14 +102,14 @@ Verified in active production on a dedicated server (`plpxmcserv2`, AMD Ryzen 7 
 
 | Metric | Vanilla Synchronous Baseline | Asynchronous Task Bridge | Production Impact |
 | :--- | :---: | :---: | :---: |
-| **Game Thread CPU Load** | **103.0%** (Single core 100% pegged) | **21.5%** | **79.1% Game Thread load reduction** |
-| **Worker Thread Distribution** | 0% (Other 15 threads idle) | **13 active worker threads** | **Full 16-thread multi-core distribution** |
-| **Average Tick Rate (TPS)** | 29.71 TPS (Thermal throttling) | **29.73 TPS** (Rock-solid 30 cap) | **Zero tick drops under massive factory load** |
-| **Tick Rate Jitter (Std Dev)** | > 0.4200 (Periodic stutters) | **0.0324** | **92.3% reduction in tick jitter / hitching** |
-| **Intercepted Simulation Ticks** | 0 | **24,400+ consecutive ticks** | **100.0% dispatch success, 0 dropped tasks** |
-| **Server Crash / Error Rate** | N/A | **0 errors, 0 assertion failures** | **100% production stable** |
+| **Game Thread CPU Load** | **103.0%** (one process thread saturated during the sample) | **21.5%** | **79.1% lower measured Game Thread CPU usage** |
+| **Worker Thread Distribution** | 0% (other worker threads were idle in the baseline sample) | **13 active worker threads** (observed in the sample) | **work distributed across the available worker pool** |
+| **Average Tick Rate (TPS)** | 29.71 TPS (baseline sample) | **29.73 TPS** (async sample) | **no tick-rate drop was observed during the sample** |
+| **Tick Rate Jitter (Std Dev)** | > 0.4200 (baseline sample) | **0.0324** (async sample) | **92.3% lower measured TPS variation** |
+| **Intercepted Simulation Ticks** | 0 | **24,400+ consecutive ticks** | **100.0% dispatch success in the observed window** |
+| **Server Crash / Error Rate** | N/A | **0 errors, 0 assertion failures** | **no crash or assertion observed during the sample** |
 
-Full benchmark data and methodology are documented in [`docs/performance_benchmarks.md`](docs/performance_benchmarks.md).
+Full benchmark data and measurement methodology are documented in [`docs/performance_benchmarks.md`](docs/performance_benchmarks.md).
 
 ---
 
