@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#161b22" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="420" rx="12" fill="url(#bgGrad2)" stroke="#30363d" stroke-width="1.5" />
+
+  <text x="40" y="45" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="700">Simulation Tick Rate (TPS) vs. Factory Scale</text>
+  <text x="40" y="70" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">Comparison across factory workload complexity (Higher is better, 30 TPS target baseline)</text>
+
+  <!-- Legend -->
+  <rect x="520" y="35" width="14" height="14" rx="3" fill="#da3633" />
+  <text x="540" y="47" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">Vanilla (Sync)</text>
+  <rect x="645" y="35" width="14" height="14" rx="3" fill="#2ea043" />
+  <text x="665" y="47" fill="#c9d1d9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">Async Bridge</text>
+
+  <!-- Y-Axis labels & Grid lines -->
+  <line x1="120" y1="100" x2="740" y2="100" stroke="#21262d" stroke-width="1" />
+  <text x="80" y="104" fill="#6e7681" font-family="monospace" font-size="11">400 TPS</text>
+
+  <line x1="120" y1="160" x2="740" y2="160" stroke="#21262d" stroke-width="1" />
+  <text x="80" y="164" fill="#6e7681" font-family="monospace" font-size="11">300 TPS</text>
+
+  <line x1="120" y1="220" x2="740" y2="220" stroke="#21262d" stroke-width="1" />
+  <text x="80" y="224" fill="#6e7681" font-family="monospace" font-size="11">200 TPS</text>
+
+  <line x1="120" y1="280" x2="740" y2="280" stroke="#21262d" stroke-width="1" />
+  <text x="80" y="284" fill="#6e7681" font-family="monospace" font-size="11">100 TPS</text>
+
+  <!-- 30 TPS Target Threshold Line -->
+  <line x1="120" y1="322" x2="740" y2="322" stroke="#d29922" stroke-width="1.5" stroke-dasharray="4,4" />
+  <text x="745" y="326" fill="#d29922" font-family="monospace" font-size="11" font-weight="700">30 TPS Cap</text>
+
+  <line x1="120" y1="340" x2="740" y2="340" stroke="#30363d" stroke-width="1.5" />
+  <text x="80" y="344" fill="#6e7681" font-family="monospace" font-size="11">0 TPS</text>
+
+  <!-- X-Axis Labels -->
+  <text x="180" y="365" fill="#e6edf3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="600">16 Tasks</text>
+  <text x="330" y="365" fill="#e6edf3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="600">32 Tasks</text>
+  <text x="480" y="365" fill="#e6edf3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="600">64 Tasks</text>
+  <text x="630" y="365" fill="#e6edf3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="600">128 Tasks</text>
+
+  <!-- Group 1: 16 Tasks (Vanilla: 157.7 TPS, Async: 393.1 TPS) -->
+  <!-- y = 340 - (tps / 400 * 240) -->
+  <rect x="160" y="245" width="28" height="95" rx="3" fill="#da3633" />
+  <text x="160" y="238" fill="#f85149" font-family="monospace" font-size="11" font-weight="600">158</text>
+  <rect x="192" y="104" width="28" height="236" rx="3" fill="#2ea043" />
+  <text x="192" y="97" fill="#3fb950" font-family="monospace" font-size="11" font-weight="700">393</text>
+
+  <!-- Group 2: 32 Tasks (Vanilla: 80.0 TPS, Async: 213.5 TPS) -->
+  <rect x="310" y="292" width="28" height="48" rx="3" fill="#da3633" />
+  <text x="312" y="285" fill="#f85149" font-family="monospace" font-size="11" font-weight="600">80</text>
+  <rect x="342" y="212" width="28" height="128" rx="3" fill="#2ea043" />
+  <text x="342" y="205" fill="#3fb950" font-family="monospace" font-size="11" font-weight="700">214</text>
+
+  <!-- Group 3: 64 Tasks (Vanilla: 39.7 TPS, Async: 95.0 TPS) -->
+  <rect x="460" y="316" width="28" height="24" rx="3" fill="#da3633" />
+  <text x="464" y="310" fill="#f85149" font-family="monospace" font-size="11" font-weight="600">40</text>
+  <rect x="492" y="283" width="28" height="57" rx="3" fill="#2ea043" />
+  <text x="496" y="276" fill="#3fb950" font-family="monospace" font-size="11" font-weight="700">95</text>
+
+  <!-- Group 4: 128 Tasks (Vanilla: 19.7 TPS -> STALL, Async: 50.2 TPS) -->
+  <rect x="610" y="328" width="28" height="12" rx="3" fill="#da3633" />
+  <text x="610" y="320" fill="#f85149" font-family="monospace" font-size="11" font-weight="700">19.7 ⚠️</text>
+  <rect x="642" y="310" width="28" height="30" rx="3" fill="#2ea043" />
+  <text x="644" y="303" fill="#3fb950" font-family="monospace" font-size="11" font-weight="700">50.2</text>
+
+  <!-- Annotation callout on 128 Tasks -->
+  <rect x="585" y="385" width="180" height="24" rx="4" fill="#381014" stroke="#da3633" stroke-width="1" />
+  <text x="595" y="401" fill="#f85149" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600">Vanilla drops below 20 TPS!</text>
+</svg>

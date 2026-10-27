@@ -16,9 +16,57 @@ This repository documents the reverse-engineering of the official Linux Dedicate
 
 ## 2. Performance Benchmarks: Speedup & Smoothness Statistics
 
-Real-server and synthetic simulation benchmarks demonstrate significant speedups and smoother server execution:
+Real-server and synthetic simulation benchmarks demonstrate significant speedups, balanced multi-core utilization, and ultra-smooth frame pacing:
 
-### 2.1 Simulation Throughput & Tick Rate (TPS)
+<p align="center">
+  <img src="docs/assets/gamethread_cpu_reduction.svg" alt="Game Thread CPU Load Reduction" width="100%" />
+</p>
+
+<p align="center">
+  <img src="docs/assets/scaling_throughput_tps.svg" alt="Simulation Tick Rate vs Factory Scale" width="100%" />
+</p>
+
+<p align="center">
+  <img src="docs/assets/multithread_cpu_distribution.svg" alt="Multi-Core Thread Load Distribution" width="100%" />
+</p>
+
+### 2.1 Architectural Shift: Synchronous vs. Asynchronous Execution
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor TM as Unreal Engine TickManager
+    participant GT as Game Thread (Core 0)
+    participant TB as satis_task_bridge
+    participant WP as TaskGraph Worker Pool (15 Threads)
+
+    Note over TM,GT: Vanilla Execution (Synchronous Blocking)
+    TM->>GT: ExecuteTick(DeltaTime)
+    activate GT
+    GT->>GT: AFGBuildableSubsystem::TickFactory (Blocking)
+    GT->>GT: Substep Iteration & Sequential ParallelFor Barriers
+    GT-->>TM: Return after ~42.4 ms (Game Thread Frozen)
+    deactivate GT
+
+    Note over TM,WP: Asynchronous Bridge Execution (Non-Blocking)
+    TM->>GT: ExecuteTick(DeltaTime, CompletionEvent)
+    activate GT
+    GT->>TB: Intercept ExecuteTick
+    TB->>TB: Create FGraphEvent & Bind via AddNested
+    TB->>WP: Enqueue Batch to Worker Pool (AnyNormalThreadNormalTask)
+    GT-->>TM: Immediate Return to TickManager (<0.06 ms)
+    deactivate GT
+    Note over GT: Game Thread free to process Player RPCs, UDP Sockets & Replication
+
+    activate WP
+    WP->>WP: Parallel FactoryActor Simulation across 16 CPU cores
+    WP->>TB: All tasks complete -> satis_completion_signal()
+    deactivate WP
+    TB-->>TM: Signal GraphEvent -> Unlock next Tick Group
+```
+
+
+### 2.2 Simulation Throughput & Tick Rate (TPS)
 
 | Factory Scale (Task Groups) | Vanilla (Synchronous) | Async Task Bridge | Speedup Factor | Game Thread Stall Reduction |
 | :---: | :---: | :---: | :---: | :---: |
@@ -27,7 +75,7 @@ Real-server and synthetic simulation benchmarks demonstrate significant speedups
 | **64 Tasks** | 25.16 ms (39.7 TPS) | **10.53 ms (95.0 TPS)** | **2.39x** | **99.76%** (0.059 ms stall) |
 | **128 Tasks** | 50.66 ms (19.7 TPS) | **19.94 ms (50.2 TPS)** | **2.54x** | **99.88%** (0.062 ms stall) |
 
-### 2.2 Heavy Load Simulation (64 Groups, 100 Consecutive Frames)
+### 2.3 Heavy Load Simulation (64 Groups, 100 Consecutive Frames)
 
 Detailed metrics measured on an Intel Core i5-4570 @ 3.20GHz (4 physical cores, 3 worker threads):
 
@@ -43,12 +91,12 @@ Detailed metrics measured on an Intel Core i5-4570 @ 3.20GHz (4 physical cores, 
 | **Game Thread Stall (P99)** | 52.97 ms | **0.106 ms (106 µs)** | **99.80% reduction in peak stalls** |
 | **Simulation Determinism** | `0x6e70f61cf35d21b0` | `0x6e70f61cf35d21b0` | **100% exact checksum match** |
 
-### 2.3 Why the Server Runs Smoother:
+### 2.4 Why the Server Runs Smoother:
 - **No Game Thread Stalls:** In vanilla, every tick halts the Game Thread for 20–50+ ms. With the bridge, Game Thread stall duration drops to **< 60 microseconds**, leaving the main thread completely unblocked to process player network packets, client replication, and RPCs.
 - **Elimination of Tick Drops:** At 128 task groups, vanilla Satisfactory drops to **19.7 TPS** (below the 30 TPS target, causing noticeable lag and desync). The asynchronous bridge maintains **50.2 TPS**.
 - **No Fork-Join Hitching:** Background tasks run across the TaskGraph pool without blocking barriers, eliminating frame pacing spikes.
 
-### 2.4 Live Production Deployment ("Schwanzstadt" 700h Mega-Factory, AMD Ryzen 7 5825U)
+### 2.5 Live Production Deployment ("Schwanzstadt" 700h Mega-Factory, AMD Ryzen 7 5825U)
 
 Verified in active production on a dedicated server (`plpxmcserv2`, AMD Ryzen 7 5825U 8C/16T, 12 GB RAM) hosting the 700-hour **"Schwanzstadt"** endgame mega-factory save (Tier 8, Phase 3, 2.51M seconds duration):
 
