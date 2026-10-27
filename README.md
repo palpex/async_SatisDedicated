@@ -284,6 +284,18 @@ python3 scripts/monitor_server.py
 
 ---
 
+---
+
+## Support & Sponsorship
+
+If you find this project useful or want to support ongoing server optimization work, consider buying a coffee:
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/palpex)
+
+Direct link: [ko-fi.com/palpex](https://ko-fi.com/palpex)
+
+---
+
 ## 9. Authors & Credits
 
 - **Lead:** palpex
