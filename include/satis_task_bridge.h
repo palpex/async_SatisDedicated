@@ -78,6 +78,8 @@ int satis_async_is_enabled(void);
 uint64_t satis_async_tick_count(void);
 uint64_t satis_async_dispatch_count(void);
 uint64_t satis_async_sync_fallback_count(void);
+// Completed original factory calls; dispatch count includes jobs still in flight.
+uint64_t satis_async_completed_count(void);
 
 #ifdef __cplusplus
 }

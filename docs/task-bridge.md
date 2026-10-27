@@ -69,7 +69,7 @@ When enabled via `satis_async_set_enabled(1)` or `SATIS_ASYNC_TICK=1`:
 2. Creates an `FGraphEvent` via `satis_completion_create()`.
 3. Binds the completion event to the engine task passed in `completion_event_ref` via `satis_completion_bind_to_task()`.
 4. Dispatches the simulation tick asynchronously onto the worker pool via `satis_task_enqueue()`.
-5. Returns immediately to the Unreal TickManager, allowing the Game Thread to process other frames.
+5. Returns to the Unreal TickManager while its parent task remains gated. This is not permission to overlap dependent frames or world teardown.
 6. When the worker finishes the factory tick, it signals and releases the completion event, releasing the tick group.
 
 ## API & Ownership Model
@@ -82,4 +82,11 @@ When enabled via `satis_async_set_enabled(1)` or `SATIS_ASYNC_TICK=1`:
 - `satis_completion_release`: Decrements reference count and safely releases the event.
 - `satis_async_set_enabled` / `satis_async_is_enabled`: Controls dynamic simulation tick offloading.
 - `satis_async_tick_count` / `satis_async_dispatch_count`: Performance metrics for intercepted ticks.
+- `satis_async_sync_fallback_count`: Counts ticks kept on the Game Thread because the subsystem reported pending conveyor-group migration or actor-spawn work.
+
+## Game-thread safety boundary
+
+The bridge keeps ticks with conveyor-group migration detected at entry on the Game Thread. `AFGBuildableSubsystem::MigrateConveyorGroupToChainActor` creates and finishes Unreal actors, and the engine requires that lifecycle work on the Game Thread. Other factory ticks remain eligible for asynchronous dispatch. The bridge does not spoof `IsInGameThread` or change Unreal's thread-local task tags. This entry check is not a general proof of actor-lifecycle safety.
+
+The guarded alpha also keeps ticks inline for registered custom factory handlers, missing completion events, failed event binding, unsupported FactoryGame layout, and GC/package-save activity detected at entry. `satis_async_completed_count()` measures returned worker calls separately from submissions. Counters are sampled individually and can differ by an in-flight tick. An entry check cannot prove all future UObject accesses are safe; see [remaining boundaries](threading_architecture_analysis.md#guarded-alpha-findings-and-remaining-boundaries).
 

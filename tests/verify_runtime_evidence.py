@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Verify real-server ABI probes and standalone safety checks."""
+"""Validate recorded historical ABI probes and current standalone checks.
+
+This does not run fresh gameplay probes or establish current-server stability.
+"""
 import argparse
 import ctypes
 import hashlib
@@ -77,7 +80,7 @@ def verify_probe_file(probe_path: pathlib.Path):
             manifest = json.loads(manifest_path.read_text())
             assert manifest['runtime_evidence_id'] == evidence['evidence_id']
             assert manifest['server_pid'] == observation['pid']
-        print(f"✓ Real-server completion probe: 32 jobs, {result['maxConcurrency']} concurrent, graph event completion gating verified.")
+        print(f"✓ Historical completion evidence: 32 jobs, {result['maxConcurrency']} concurrent; stored gating result valid.")
 
     elif 'task-batch' in name or 'task-bridge' in name:
         init_msg = next(m for m in messages if m.get('kind') == 'bridge-init')
@@ -99,7 +102,7 @@ def verify_probe_file(probe_path: pathlib.Path):
             manifest = json.loads(manifest_path.read_text())
             assert manifest['runtime_evidence_id'] == evidence['evidence_id']
             assert manifest['server_pid'] == observation['pid']
-        print(f"✓ Real-server task batch probe: 32 jobs, {result['maxConcurrency']} concurrent, one game-thread continuation, clean disposal.")
+        print(f"✓ Historical task-batch evidence: 32 jobs, {result['maxConcurrency']} concurrent; stored continuation/disposal result valid.")
 
 def main():
     parser = argparse.ArgumentParser(description="Verify runtime evidence and bridge safety")

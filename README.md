@@ -1,5 +1,7 @@
 # async_SatisDedicated
 
+Installation and rollback: [`docs/installation.md`](docs/installation.md) · First release notes: [`v0.1.0-alpha.1`](docs/releases/v0.1.0-alpha.1.md)
+
 **Asynchronous and Multithreaded Engine Architecture Bridge for the Official Satisfactory Dedicated Server (Unreal Engine 5).**
 
 ---
@@ -10,106 +12,42 @@ In **Satisfactory** (Coffee Stain Studios), the Dedicated Server executes extens
 
 Even though certain internal sub-phases utilize `ParallelFor` calls, these are implemented as **blocking fork-join barriers** that freeze the Game Thread until all sub-steps finish. In mid-to-late game saves containing extensive production networks, the Game Thread becomes saturated, leading to severe server tick-rate drops, rubberbanding, and simulation latency.
 
-This repository documents the reverse-engineering of the official Linux Dedicated Server and provides **`satis_task_bridge`**: a native C/C++ engine bridge that hooks directly into Unreal Engine 5's internal TaskGraph ABI (`AsyncTask`, `FBaseGraphTask`, `FFunctionGraphTask`) to enable truly asynchronous, multithreaded simulation processing without blocking the Game Thread.
+This repository documents the reverse-engineering of the official Linux Dedicated Server and provides **`satis_task_bridge`**: a native C/C++ engine bridge that hooks directly into Unreal Engine 5's internal TaskGraph ABI (`AsyncTask`, `FBaseGraphTask`, `FFunctionGraphTask`) to experiment with asynchronous factory tick dispatch and Game Thread continuations. The official server already parallelizes some factory and pipe computation; this project changes tick scheduling, not the entire engine.
+
+> **Experimental alpha:** This bridge targets one validated Steam build (`25782485`). It keeps detected conveyor-migration ticks on the Game Thread and offloads eligible factory simulation ticks; other lifecycle paths remain under investigation. Review [the installation guide](docs/installation.md) and [the first release notes](docs/releases/v0.1.0-alpha.1.md) before using it on a production server.
 
 ---
 
-## 2. Performance Benchmarks: Speedup & Smoothness Statistics
+## 2. Performance and runtime evidence
 
-Real-server and synthetic simulation benchmarks demonstrate significant speedups, balanced multi-core utilization, and ultra-smooth frame pacing:
+The guarded alpha offloads eligible factory ticks and keeps detected conveyor migration and custom tick handlers on the Game Thread. It preserves engine thread-identity checks. Full-server asynchronous execution and a gameplay performance increase remain unproven.
 
-<p align="center">
-  <img src="docs/assets/gamethread_cpu_reduction.svg" alt="Game Thread CPU Load Reduction" width="100%" />
-</p>
+### Current live observation
 
-<p align="center">
-  <img src="docs/assets/scaling_throughput_tps.svg" alt="Simulation Tick Rate vs Factory Scale" width="100%" />
-</p>
+A 120-second observation on the Ryzen 7 5825U recorded **3,565 completed asynchronous ticks**, **29.70–29.81 averaged TPS**, and **zero fatal signals or assertions**. This window had **zero connected players**. The first release needs further player-building tests; a short idle observation does not establish production stability.
 
-<p align="center">
-  <img src="docs/assets/multithread_cpu_distribution.svg" alt="Multi-Core Thread Load Distribution" width="100%" />
-</p>
+![Observed server TPS over time](docs/assets/gamethread_cpu_reduction.png)
 
-### 2.1 Architectural Shift: Synchronous vs. Asynchronous Execution
+![Observed CPU usage over time](docs/assets/multithread_cpu_distribution.png)
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor TM as Unreal Engine TickManager
-    participant GT as Game Thread (Core 0)
-    participant TB as satis_task_bridge
-    participant WP as TaskGraph Worker Pool (15 Threads)
+Charts use [anonymous recorded samples](evidence/runtime/guarded-observation.json). CPU percentages are relative to one logical CPU. Main-thread and total process usage are measured over the same intervals.
 
-    Note over TM,GT: Vanilla Execution (Synchronous Blocking)
-    TM->>GT: ExecuteTick(DeltaTime)
-    activate GT
-    GT->>GT: AFGBuildableSubsystem::TickFactory (Blocking)
-    GT->>GT: Substep Iteration & Sequential ParallelFor Barriers
-    GT-->>TM: Return after ~42.4 ms (Game Thread Frozen)
-    deactivate GT
+### Standalone compute benchmark
 
-    Note over TM,WP: Asynchronous Bridge Execution (Non-Blocking)
-    TM->>GT: ExecuteTick(DeltaTime, CompletionEvent)
-    activate GT
-    GT->>TB: Intercept ExecuteTick
-    TB->>TB: Create FGraphEvent & Bind via AddNested
-    TB->>WP: Enqueue Batch to Worker Pool (AnyNormalThreadNormalTask)
-    GT-->>TM: Immediate Return to TickManager (<0.06 ms)
-    deactivate GT
-    Note over GT: Game Thread free to process Player RPCs, UDP Sockets & Replication
+The chart below measures serial versus std::thread computation of a pure integer workload. It demonstrates compute parallelism on the test CPU; it does not measure Satisfactory actors, actual server TPS, latency or player smoothness.
 
-    activate WP
-    WP->>WP: Parallel FactoryActor Simulation across 16 CPU cores
-    WP->>TB: All tasks complete -> satis_completion_signal()
-    deactivate WP
-    TB-->>TM: Signal GraphEvent -> Unlock next Tick Group
-```
+![Standalone compute scaling](docs/assets/scaling_throughput_tps.png)
 
+| Compute tasks | Serial mean | Threaded mean | Compute speedup |
+| ---: | ---: | ---: | ---: |
+| 16 | 6.26 ms | 2.55 ms | 2.46× |
+| 32 | 12.68 ms | 4.79 ms | 2.65× |
+| 64 | 25.32 ms | 11.62 ms | 2.18× |
+| 128 | 50.10 ms | 23.68 ms | 2.12× |
 
-### 2.2 Simulation Throughput & Tick Rate (TPS)
+Source: [committed scaling data](evidence/runtime/scaling-sweep.json). Earlier claims of 79.1% CPU reduction and 92.3% jitter reduction are withdrawn: the CPU samples measured different quantities and a matching jitter baseline was not retained. Live TPS remains near the previously reported baseline of 29.7 TPS. A significant gameplay speedup needs controlled A/B measurement.
 
-| Factory Scale (Task Groups) | Vanilla (Synchronous) | Async Task Bridge | Speedup Factor | Game Thread Stall Reduction |
-| :---: | :---: | :---: | :---: | :---: |
-| **16 Tasks** | 6.34 ms (157.7 TPS) | **2.54 ms (393.1 TPS)** | **2.49x** | **99.23%** (0.049 ms stall) |
-| **32 Tasks** | 12.49 ms (80.0 TPS) | **4.68 ms (213.5 TPS)** | **2.67x** | **99.58%** (0.052 ms stall) |
-| **64 Tasks** | 25.16 ms (39.7 TPS) | **10.53 ms (95.0 TPS)** | **2.39x** | **99.76%** (0.059 ms stall) |
-| **128 Tasks** | 50.66 ms (19.7 TPS) | **19.94 ms (50.2 TPS)** | **2.54x** | **99.88%** (0.062 ms stall) |
-
-### 2.3 Heavy Load Simulation (64 Groups, 100 Consecutive Frames)
-
-Detailed metrics measured on an Intel Core i5-4570 @ 3.20GHz (4 physical cores, 3 worker threads):
-
-| Metric | Vanilla Synchronous | Async Task Bridge | Improvement / Impact |
-| :--- | :---: | :---: | :---: |
-| **Mean Frame Duration** | 42.37 ms | **15.91 ms** | **2.66x faster** (62.4% runtime reduction) |
-| **Minimum Frame Time** | 41.03 ms | 14.38 ms | 2.85x faster |
-| **Maximum Frame Time** | 52.97 ms | 25.73 ms | 2.06x faster |
-| **P95 Frame Time** | 43.51 ms | 23.50 ms | 1.85x faster |
-| **P99 Frame Time** | 52.97 ms | 25.73 ms | 2.06x faster |
-| **Effective Server TPS** | 23.60 TPS | **62.86 TPS** | **+166% TPS increase** (stable 60+ FPS simulation) |
-| **Game Thread Stall (Mean)** | 42.37 ms | **0.055 ms (55 µs)** | **99.87% reduction in blocking stalls** |
-| **Game Thread Stall (P99)** | 52.97 ms | **0.106 ms (106 µs)** | **99.80% reduction in peak stalls** |
-| **Simulation Determinism** | `0x6e70f61cf35d21b0` | `0x6e70f61cf35d21b0` | **100% exact checksum match** |
-
-### 2.4 Why the Server Runs Smoother:
-- **No Game Thread Stalls:** In the heavy-load benchmark, synchronous ticks spend tens of milliseconds on the Game Thread. With the bridge, Game Thread stall duration drops to **< 60 microseconds**, leaving most of the measured main-thread budget available to process player network packets, client replication, and RPCs.
-- **Elimination of Tick Drops:** At 128 task groups, the benchmark records **19.7 TPS** for the synchronous path and **50.2 TPS** for the asynchronous path; the latter remains above the 30 TPS target in this workload.
-- **No Fork-Join Hitching:** Background tasks run across the TaskGraph pool without blocking barriers, eliminating frame pacing spikes.
-
-### 2.5 Live Production Deployment (700-hour Endgame Mega-Factory, AMD Ryzen 7 5825U)
-
-Verified in active production on a dedicated server (`plpxmcserv2`, AMD Ryzen 7 5825U 8C/16T, 12 GB RAM) hosting a 700-hour endgame production save (Tier 8, Phase 3, 2.51M seconds duration):
-
-| Metric | Vanilla Synchronous Baseline | Asynchronous Task Bridge | Production Impact |
-| :--- | :---: | :---: | :---: |
-| **Game Thread CPU Load** | **103.0%** (one process thread saturated during the sample) | **21.5%** | **79.1% lower measured Game Thread CPU usage** |
-| **Worker Thread Distribution** | 0% (other worker threads were idle in the baseline sample) | **13 active worker threads** (observed in the sample) | **work distributed across the available worker pool** |
-| **Average Tick Rate (TPS)** | 29.71 TPS (baseline sample) | **29.73 TPS** (async sample) | **no tick-rate drop was observed during the sample** |
-| **Tick Rate Jitter (Std Dev)** | > 0.4200 (baseline sample) | **0.0324** (async sample) | **92.3% lower measured TPS variation** |
-| **Intercepted Simulation Ticks** | 0 | **24,400+ consecutive ticks** | **100.0% dispatch success in the observed window** |
-| **Server Crash / Error Rate** | N/A | **0 errors, 0 assertion failures** | **no crash or assertion observed during the sample** |
-
-Full benchmark data and measurement methodology are documented in [`docs/performance_benchmarks.md`](docs/performance_benchmarks.md).
+See [methodology, corrections and reproduction](docs/performance_benchmarks.md) and [engine boundaries](docs/threading_architecture_analysis.md).
 
 ---
 
@@ -281,8 +219,6 @@ python3 scripts/monitor_server.py
     ├── test_evidence_integrity.py # SHA-256 and probe integrity tests
     └── verify_runtime_evidence.py # Real-server evidence verifier
 ```
-
----
 
 ---
 

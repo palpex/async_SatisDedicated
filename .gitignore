@@ -5,6 +5,7 @@ __pycache__/
 *.pyc
 *.so
 build/
+dist/
 evidence/rea-factorygame-session.bundle.json
 .pytest_cache/
 

@@ -71,18 +71,17 @@ TaskAddNested task_add_nested{};
 void* engine_handle{};
 CreateWithPrerequisite create_with_prerequisite{};
 
-using SwapTaskTagFunc = std::uint32_t (*)(std::uint32_t);
-using IsInGameThreadFunc = bool (*)();
-SwapTaskTagFunc swap_task_tag{nullptr};
-IsInGameThreadFunc orig_is_in_game_thread{nullptr};
-thread_local bool in_async_factory_tick{false};
-
 using ExecuteTickSignature = void (*)(void*, float, std::uint32_t, std::uint32_t, void* const*);
 std::atomic<ExecuteTickSignature> original_execute_tick{nullptr};
 std::atomic<bool> async_tick_enabled{false};
 std::atomic<std::uint64_t> intercepted_ticks{0};
 std::atomic<std::uint64_t> async_dispatches{0};
 std::atomic<std::uint64_t> sync_fallbacks{0};
+std::atomic<std::uint64_t> completed_async_ticks{0};
+bool factory_layout_supported{};
+// Published on the Game Thread during initialization; sampled only at tick entry.
+const bool* gc_active{};
+const bool* saving_package{};
 
 void task_add_ref(void* task) {
     __atomic_fetch_add(reinterpret_cast<std::uint32_t*>(static_cast<char*>(task)+8),1u,__ATOMIC_RELAXED);
@@ -99,11 +98,12 @@ std::mutex init_mutex;
 std::atomic<const char*> failure{"Bridge not initialized"};
 std::uint32_t* game_thread_id{};
 void* core_handle{}; // Retained for the lifetime of this bridge.
-struct BuildCheck { std::uintptr_t base; bool matched{}; };
+struct BuildCheck { std::uintptr_t base; bool matched{}; const unsigned char* expected_id{}; };
 int check_core_build(dl_phdr_info* info, std::size_t, void* opaque) {
     auto& check=*static_cast<BuildCheck*>(opaque);
     if(info->dlpi_addr!=check.base) return 0;
-    const unsigned char expected[]={0x36,0xa6,0x39,0x75,0x31,0xdb,0x8d,0xf2};
+    const unsigned char core_id[]={0x36,0xa6,0x39,0x75,0x31,0xdb,0x8d,0xf2};
+    const auto* expected=check.expected_id ? check.expected_id : core_id;
     for(std::size_t i=0;i<info->dlpi_phnum;++i) {
         const auto& ph=info->dlpi_phdr[i];
         if(ph.p_type!=PT_NOTE) continue;
@@ -117,8 +117,8 @@ int check_core_build(dl_phdr_info* info, std::size_t, void* opaque) {
             if(next>end || next<=cursor) return 1;
             if(note->n_type==NT_GNU_BUILD_ID && note->n_namesz==4 &&
                !std::memcmp(reinterpret_cast<void*>(name),"GNU",4) &&
-               note->n_descsz==sizeof(expected) &&
-               !std::memcmp(reinterpret_cast<void*>(desc),expected,sizeof(expected))) check.matched=true;
+               note->n_descsz==8 &&
+               !std::memcmp(reinterpret_cast<void*>(desc),expected,8)) check.matched=true;
             cursor=next;
         }
     }
@@ -294,18 +294,25 @@ extern "C" int satis_task_bridge_init() {
         }
     }
 
+    gc_active=static_cast<const bool*>(dlsym(RTLD_DEFAULT,"GIsGarbageCollecting"));
+    saving_package=static_cast<const bool*>(dlsym(RTLD_DEFAULT,"GIsSavingPackage"));
+    // Core compatibility alone cannot validate the actor member offsets below.
+    void* factory=dlopen("libFactoryServer-FactoryGame-Linux-Shipping.so",RTLD_NOW|RTLD_NOLOAD);
+    if(factory) {
+        void* tick=dlsym(factory,"_ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThreads4TypeERK12TRefCountPtrI14FBaseGraphTaskE");
+        Dl_info factory_info{};
+        if(tick && dladdr(tick,&factory_info)) {
+            const unsigned char factory_id[]={0x7d,0xd1,0x1e,0xd7,0xc1,0xcc,0x5e,0x43};
+            BuildCheck check{reinterpret_cast<std::uintptr_t>(factory_info.dli_fbase),false,factory_id};
+            dl_iterate_phdr(check_core_build,&check);
+            factory_layout_supported=check.matched &&
+                reinterpret_cast<std::uintptr_t>(tick)-check.base==0x180cba0;
+        }
+    }
+
     const char* env_async = std::getenv("SATIS_ASYNC_TICK");
     if(env_async && (!std::strcmp(env_async, "1") || !std::strcmp(env_async, "true"))) {
         async_tick_enabled.store(true, std::memory_order_release);
-    }
-
-    void* swap_sym = dlsym(core_handle, "_ZN13FTaskTagScope7SwapTagE8ETaskTag");
-    if (swap_sym) {
-        swap_task_tag = reinterpret_cast<SwapTaskTagFunc>(swap_sym);
-    }
-    void* is_in_gt = dlsym(core_handle, "_Z14IsInGameThreadv");
-    if (is_in_gt) {
-        orig_is_in_game_thread = reinterpret_cast<IsInGameThreadFunc>(is_in_gt);
     }
 
     failure="";
@@ -458,8 +465,9 @@ extern "C" int satis_completion_bind_to_task(satis_completion* completion, void*
         return 0;
     }
 
-    bool ok = task_add_prerequisites(engine_task, completion->event);
-    return ok ? 0 : 1;
+    // AddPrerequisites on an executing task asserts. Never substitute it for
+    // a missing/unsupported AddNested implementation.
+    return -3;
 }
 
 extern "C" void satis_async_set_enabled(int enabled) {
@@ -477,28 +485,8 @@ extern "C" std::uint64_t satis_async_dispatch_count() {
 extern "C" std::uint64_t satis_async_sync_fallback_count() {
     return sync_fallbacks.load(std::memory_order_acquire);
 }
-
-extern "C" __attribute__((visibility("default"))) bool _Z14IsInGameThreadv() {
-    if (in_async_factory_tick) {
-        return true;
-    }
-    if (!orig_is_in_game_thread) {
-        orig_is_in_game_thread = reinterpret_cast<IsInGameThreadFunc>(
-            dlsym(RTLD_NEXT, "_Z14IsInGameThreadv")
-        );
-        if (!orig_is_in_game_thread) {
-            void* core = dlopen("libFactoryServer-Core-Linux-Shipping.so", RTLD_NOW | RTLD_NOLOAD);
-            if (core) {
-                orig_is_in_game_thread = reinterpret_cast<IsInGameThreadFunc>(
-                    dlsym(core, "_Z14IsInGameThreadv")
-                );
-            }
-        }
-    }
-    if (orig_is_in_game_thread) {
-        return orig_is_in_game_thread();
-    }
-    return true;
+extern "C" std::uint64_t satis_async_completed_count() {
+    return completed_async_ticks.load(std::memory_order_acquire);
 }
 
 namespace {
@@ -515,19 +503,10 @@ struct AsyncTickContext {
 void async_tick_runner(void* opaque) {
     auto* ctx = static_cast<AsyncTickContext*>(opaque);
 
-    in_async_factory_tick = true;
-    std::uint32_t old_tag = 0;
-    if (swap_task_tag) {
-        old_tag = swap_task_tag(2); // 2 = ETaskTag::ParallelGameThread
-    }
-
     void* completion_ptr = ctx->completion_event;
-    ctx->orig(ctx->this_ptr, ctx->delta_time, ctx->level_tick, ctx->current_thread, &completion_ptr);
-
-    if (swap_task_tag) {
-        swap_task_tag(old_tag);
-    }
-    in_async_factory_tick = false;
+    // This call now runs on an AnyThread worker, not the submitting named thread.
+    ctx->orig(ctx->this_ptr, ctx->delta_time, ctx->level_tick, 255u, &completion_ptr);
+    completed_async_ticks.fetch_add(1, std::memory_order_release);
 
     if(ctx->completion_handle) {
         satis_completion_signal(ctx->completion_handle);
@@ -570,28 +549,57 @@ extern "C" void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThr
         return;
     }
 
+    auto run_synchronously = [&] {
+        sync_fallbacks.fetch_add(1, std::memory_order_relaxed);
+        orig(this_ptr, delta_time, level_tick, current_thread, completion_event_ref);
+    };
+
+    // Only inspect the build-specific actor layout from its owning thread.
+    // GC/save flags are an entry guard, not a cross-frame lifetime lock.
+    if(!factory_layout_supported || !gc_active || !saving_package ||
+       tid()!=*game_thread_id || *gc_active || *saving_package) {
+        run_synchronously();
+        return;
+    }
+
     // Check if conveyor migration or actor spawning is pending.
     // In AFGBuildableSubsystem, offset 0x400 holds mConveyorGroupsToMigrate.Num().
     // If migration is needed, MigrateConveyorGroupToChainActor will spawn actors via
     // UWorld::SpawnActor. To guarantee thread-safety and preserve UWorld actor integrity,
-    // execute this single tick synchronously on the Game Thread.
+    // execute this tick synchronously. Custom factory handlers (+0x948) execute
+    // before the first ParallelFor and may contain arbitrary Game Thread work.
     void* subsystem = this_ptr ? *reinterpret_cast<void**>(static_cast<char*>(this_ptr) + 0x28) : nullptr;
-    if (subsystem) {
-        std::int32_t pending_migrations = *reinterpret_cast<const std::int32_t*>(static_cast<char*>(subsystem) + 0x400);
-        if (pending_migrations > 0) {
-            sync_fallbacks.fetch_add(1, std::memory_order_relaxed);
-            orig(this_ptr, delta_time, level_tick, current_thread, completion_event_ref);
-            return;
-        }
+    if (!subsystem) {
+        run_synchronously();
+        return;
+    }
+    const auto* bytes=static_cast<const char*>(subsystem);
+    const auto flags=*reinterpret_cast<const std::uint32_t*>(bytes+8);
+    // Match the original UObject validity gate before reading larger offsets.
+    if((flags & 0x40000000u) ||
+       *reinterpret_cast<const std::int32_t*>(bytes+0x400)!=0 ||
+       *reinterpret_cast<const std::int32_t*>(bytes+0x948)!=0) {
+        run_synchronously();
+        return;
     }
 
     void* engine_task = (completion_event_ref && *completion_event_ref) ? *completion_event_ref : nullptr;
-    satis_completion* comp = nullptr;
-    if(engine_task) {
-        comp = satis_completion_create();
-        if(comp) {
-            satis_completion_bind_to_task(comp, engine_task);
-        }
+    // Offloading without completion gating can overlap the next frame, save,
+    // actor teardown or GC. Reject asynchronous dispatch if any setup step fails.
+    if(!engine_task) {
+        run_synchronously();
+        return;
+    }
+    satis_completion* comp=satis_completion_create();
+    if(!comp) {
+        run_synchronously();
+        return;
+    }
+    if(satis_completion_bind_to_task(comp,engine_task)!=0) {
+        satis_completion_signal(comp);
+        satis_completion_release(comp);
+        run_synchronously();
+        return;
     }
 
     auto* ctx = new(std::nothrow) AsyncTickContext{
@@ -602,14 +610,20 @@ extern "C" void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThr
             satis_completion_signal(comp);
             satis_completion_release(comp);
         }
-        orig(this_ptr, delta_time, level_tick, current_thread, completion_event_ref);
+        run_synchronously();
         return;
     }
 
     async_dispatches.fetch_add(1, std::memory_order_relaxed);
     int queued = satis_task_enqueue(async_tick_runner, ctx, nullptr, SATIS_WORKER_THREAD);
     if(queued != 0) {
-        async_tick_runner(ctx);
+        async_dispatches.fetch_sub(1, std::memory_order_relaxed);
+        delete ctx;
+        // The completion was bound, so it must be released even on enqueue failure.
+        orig(this_ptr, delta_time, level_tick, current_thread, completion_event_ref);
+        satis_completion_signal(comp);
+        satis_completion_release(comp);
+        sync_fallbacks.fetch_add(1,std::memory_order_relaxed);
     }
 }
 

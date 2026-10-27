@@ -1,0 +1,287 @@
+{
+  "started_at": "2026-10-27T13:33:55.733199+00:00",
+  "ended_at": "2026-10-27T13:35:55.878916+00:00",
+  "scope": "bounded observation; no baseline speedup inferred",
+  "samples": [
+    {
+      "at": "2026-10-27T13:33:55.733203+00:00",
+      "pid": 181833,
+      "bridge": {
+        "loaded": true,
+        "ticks": 2751,
+        "dispatched": 2751,
+        "completed": 2751,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 29.805309295654297,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T13:34:05.882720+00:00",
+      "pid": 181833,
+      "bridge": {
+        "loaded": true,
+        "ticks": 3052,
+        "dispatched": 3052,
+        "completed": 3052,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 23.36,
+      "process_cpu_pct": 113.96,
+      "active_other_threads": 20,
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 29.726715087890625,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T13:34:16.008706+00:00",
+      "pid": 181833,
+      "bridge": {
+        "loaded": true,
+        "ticks": 3353,
+        "dispatched": 3353,
+        "completed": 3353,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 22.61,
+      "process_cpu_pct": 99.64,
+      "active_other_threads": 19,
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 29.772808074951172,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T13:34:26.138445+00:00",
+      "pid": 181833,
+      "bridge": {
+        "loaded": true,
+        "ticks": 3654,
+        "dispatched": 3654,
+        "completed": 3654,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 23.5,
+      "process_cpu_pct": 104.55,
+      "active_other_threads": 21,
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 29.721569061279297,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T13:34:36.268147+00:00",
+      "pid": 181833,
+      "bridge": {
+        "loaded": true,
+        "ticks": 3955,
+        "dispatched": 3955,
+        "completed": 3955,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 23.59,
+      "process_cpu_pct": 105.23,
+      "active_other_threads": 20,
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 29.7563419342041,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T13:34:46.399208+00:00",
+      "pid": 181833,
+      "bridge": {
+        "loaded": true,
+        "ticks": 4256,
+        "dispatched": 4256,
+        "completed": 4256,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 23.4,
+      "process_cpu_pct": 100.4,
+      "active_other_threads": 20,
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 29.779272079467773,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T13:34:56.533067+00:00",
+      "pid": 181833,
+      "bridge": {
+        "loaded": true,
+        "ticks": 4557,
+        "dispatched": 4557,
+        "completed": 4557,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 23.39,
+      "process_cpu_pct": 100.85,
+      "active_other_threads": 20,
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 29.710285186767578,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T13:35:06.667111+00:00",
+      "pid": 181833,
+      "bridge": {
+        "loaded": true,
+        "ticks": 4858,
+        "dispatched": 4858,
+        "completed": 4858,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 23.19,
+      "process_cpu_pct": 101.44,
+      "active_other_threads": 19,
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 29.737594604492188,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T13:35:16.795366+00:00",
+      "pid": 181833,
+      "bridge": {
+        "loaded": true,
+        "ticks": 5159,
+        "dispatched": 5159,
+        "completed": 5159,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 23.89,
+      "process_cpu_pct": 101.2,
+      "active_other_threads": 20,
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 29.70977210998535,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T13:35:26.927255+00:00",
+      "pid": 181833,
+      "bridge": {
+        "loaded": true,
+        "ticks": 5460,
+        "dispatched": 5460,
+        "completed": 5460,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 23.39,
+      "process_cpu_pct": 100.97,
+      "active_other_threads": 22,
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 29.711688995361328,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T13:35:37.060565+00:00",
+      "pid": 181833,
+      "bridge": {
+        "loaded": true,
+        "ticks": 5761,
+        "dispatched": 5761,
+        "completed": 5761,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 23.49,
+      "process_cpu_pct": 100.36,
+      "active_other_threads": 19,
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 29.701122283935547,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T13:35:47.199187+00:00",
+      "pid": 181833,
+      "bridge": {
+        "loaded": true,
+        "ticks": 6062,
+        "dispatched": 6062,
+        "completed": 6062,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 23.67,
+      "process_cpu_pct": 101.3,
+      "active_other_threads": 21,
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 29.7132625579834,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    },
+    {
+      "at": "2026-10-27T13:35:55.733588+00:00",
+      "pid": 181833,
+      "bridge": {
+        "loaded": true,
+        "ticks": 6316,
+        "dispatched": 6316,
+        "completed": 6316,
+        "fallbacks": 0,
+        "enabled": 1
+      },
+      "game_thread_cpu_pct": 23.08,
+      "process_cpu_pct": 100.99,
+      "active_other_threads": 19,
+      "api": {
+        "numConnectedPlayers": 0,
+        "averageTickRate": 29.71504783630371,
+        "isGamePaused": false,
+        "isGameRunning": true
+      }
+    }
+  ],
+  "journal_counts": {
+    "assertions": 0,
+    "fatal_signals": 0,
+    "critical_errors": 0,
+    "successful_joins": 0,
+    "inventory_warnings": 11,
+    "netguid_warnings": 0,
+    "component_warnings": 0,
+    "saves": 0
+  }
+}

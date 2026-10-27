@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 import json
+import argparse
+import platform
 import subprocess
+from pathlib import Path
+
+parser = argparse.ArgumentParser(description='Synthetic std::thread compute sweep; does not measure live server TPS')
+parser.add_argument('--output', default='build/scaling-sweep.json')
+args = parser.parse_args()
 
 tasks = [16, 32, 64, 128]
 results = []
@@ -19,9 +26,11 @@ for t in tasks:
         "gamethread_stall_mean_ms": data["gamethread_impact"]["gamethread_stall_mean_ms"]
     })
 
-with open("evidence/runtime/scaling-sweep.json", "w") as f:
-    json.dump({"hardware": "Intel Core i5-4570 @ 3.20GHz (4 Cores / 3 Workers)", "sweep": results}, f, indent=2)
+output = Path(args.output)
+output.parent.mkdir(parents=True, exist_ok=True)
+with output.open("w") as f:
+    json.dump({"hardware": platform.uname()._asdict(), "scope": "synthetic integer compute; not live server TPS", "sweep": results}, f, indent=2)
 
 for r in results:
-    print(f"Tasks {r['tasks']:3d}: Sync {r['sync_mean_ms']:6.2f} ms ({r['sync_tps']:5.1f} TPS) -> Async {r['async_mean_ms']:6.2f} ms ({r['async_tps']:5.1f} TPS) | Speedup: {r['speedup']:4.2f}x | Stall Reduction: {r['stall_reduction_pct']:5.2f}%")
+    print(f"Tasks {r['tasks']:3d}: Serial {r['sync_mean_ms']:6.2f} ms -> Threaded {r['async_mean_ms']:6.2f} ms | Compute speedup: {r['speedup']:4.2f}x")
 
