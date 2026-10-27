@@ -19,7 +19,7 @@
 
   <!-- Title & Subtitle -->
   <text x="40" y="45" fill="#f0f6fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="700">Game Thread CPU Load Reduction (Live Production Server)</text>
-  <text x="40" y="70" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13">Measured on 700h 'Schwanzstadt' Endgame Save (AMD Ryzen 7 5825U, 8 Cores / 16 Threads)</text>
+  <text x="40" y="70" fill="#8b949e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13">Measured on a 700-hour Endgame Production Save (AMD Ryzen 7 5825U, 8 Cores / 16 Threads)</text>
 
   <!-- Grid lines -->
   <line x1="220" y1="100" x2="740" y2="100" stroke="#21262d" stroke-width="1" />

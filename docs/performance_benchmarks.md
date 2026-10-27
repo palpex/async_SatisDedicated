@@ -65,9 +65,9 @@ Measured over 100 consecutive simulation frames with 250,000 computation cycles 
 
 ---
 
-## 5. Live Production Benchmark: Remote Dedicated Server ("Schwanzstadt", 700h Mega-Factory)
+## 5. Live Production Benchmark: Remote Dedicated Server (700-hour Endgame Mega-Factory)
 
-To validate the asynchronous multithreaded architecture under real-world production conditions, the task bridge was deployed and evaluated directly on an active production dedicated server hosting **"Schwanzstadt"**—a 700-hour end-game mega-factory save:
+To validate the asynchronous multithreaded architecture under real-world production conditions, the task bridge was deployed and evaluated directly on an active production dedicated server hosting a 700-hour end-game mega-factory save:
 
 ### 5.1 Production Target Specifications
 - **Host System:** `192.168.178.56` (`plpxmcserv2`)
@@ -75,7 +75,7 @@ To validate the asynchronous multithreaded architecture under real-world product
 - **Memory:** 12 GB DDR4
 - **Operating System:** Ubuntu 24.04 LTS (Linux kernel 6.8.0-147-generic)
 - **Service Management:** `systemd` (`satisfactory.service`) with `LD_PRELOAD=/home/satisfactory/SatisfactoryDedicatedServer/libsatis_task_bridge.so`
-- **Active Savegame:** `Schwanzstadt` (Tech Tier 8, Project Assembly Phase 3, Total Play Duration: 2,510,658 seconds / ~697.4 hours, 6.28 MB save archive with tens of thousands of complex buildings, belts, and fluid pipe networks)
+- **Active Savegame:** a 700-hour production save (Tech Tier 8, Project Assembly Phase 3, Total Play Duration: 2,510,658 seconds / ~697.4 hours, 6.28 MB save archive with tens of thousands of complex buildings, belts, and fluid pipe networks)
 
 ### 5.2 Real-World Production Measurements
 

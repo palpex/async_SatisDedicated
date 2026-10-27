@@ -96,9 +96,9 @@ Detailed metrics measured on an Intel Core i5-4570 @ 3.20GHz (4 physical cores, 
 - **Elimination of Tick Drops:** At 128 task groups, vanilla Satisfactory drops to **19.7 TPS** (below the 30 TPS target, causing noticeable lag and desync). The asynchronous bridge maintains **50.2 TPS**.
 - **No Fork-Join Hitching:** Background tasks run across the TaskGraph pool without blocking barriers, eliminating frame pacing spikes.
 
-### 2.5 Live Production Deployment ("Schwanzstadt" 700h Mega-Factory, AMD Ryzen 7 5825U)
+### 2.5 Live Production Deployment (700-hour Endgame Mega-Factory, AMD Ryzen 7 5825U)
 
-Verified in active production on a dedicated server (`plpxmcserv2`, AMD Ryzen 7 5825U 8C/16T, 12 GB RAM) hosting the 700-hour **"Schwanzstadt"** endgame mega-factory save (Tier 8, Phase 3, 2.51M seconds duration):
+Verified in active production on a dedicated server (`plpxmcserv2`, AMD Ryzen 7 5825U 8C/16T, 12 GB RAM) hosting a 700-hour endgame production save (Tier 8, Phase 3, 2.51M seconds duration):
 
 | Metric | Vanilla Synchronous Baseline | Asynchronous Task Bridge | Production Impact |
 | :--- | :---: | :---: | :---: |
