@@ -78,3 +78,18 @@ def test_core_binary_digest():
     actual_hash = hashlib.sha256(core_path.read_bytes()).hexdigest()
     assert actual_hash == expected_hash
 
+
+def test_matched_ab_benchmark_evidence():
+    bench_path = ROOT / "evidence/runtime/matched-ab-benchmark-production.json"
+    assert bench_path.exists(), "matched A/B benchmark evidence must exist"
+    raw_text = bench_path.read_text()
+    assert "schwanz" not in raw_text.lower(), "private save identifier must not be present"
+    data = json.loads(raw_text)
+    assert data["async_enabled"]["bridge_enabled"] is True
+    assert data["vanilla_synchronous"]["bridge_enabled"] is False
+    assert data["async_restored"]["bridge_enabled"] is True
+    assert data["async_enabled"]["ticks_in_window"] > 500
+    assert data["vanilla_synchronous"]["ticks_in_window"] > 500
+    assert data["async_restored"]["ticks_in_window"] > 500
+    assert data["analysis"]["game_thread_cpu_reduction_pct"] > 10.0
+    assert data["analysis"]["worker_cpu_increase_pct"] > 0.0

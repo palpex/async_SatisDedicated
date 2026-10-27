@@ -1,0 +1,114 @@
+{
+  "timestamp": "2026-10-27T21:36:10Z",
+  "save_type": "production save (708h unpaused)",
+  "host": "AMD Ryzen 7 5825U (8C/16T, Ubuntu 24.04)",
+  "async_enabled": {
+    "actual_duration_s": 30.08,
+    "bridge_enabled": true,
+    "ticks_in_window": 894,
+    "dispatches_in_window": 894,
+    "fallbacks_in_window": 0,
+    "game_thread_cpu_pct": {
+      "mean": 23.47,
+      "std_dev": 0.636,
+      "min": 22.03,
+      "max": 24.86,
+      "count": 29
+    },
+    "worker_cpu_pct": {
+      "mean": 77.44,
+      "std_dev": 1.883,
+      "min": 73.79,
+      "max": 82.37,
+      "count": 29
+    },
+    "total_process_cpu_pct": {
+      "mean": 100.91,
+      "std_dev": 2.144,
+      "min": 96.79,
+      "max": 105.35,
+      "count": 29
+    },
+    "tps": {
+      "mean": 29.7,
+      "std_dev": 0.028,
+      "min": 29.65,
+      "max": 29.78,
+      "count": 29
+    }
+  },
+  "vanilla_synchronous": {
+    "actual_duration_s": 30.08,
+    "bridge_enabled": false,
+    "ticks_in_window": 894,
+    "dispatches_in_window": 0,
+    "fallbacks_in_window": 0,
+    "game_thread_cpu_pct": {
+      "mean": 27.8,
+      "std_dev": 0.915,
+      "min": 25.48,
+      "max": 29.7,
+      "count": 29
+    },
+    "worker_cpu_pct": {
+      "mean": 74.48,
+      "std_dev": 1.796,
+      "min": 71.83,
+      "max": 78.65,
+      "count": 29
+    },
+    "total_process_cpu_pct": {
+      "mean": 102.29,
+      "std_dev": 1.92,
+      "min": 98.65,
+      "max": 106.46,
+      "count": 29
+    },
+    "tps": {
+      "mean": 29.72,
+      "std_dev": 0.034,
+      "min": 29.66,
+      "max": 29.86,
+      "count": 29
+    }
+  },
+  "async_restored": {
+    "actual_duration_s": 30.11,
+    "bridge_enabled": true,
+    "ticks_in_window": 895,
+    "dispatches_in_window": 895,
+    "fallbacks_in_window": 0,
+    "game_thread_cpu_pct": {
+      "mean": 23.48,
+      "std_dev": 0.613,
+      "min": 22.05,
+      "max": 24.92,
+      "count": 29
+    },
+    "worker_cpu_pct": {
+      "mean": 77.69,
+      "std_dev": 2.039,
+      "min": 73.88,
+      "max": 84.34,
+      "count": 29
+    },
+    "total_process_cpu_pct": {
+      "mean": 101.16,
+      "std_dev": 2.187,
+      "min": 96.91,
+      "max": 108.3,
+      "count": 29
+    },
+    "tps": {
+      "mean": 29.71,
+      "std_dev": 0.028,
+      "min": 29.67,
+      "max": 29.78,
+      "count": 29
+    }
+  },
+  "analysis": {
+    "game_thread_cpu_reduction_pct": 15.58,
+    "worker_cpu_increase_pct": 3.97
+  }
+}

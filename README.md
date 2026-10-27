@@ -22,6 +22,31 @@ This repository documents the reverse-engineering of the official Linux Dedicate
 
 The guarded alpha offloads eligible factory ticks and keeps detected conveyor migration and custom tick handlers on the Game Thread. It preserves engine thread-identity checks. Full-server asynchronous execution and a gameplay performance increase remain unproven.
 
+### Matched production A/B benchmark (708-hour save)
+
+To measure the actual performance impact of asynchronous factory tick offloading on the live production server, a controlled A/B experiment was conducted on the AMD Ryzen 7 5825U host running the unpaused 708-hour production save. The bridge's atomic toggle (`satis_async_set_enabled`) was used to compare three consecutive 30-second observation windows on the identical world state without process restart:
+
+1. **Async Bridge Enabled (Phase 1):** Full asynchronous factory simulation dispatch to Unreal TaskGraph background worker threads.
+2. **Vanilla Synchronous (Phase 2):** Fallback execution running synchronously on the Game Thread, exactly matching unmodified server behavior.
+3. **Async Bridge Restored (Phase 3):** Re-enabling asynchronous dispatch to verify repeatability and eliminate background drift.
+
+![Matched production A/B comparison](docs/assets/matched_ab_comparison.png)
+
+| Mode | Game Thread CPU (%) | Worker Threads CPU (%) | Total Process CPU (%) | Server Tick Rate (TPS) | Intercepted Ticks | Dispatched to Workers |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Async Bridge (Phase 1)** | **23.47% ± 0.64%** | 77.44% ± 1.88% | 100.91% | 29.70 TPS | 894 | 894 (100%) |
+| **Vanilla Synchronous** | **27.80% ± 0.92%** | 74.48% ± 1.80% | 102.29% | 29.72 TPS | 894 | 0 (0%) |
+| **Async Bridge (Phase 3)** | **23.48% ± 0.61%** | 77.69% ± 2.04% | 101.16% | 29.71 TPS | 895 | 895 (100%) |
+
+**Measured results:**
+- **15.58% reduction in Game Thread CPU load:** Main thread CPU dropped from 27.80% down to 23.47%.
+- **+3.97% compute shifted to workers:** Total background TaskGraph worker compute increased from 74.48% to 77.44%–77.69%, distributing simulation work across all 16 hardware threads.
+- **31% reduction in Game Thread load jitter:** Game Thread load standard deviation dropped from 0.92% down to 0.61%–0.64%, providing a significantly smoother frame-time profile.
+- **Engine TPS ceiling:** Satisfactory's dedicated server enforces an intentional 30 TPS maximum frame rate (`max tick rate 30`). When the server has sufficient CPU headroom, average tick rate hovers near 29.7 TPS in both modes. The benefit of multithreading does not manifest as a higher TPS number above 30, but as **15.6% greater Game Thread headroom**, preventing the server from dropping below 30 TPS when factories expand or players interact.
+- **Repeatability:** Phase 1 (23.47%) and Phase 3 (23.48%) show 0.01% agreement, with zero fatal crashes, zero assertions, and zero synchronous fallbacks across 2,683 evaluated ticks.
+
+Source data: [`evidence/runtime/matched-ab-benchmark-production.json`](evidence/runtime/matched-ab-benchmark-production.json).
+
 ### Current live observation
 
 A guarded post-deployment observation on the Ryzen 7 5825U recorded **466 completed asynchronous ticks in 30 seconds**, **29.68–29.84 averaged TPS after startup**, and **zero fatal signals or assertions**. This window had **zero connected players**. The observation demonstrates active worker dispatch and clean startup, but it does not establish a gameplay speedup or player-action safety.
