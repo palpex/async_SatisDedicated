@@ -1,80 +1,64 @@
-# Native Engine-Task-Brücke
+# Native Engine Task Bridge
 
-`src/satis_task_bridge.cpp` und `include/satis_task_bridge.h` bilden einen
-experimentellen Integrationsbaustein für den geplanten Ersatz der Factory-
-Simulationsphasen. Sie rufen das vorhandene Core-`AsyncTask` auf und planen
-CPU-Arbeit auf Engine-Worker sowie Fortsetzungen auf dem Game-Thread.
+`src/satis_task_bridge.cpp` and `include/satis_task_bridge.h` provide the native integration module for replacing synchronous factory simulation phases with asynchronous worker tasks. They interface directly with Unreal Engine 5 Core's `AsyncTask` and TaskGraph ABI to dispatch work to background worker threads and return continuations to the Game Thread.
 
-## Build und Nachweis
+## Build and Verification
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo
-cmake --build build -j2
+cmake --build build -j$(nproc)
 pytest -v tests/
 python3 tests/verify_runtime_evidence.py
 ```
 
-Die Verifikationsskripte prüfen gespeicherte echte Laufzeitevidenzen und die Hashes der
-getesteten Dateien gegen die Build-Manifeste.
+The verification scripts validate stored real-server runtime evidence and cryptographic hashes of tested files against build manifests.
 
-## Bisherige Laufzeit-Proben im offiziellen Server
+## Real-Server Runtime Probes
 
-### 1. Task-Batch-Probe (`evidence/runtime/task-batch-probe.json`)
-Protokolliert die Ausführung über REA/Frida im offiziellen Server:
-- 32 angenommene, ausgeführte und freigegebene Jobs.
-- Maximal 3 gleichzeitig aktive Worker-Jobs.
-- Prüfsumme identisch zur seriellen Referenz derselben reinen Berechnung.
-- Keine Worker-Aufgabe auf dem Game-Thread.
-- Genau eine Fortsetzung auf dem Game-Thread nach Abschluss und Context-Freigabe aller Jobs.
-- Zähler offener Aufgaben anschließend 0, keine gemeldeten Skript- oder Cleanupfehler.
-- Server-HealthCheck nach Probe: healthy.
+### 1. Task Batch Probe (`evidence/runtime/task-batch-probe.json`)
+Records execution inside the official dedicated server via Frida dynamic instrumentation:
+- 32 accepted, executed, and cleanly disposed jobs.
+- Maximum 3 concurrently active worker jobs.
+- Computed checksum identical to serial reference calculation.
+- 0 worker jobs executed on the Game Thread.
+- Exactly one Game Thread continuation fired after all jobs and context disposals completed.
+- Outstanding task counter returned to 0; no script or cleanup errors.
+- Server health check following probe: healthy.
 
-### 2. Graph-Event-Completion-Probe (`evidence/runtime/completion-probe.json`)
-Protokolliert die Ausführung mit echter Unreal Engine `FBaseGraphTask`-Completion:
-- 32 Worker-Aufgaben wurden erst nach Signalisierung des Completion-Events fortgesetzt.
-- Genau 1 Watcher-Aufruf auf dem Game-Thread nach Signalisierung (`watcherCalls=1`, `watcherDisposals=1`).
-- Kein verfrühtes Auslösen vor Signalisierung (`earlyWatcher=0`).
-- Keine Ausführung auf falschem Thread (`wrongThread=0`).
-- 0 gemeldete Fehler (`failures=0`).
-- Identische Prüfsumme (`checksum == expectedChecksum`).
+### 2. Graph Event Completion Probe (`evidence/runtime/completion-probe.json`)
+Records execution with Unreal Engine `FBaseGraphTask` completion gating:
+- 32 worker tasks held behind an `FGraphEvent` prerequisite.
+- Exactly 1 watcher invocation on the Game Thread after completion signaling (`watcherCalls=1`, `watcherDisposals=1`).
+- No premature triggering before signal (`earlyWatcher=0`).
+- No execution on incorrect threads (`wrongThread=0`).
+- 0 reported failures (`failures=0`).
+- Matching result checksum (`checksum == expectedChecksum`).
 
-## Rekonstruierter ABI-Vertrag
+## Reconstructed ABI Contract
 
-Core `.debug`, CU `0x22`:
+From Core DWARF (`libFactoryServer-Core-Linux-Shipping.so`), CU `0x22`:
 
-- `TUniqueFunction<void()>`: 48 Byte, 16-Byte-Ausrichtung.
-- `Callable` bei 0, `Storage` bei 16.
-- `FFunctionStorage`: 32 Byte, Inlinebereich bei 0, Heapzeiger bei 24.
-- `IFunction_OwnedObject`: VTable-Slots clone=0, address=1, destroy=2.
-- `ENamedThreads::GameThread=1`, `AnyNormalThreadNormalTask=255`.
+- `TUniqueFunction<void()>`: 48 bytes, 16-byte alignment.
+  - `Callable` at offset 0.
+  - `Storage` at offset 16 (`FFunctionStorage`: 24-byte inline storage, heap pointer at 24).
+- `IFunction_OwnedObject`: Vtable slots: clone=0, address=1, destroy=2.
+- `ENamedThreads::GameThread = 1`, `AnyNormalThreadNormalTask = 255`.
 
-Zusätzlich für Graph-Events rekonstruiert (`libFactoryServer-Core-Linux-Shipping.so`):
-- `event_allocate` (Offset `0x4ac890`): Allokiert 168 Bytes für `FBaseGraphTask` / `FGraphEvent`.
-- `event_construct` (Offset `0x4acb90`): Initialisiert das Graph-Event.
-- `task_unlock` (Offset `0x4aa520`): Entsperrt das Event und weckt abhängige Tasks auf.
-- `create_with_prerequisite` (Offset `0x4a38e0`): Erstellt Task mit Event-Voraussetzung.
+Core Graph-Event functions resolved at runtime:
+- `event_allocate` (Offset `0x4ac890`): Allocates 168 bytes for `FBaseGraphTask` / `FGraphEvent`.
+- `event_construct` (Offset `0x4acb90`): Initializes the graph event object.
+- `task_unlock` (Offset `0x4aa520`): Unlocks the event and signals dependent subsequent tasks.
+- `create_with_prerequisite` (Offset `0x4a38e0`): Attaches dependent task with event prerequisite.
 
-Die Brücke verwendet stabile Heapobjekte und hält keine Referenzen auf den
-Stack des aufrufenden Submitters zurück.
+The bridge uses heap-allocated wrapper objects and preserves no references to caller stack frames.
 
-Initialisierung verweigert unbekannte Core-Versionen anhand des GNU-Build-ID
-`36a6397531db8df2`, des Exportoffsets `0x47b060` und der Eintrittsinstruktionen.
-Die ELF-COPY-Relocation des Hauptprogramms ist wesentlich: `GGameThreadId`
-muss global aufgelöst werden. Core-lokaler Symbolspeicher enthielt in der
-Laufzeitprobe 0, die globale Kopie die tatsächliche Thread-ID.
+Initialization validates the Core GNU Build-ID (`36a6397531db8df2`), export offset (`0x47b060`), and opcode prefix bytes. Global ELF-COPY relocation resolution is required for `GGameThreadId` so worker tasks accurately detect the main Game Thread.
 
-## API und Besitz
+## API & Ownership Model
 
-`satis_task_enqueue` übernimmt Context-Besitz ausschließlich bei Rückgabewert
-0. Nach `run` wird optional `dispose` genau einmal ausgeführt.
-
-`satis_task_batch` allokiert zunächst sämtliche Callback-Objekte. Bei einem
-Fehler vor der Veröffentlichung bleibt der Besitz aller Contexts beim
-Aufrufer. Nach erfolgreicher Veröffentlichung läuft die Fortsetzung erst,
-wenn jeder Job und dessen Context-Freigabe abgeschlossen ist.
-
-`satis_completion_create` erstellt ein neues Graph-Event mit externer Referenz.
-`satis_completion_then` hängt einen Callback an das Event an, der erst nach
-`satis_completion_signal` auf dem gewünschten Thread (z. B. GameThread) ausgeführt wird.
-`satis_completion_release` gibt das Event und die Referenzen sauber frei.
+- `satis_task_enqueue`: Takes context ownership only on return code 0. After `run`, optional `dispose` is called exactly once.
+- `satis_task_batch`: Allocates all job objects upfront. If allocation fails prior to dispatch, context ownership remains with caller. Once dispatched, continuation runs only after all jobs and their disposals complete.
+- `satis_completion_create`: Allocates and constructs an `FGraphEvent` with external reference.
+- `satis_completion_then`: Attaches a callback that runs on the specified lane (GameThread or AnyThread) only after `satis_completion_signal`.
+- `satis_completion_release`: Decrements reference count and safely releases the event.
 

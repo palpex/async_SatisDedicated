@@ -1,46 +1,36 @@
-# Nächster notwendiger Schritt
+# Integration Milestones & Roadmap
 
-Der vorangehende Zielturn hat Code und autoritative Laufzeitevidenz erzeugt:
-Die native Task-Brücke und die Batch-Fortsetzung wurden im offiziellen Server
-geprüft. Dies ist Fortschritt, aber kein vollständiger Simulationsrewrite.
+This document outlines the roadmap for migrating the Satisfactory Dedicated Server simulation to the native task bridge.
 
-Vor weiteren Änderungen `python3 tests/verify_runtime_evidence.py` lesen/laufen
-lassen und die gespeicherten Hashes gegen den aktuellen Code vergleichen.
-Der FactoryGame-Hash ist unverändert. Alle Testserver sind über ihre API
-heruntergefahren; Shutdownlogs und `runtime-state.json` liegen unter evidence.
+## 1. Verified Milestones (Completed)
 
-Die engste offene Integrationsfrage ist das Verlängern des vorhandenen
-Engine-Completion-Events bei `FFactoryTickFunction::ExecuteTick`. `rcx` trägt
-beim Eintritt den Verweis auf `TRefCountPtr<FBaseGraphTask>`. Der Originalcode
-nutzt ihn nicht. Ein asynchroner Ersatz muss seine Arbeit daran binden,
-inklusive sämtlicher Substeps und Pre-/Post-Handler. Ohne diesen Vertrag dürfen
-keine existierenden UObject-Operationen über die originale Tick-Rückkehr hinweg
-ausgelagert werden.
+- [x] Official binary extraction and DWARF symbol analysis.
+- [x] Identification of `FFactoryTickFunction::ExecuteTick`, `AFGBuildableSubsystem::TickFactory`, and `TickFactoryActors` disassembly.
+- [x] Reconstructed Core TaskGraph ABI (`AsyncTask`, `FBaseGraphTask`, `FFunctionGraphTask`).
+- [x] Implementation of `satis_task_bridge` with batch dispatch and completion graph events.
+- [x] Live Frida probe verification inside the official running server:
+  - 32 parallel worker tasks verified.
+  - Zero worker tasks executed on the Game Thread.
+  - Exactly one continuation executed on the Game Thread.
+  - Graph event gating verified without premature watcher execution.
+- [x] Automated test suite (`pytest`) and runtime evidence verification.
+- [x] Public GitHub repository with documentation and co-author credit.
 
-Core-DWARF: `FBaseGraphTask`/`UE::Tasks::Private::FTaskBase` Größe 168,
-`AddNested`/`DontCompleteUntil` deklarierte Inline-Methoden. Vollständige
-Memberdaten unter `evidence/core-task-dwarf.json`. `AsyncTask` ist exportiert,
-`FFunctionGraphTask::CreateAndDispatchWhenReady` liegt lokal bei `0x4acf90`
-(Array-Voraussetzungen) bzw. `0x4a38e0` (einzelne Voraussetzung).
-Noch nicht als sichere ABI aufrufen, bis Parameter, sret, RefCounts und
-Synchronisation nachgewiesen sind.
+## 2. Next Milestones (Simulation Rewriting)
 
-Die letzte REA-Sitzung hat folgende korrigierte Funktionen als standalone
-Evidence gespeichert; die `.c`-Dateien sind nur abgeleitete Lesehilfen:
-`TickFactoryActors`, `TickFactory`, `ExecuteTick`, `RegisterFactoryTickFunction`,
-`SimulatePipeNetworks`, `ConveyorChainActor::Factory_Tick` und Callbacks 0/1/2.
-Imagebase ist 0x100000. Symbolnamen bevorzugen. Das erste alte Dossier bei
-numerisch 0x187fc40 gehört fälschlich SteerAvoidFloor und ist quarantänisiert
-im Bericht; nicht als Factory-Beleg verwenden.
+1. **Completion Graph Event Hooking:**
+   - Intercept `FFactoryTickFunction::ExecuteTick` to capture `MyCompletionGraphEvent` passed in register `rcx`.
+   - Prevent the engine tick manager from stalling while simulation batches run in background.
 
-Nicht erneut stundenlang dieselben Programme analysieren. Weitere Queries
-müssen dieselbe aktive REA-Sitzung teilen, oder benötigte Aufgaben gesammelt
-im `scripts/rea_session.mjs`-Client ausführen. Der SDK v2 erwartet
-`callTool(params, options)`; das frühere dritte Argument bewirkte einen
-60-Sekunden-Clientabbruch und wurde korrigiert. Der Client legt alle
-angekündigten Schemas ab und nutzt nur existierende Tools.
+2. **Snapshot-Based Factory Actor Processing:**
+   - Isolate read-only state for building components and conveyor chains at the beginning of each tick substep.
+   - Dispatch decoupled simulation stages through `satis_task_batch`.
 
-Die Subagent-Berichte enthielten mehrere unbewiesene Behauptungen und wurden
-vom Parent auf konkrete Nachweise reduziert. Insbesondere sind Pipes nicht
-vollständig seriell. Das frische Baseline-Save hat keine Produktionsfabrik;
-Skalierungs- und Semantiktests brauchen noch tatsächliche Fabriklast.
+3. **Subsystem Decoupling:**
+   - Pipeline `AFGPipeSubsystem::SimulatePipeNetworks` alongside `AFGCircuitSubsystem::Tick`.
+   - Implement thread-safe synchronization boundaries before inventory and actor state mutations.
+
+4. **Stress & Scaling Benchmarks:**
+   - Benchmark with large end-game production saves (e.g. 50k+ buildables).
+   - Measure frame tick times, worker thread utilization, and server TPS under heavy load.
+
