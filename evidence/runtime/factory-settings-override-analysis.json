@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-27",
+  "finding": "UFGFactoryTickSettings overwrites t.ParallelTickGroupSize during AFGBuildableSubsystem::BeginPlay",
+  "static_evidence": {
+    "begin_play_offset": "0x187f0e0",
+    "cvar_global": "0x2642b10 (CVarParallelGroupSize+0x10)",
+    "begin_play_behavior": "reads CVarParallelGroupSize and stores it into AFGBuildableSubsystem+0x708",
+    "default_cvar_initialization": "global constructor passes integer 100 to IConsoleManager before FactoryGame startup",
+    "factory_settings_class": "UFGFactoryTickSettings (UDeveloperSettings), properties mMaxFactoryDeltaTime and mMaxSubsteps"
+  },
+  "runtime_evidence": {
+    "empty_entry_world_effective_group": 32,
+    "loaded_production_world_effective_group": 100,
+    "loaded_world_assertions": 0,
+    "loaded_world_fatal_signals": 0
+  },
+  "conclusion": "A ConsoleVariables value alone is not sufficient for a production-world tuning experiment. The supported FactoryTickSettings configuration asset/property must be resolved before claiming a group-size performance change."
+}
