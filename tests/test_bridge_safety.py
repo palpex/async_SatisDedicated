@@ -18,6 +18,12 @@ def bridge():
     lib.satis_completion_then.restype = ctypes.c_int
     lib.satis_completion_signal.restype = ctypes.c_int
     lib.satis_completion_release.restype = None
+    lib.satis_completion_bind_to_task.restype = ctypes.c_int
+    lib.satis_async_set_enabled.restype = None
+    lib.satis_async_set_enabled.argtypes = [ctypes.c_int]
+    lib.satis_async_is_enabled.restype = ctypes.c_int
+    lib.satis_async_tick_count.restype = ctypes.c_uint64
+    lib.satis_async_dispatch_count.restype = ctypes.c_uint64
     return lib
 
 def test_initialization_outside_server(bridge):
@@ -38,6 +44,15 @@ def test_completion_handles_safe_nulls(bridge):
     assert bridge.satis_completion_create() is None
     assert bridge.satis_completion_signal(None) == -1
     assert bridge.satis_completion_then(None, None, None, None, 0) == -1
+    assert bridge.satis_completion_bind_to_task(None, None) == -1
     # release with nullptr must not crash
     bridge.satis_completion_release(None)
+
+def test_async_interceptor_controls(bridge):
+    bridge.satis_async_set_enabled(1)
+    assert bridge.satis_async_is_enabled() == 1
+    bridge.satis_async_set_enabled(0)
+    assert bridge.satis_async_is_enabled() == 0
+    assert bridge.satis_async_tick_count() == 0
+    assert bridge.satis_async_dispatch_count() == 0
 

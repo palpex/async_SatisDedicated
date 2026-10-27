@@ -2,6 +2,7 @@
 #include <atomic>
 #include <cstddef>
 #include <cstdint>
+#include <cstdlib>
 #include <cstring>
 #include <dlfcn.h>
 #include <mutex>
@@ -58,12 +59,21 @@ AsyncTaskFunction async_task{};
 using EventAllocate = void* (*)(std::size_t);
 using EventConstruct = void (*)(void*);
 using TaskUnlock = bool (*)(void*, bool*);
+using TaskAddPrerequisites = bool (*)(void*, void*);
 // SysV nontrivial return uses RDI sret. Empty TStatId is omitted in this build.
 using CreateWithPrerequisite = void (*)(void**,UniqueFunction*,void* const*,std::uint32_t);
 EventAllocate event_allocate{};
 EventConstruct event_construct{};
 TaskUnlock task_unlock{};
+TaskAddPrerequisites task_add_prerequisites{};
 CreateWithPrerequisite create_with_prerequisite{};
+
+using ExecuteTickSignature = void (*)(void*, float, std::uint32_t, std::uint32_t, void* const*);
+std::atomic<ExecuteTickSignature> original_execute_tick{nullptr};
+std::atomic<bool> async_tick_enabled{false};
+std::atomic<std::uint64_t> intercepted_ticks{0};
+std::atomic<std::uint64_t> async_dispatches{0};
+
 void task_add_ref(void* task) {
     __atomic_fetch_add(reinterpret_cast<std::uint32_t*>(static_cast<char*>(task)+8),1u,__ATOMIC_RELAXED);
 }
@@ -202,10 +212,11 @@ extern "C" int satis_task_bridge_init() {
     const auto base=reinterpret_cast<std::uintptr_t>(info.dli_fbase);
     struct LocalEntry {std::uintptr_t offset; const char* prefix; std::size_t length;};
     const LocalEntry entries[]={
-        {0x4ac890,"\x55\x41\x57\x41\x56\x41\x54\x53",8},
-        {0x4acb90,"\x41\x57\x41\x56\x53\x48\x89\xfb",8},
-        {0x4aa520,"\x41\x57\x41\x56\x41\x54\x53\x50",8},
-        {0x4a38e0,"\x55\x41\x57\x41\x56\x41\x54\x53",8}
+        {0x4ac890,"UAWAVATS",8},
+        {0x4acb90,"AWAVSHû",8},
+        {0x4aa520,"AWAVATSP",8},
+        {0x4a38e0,"UAWAVATS",8},
+        {0x4b2410,"UAWAVAUATSP",11}
     };
     for(const auto& entry:entries) {
         if(std::memcmp(reinterpret_cast<void*>(base+entry.offset),entry.prefix,entry.length)) {
@@ -216,9 +227,16 @@ extern "C" int satis_task_bridge_init() {
     event_construct=reinterpret_cast<EventConstruct>(base+0x4acb90);
     task_unlock=reinterpret_cast<TaskUnlock>(base+0x4aa520);
     create_with_prerequisite=reinterpret_cast<CreateWithPrerequisite>(base+0x4a38e0);
+    task_add_prerequisites=reinterpret_cast<TaskAddPrerequisites>(base+0x4b2410);
     game_thread_id=static_cast<std::uint32_t*>(dlsym(RTLD_DEFAULT,"GGameThreadId"));
     if(!game_thread_id || !*game_thread_id) {failure="Game thread is not initialized";return -4;}
     async_task=reinterpret_cast<AsyncTaskFunction>(symbol);
+
+    const char* env_async = std::getenv("SATIS_ASYNC_TICK");
+    if(env_async && (!std::strcmp(env_async, "1") || !std::strcmp(env_async, "true"))) {
+        async_tick_enabled.store(true, std::memory_order_release);
+    }
+
     failure="";
     initialized.store(true,std::memory_order_release);
     return 0;
@@ -350,6 +368,106 @@ extern "C" void satis_completion_release(satis_completion* completion) {
     delete completion;
 }
 
+extern "C" int satis_completion_bind_to_task(satis_completion* completion, void* engine_task) {
+    if(!initialized.load(std::memory_order_acquire))return -1;
+    if(!completion || !completion->event || !engine_task)return -2;
+    bool ok = task_add_prerequisites(engine_task, completion->event);
+    return ok ? 0 : 1;
+}
+
+extern "C" void satis_async_set_enabled(int enabled) {
+    async_tick_enabled.store(enabled != 0, std::memory_order_release);
+}
+extern "C" int satis_async_is_enabled() {
+    return async_tick_enabled.load(std::memory_order_acquire) ? 1 : 0;
+}
+extern "C" std::uint64_t satis_async_tick_count() {
+    return intercepted_ticks.load(std::memory_order_acquire);
+}
+extern "C" std::uint64_t satis_async_dispatch_count() {
+    return async_dispatches.load(std::memory_order_acquire);
+}
+
+namespace {
+struct AsyncTickContext {
+    ExecuteTickSignature orig;
+    void* this_ptr;
+    float delta_time;
+    std::uint32_t level_tick;
+    std::uint32_t current_thread;
+    void* completion_event;
+    satis_completion* completion_handle;
+};
+
+void async_tick_runner(void* opaque) {
+    auto* ctx = static_cast<AsyncTickContext*>(opaque);
+    void* completion_ptr = ctx->completion_event;
+    ctx->orig(ctx->this_ptr, ctx->delta_time, ctx->level_tick, ctx->current_thread, &completion_ptr);
+    if(ctx->completion_handle) {
+        satis_completion_signal(ctx->completion_handle);
+        satis_completion_release(ctx->completion_handle);
+    }
+    delete ctx;
+}
+}
+
+extern "C" void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThreads4TypeERK12TRefCountPtrI14FBaseGraphTaskE(
+    void* this_ptr, float delta_time, std::uint32_t level_tick, std::uint32_t current_thread, void* const* completion_event_ref
+) {
+    intercepted_ticks.fetch_add(1, std::memory_order_relaxed);
+
+    ExecuteTickSignature orig = original_execute_tick.load(std::memory_order_acquire);
+    if(!orig) {
+        orig = reinterpret_cast<ExecuteTickSignature>(
+            dlsym(RTLD_NEXT, "_ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThreads4TypeERK12TRefCountPtrI14FBaseGraphTaskE")
+        );
+        if(!orig) {
+            void* fg = dlopen("libFactoryServer-FactoryGame-Linux-Shipping.so", RTLD_NOW | RTLD_NOLOAD);
+            if(fg) {
+                orig = reinterpret_cast<ExecuteTickSignature>(
+                    dlsym(fg, "_ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThreads4TypeERK12TRefCountPtrI14FBaseGraphTaskE")
+                );
+            }
+        }
+        original_execute_tick.store(orig, std::memory_order_release);
+    }
+
+    if(!async_tick_enabled.load(std::memory_order_acquire) ||
+       !initialized.load(std::memory_order_acquire) || !orig) {
+        if(orig) {
+            orig(this_ptr, delta_time, level_tick, current_thread, completion_event_ref);
+        }
+        return;
+    }
+
+    void* engine_task = (completion_event_ref && *completion_event_ref) ? *completion_event_ref : nullptr;
+    satis_completion* comp = nullptr;
+    if(engine_task) {
+        comp = satis_completion_create();
+        if(comp) {
+            satis_completion_bind_to_task(comp, engine_task);
+        }
+    }
+
+    auto* ctx = new(std::nothrow) AsyncTickContext{
+        orig, this_ptr, delta_time, level_tick, current_thread, engine_task, comp
+    };
+    if(!ctx) {
+        if(comp) {
+            satis_completion_signal(comp);
+            satis_completion_release(comp);
+        }
+        orig(this_ptr, delta_time, level_tick, current_thread, completion_event_ref);
+        return;
+    }
+
+    async_dispatches.fetch_add(1, std::memory_order_relaxed);
+    int queued = satis_task_enqueue(async_tick_runner, ctx, nullptr, SATIS_WORKER_THREAD);
+    if(queued != 0) {
+        async_tick_runner(ctx);
+    }
+}
+
 namespace {
 struct CompletionProbe {
     std::atomic<bool> started{false};
@@ -433,3 +551,4 @@ extern "C" int satis_completion_probe_read(satis_completion_probe_result* r) {
     r->failures=completion_probe.failures.load();r->max_concurrency=completion_probe.maximum.load();
     return 0;
 }
+

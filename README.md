@@ -62,7 +62,7 @@ The native task bridge (`src/satis_task_bridge.cpp`, `include/satis_task_bridge.
 - **Build ID Validation:** Checks the GNU Build-ID `36a6397531db8df2` on `libFactoryServer-Core-Linux-Shipping.so` to prevent loading against incompatible engine builds.
 - **Entry Instruction Verification:** Inspects opcode prefixes of `AsyncTask` at offset `0x47b060` (`_Z9AsyncTaskN13ENamedThreads4TypeE15TUniqueFunctionIFvvEE`).
 - **Global ELF-COPY Relocation:** Resolves `GGameThreadId` across global symbol scope (preventing thread-identity confusion where Core-local TLS reads 0).
-- **Core Graph-Event Functions:** Resolves `event_allocate` (`0x4ac890`), `event_construct` (`0x4acb90`), `task_unlock` (`0x4aa520`), and `create_with_prerequisite` (`0x4a38e0`).
+- **Core Graph-Event Functions:** Resolves `event_allocate` (`0x4ac890`), `event_construct` (`0x4acb90`), `task_unlock` (`0x4aa520`), `create_with_prerequisite` (`0x4a38e0`), and `task_add_prerequisites` (`0x4b2410`).
 
 ### 4.2 Task Batching (`satis_task_batch`)
 - Accepts an array of $N$ heterogeneous task items.
@@ -73,6 +73,12 @@ The native task bridge (`src/satis_task_bridge.cpp`, `include/satis_task_bridge.
 ### 4.3 Graph Event Completion (`satis_completion_*`)
 - Implements `FBaseGraphTask` / `FGraphEvent` creation and prerequisite attachment.
 - Allows simulation ticks to return immediately to Unreal's TickManager while binding completion to an event that signals only when background worker batches finish.
+
+### 4.4 Simulation Interception Hook
+- Exports an interposition hook for `FFactoryTickFunction::ExecuteTick`.
+- Dynamic control via `satis_async_set_enabled(1)` or `SATIS_ASYNC_TICK=1`.
+- Captures `MyCompletionGraphEvent`, binds an asynchronous completion event, and offloads factory ticking to worker threads without freezing the Game Thread.
+- Runtime counters: `satis_async_tick_count()` and `satis_async_dispatch_count()`.
 
 ---
 

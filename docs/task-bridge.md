@@ -49,10 +49,28 @@ Core Graph-Event functions resolved at runtime:
 - `event_construct` (Offset `0x4acb90`): Initializes the graph event object.
 - `task_unlock` (Offset `0x4aa520`): Unlocks the event and signals dependent subsequent tasks.
 - `create_with_prerequisite` (Offset `0x4a38e0`): Attaches dependent task with event prerequisite.
+- `task_add_prerequisites` (Offset `0x4b2410`): Adds prerequisite event to an existing engine task (`DontCompleteUntil` logic).
 
 The bridge uses heap-allocated wrapper objects and preserves no references to caller stack frames.
 
 Initialization validates the Core GNU Build-ID (`36a6397531db8df2`), export offset (`0x47b060`), and opcode prefix bytes. Global ELF-COPY relocation resolution is required for `GGameThreadId` so worker tasks accurately detect the main Game Thread.
+
+## Simulation Hooking & Interception
+
+The library exports an interposition hook for the factory simulation tick:
+```cpp
+void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThreads4TypeERK12TRefCountPtrI14FBaseGraphTaskE(
+    void* this_ptr, float delta_time, uint32_t level_tick, uint32_t current_thread, void* const* completion_event_ref
+);
+```
+
+When enabled via `satis_async_set_enabled(1)` or `SATIS_ASYNC_TICK=1`:
+1. Intercepts the engine tick invocation on `FFactoryTickFunction`.
+2. Creates an `FGraphEvent` via `satis_completion_create()`.
+3. Binds the completion event to the engine task passed in `completion_event_ref` via `satis_completion_bind_to_task()`.
+4. Dispatches the simulation tick asynchronously onto the worker pool via `satis_task_enqueue()`.
+5. Returns immediately to the Unreal TickManager, allowing the Game Thread to process other frames.
+6. When the worker finishes the factory tick, it signals and releases the completion event, releasing the tick group.
 
 ## API & Ownership Model
 
@@ -60,5 +78,8 @@ Initialization validates the Core GNU Build-ID (`36a6397531db8df2`), export offs
 - `satis_task_batch`: Allocates all job objects upfront. If allocation fails prior to dispatch, context ownership remains with caller. Once dispatched, continuation runs only after all jobs and their disposals complete.
 - `satis_completion_create`: Allocates and constructs an `FGraphEvent` with external reference.
 - `satis_completion_then`: Attaches a callback that runs on the specified lane (GameThread or AnyThread) only after `satis_completion_signal`.
+- `satis_completion_bind_to_task`: Links an `FGraphEvent` as prerequisite to an existing engine task.
 - `satis_completion_release`: Decrements reference count and safely releases the event.
+- `satis_async_set_enabled` / `satis_async_is_enabled`: Controls dynamic simulation tick offloading.
+- `satis_async_tick_count` / `satis_async_dispatch_count`: Performance metrics for intercepted ticks.
 

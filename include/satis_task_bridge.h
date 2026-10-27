@@ -66,6 +66,19 @@ struct satis_completion_probe_result {
     uint64_t signal_calls, failures, max_concurrency;
 };
 int satis_completion_probe_read(struct satis_completion_probe_result* result);
+
+// Binds an FGraphEvent to an existing engine task (e.g. MyCompletionGraphEvent)
+// using FTaskBase::AddPrerequisites. The engine task will not complete until
+// completion is signaled.
+int satis_completion_bind_to_task(struct satis_completion* completion, void* engine_task);
+
+// Simulation tick interceptor control & metrics
+void satis_async_set_enabled(int enabled);
+int satis_async_is_enabled(void);
+uint64_t satis_async_tick_count(void);
+uint64_t satis_async_dispatch_count(void);
+
 #ifdef __cplusplus
 }
 #endif
+

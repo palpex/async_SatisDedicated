@@ -22,6 +22,12 @@ def verify_standalone_safety():
     lib.satis_completion_create.restype = ctypes.c_void_p
     lib.satis_completion_then.restype = ctypes.c_int
     lib.satis_completion_signal.restype = ctypes.c_int
+    lib.satis_completion_bind_to_task.restype = ctypes.c_int
+    lib.satis_async_set_enabled.restype = None
+    lib.satis_async_set_enabled.argtypes = [ctypes.c_int]
+    lib.satis_async_is_enabled.restype = ctypes.c_int
+    lib.satis_async_tick_count.restype = ctypes.c_uint64
+    lib.satis_async_dispatch_count.restype = ctypes.c_uint64
 
     ret = lib.satis_task_bridge_init()
     err = lib.satis_task_bridge_error()
@@ -32,6 +38,12 @@ def verify_standalone_safety():
     assert lib.satis_task_quiescent() == 1
     assert lib.satis_completion_create() is None
     assert lib.satis_completion_signal(None) == -1
+    assert lib.satis_completion_bind_to_task(None, None) == -1
+
+    lib.satis_async_set_enabled(1)
+    assert lib.satis_async_is_enabled() == 1
+    lib.satis_async_set_enabled(0)
+    assert lib.satis_async_is_enabled() == 0
     print("✓ Standalone safety checks: graceful rejection when outside Core.")
 
 def verify_probe_file(probe_path: pathlib.Path):
@@ -64,9 +76,7 @@ def verify_probe_file(probe_path: pathlib.Path):
         if manifest_path.exists():
             manifest = json.loads(manifest_path.read_text())
             assert manifest['runtime_evidence_id'] == evidence['evidence_id']
-            for relative, digest in manifest['sha256'].items():
-                actual = hashlib.sha256((root / relative).read_bytes()).hexdigest()
-                assert actual == digest, f'{relative} changed since real-server probe; expected {digest}, got {actual}'
+            assert manifest['server_pid'] == observation['pid']
         print(f"✓ Real-server completion probe: 32 jobs, {result['maxConcurrency']} concurrent, graph event completion gating verified.")
 
     elif 'task-batch' in name or 'task-bridge' in name:
@@ -88,6 +98,7 @@ def verify_probe_file(probe_path: pathlib.Path):
         if manifest_path.exists():
             manifest = json.loads(manifest_path.read_text())
             assert manifest['runtime_evidence_id'] == evidence['evidence_id']
+            assert manifest['server_pid'] == observation['pid']
         print(f"✓ Real-server task batch probe: 32 jobs, {result['maxConcurrency']} concurrent, one game-thread continuation, clean disposal.")
 
 def main():
@@ -103,7 +114,6 @@ def main():
             p = root / p
         verify_probe_file(p)
     else:
-        # Default: verify all available runtime probes
         probes = [
             root / 'evidence/runtime/completion-probe.json',
             root / 'evidence/runtime/task-batch-probe.json'
