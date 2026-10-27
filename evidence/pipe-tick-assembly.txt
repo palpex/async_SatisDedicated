@@ -1,0 +1,988 @@
+
+server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000001b24ec0 <AFGPipeSubsystem::Tick(float)>:
+ 1b24ec0:	55                   	push   %rbp
+ 1b24ec1:	41 57                	push   %r15
+ 1b24ec3:	41 56                	push   %r14
+ 1b24ec5:	41 55                	push   %r13
+ 1b24ec7:	41 54                	push   %r12
+ 1b24ec9:	53                   	push   %rbx
+ 1b24eca:	48 83 ec 28          	sub    $0x28,%rsp
+ 1b24ece:	48 89 fb             	mov    %rdi,%rbx
+ 1b24ed1:	f3 0f 11 44 24 24    	movss  %xmm0,0x24(%rsp)
+ 1b24ed7:	e8 84 35 62 00       	call   2148460 <AActor::Tick(float)@plt>
+ 1b24edc:	48 8d ab d0 02 00 00 	lea    0x2d0(%rbx),%rbp
+ 1b24ee3:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 1b24ee6:	0f 29 44 24 10       	movaps %xmm0,0x10(%rsp)
+ 1b24eeb:	8b 8b e8 02 00 00    	mov    0x2e8(%rbx),%ecx
+ 1b24ef1:	85 c9                	test   %ecx,%ecx
+ 1b24ef3:	74 21                	je     1b24f16 <AFGPipeSubsystem::Tick(float)+0x56>
+ 1b24ef5:	48 8b 93 e0 02 00 00 	mov    0x2e0(%rbx),%rdx
+ 1b24efc:	48 85 d2             	test   %rdx,%rdx
+ 1b24eff:	48 0f 44 d5          	cmove  %rbp,%rdx
+ 1b24f03:	8b 32                	mov    (%rdx),%esi
+ 1b24f05:	85 f6                	test   %esi,%esi
+ 1b24f07:	74 24                	je     1b24f2d <AFGPipeSubsystem::Tick(float)+0x6d>
+ 1b24f09:	b8 3e 00 00 00       	mov    $0x3e,%eax
+ 1b24f0e:	45 31 ed             	xor    %r13d,%r13d
+ 1b24f11:	45 31 f6             	xor    %r14d,%r14d
+ 1b24f14:	eb 56                	jmp    1b24f6c <AFGPipeSubsystem::Tick(float)+0xac>
+ 1b24f16:	41 bc 01 00 00 00    	mov    $0x1,%r12d
+ 1b24f1c:	45 31 ed             	xor    %r13d,%r13d
+ 1b24f1f:	31 c0                	xor    %eax,%eax
+ 1b24f21:	45 31 f6             	xor    %r14d,%r14d
+ 1b24f24:	39 c8                	cmp    %ecx,%eax
+ 1b24f26:	7c 6b                	jl     1b24f93 <AFGPipeSubsystem::Tick(float)+0xd3>
+ 1b24f28:	e9 a3 02 00 00       	jmp    1b251d0 <AFGPipeSubsystem::Tick(float)+0x310>
+ 1b24f2d:	8d 41 ff             	lea    -0x1(%rcx),%eax
+ 1b24f30:	8d 79 1e             	lea    0x1e(%rcx),%edi
+ 1b24f33:	85 c0                	test   %eax,%eax
+ 1b24f35:	0f 49 f8             	cmovns %eax,%edi
+ 1b24f38:	c1 ff 05             	sar    $0x5,%edi
+ 1b24f3b:	45 31 ed             	xor    %r13d,%r13d
+ 1b24f3e:	85 ff                	test   %edi,%edi
+ 1b24f40:	41 0f 4e fd          	cmovle %r13d,%edi
+ 1b24f44:	b8 3e 00 00 00       	mov    $0x3e,%eax
+ 1b24f49:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 1b24f50:	4c 39 ef             	cmp    %r13,%rdi
+ 1b24f53:	0f 84 77 02 00 00    	je     1b251d0 <AFGPipeSubsystem::Tick(float)+0x310>
+ 1b24f59:	42 8b 74 aa 04       	mov    0x4(%rdx,%r13,4),%esi
+ 1b24f5e:	49 ff c5             	inc    %r13
+ 1b24f61:	83 c0 20             	add    $0x20,%eax
+ 1b24f64:	85 f6                	test   %esi,%esi
+ 1b24f66:	74 e8                	je     1b24f50 <AFGPipeSubsystem::Tick(float)+0x90>
+ 1b24f68:	44 8d 70 c2          	lea    -0x3e(%rax),%r14d
+ 1b24f6c:	41 89 f4             	mov    %esi,%r12d
+ 1b24f6f:	41 f7 dc             	neg    %r12d
+ 1b24f72:	41 21 f4             	and    %esi,%r12d
+ 1b24f75:	4a 8d 14 65 01 00 00 	lea    0x1(,%r12,2),%rdx
+ 1b24f7c:	00 
+ 1b24f7d:	48 0f bd d2          	bsr    %rdx,%rdx
+ 1b24f81:	83 f2 3f             	xor    $0x3f,%edx
+ 1b24f84:	29 d0                	sub    %edx,%eax
+ 1b24f86:	39 c8                	cmp    %ecx,%eax
+ 1b24f88:	0f 4d c1             	cmovge %ecx,%eax
+ 1b24f8b:	39 c8                	cmp    %ecx,%eax
+ 1b24f8d:	0f 8d 3d 02 00 00    	jge    1b251d0 <AFGPipeSubsystem::Tick(float)+0x310>
+ 1b24f93:	41 bf ff ff ff ff    	mov    $0xffffffff,%r15d
+ 1b24f99:	eb 6e                	jmp    1b25009 <AFGPipeSubsystem::Tick(float)+0x149>
+ 1b24f9b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 1b24fa0:	8d 48 01             	lea    0x1(%rax),%ecx
+ 1b24fa3:	89 4c 24 18          	mov    %ecx,0x18(%rsp)
+ 1b24fa7:	48 8b 4c 24 10       	mov    0x10(%rsp),%rcx
+ 1b24fac:	48 98                	cltq   
+ 1b24fae:	8b 54 24 0c          	mov    0xc(%rsp),%edx
+ 1b24fb2:	89 14 81             	mov    %edx,(%rcx,%rax,4)
+ 1b24fb5:	41 f7 d4             	not    %r12d
+ 1b24fb8:	45 21 e7             	and    %r12d,%r15d
+ 1b24fbb:	48 8b 93 e0 02 00 00 	mov    0x2e0(%rbx),%rdx
+ 1b24fc2:	48 85 d2             	test   %rdx,%rdx
+ 1b24fc5:	48 0f 44 d5          	cmove  %rbp,%rdx
+ 1b24fc9:	8b 8b e8 02 00 00    	mov    0x2e8(%rbx),%ecx
+ 1b24fcf:	49 63 fd             	movslq %r13d,%rdi
+ 1b24fd2:	8b 04 ba             	mov    (%rdx,%rdi,4),%eax
+ 1b24fd5:	44 21 f8             	and    %r15d,%eax
+ 1b24fd8:	0f 84 a2 00 00 00    	je     1b25080 <AFGPipeSubsystem::Tick(float)+0x1c0>
+ 1b24fde:	41 89 c4             	mov    %eax,%r12d
+ 1b24fe1:	41 f7 dc             	neg    %r12d
+ 1b24fe4:	41 21 c4             	and    %eax,%r12d
+ 1b24fe7:	4a 8d 04 65 01 00 00 	lea    0x1(,%r12,2),%rax
+ 1b24fee:	00 
+ 1b24fef:	48 0f bd d0          	bsr    %rax,%rdx
+ 1b24ff3:	83 f2 3f             	xor    $0x3f,%edx
+ 1b24ff6:	44 89 f0             	mov    %r14d,%eax
+ 1b24ff9:	29 d0                	sub    %edx,%eax
+ 1b24ffb:	83 c0 3e             	add    $0x3e,%eax
+ 1b24ffe:	39 c8                	cmp    %ecx,%eax
+ 1b25000:	0f 4d c1             	cmovge %ecx,%eax
+ 1b25003:	0f 8d 15 01 00 00    	jge    1b2511e <AFGPipeSubsystem::Tick(float)+0x25e>
+ 1b25009:	48 8b 8b c0 02 00 00 	mov    0x2c0(%rbx),%rcx
+ 1b25010:	48 98                	cltq   
+ 1b25012:	48 8d 04 40          	lea    (%rax,%rax,2),%rax
+ 1b25016:	8b 14 c1             	mov    (%rcx,%rax,8),%edx
+ 1b25019:	89 54 24 0c          	mov    %edx,0xc(%rsp)
+ 1b2501d:	48 8b 7c c1 08       	mov    0x8(%rcx,%rax,8),%rdi
+ 1b25022:	e8 39 4e 65 00       	call   2179e60 <AFGPipeNetwork::NeedFullRebuild() const@plt>
+ 1b25027:	84 c0                	test   %al,%al
+ 1b25029:	74 8a                	je     1b24fb5 <AFGPipeSubsystem::Tick(float)+0xf5>
+ 1b2502b:	4c 8b 4c 24 10       	mov    0x10(%rsp),%r9
+ 1b25030:	48 8d 44 24 0c       	lea    0xc(%rsp),%rax
+ 1b25035:	49 39 c1             	cmp    %rax,%r9
+ 1b25038:	77 17                	ja     1b25051 <AFGPipeSubsystem::Tick(float)+0x191>
+ 1b2503a:	4c 63 54 24 1c       	movslq 0x1c(%rsp),%r10
+ 1b2503f:	4b 8d 04 91          	lea    (%r9,%r10,4),%rax
+ 1b25043:	48 8d 4c 24 0c       	lea    0xc(%rsp),%rcx
+ 1b25048:	48 39 c8             	cmp    %rcx,%rax
+ 1b2504b:	0f 87 86 00 00 00    	ja     1b250d7 <AFGPipeSubsystem::Tick(float)+0x217>
+ 1b25051:	8b 44 24 18          	mov    0x18(%rsp),%eax
+ 1b25055:	3b 44 24 1c          	cmp    0x1c(%rsp),%eax
+ 1b25059:	0f 85 41 ff ff ff    	jne    1b24fa0 <AFGPipeSubsystem::Tick(float)+0xe0>
+ 1b2505f:	bf 04 04 00 00       	mov    $0x404,%edi
+ 1b25064:	48 8d 74 24 10       	lea    0x10(%rsp),%rsi
+ 1b25069:	48 8d 54 24 1c       	lea    0x1c(%rsp),%rdx
+ 1b2506e:	e8 1d ed 7f ff       	call   1323d90 <decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned short, TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 1b25073:	e9 28 ff ff ff       	jmp    1b24fa0 <AFGPipeSubsystem::Tick(float)+0xe0>
+ 1b25078:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+ 1b2507f:	00 
+ 1b25080:	8d 71 ff             	lea    -0x1(%rcx),%esi
+ 1b25083:	8d 41 1e             	lea    0x1e(%rcx),%eax
+ 1b25086:	85 f6                	test   %esi,%esi
+ 1b25088:	0f 49 c6             	cmovns %esi,%eax
+ 1b2508b:	c1 f8 05             	sar    $0x5,%eax
+ 1b2508e:	41 39 c5             	cmp    %eax,%r13d
+ 1b25091:	41 0f 4f c5          	cmovg  %r13d,%eax
+ 1b25095:	0f 8d 83 00 00 00    	jge    1b2511e <AFGPipeSubsystem::Tick(float)+0x25e>
+ 1b2509b:	48 63 f0             	movslq %eax,%rsi
+ 1b2509e:	41 83 c6 20          	add    $0x20,%r14d
+ 1b250a2:	4c 8d 04 ba          	lea    (%rdx,%rdi,4),%r8
+ 1b250a6:	49 83 c0 04          	add    $0x4,%r8
+ 1b250aa:	48 29 fe             	sub    %rdi,%rsi
+ 1b250ad:	31 d2                	xor    %edx,%edx
+ 1b250af:	90                   	nop
+ 1b250b0:	41 8b 04 90          	mov    (%r8,%rdx,4),%eax
+ 1b250b4:	85 c0                	test   %eax,%eax
+ 1b250b6:	75 0e                	jne    1b250c6 <AFGPipeSubsystem::Tick(float)+0x206>
+ 1b250b8:	41 83 c6 20          	add    $0x20,%r14d
+ 1b250bc:	48 ff c2             	inc    %rdx
+ 1b250bf:	48 39 d6             	cmp    %rdx,%rsi
+ 1b250c2:	75 ec                	jne    1b250b0 <AFGPipeSubsystem::Tick(float)+0x1f0>
+ 1b250c4:	eb 58                	jmp    1b2511e <AFGPipeSubsystem::Tick(float)+0x25e>
+ 1b250c6:	41 01 d5             	add    %edx,%r13d
+ 1b250c9:	41 ff c5             	inc    %r13d
+ 1b250cc:	41 bf ff ff ff ff    	mov    $0xffffffff,%r15d
+ 1b250d2:	e9 07 ff ff ff       	jmp    1b24fde <AFGPipeSubsystem::Tick(float)+0x11e>
+ 1b250d7:	4c 63 5c 24 18       	movslq 0x18(%rsp),%r11
+ 1b250dc:	48 83 ec 08          	sub    $0x8,%rsp
+ 1b250e0:	48 8d 3d c7 fb 3c ff 	lea    -0xc30439(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 1b250e7:	48 8d 35 32 b5 39 ff 	lea    -0xc64ace(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1b250ee:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 1b250f3:	48 8d 0d 50 ea 45 ff 	lea    -0xba15b0(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 1b250fa:	4c 8d 44 24 14       	lea    0x14(%rsp),%r8
+ 1b250ff:	31 c0                	xor    %eax,%eax
+ 1b25101:	6a 04                	push   $0x4
+ 1b25103:	41 53                	push   %r11
+ 1b25105:	41 52                	push   %r10
+ 1b25107:	e8 74 1a 62 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1b2510c:	48 83 c4 20          	add    $0x20,%rsp
+ 1b25110:	84 c0                	test   %al,%al
+ 1b25112:	0f 84 39 ff ff ff    	je     1b25051 <AFGPipeSubsystem::Tick(float)+0x191>
+ 1b25118:	cc                   	int3   
+ 1b25119:	e9 33 ff ff ff       	jmp    1b25051 <AFGPipeSubsystem::Tick(float)+0x191>
+ 1b2511e:	8b 54 24 18          	mov    0x18(%rsp),%edx
+ 1b25122:	85 d2                	test   %edx,%edx
+ 1b25124:	0f 8e a6 00 00 00    	jle    1b251d0 <AFGPipeSubsystem::Tick(float)+0x310>
+ 1b2512a:	48 8b 05 2f 0b ac 00 	mov    0xac0b2f(%rip),%rax        # 25e5c60 <LogPipes@@Base-0x5c1bc>
+ 1b25131:	80 38 05             	cmpb   $0x5,(%rax)
+ 1b25134:	72 1d                	jb     1b25153 <AFGPipeSubsystem::Tick(float)+0x293>
+ 1b25136:	48 8b 3d 23 0b ac 00 	mov    0xac0b23(%rip),%rdi        # 25e5c60 <LogPipes@@Base-0x5c1bc>
+ 1b2513d:	48 8d 35 3c 8c a5 00 	lea    0xa58c3c(%rip),%rsi        # 257dd80 <AFGPipeSubsystem::Tick(float)::LOG_Static>
+ 1b25144:	31 c0                	xor    %eax,%eax
+ 1b25146:	e8 15 31 62 00       	call   2148260 <UE::Logging::Private::BasicLog(FLogCategoryBase const&, UE::Logging::Private::FStaticBasicLogRecord const*, ...)@plt>
+ 1b2514b:	8b 54 24 18          	mov    0x18(%rsp),%edx
+ 1b2514f:	85 d2                	test   %edx,%edx
+ 1b25151:	7e 7d                	jle    1b251d0 <AFGPipeSubsystem::Tick(float)+0x310>
+ 1b25153:	89 d5                	mov    %edx,%ebp
+ 1b25155:	4c 8d 35 4b 00 3d ff 	lea    -0xc2ffb5(%rip),%r14        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1b2515c:	4c 8d 3d bd b4 39 ff 	lea    -0xc64b43(%rip),%r15        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1b25163:	4c 8d 25 98 91 42 ff 	lea    -0xbd6e68(%rip),%r12        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1b2516a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ 1b25170:	4c 8d 6d ff          	lea    -0x1(%rbp),%r13
+ 1b25174:	4c 63 4c 24 18       	movslq 0x18(%rsp),%r9
+ 1b25179:	4c 39 cd             	cmp    %r9,%rbp
+ 1b2517c:	7f 27                	jg     1b251a5 <AFGPipeSubsystem::Tick(float)+0x2e5>
+ 1b2517e:	48 8b 44 24 10       	mov    0x10(%rsp),%rax
+ 1b25183:	8b 74 a8 fc          	mov    -0x4(%rax,%rbp,4),%esi
+ 1b25187:	83 fe ff             	cmp    $0xffffffff,%esi
+ 1b2518a:	74 38                	je     1b251c4 <AFGPipeSubsystem::Tick(float)+0x304>
+ 1b2518c:	48 89 df             	mov    %rbx,%rdi
+ 1b2518f:	e8 ac 4f 65 00       	call   217a140 <AFGPipeSubsystem::RebuildPipeNetwork(int)@plt>
+ 1b25194:	4c 89 e8             	mov    %r13,%rax
+ 1b25197:	48 ff c0             	inc    %rax
+ 1b2519a:	4c 89 ed             	mov    %r13,%rbp
+ 1b2519d:	48 83 f8 01          	cmp    $0x1,%rax
+ 1b251a1:	77 cd                	ja     1b25170 <AFGPipeSubsystem::Tick(float)+0x2b0>
+ 1b251a3:	eb 2b                	jmp    1b251d0 <AFGPipeSubsystem::Tick(float)+0x310>
+ 1b251a5:	4c 89 f7             	mov    %r14,%rdi
+ 1b251a8:	4c 89 fe             	mov    %r15,%rsi
+ 1b251ab:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1b251b0:	4c 89 e1             	mov    %r12,%rcx
+ 1b251b3:	4d 89 e8             	mov    %r13,%r8
+ 1b251b6:	31 c0                	xor    %eax,%eax
+ 1b251b8:	e8 c3 19 62 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1b251bd:	84 c0                	test   %al,%al
+ 1b251bf:	74 bd                	je     1b2517e <AFGPipeSubsystem::Tick(float)+0x2be>
+ 1b251c1:	cc                   	int3   
+ 1b251c2:	eb ba                	jmp    1b2517e <AFGPipeSubsystem::Tick(float)+0x2be>
+ 1b251c4:	89 f5                	mov    %esi,%ebp
+ 1b251c6:	e8 1b d1 61 00       	call   21422e6 <AFGPipeSubsystem::Tick(float)::Impl::ExecCheckImplInternal()>
+ 1b251cb:	89 ee                	mov    %ebp,%esi
+ 1b251cd:	cc                   	int3   
+ 1b251ce:	eb bc                	jmp    1b2518c <AFGPipeSubsystem::Tick(float)+0x2cc>
+ 1b251d0:	48 89 df             	mov    %rbx,%rdi
+ 1b251d3:	f3 0f 10 44 24 24    	movss  0x24(%rsp),%xmm0
+ 1b251d9:	e8 72 4f 65 00       	call   217a150 <AFGPipeSubsystem::SimulatePipeNetworks(float)@plt>
+ 1b251de:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1b251e3:	48 85 ff             	test   %rdi,%rdi
+ 1b251e6:	74 05                	je     1b251ed <AFGPipeSubsystem::Tick(float)+0x32d>
+ 1b251e8:	e8 a3 19 62 00       	call   2146b90 <FMemory::Free(void*)@plt>
+ 1b251ed:	48 83 c4 28          	add    $0x28,%rsp
+ 1b251f1:	5b                   	pop    %rbx
+ 1b251f2:	41 5c                	pop    %r12
+ 1b251f4:	41 5d                	pop    %r13
+ 1b251f6:	41 5e                	pop    %r14
+ 1b251f8:	41 5f                	pop    %r15
+ 1b251fa:	5d                   	pop    %rbp
+ 1b251fb:	c3                   	ret    
+ 1b251fc:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000001b25200 <AFGPipeSubsystem::RebuildPipeNetwork(int)>:
+ 1b25200:	55                   	push   %rbp
+ 1b25201:	41 57                	push   %r15
+ 1b25203:	41 56                	push   %r14
+ 1b25205:	41 55                	push   %r13
+ 1b25207:	41 54                	push   %r12
+ 1b25209:	53                   	push   %rbx
+ 1b2520a:	48 83 ec 58          	sub    $0x58,%rsp
+ 1b2520e:	89 f5                	mov    %esi,%ebp
+ 1b25210:	49 89 fe             	mov    %rdi,%r14
+ 1b25213:	e8 c8 26 62 00       	call   21478e0 <AActor::GetWorld() const@plt>
+ 1b25218:	4d 85 f6             	test   %r14,%r14
+ 1b2521b:	0f 84 3c 07 00 00    	je     1b2595d <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x75d>
+ 1b25221:	8b 80 bb 01 00 00    	mov    0x1bb(%rax),%eax
+ 1b25227:	25 00 00 20 00       	and    $0x200000,%eax
+ 1b2522c:	0f 85 2b 07 00 00    	jne    1b2595d <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x75d>
+ 1b25232:	41 8b 46 08          	mov    0x8(%r14),%eax
+ 1b25236:	a9 00 00 00 40       	test   $0x40000000,%eax
+ 1b2523b:	0f 85 1c 07 00 00    	jne    1b2595d <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x75d>
+ 1b25241:	41 8b 86 c8 02 00 00 	mov    0x2c8(%r14),%eax
+ 1b25248:	41 3b 86 f4 02 00 00 	cmp    0x2f4(%r14),%eax
+ 1b2524f:	74 47                	je     1b25298 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x98>
+ 1b25251:	49 8d 86 f8 02 00 00 	lea    0x2f8(%r14),%rax
+ 1b25258:	49 8b 8e 00 03 00 00 	mov    0x300(%r14),%rcx
+ 1b2525f:	48 85 c9             	test   %rcx,%rcx
+ 1b25262:	48 0f 45 c1          	cmovne %rcx,%rax
+ 1b25266:	41 8b 8e 08 03 00 00 	mov    0x308(%r14),%ecx
+ 1b2526d:	ff c9                	dec    %ecx
+ 1b2526f:	21 e9                	and    %ebp,%ecx
+ 1b25271:	8b 0c 88             	mov    (%rax,%rcx,4),%ecx
+ 1b25274:	83 f9 ff             	cmp    $0xffffffff,%ecx
+ 1b25277:	74 1f                	je     1b25298 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x98>
+ 1b25279:	49 8b 86 c0 02 00 00 	mov    0x2c0(%r14),%rax
+ 1b25280:	48 63 c9             	movslq %ecx,%rcx
+ 1b25283:	48 8d 0c 49          	lea    (%rcx,%rcx,2),%rcx
+ 1b25287:	48 8d 1c c8          	lea    (%rax,%rcx,8),%rbx
+ 1b2528b:	39 2c c8             	cmp    %ebp,(%rax,%rcx,8)
+ 1b2528e:	74 34                	je     1b252c4 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0xc4>
+ 1b25290:	8b 4b 10             	mov    0x10(%rbx),%ecx
+ 1b25293:	83 f9 ff             	cmp    $0xffffffff,%ecx
+ 1b25296:	75 e8                	jne    1b25280 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x80>
+ 1b25298:	48 8d 3d f7 33 37 ff 	lea    -0xc8cc09(%rip),%rdi        # e98696 <(anonymous namespace)::FGHighlightColor+0x22776>
+ 1b2529f:	48 8d 35 f3 bf 39 ff 	lea    -0xc6400d(%rip),%rsi        # ec1299 <(anonymous namespace)::FGHighlightColor+0x4b379>
+ 1b252a6:	48 8d 0d 19 43 46 ff 	lea    -0xb9bce7(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 1b252ad:	31 db                	xor    %ebx,%ebx
+ 1b252af:	ba d9 02 00 00       	mov    $0x2d9,%edx
+ 1b252b4:	31 c0                	xor    %eax,%eax
+ 1b252b6:	e8 c5 18 62 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1b252bb:	84 c0                	test   %al,%al
+ 1b252bd:	74 0a                	je     1b252c9 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0xc9>
+ 1b252bf:	cc                   	int3   
+ 1b252c0:	31 db                	xor    %ebx,%ebx
+ 1b252c2:	eb 05                	jmp    1b252c9 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0xc9>
+ 1b252c4:	48 85 db             	test   %rbx,%rbx
+ 1b252c7:	74 cf                	je     1b25298 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x98>
+ 1b252c9:	48 8b 5b 08          	mov    0x8(%rbx),%rbx
+ 1b252cd:	48 85 db             	test   %rbx,%rbx
+ 1b252d0:	0f 84 bf 06 00 00    	je     1b25995 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x795>
+ 1b252d6:	48 8b 05 83 09 ac 00 	mov    0xac0983(%rip),%rax        # 25e5c60 <LogPipes@@Base-0x5c1bc>
+ 1b252dd:	80 38 05             	cmpb   $0x5,(%rax)
+ 1b252e0:	72 21                	jb     1b25303 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x103>
+ 1b252e2:	48 89 df             	mov    %rbx,%rdi
+ 1b252e5:	e8 16 4b 65 00       	call   2179e00 <AFGPipeNetwork::NumFluidIntegrants() const@plt>
+ 1b252ea:	48 8b 3d 6f 09 ac 00 	mov    0xac096f(%rip),%rdi        # 25e5c60 <LogPipes@@Base-0x5c1bc>
+ 1b252f1:	48 8d 35 a8 8a a5 00 	lea    0xa58aa8(%rip),%rsi        # 257dda0 <AFGPipeSubsystem::RebuildPipeNetwork(int)::LOG_Static>
+ 1b252f8:	89 ea                	mov    %ebp,%edx
+ 1b252fa:	89 c1                	mov    %eax,%ecx
+ 1b252fc:	31 c0                	xor    %eax,%eax
+ 1b252fe:	e8 5d 2f 62 00       	call   2148260 <UE::Logging::Private::BasicLog(FLogCategoryBase const&, UE::Logging::Private::FStaticBasicLogRecord const*, ...)@plt>
+ 1b25303:	89 6c 24 24          	mov    %ebp,0x24(%rsp)
+ 1b25307:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 1b2530a:	0f 29 44 24 10       	movaps %xmm0,0x10(%rsp)
+ 1b2530f:	0f 29 04 24          	movaps %xmm0,(%rsp)
+ 1b25313:	48 89 5c 24 28       	mov    %rbx,0x28(%rsp)
+ 1b25318:	48 89 df             	mov    %rbx,%rdi
+ 1b2531b:	e8 e0 4a 65 00       	call   2179e00 <AFGPipeNetwork::NumFluidIntegrants() const@plt>
+ 1b25320:	85 c0                	test   %eax,%eax
+ 1b25322:	0f 8e ff 05 00 00    	jle    1b25927 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x727>
+ 1b25328:	49 8d 86 f8 02 00 00 	lea    0x2f8(%r14),%rax
+ 1b2532f:	48 89 44 24 50       	mov    %rax,0x50(%rsp)
+ 1b25334:	48 8d 5c 24 30       	lea    0x30(%rsp),%rbx
+ 1b25339:	48 8d 6c 24 48       	lea    0x48(%rsp),%rbp
+ 1b2533e:	eb 28                	jmp    1b25368 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x168>
+ 1b25340:	83 7c 24 0c 00       	cmpl   $0x0,0xc(%rsp)
+ 1b25345:	c7 44 24 08 00 00 00 	movl   $0x0,0x8(%rsp)
+ 1b2534c:	00 
+ 1b2534d:	0f 88 5d 04 00 00    	js     1b257b0 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x5b0>
+ 1b25353:	4c 89 ff             	mov    %r15,%rdi
+ 1b25356:	e8 a5 4a 65 00       	call   2179e00 <AFGPipeNetwork::NumFluidIntegrants() const@plt>
+ 1b2535b:	85 c0                	test   %eax,%eax
+ 1b2535d:	48 8d 5c 24 30       	lea    0x30(%rsp),%rbx
+ 1b25362:	0f 8e bf 05 00 00    	jle    1b25927 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x727>
+ 1b25368:	48 8b 7c 24 28       	mov    0x28(%rsp),%rdi
+ 1b2536d:	e8 fe fe 64 00       	call   2175270 <AFGPipeNetwork::GetFirstFluidIntegrant()@plt>
+ 1b25372:	48 89 44 24 38       	mov    %rax,0x38(%rsp)
+ 1b25377:	4c 8b 4c 24 10       	mov    0x10(%rsp),%r9
+ 1b2537c:	48 8d 44 24 38       	lea    0x38(%rsp),%rax
+ 1b25381:	49 39 c1             	cmp    %rax,%r9
+ 1b25384:	77 17                	ja     1b2539d <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x19d>
+ 1b25386:	4c 63 54 24 1c       	movslq 0x1c(%rsp),%r10
+ 1b2538b:	4b 8d 04 d1          	lea    (%r9,%r10,8),%rax
+ 1b2538f:	48 8d 4c 24 38       	lea    0x38(%rsp),%rcx
+ 1b25394:	48 39 c8             	cmp    %rcx,%rax
+ 1b25397:	0f 87 4d 04 00 00    	ja     1b257ea <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x5ea>
+ 1b2539d:	8b 44 24 18          	mov    0x18(%rsp),%eax
+ 1b253a1:	3b 44 24 1c          	cmp    0x1c(%rsp),%eax
+ 1b253a5:	75 14                	jne    1b253bb <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x1bb>
+ 1b253a7:	bf 08 08 00 00       	mov    $0x808,%edi
+ 1b253ac:	48 8d 74 24 10       	lea    0x10(%rsp),%rsi
+ 1b253b1:	48 8d 54 24 1c       	lea    0x1c(%rsp),%rdx
+ 1b253b6:	e8 d5 e9 7f ff       	call   1323d90 <decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned short, TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 1b253bb:	8d 48 01             	lea    0x1(%rax),%ecx
+ 1b253be:	89 4c 24 18          	mov    %ecx,0x18(%rsp)
+ 1b253c2:	48 8b 54 24 10       	mov    0x10(%rsp),%rdx
+ 1b253c7:	48 98                	cltq   
+ 1b253c9:	48 8b 74 24 38       	mov    0x38(%rsp),%rsi
+ 1b253ce:	48 89 34 c2          	mov    %rsi,(%rdx,%rax,8)
+ 1b253d2:	85 c0                	test   %eax,%eax
+ 1b253d4:	0f 89 92 01 00 00    	jns    1b2556c <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x36c>
+ 1b253da:	44 8b 7c 24 08       	mov    0x8(%rsp),%r15d
+ 1b253df:	48 8b 7c 24 28       	mov    0x28(%rsp),%rdi
+ 1b253e4:	e8 17 4a 65 00       	call   2179e00 <AFGPipeNetwork::NumFluidIntegrants() const@plt>
+ 1b253e9:	8b 5c 24 08          	mov    0x8(%rsp),%ebx
+ 1b253ed:	41 39 c7             	cmp    %eax,%r15d
+ 1b253f0:	0f 8d 3b 04 00 00    	jge    1b25831 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x631>
+ 1b253f6:	85 db                	test   %ebx,%ebx
+ 1b253f8:	0f 8e e1 03 00 00    	jle    1b257df <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x5df>
+ 1b253fe:	4c 89 f7             	mov    %r14,%rdi
+ 1b25401:	e8 5a 4d 65 00       	call   217a160 <AFGPipeSubsystem::CreatePipeNetwork()@plt>
+ 1b25406:	41 89 c4             	mov    %eax,%r12d
+ 1b25409:	48 8b 05 50 08 ac 00 	mov    0xac0850(%rip),%rax        # 25e5c60 <LogPipes@@Base-0x5c1bc>
+ 1b25410:	80 38 05             	cmpb   $0x5,(%rax)
+ 1b25413:	4c 8b 7c 24 28       	mov    0x28(%rsp),%r15
+ 1b25418:	72 1c                	jb     1b25436 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x236>
+ 1b2541a:	8b 54 24 08          	mov    0x8(%rsp),%edx
+ 1b2541e:	48 8b 3d 3b 08 ac 00 	mov    0xac083b(%rip),%rdi        # 25e5c60 <LogPipes@@Base-0x5c1bc>
+ 1b25425:	48 8d 35 94 89 a5 00 	lea    0xa58994(%rip),%rsi        # 257ddc0 <AFGPipeSubsystem::RebuildPipeNetwork(int)::LOG_Static>
+ 1b2542c:	44 89 e1             	mov    %r12d,%ecx
+ 1b2542f:	31 c0                	xor    %eax,%eax
+ 1b25431:	e8 2a 2e 62 00       	call   2148260 <UE::Logging::Private::BasicLog(FLogCategoryBase const&, UE::Logging::Private::FStaticBasicLogRecord const*, ...)@plt>
+ 1b25436:	41 8b 86 c8 02 00 00 	mov    0x2c8(%r14),%eax
+ 1b2543d:	41 3b 86 f4 02 00 00 	cmp    0x2f4(%r14),%eax
+ 1b25444:	74 5a                	je     1b254a0 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x2a0>
+ 1b25446:	49 8b 86 00 03 00 00 	mov    0x300(%r14),%rax
+ 1b2544d:	48 85 c0             	test   %rax,%rax
+ 1b25450:	48 0f 44 44 24 50    	cmove  0x50(%rsp),%rax
+ 1b25456:	41 8b 8e 08 03 00 00 	mov    0x308(%r14),%ecx
+ 1b2545d:	ff c9                	dec    %ecx
+ 1b2545f:	44 21 e1             	and    %r12d,%ecx
+ 1b25462:	8b 0c 88             	mov    (%rax,%rcx,4),%ecx
+ 1b25465:	83 f9 ff             	cmp    $0xffffffff,%ecx
+ 1b25468:	74 36                	je     1b254a0 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x2a0>
+ 1b2546a:	49 8b 86 c0 02 00 00 	mov    0x2c0(%r14),%rax
+ 1b25471:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 1b25478:	0f 1f 84 00 00 00 00 
+ 1b2547f:	00 
+ 1b25480:	48 63 c9             	movslq %ecx,%rcx
+ 1b25483:	48 8d 14 49          	lea    (%rcx,%rcx,2),%rdx
+ 1b25487:	48 8d 0c d0          	lea    (%rax,%rdx,8),%rcx
+ 1b2548b:	44 39 24 d0          	cmp    %r12d,(%rax,%rdx,8)
+ 1b2548f:	0f 84 3c 03 00 00    	je     1b257d1 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x5d1>
+ 1b25495:	8b 49 10             	mov    0x10(%rcx),%ecx
+ 1b25498:	83 f9 ff             	cmp    $0xffffffff,%ecx
+ 1b2549b:	75 e3                	jne    1b25480 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x280>
+ 1b2549d:	0f 1f 00             	nopl   (%rax)
+ 1b254a0:	48 8d 3d ef 31 37 ff 	lea    -0xc8ce11(%rip),%rdi        # e98696 <(anonymous namespace)::FGHighlightColor+0x22776>
+ 1b254a7:	48 8d 35 eb bd 39 ff 	lea    -0xc64215(%rip),%rsi        # ec1299 <(anonymous namespace)::FGHighlightColor+0x4b379>
+ 1b254ae:	ba d9 02 00 00       	mov    $0x2d9,%edx
+ 1b254b3:	48 8d 0d 0c 41 46 ff 	lea    -0xb9bef4(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 1b254ba:	31 c0                	xor    %eax,%eax
+ 1b254bc:	e8 bf 16 62 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1b254c1:	84 c0                	test   %al,%al
+ 1b254c3:	74 01                	je     1b254c6 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x2c6>
+ 1b254c5:	cc                   	int3   
+ 1b254c6:	31 c9                	xor    %ecx,%ecx
+ 1b254c8:	48 8b 79 08          	mov    0x8(%rcx),%rdi
+ 1b254cc:	4c 89 fe             	mov    %r15,%rsi
+ 1b254cf:	e8 4c 49 65 00       	call   2179e20 <AFGPipeNetwork::TryPropagateFluidDescriptorFrom(AFGPipeNetwork*)@plt>
+ 1b254d4:	8b 44 24 08          	mov    0x8(%rsp),%eax
+ 1b254d8:	85 c0                	test   %eax,%eax
+ 1b254da:	0f 8e 60 fe ff ff    	jle    1b25340 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x140>
+ 1b254e0:	45 31 ed             	xor    %r13d,%r13d
+ 1b254e3:	66 66 66 66 2e 0f 1f 	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 1b254ea:	84 00 00 00 00 00 
+ 1b254f0:	4c 63 c8             	movslq %eax,%r9
+ 1b254f3:	4d 39 cd             	cmp    %r9,%r13
+ 1b254f6:	7d 32                	jge    1b2552a <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x32a>
+ 1b254f8:	48 8b 04 24          	mov    (%rsp),%rax
+ 1b254fc:	4a 8b 1c e8          	mov    (%rax,%r13,8),%rbx
+ 1b25500:	4c 89 f7             	mov    %r14,%rdi
+ 1b25503:	48 89 de             	mov    %rbx,%rsi
+ 1b25506:	e8 65 4c 65 00       	call   217a170 <AFGPipeSubsystem::RemoveFluidIntegrantFromNetwork(IFGFluidIntegrantInterface*)@plt>
+ 1b2550b:	4c 89 f7             	mov    %r14,%rdi
+ 1b2550e:	48 89 de             	mov    %rbx,%rsi
+ 1b25511:	44 89 e2             	mov    %r12d,%edx
+ 1b25514:	e8 67 4c 65 00       	call   217a180 <AFGPipeSubsystem::AddFluidIntegrantToNetwork(IFGFluidIntegrantInterface*, int)@plt>
+ 1b25519:	49 ff c5             	inc    %r13
+ 1b2551c:	8b 44 24 08          	mov    0x8(%rsp),%eax
+ 1b25520:	44 39 e8             	cmp    %r13d,%eax
+ 1b25523:	7f cb                	jg     1b254f0 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x2f0>
+ 1b25525:	e9 16 fe ff ff       	jmp    1b25340 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x140>
+ 1b2552a:	48 8d 3d 76 fc 3c ff 	lea    -0xc3038a(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1b25531:	48 8d 35 e8 b0 39 ff 	lea    -0xc64f18(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1b25538:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1b2553d:	48 8d 0d be 8d 42 ff 	lea    -0xbd7242(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1b25544:	4d 89 e8             	mov    %r13,%r8
+ 1b25547:	31 c0                	xor    %eax,%eax
+ 1b25549:	e8 32 16 62 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1b2554e:	84 c0                	test   %al,%al
+ 1b25550:	74 a6                	je     1b254f8 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x2f8>
+ 1b25552:	cc                   	int3   
+ 1b25553:	eb a3                	jmp    1b254f8 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x2f8>
+ 1b25555:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+ 1b2555c:	00 00 00 00 
+ 1b25560:	8b 4c 24 18          	mov    0x18(%rsp),%ecx
+ 1b25564:	85 c9                	test   %ecx,%ecx
+ 1b25566:	0f 8e 6e fe ff ff    	jle    1b253da <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x1da>
+ 1b2556c:	48 8b 44 24 10       	mov    0x10(%rsp),%rax
+ 1b25571:	89 ca                	mov    %ecx,%edx
+ 1b25573:	48 8b 44 d0 f8       	mov    -0x8(%rax,%rdx,8),%rax
+ 1b25578:	ff c9                	dec    %ecx
+ 1b2557a:	89 4c 24 18          	mov    %ecx,0x18(%rsp)
+ 1b2557e:	48 89 44 24 30       	mov    %rax,0x30(%rsp)
+ 1b25583:	48 85 c0             	test   %rax,%rax
+ 1b25586:	0f 84 c4 01 00 00    	je     1b25750 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x550>
+ 1b2558c:	4c 8b 0c 24          	mov    (%rsp),%r9
+ 1b25590:	49 39 d9             	cmp    %rbx,%r9
+ 1b25593:	77 12                	ja     1b255a7 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x3a7>
+ 1b25595:	4c 63 54 24 0c       	movslq 0xc(%rsp),%r10
+ 1b2559a:	4b 8d 04 d1          	lea    (%r9,%r10,8),%rax
+ 1b2559e:	48 39 d8             	cmp    %rbx,%rax
+ 1b255a1:	0f 87 c1 01 00 00    	ja     1b25768 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x568>
+ 1b255a7:	8b 44 24 08          	mov    0x8(%rsp),%eax
+ 1b255ab:	3b 44 24 0c          	cmp    0xc(%rsp),%eax
+ 1b255af:	75 12                	jne    1b255c3 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x3c3>
+ 1b255b1:	bf 08 08 00 00       	mov    $0x808,%edi
+ 1b255b6:	48 89 e6             	mov    %rsp,%rsi
+ 1b255b9:	48 8d 54 24 0c       	lea    0xc(%rsp),%rdx
+ 1b255be:	e8 cd e7 7f ff       	call   1323d90 <decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned short, TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 1b255c3:	8d 48 01             	lea    0x1(%rax),%ecx
+ 1b255c6:	89 4c 24 08          	mov    %ecx,0x8(%rsp)
+ 1b255ca:	48 8b 0c 24          	mov    (%rsp),%rcx
+ 1b255ce:	48 98                	cltq   
+ 1b255d0:	48 8b 74 24 30       	mov    0x30(%rsp),%rsi
+ 1b255d5:	48 89 34 c1          	mov    %rsi,(%rcx,%rax,8)
+ 1b255d9:	48 8b 06             	mov    (%rsi),%rax
+ 1b255dc:	48 8d 7c 24 38       	lea    0x38(%rsp),%rdi
+ 1b255e1:	ff 50 20             	call   *0x20(%rax)
+ 1b255e4:	4c 8b 64 24 38       	mov    0x38(%rsp),%r12
+ 1b255e9:	48 63 44 24 40       	movslq 0x40(%rsp),%rax
+ 1b255ee:	48 85 c0             	test   %rax,%rax
+ 1b255f1:	0f 84 43 01 00 00    	je     1b2573a <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x53a>
+ 1b255f7:	4d 8d 3c c4          	lea    (%r12,%rax,8),%r15
+ 1b255fb:	eb 30                	jmp    1b2562d <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x42d>
+ 1b255fd:	8d 48 01             	lea    0x1(%rax),%ecx
+ 1b25600:	89 4c 24 18          	mov    %ecx,0x18(%rsp)
+ 1b25604:	48 8b 4c 24 10       	mov    0x10(%rsp),%rcx
+ 1b25609:	48 98                	cltq   
+ 1b2560b:	48 8b 54 24 48       	mov    0x48(%rsp),%rdx
+ 1b25610:	48 89 14 c1          	mov    %rdx,(%rcx,%rax,8)
+ 1b25614:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 1b2561b:	00 00 00 00 00 
+ 1b25620:	49 83 c4 08          	add    $0x8,%r12
+ 1b25624:	4d 39 fc             	cmp    %r15,%r12
+ 1b25627:	0f 84 03 01 00 00    	je     1b25730 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x530>
+ 1b2562d:	49 8b 04 24          	mov    (%r12),%rax
+ 1b25631:	4c 8b a8 60 02 00 00 	mov    0x260(%rax),%r13
+ 1b25638:	4d 85 ed             	test   %r13,%r13
+ 1b2563b:	74 e3                	je     1b25620 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x420>
+ 1b2563d:	41 8b 45 08          	mov    0x8(%r13),%eax
+ 1b25641:	a9 00 00 00 40       	test   $0x40000000,%eax
+ 1b25646:	75 d8                	jne    1b25620 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x420>
+ 1b25648:	48 c7 44 24 48 00 00 	movq   $0x0,0x48(%rsp)
+ 1b2564f:	00 00 
+ 1b25651:	49 8b 5d 10          	mov    0x10(%r13),%rbx
+ 1b25655:	e8 16 61 62 00       	call   214b770 <Z_Construct_UClass_UFGFluidIntegrantInterface_NoRegister()@plt>
+ 1b2565a:	48 89 df             	mov    %rbx,%rdi
+ 1b2565d:	48 89 c6             	mov    %rax,%rsi
+ 1b25660:	e8 eb 25 62 00       	call   2147c50 <UClass::ImplementsInterface(UClass const*) const@plt>
+ 1b25665:	84 c0                	test   %al,%al
+ 1b25667:	75 09                	jne    1b25672 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x472>
+ 1b25669:	4d 8b 6d 20          	mov    0x20(%r13),%r13
+ 1b2566d:	4d 85 ed             	test   %r13,%r13
+ 1b25670:	74 ae                	je     1b25620 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x420>
+ 1b25672:	e8 f9 60 62 00       	call   214b770 <Z_Construct_UClass_UFGFluidIntegrantInterface_NoRegister()@plt>
+ 1b25677:	4c 89 ef             	mov    %r13,%rdi
+ 1b2567a:	48 89 c6             	mov    %rax,%rsi
+ 1b2567d:	e8 5e 93 62 00       	call   214e9e0 <UObjectBaseUtility::GetInterfaceAddress(UClass*)@plt>
+ 1b25682:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+ 1b25687:	48 85 c0             	test   %rax,%rax
+ 1b2568a:	74 94                	je     1b25620 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x420>
+ 1b2568c:	48 63 4c 24 08       	movslq 0x8(%rsp),%rcx
+ 1b25691:	48 85 c9             	test   %rcx,%rcx
+ 1b25694:	74 1d                	je     1b256b3 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x4b3>
+ 1b25696:	48 8b 14 24          	mov    (%rsp),%rdx
+ 1b2569a:	48 c1 e1 03          	shl    $0x3,%rcx
+ 1b2569e:	31 f6                	xor    %esi,%esi
+ 1b256a0:	48 39 04 32          	cmp    %rax,(%rdx,%rsi,1)
+ 1b256a4:	0f 84 76 ff ff ff    	je     1b25620 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x420>
+ 1b256aa:	48 83 c6 08          	add    $0x8,%rsi
+ 1b256ae:	48 39 f1             	cmp    %rsi,%rcx
+ 1b256b1:	75 ed                	jne    1b256a0 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x4a0>
+ 1b256b3:	4c 8b 4c 24 10       	mov    0x10(%rsp),%r9
+ 1b256b8:	49 39 e9             	cmp    %rbp,%r9
+ 1b256bb:	77 0e                	ja     1b256cb <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x4cb>
+ 1b256bd:	4c 63 54 24 1c       	movslq 0x1c(%rsp),%r10
+ 1b256c2:	4b 8d 04 d1          	lea    (%r9,%r10,8),%rax
+ 1b256c6:	48 39 e8             	cmp    %rbp,%rax
+ 1b256c9:	77 27                	ja     1b256f2 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x4f2>
+ 1b256cb:	8b 44 24 18          	mov    0x18(%rsp),%eax
+ 1b256cf:	3b 44 24 1c          	cmp    0x1c(%rsp),%eax
+ 1b256d3:	0f 85 24 ff ff ff    	jne    1b255fd <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x3fd>
+ 1b256d9:	bf 08 08 00 00       	mov    $0x808,%edi
+ 1b256de:	48 8d 74 24 10       	lea    0x10(%rsp),%rsi
+ 1b256e3:	48 8d 54 24 1c       	lea    0x1c(%rsp),%rdx
+ 1b256e8:	e8 a3 e6 7f ff       	call   1323d90 <decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned short, TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 1b256ed:	e9 0b ff ff ff       	jmp    1b255fd <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x3fd>
+ 1b256f2:	4c 63 5c 24 18       	movslq 0x18(%rsp),%r11
+ 1b256f7:	48 83 ec 08          	sub    $0x8,%rsp
+ 1b256fb:	48 8d 3d ac f5 3c ff 	lea    -0xc30a54(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 1b25702:	48 8d 35 17 af 39 ff 	lea    -0xc650e9(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1b25709:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 1b2570e:	48 8d 0d 35 e4 45 ff 	lea    -0xba1bcb(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 1b25715:	49 89 e8             	mov    %rbp,%r8
+ 1b25718:	31 c0                	xor    %eax,%eax
+ 1b2571a:	6a 08                	push   $0x8
+ 1b2571c:	41 53                	push   %r11
+ 1b2571e:	41 52                	push   %r10
+ 1b25720:	e8 5b 14 62 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1b25725:	48 83 c4 20          	add    $0x20,%rsp
+ 1b25729:	84 c0                	test   %al,%al
+ 1b2572b:	74 9e                	je     1b256cb <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x4cb>
+ 1b2572d:	cc                   	int3   
+ 1b2572e:	eb 9b                	jmp    1b256cb <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x4cb>
+ 1b25730:	4c 8b 64 24 38       	mov    0x38(%rsp),%r12
+ 1b25735:	48 8d 5c 24 30       	lea    0x30(%rsp),%rbx
+ 1b2573a:	4d 85 e4             	test   %r12,%r12
+ 1b2573d:	0f 84 1d fe ff ff    	je     1b25560 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x360>
+ 1b25743:	4c 89 e7             	mov    %r12,%rdi
+ 1b25746:	e8 45 14 62 00       	call   2146b90 <FMemory::Free(void*)@plt>
+ 1b2574b:	e9 10 fe ff ff       	jmp    1b25560 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x360>
+ 1b25750:	e8 dd cb 61 00       	call   2142332 <AFGPipeSubsystem::RebuildPipeNetwork(int)::Impl::ExecCheckImplInternal()>
+ 1b25755:	cc                   	int3   
+ 1b25756:	4c 8b 0c 24          	mov    (%rsp),%r9
+ 1b2575a:	49 39 d9             	cmp    %rbx,%r9
+ 1b2575d:	0f 86 32 fe ff ff    	jbe    1b25595 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x395>
+ 1b25763:	e9 3f fe ff ff       	jmp    1b255a7 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x3a7>
+ 1b25768:	4c 63 5c 24 08       	movslq 0x8(%rsp),%r11
+ 1b2576d:	48 83 ec 08          	sub    $0x8,%rsp
+ 1b25771:	48 8d 3d 36 f5 3c ff 	lea    -0xc30aca(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 1b25778:	48 8d 35 a1 ae 39 ff 	lea    -0xc6515f(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1b2577f:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 1b25784:	48 8d 0d bf e3 45 ff 	lea    -0xba1c41(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 1b2578b:	49 89 d8             	mov    %rbx,%r8
+ 1b2578e:	31 c0                	xor    %eax,%eax
+ 1b25790:	6a 08                	push   $0x8
+ 1b25792:	41 53                	push   %r11
+ 1b25794:	41 52                	push   %r10
+ 1b25796:	e8 e5 13 62 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1b2579b:	48 83 c4 20          	add    $0x20,%rsp
+ 1b2579f:	84 c0                	test   %al,%al
+ 1b257a1:	0f 84 00 fe ff ff    	je     1b255a7 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x3a7>
+ 1b257a7:	cc                   	int3   
+ 1b257a8:	e9 fa fd ff ff       	jmp    1b255a7 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x3a7>
+ 1b257ad:	0f 1f 00             	nopl   (%rax)
+ 1b257b0:	bf 08 00 00 00       	mov    $0x8,%edi
+ 1b257b5:	be 08 00 00 00       	mov    $0x8,%esi
+ 1b257ba:	31 d2                	xor    %edx,%edx
+ 1b257bc:	48 89 e1             	mov    %rsp,%rcx
+ 1b257bf:	45 31 c0             	xor    %r8d,%r8d
+ 1b257c2:	4c 8d 4c 24 0c       	lea    0xc(%rsp),%r9
+ 1b257c7:	e8 74 e7 7b ff       	call   12e3f40 <void UE::Core::Private::ReallocTo<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()), TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()), decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 1b257cc:	e9 82 fb ff ff       	jmp    1b25353 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x153>
+ 1b257d1:	48 85 c9             	test   %rcx,%rcx
+ 1b257d4:	0f 85 ee fc ff ff    	jne    1b254c8 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x2c8>
+ 1b257da:	e9 c1 fc ff ff       	jmp    1b254a0 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x2a0>
+ 1b257df:	e8 74 cb 61 00       	call   2142358 <AFGPipeSubsystem::RebuildPipeNetwork(int)::Impl::ExecCheckImplInternal()>
+ 1b257e4:	cc                   	int3   
+ 1b257e5:	e9 14 fc ff ff       	jmp    1b253fe <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x1fe>
+ 1b257ea:	4c 63 5c 24 18       	movslq 0x18(%rsp),%r11
+ 1b257ef:	48 83 ec 08          	sub    $0x8,%rsp
+ 1b257f3:	48 8d 3d b4 f4 3c ff 	lea    -0xc30b4c(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 1b257fa:	48 8d 35 1f ae 39 ff 	lea    -0xc651e1(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1b25801:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 1b25806:	48 8d 0d 3d e3 45 ff 	lea    -0xba1cc3(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 1b2580d:	4c 8d 44 24 40       	lea    0x40(%rsp),%r8
+ 1b25812:	31 c0                	xor    %eax,%eax
+ 1b25814:	6a 08                	push   $0x8
+ 1b25816:	41 53                	push   %r11
+ 1b25818:	41 52                	push   %r10
+ 1b2581a:	e8 61 13 62 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1b2581f:	48 83 c4 20          	add    $0x20,%rsp
+ 1b25823:	84 c0                	test   %al,%al
+ 1b25825:	0f 84 72 fb ff ff    	je     1b2539d <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x19d>
+ 1b2582b:	cc                   	int3   
+ 1b2582c:	e9 6c fb ff ff       	jmp    1b2539d <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x19d>
+ 1b25831:	4c 8b 7c 24 28       	mov    0x28(%rsp),%r15
+ 1b25836:	4c 89 ff             	mov    %r15,%rdi
+ 1b25839:	e8 c2 45 65 00       	call   2179e00 <AFGPipeNetwork::NumFluidIntegrants() const@plt>
+ 1b2583e:	48 8b 0d 1b 04 ac 00 	mov    0xac041b(%rip),%rcx        # 25e5c60 <LogPipes@@Base-0x5c1bc>
+ 1b25845:	0f b6 09             	movzbl (%rcx),%ecx
+ 1b25848:	39 c3                	cmp    %eax,%ebx
+ 1b2584a:	0f 8e 33 01 00 00    	jle    1b25983 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x783>
+ 1b25850:	80 f9 05             	cmp    $0x5,%cl
+ 1b25853:	8b 6c 24 24          	mov    0x24(%rsp),%ebp
+ 1b25857:	72 2f                	jb     1b25888 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x688>
+ 1b25859:	8b 5c 24 08          	mov    0x8(%rsp),%ebx
+ 1b2585d:	4c 89 ff             	mov    %r15,%rdi
+ 1b25860:	e8 9b 45 65 00       	call   2179e00 <AFGPipeNetwork::NumFluidIntegrants() const@plt>
+ 1b25865:	48 8d 35 74 85 a5 00 	lea    0xa58574(%rip),%rsi        # 257dde0 <AFGPipeSubsystem::RebuildPipeNetwork(int)::LOG_Static>
+ 1b2586c:	4c 8b 3d ed 03 ac 00 	mov    0xac03ed(%rip),%r15        # 25e5c60 <LogPipes@@Base-0x5c1bc>
+ 1b25873:	4c 89 ff             	mov    %r15,%rdi
+ 1b25876:	89 ea                	mov    %ebp,%edx
+ 1b25878:	89 d9                	mov    %ebx,%ecx
+ 1b2587a:	41 89 c0             	mov    %eax,%r8d
+ 1b2587d:	31 c0                	xor    %eax,%eax
+ 1b2587f:	e8 dc 29 62 00       	call   2148260 <UE::Logging::Private::BasicLog(FLogCategoryBase const&, UE::Logging::Private::FStaticBasicLogRecord const*, ...)@plt>
+ 1b25884:	41 0f b6 0f          	movzbl (%r15),%ecx
+ 1b25888:	80 f9 05             	cmp    $0x5,%cl
+ 1b2588b:	72 1b                	jb     1b258a8 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x6a8>
+ 1b2588d:	8b 54 24 08          	mov    0x8(%rsp),%edx
+ 1b25891:	48 8b 3d c8 03 ac 00 	mov    0xac03c8(%rip),%rdi        # 25e5c60 <LogPipes@@Base-0x5c1bc>
+ 1b25898:	48 8d 35 61 85 a5 00 	lea    0xa58561(%rip),%rsi        # 257de00 <AFGPipeSubsystem::RebuildPipeNetwork(int)::LOG_Static>
+ 1b2589f:	89 e9                	mov    %ebp,%ecx
+ 1b258a1:	31 c0                	xor    %eax,%eax
+ 1b258a3:	e8 b8 29 62 00       	call   2148260 <UE::Logging::Private::BasicLog(FLogCategoryBase const&, UE::Logging::Private::FStaticBasicLogRecord const*, ...)@plt>
+ 1b258a8:	8b 44 24 08          	mov    0x8(%rsp),%eax
+ 1b258ac:	85 c0                	test   %eax,%eax
+ 1b258ae:	7e 77                	jle    1b25927 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x727>
+ 1b258b0:	48 8d 1d f0 f8 3c ff 	lea    -0xc30710(%rip),%rbx        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1b258b7:	4c 8d 3d 62 ad 39 ff 	lea    -0xc6529e(%rip),%r15        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1b258be:	4c 8d 25 3d 8a 42 ff 	lea    -0xbd75c3(%rip),%r12        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1b258c5:	45 31 ed             	xor    %r13d,%r13d
+ 1b258c8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+ 1b258cf:	00 
+ 1b258d0:	4c 63 c8             	movslq %eax,%r9
+ 1b258d3:	4d 39 cd             	cmp    %r9,%r13
+ 1b258d6:	7d 30                	jge    1b25908 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x708>
+ 1b258d8:	48 8b 04 24          	mov    (%rsp),%rax
+ 1b258dc:	4a 8b 2c e8          	mov    (%rax,%r13,8),%rbp
+ 1b258e0:	4c 89 f7             	mov    %r14,%rdi
+ 1b258e3:	48 89 ee             	mov    %rbp,%rsi
+ 1b258e6:	e8 85 48 65 00       	call   217a170 <AFGPipeSubsystem::RemoveFluidIntegrantFromNetwork(IFGFluidIntegrantInterface*)@plt>
+ 1b258eb:	4c 89 f7             	mov    %r14,%rdi
+ 1b258ee:	48 89 ee             	mov    %rbp,%rsi
+ 1b258f1:	8b 54 24 24          	mov    0x24(%rsp),%edx
+ 1b258f5:	e8 86 48 65 00       	call   217a180 <AFGPipeSubsystem::AddFluidIntegrantToNetwork(IFGFluidIntegrantInterface*, int)@plt>
+ 1b258fa:	49 ff c5             	inc    %r13
+ 1b258fd:	8b 44 24 08          	mov    0x8(%rsp),%eax
+ 1b25901:	44 39 e8             	cmp    %r13d,%eax
+ 1b25904:	7f ca                	jg     1b258d0 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x6d0>
+ 1b25906:	eb 1f                	jmp    1b25927 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x727>
+ 1b25908:	48 89 df             	mov    %rbx,%rdi
+ 1b2590b:	4c 89 fe             	mov    %r15,%rsi
+ 1b2590e:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1b25913:	4c 89 e1             	mov    %r12,%rcx
+ 1b25916:	4d 89 e8             	mov    %r13,%r8
+ 1b25919:	31 c0                	xor    %eax,%eax
+ 1b2591b:	e8 60 12 62 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1b25920:	84 c0                	test   %al,%al
+ 1b25922:	74 b4                	je     1b258d8 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x6d8>
+ 1b25924:	cc                   	int3   
+ 1b25925:	eb b1                	jmp    1b258d8 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x6d8>
+ 1b25927:	48 8b 5c 24 28       	mov    0x28(%rsp),%rbx
+ 1b2592c:	48 89 df             	mov    %rbx,%rdi
+ 1b2592f:	e8 cc 44 65 00       	call   2179e00 <AFGPipeNetwork::NumFluidIntegrants() const@plt>
+ 1b25934:	85 c0                	test   %eax,%eax
+ 1b25936:	74 34                	je     1b2596c <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x76c>
+ 1b25938:	48 89 df             	mov    %rbx,%rdi
+ 1b2593b:	e8 30 45 65 00       	call   2179e70 <AFGPipeNetwork::OnFullRebuildCompleted()@plt>
+ 1b25940:	48 8b 3c 24          	mov    (%rsp),%rdi
+ 1b25944:	48 85 ff             	test   %rdi,%rdi
+ 1b25947:	74 05                	je     1b2594e <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x74e>
+ 1b25949:	e8 42 12 62 00       	call   2146b90 <FMemory::Free(void*)@plt>
+ 1b2594e:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1b25953:	48 85 ff             	test   %rdi,%rdi
+ 1b25956:	74 05                	je     1b2595d <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x75d>
+ 1b25958:	e8 33 12 62 00       	call   2146b90 <FMemory::Free(void*)@plt>
+ 1b2595d:	48 83 c4 58          	add    $0x58,%rsp
+ 1b25961:	5b                   	pop    %rbx
+ 1b25962:	41 5c                	pop    %r12
+ 1b25964:	41 5d                	pop    %r13
+ 1b25966:	41 5e                	pop    %r14
+ 1b25968:	41 5f                	pop    %r15
+ 1b2596a:	5d                   	pop    %rbp
+ 1b2596b:	c3                   	ret    
+ 1b2596c:	4c 89 f7             	mov    %r14,%rdi
+ 1b2596f:	8b 74 24 24          	mov    0x24(%rsp),%esi
+ 1b25973:	e8 18 48 65 00       	call   217a190 <AFGPipeSubsystem::RemovePipeNetwork(int)@plt>
+ 1b25978:	48 8b 3c 24          	mov    (%rsp),%rdi
+ 1b2597c:	48 85 ff             	test   %rdi,%rdi
+ 1b2597f:	75 c8                	jne    1b25949 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x749>
+ 1b25981:	eb cb                	jmp    1b2594e <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x74e>
+ 1b25983:	8b 6c 24 24          	mov    0x24(%rsp),%ebp
+ 1b25987:	80 f9 05             	cmp    $0x5,%cl
+ 1b2598a:	0f 83 fd fe ff ff    	jae    1b2588d <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x68d>
+ 1b25990:	e9 13 ff ff ff       	jmp    1b258a8 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x6a8>
+ 1b25995:	e8 72 c9 61 00       	call   214230c <AFGPipeSubsystem::RebuildPipeNetwork(int)::Impl::ExecCheckImplInternal()>
+ 1b2599a:	cc                   	int3   
+ 1b2599b:	48 8b 05 be 02 ac 00 	mov    0xac02be(%rip),%rax        # 25e5c60 <LogPipes@@Base-0x5c1bc>
+ 1b259a2:	80 38 05             	cmpb   $0x5,(%rax)
+ 1b259a5:	0f 83 37 f9 ff ff    	jae    1b252e2 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0xe2>
+ 1b259ab:	e9 53 f9 ff ff       	jmp    1b25303 <AFGPipeSubsystem::RebuildPipeNetwork(int)+0x103>
+
+0000000001b259b0 <AFGPipeSubsystem::SimulatePipeNetworks(float)>:
+ 1b259b0:	55                   	push   %rbp
+ 1b259b1:	41 57                	push   %r15
+ 1b259b3:	41 56                	push   %r14
+ 1b259b5:	41 55                	push   %r13
+ 1b259b7:	41 54                	push   %r12
+ 1b259b9:	53                   	push   %rbx
+ 1b259ba:	48 83 ec 58          	sub    $0x58,%rsp
+ 1b259be:	f3 0f 11 44 24 14    	movss  %xmm0,0x14(%rsp)
+ 1b259c4:	48 89 fb             	mov    %rdi,%rbx
+ 1b259c7:	48 8d af d0 02 00 00 	lea    0x2d0(%rdi),%rbp
+ 1b259ce:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 1b259d1:	0f 29 04 24          	movaps %xmm0,(%rsp)
+ 1b259d5:	8b 8f e8 02 00 00    	mov    0x2e8(%rdi),%ecx
+ 1b259db:	85 c9                	test   %ecx,%ecx
+ 1b259dd:	74 21                	je     1b25a00 <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x50>
+ 1b259df:	48 8b 93 e0 02 00 00 	mov    0x2e0(%rbx),%rdx
+ 1b259e6:	48 85 d2             	test   %rdx,%rdx
+ 1b259e9:	48 0f 44 d5          	cmove  %rbp,%rdx
+ 1b259ed:	8b 32                	mov    (%rdx),%esi
+ 1b259ef:	85 f6                	test   %esi,%esi
+ 1b259f1:	74 24                	je     1b25a17 <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x67>
+ 1b259f3:	b8 3e 00 00 00       	mov    $0x3e,%eax
+ 1b259f8:	45 31 ed             	xor    %r13d,%r13d
+ 1b259fb:	45 31 f6             	xor    %r14d,%r14d
+ 1b259fe:	eb 5c                	jmp    1b25a5c <AFGPipeSubsystem::SimulatePipeNetworks(float)+0xac>
+ 1b25a00:	41 bc 01 00 00 00    	mov    $0x1,%r12d
+ 1b25a06:	45 31 ed             	xor    %r13d,%r13d
+ 1b25a09:	31 c0                	xor    %eax,%eax
+ 1b25a0b:	45 31 f6             	xor    %r14d,%r14d
+ 1b25a0e:	39 c8                	cmp    %ecx,%eax
+ 1b25a10:	7c 71                	jl     1b25a83 <AFGPipeSubsystem::SimulatePipeNetworks(float)+0xd3>
+ 1b25a12:	e9 f7 01 00 00       	jmp    1b25c0e <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x25e>
+ 1b25a17:	8d 41 ff             	lea    -0x1(%rcx),%eax
+ 1b25a1a:	8d 79 1e             	lea    0x1e(%rcx),%edi
+ 1b25a1d:	85 c0                	test   %eax,%eax
+ 1b25a1f:	0f 49 f8             	cmovns %eax,%edi
+ 1b25a22:	c1 ff 05             	sar    $0x5,%edi
+ 1b25a25:	45 31 ed             	xor    %r13d,%r13d
+ 1b25a28:	85 ff                	test   %edi,%edi
+ 1b25a2a:	41 0f 4e fd          	cmovle %r13d,%edi
+ 1b25a2e:	b8 3e 00 00 00       	mov    $0x3e,%eax
+ 1b25a33:	66 66 66 66 2e 0f 1f 	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 1b25a3a:	84 00 00 00 00 00 
+ 1b25a40:	4c 39 ef             	cmp    %r13,%rdi
+ 1b25a43:	0f 84 c5 01 00 00    	je     1b25c0e <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x25e>
+ 1b25a49:	42 8b 74 aa 04       	mov    0x4(%rdx,%r13,4),%esi
+ 1b25a4e:	49 ff c5             	inc    %r13
+ 1b25a51:	83 c0 20             	add    $0x20,%eax
+ 1b25a54:	85 f6                	test   %esi,%esi
+ 1b25a56:	74 e8                	je     1b25a40 <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x90>
+ 1b25a58:	44 8d 70 c2          	lea    -0x3e(%rax),%r14d
+ 1b25a5c:	41 89 f4             	mov    %esi,%r12d
+ 1b25a5f:	41 f7 dc             	neg    %r12d
+ 1b25a62:	41 21 f4             	and    %esi,%r12d
+ 1b25a65:	4a 8d 14 65 01 00 00 	lea    0x1(,%r12,2),%rdx
+ 1b25a6c:	00 
+ 1b25a6d:	48 0f bd d2          	bsr    %rdx,%rdx
+ 1b25a71:	83 f2 3f             	xor    $0x3f,%edx
+ 1b25a74:	29 d0                	sub    %edx,%eax
+ 1b25a76:	39 c8                	cmp    %ecx,%eax
+ 1b25a78:	0f 4d c1             	cmovge %ecx,%eax
+ 1b25a7b:	39 c8                	cmp    %ecx,%eax
+ 1b25a7d:	0f 8d 8b 01 00 00    	jge    1b25c0e <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x25e>
+ 1b25a83:	41 bf ff ff ff ff    	mov    $0xffffffff,%r15d
+ 1b25a89:	eb 6f                	jmp    1b25afa <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x14a>
+ 1b25a8b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 1b25a90:	8d 48 01             	lea    0x1(%rax),%ecx
+ 1b25a93:	89 4c 24 08          	mov    %ecx,0x8(%rsp)
+ 1b25a97:	48 8b 0c 24          	mov    (%rsp),%rcx
+ 1b25a9b:	48 98                	cltq   
+ 1b25a9d:	48 8b 54 24 20       	mov    0x20(%rsp),%rdx
+ 1b25aa2:	48 89 14 c1          	mov    %rdx,(%rcx,%rax,8)
+ 1b25aa6:	41 f7 d4             	not    %r12d
+ 1b25aa9:	45 21 e7             	and    %r12d,%r15d
+ 1b25aac:	48 8b 93 e0 02 00 00 	mov    0x2e0(%rbx),%rdx
+ 1b25ab3:	48 85 d2             	test   %rdx,%rdx
+ 1b25ab6:	48 0f 44 d5          	cmove  %rbp,%rdx
+ 1b25aba:	8b 8b e8 02 00 00    	mov    0x2e8(%rbx),%ecx
+ 1b25ac0:	49 63 fd             	movslq %r13d,%rdi
+ 1b25ac3:	8b 04 ba             	mov    (%rdx,%rdi,4),%eax
+ 1b25ac6:	44 21 f8             	and    %r15d,%eax
+ 1b25ac9:	0f 84 a1 00 00 00    	je     1b25b70 <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x1c0>
+ 1b25acf:	41 89 c4             	mov    %eax,%r12d
+ 1b25ad2:	41 f7 dc             	neg    %r12d
+ 1b25ad5:	41 21 c4             	and    %eax,%r12d
+ 1b25ad8:	4a 8d 04 65 01 00 00 	lea    0x1(,%r12,2),%rax
+ 1b25adf:	00 
+ 1b25ae0:	48 0f bd d0          	bsr    %rax,%rdx
+ 1b25ae4:	83 f2 3f             	xor    $0x3f,%edx
+ 1b25ae7:	44 89 f0             	mov    %r14d,%eax
+ 1b25aea:	29 d0                	sub    %edx,%eax
+ 1b25aec:	83 c0 3e             	add    $0x3e,%eax
+ 1b25aef:	39 c8                	cmp    %ecx,%eax
+ 1b25af1:	0f 4d c1             	cmovge %ecx,%eax
+ 1b25af4:	0f 8d 14 01 00 00    	jge    1b25c0e <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x25e>
+ 1b25afa:	48 8b 8b c0 02 00 00 	mov    0x2c0(%rbx),%rcx
+ 1b25b01:	48 98                	cltq   
+ 1b25b03:	48 8d 04 40          	lea    (%rax,%rax,2),%rax
+ 1b25b07:	48 8b 7c c1 08       	mov    0x8(%rcx,%rax,8),%rdi
+ 1b25b0c:	48 89 7c 24 20       	mov    %rdi,0x20(%rsp)
+ 1b25b11:	e8 aa 42 65 00       	call   2179dc0 <AFGPipeNetwork::ShouldRunSimulation() const@plt>
+ 1b25b16:	84 c0                	test   %al,%al
+ 1b25b18:	74 8c                	je     1b25aa6 <AFGPipeSubsystem::SimulatePipeNetworks(float)+0xf6>
+ 1b25b1a:	4c 8b 0c 24          	mov    (%rsp),%r9
+ 1b25b1e:	48 8d 44 24 20       	lea    0x20(%rsp),%rax
+ 1b25b23:	49 39 c1             	cmp    %rax,%r9
+ 1b25b26:	77 17                	ja     1b25b3f <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x18f>
+ 1b25b28:	4c 63 54 24 0c       	movslq 0xc(%rsp),%r10
+ 1b25b2d:	4b 8d 04 d1          	lea    (%r9,%r10,8),%rax
+ 1b25b31:	48 8d 4c 24 20       	lea    0x20(%rsp),%rcx
+ 1b25b36:	48 39 c8             	cmp    %rcx,%rax
+ 1b25b39:	0f 87 88 00 00 00    	ja     1b25bc7 <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x217>
+ 1b25b3f:	8b 44 24 08          	mov    0x8(%rsp),%eax
+ 1b25b43:	3b 44 24 0c          	cmp    0xc(%rsp),%eax
+ 1b25b47:	0f 85 43 ff ff ff    	jne    1b25a90 <AFGPipeSubsystem::SimulatePipeNetworks(float)+0xe0>
+ 1b25b4d:	bf 08 08 00 00       	mov    $0x808,%edi
+ 1b25b52:	48 89 e6             	mov    %rsp,%rsi
+ 1b25b55:	48 8d 54 24 0c       	lea    0xc(%rsp),%rdx
+ 1b25b5a:	e8 31 e2 7f ff       	call   1323d90 <decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned short, TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 1b25b5f:	e9 2c ff ff ff       	jmp    1b25a90 <AFGPipeSubsystem::SimulatePipeNetworks(float)+0xe0>
+ 1b25b64:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 1b25b6b:	00 00 00 00 00 
+ 1b25b70:	8d 71 ff             	lea    -0x1(%rcx),%esi
+ 1b25b73:	8d 41 1e             	lea    0x1e(%rcx),%eax
+ 1b25b76:	85 f6                	test   %esi,%esi
+ 1b25b78:	0f 49 c6             	cmovns %esi,%eax
+ 1b25b7b:	c1 f8 05             	sar    $0x5,%eax
+ 1b25b7e:	41 39 c5             	cmp    %eax,%r13d
+ 1b25b81:	41 0f 4f c5          	cmovg  %r13d,%eax
+ 1b25b85:	0f 8d 83 00 00 00    	jge    1b25c0e <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x25e>
+ 1b25b8b:	48 63 f0             	movslq %eax,%rsi
+ 1b25b8e:	41 83 c6 20          	add    $0x20,%r14d
+ 1b25b92:	4c 8d 04 ba          	lea    (%rdx,%rdi,4),%r8
+ 1b25b96:	49 83 c0 04          	add    $0x4,%r8
+ 1b25b9a:	48 29 fe             	sub    %rdi,%rsi
+ 1b25b9d:	31 d2                	xor    %edx,%edx
+ 1b25b9f:	90                   	nop
+ 1b25ba0:	41 8b 04 90          	mov    (%r8,%rdx,4),%eax
+ 1b25ba4:	85 c0                	test   %eax,%eax
+ 1b25ba6:	75 0e                	jne    1b25bb6 <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x206>
+ 1b25ba8:	41 83 c6 20          	add    $0x20,%r14d
+ 1b25bac:	48 ff c2             	inc    %rdx
+ 1b25baf:	48 39 d6             	cmp    %rdx,%rsi
+ 1b25bb2:	75 ec                	jne    1b25ba0 <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x1f0>
+ 1b25bb4:	eb 58                	jmp    1b25c0e <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x25e>
+ 1b25bb6:	41 01 d5             	add    %edx,%r13d
+ 1b25bb9:	41 ff c5             	inc    %r13d
+ 1b25bbc:	41 bf ff ff ff ff    	mov    $0xffffffff,%r15d
+ 1b25bc2:	e9 08 ff ff ff       	jmp    1b25acf <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x11f>
+ 1b25bc7:	4c 63 5c 24 08       	movslq 0x8(%rsp),%r11
+ 1b25bcc:	48 83 ec 08          	sub    $0x8,%rsp
+ 1b25bd0:	48 8d 3d d7 f0 3c ff 	lea    -0xc30f29(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 1b25bd7:	48 8d 35 42 aa 39 ff 	lea    -0xc655be(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1b25bde:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 1b25be3:	48 8d 0d 60 df 45 ff 	lea    -0xba20a0(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 1b25bea:	4c 8d 44 24 28       	lea    0x28(%rsp),%r8
+ 1b25bef:	31 c0                	xor    %eax,%eax
+ 1b25bf1:	6a 08                	push   $0x8
+ 1b25bf3:	41 53                	push   %r11
+ 1b25bf5:	41 52                	push   %r10
+ 1b25bf7:	e8 84 0f 62 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1b25bfc:	48 83 c4 20          	add    $0x20,%rsp
+ 1b25c00:	84 c0                	test   %al,%al
+ 1b25c02:	0f 84 37 ff ff ff    	je     1b25b3f <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x18f>
+ 1b25c08:	cc                   	int3   
+ 1b25c09:	e9 31 ff ff ff       	jmp    1b25b3f <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x18f>
+ 1b25c0e:	48 8b 05 83 16 b2 00 	mov    0xb21683(%rip),%rax        # 2647298 <CVarUseParallelSimulation+0x10>
+ 1b25c15:	8b 18                	mov    (%rax),%ebx
+ 1b25c17:	e8 e4 18 63 00       	call   2157500 <Z_Construct_UClass_UFGFactoryTickSettings_NoRegister()@plt>
+ 1b25c1c:	48 8b 88 10 01 00 00 	mov    0x110(%rax),%rcx
+ 1b25c23:	48 85 c9             	test   %rcx,%rcx
+ 1b25c26:	75 12                	jne    1b25c3a <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x28a>
+ 1b25c28:	48 89 c7             	mov    %rax,%rdi
+ 1b25c2b:	49 89 c6             	mov    %rax,%r14
+ 1b25c2e:	e8 fd 64 63 00       	call   215c130 <UClass::InternalCreateDefaultObjectWrapper() const@plt>
+ 1b25c33:	49 8b 8e 10 01 00 00 	mov    0x110(%r14),%rcx
+ 1b25c3a:	f3 0f 10 41 38       	movss  0x38(%rcx),%xmm0
+ 1b25c3f:	f3 0f 11 44 24 10    	movss  %xmm0,0x10(%rsp)
+ 1b25c45:	e8 b6 18 63 00       	call   2157500 <Z_Construct_UClass_UFGFactoryTickSettings_NoRegister()@plt>
+ 1b25c4a:	48 8b 88 10 01 00 00 	mov    0x110(%rax),%rcx
+ 1b25c51:	48 85 c9             	test   %rcx,%rcx
+ 1b25c54:	75 12                	jne    1b25c68 <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x2b8>
+ 1b25c56:	48 89 c7             	mov    %rax,%rdi
+ 1b25c59:	49 89 c6             	mov    %rax,%r14
+ 1b25c5c:	e8 cf 64 63 00       	call   215c130 <UClass::InternalCreateDefaultObjectWrapper() const@plt>
+ 1b25c61:	49 8b 8e 10 01 00 00 	mov    0x110(%r14),%rcx
+ 1b25c68:	8b 41 3c             	mov    0x3c(%rcx),%eax
+ 1b25c6b:	f3 0f 10 05 c1 1c 35 	movss  -0xcae33f(%rip),%xmm0        # e77934 <(anonymous namespace)::FGHighlightColor+0x1a14>
+ 1b25c72:	ff 
+ 1b25c73:	f3 0f 10 54 24 10    	movss  0x10(%rsp),%xmm2
+ 1b25c79:	f3 0f 5e c2          	divss  %xmm2,%xmm0
+ 1b25c7d:	f3 0f 2a c8          	cvtsi2ss %eax,%xmm1
+ 1b25c81:	f3 0f 59 ca          	mulss  %xmm2,%xmm1
+ 1b25c85:	f3 0f 5d 4c 24 14    	minss  0x14(%rsp),%xmm1
+ 1b25c8b:	f3 0f 59 c1          	mulss  %xmm1,%xmm0
+ 1b25c8f:	f3 0f 58 c0          	addss  %xmm0,%xmm0
+ 1b25c93:	f3 0f 10 15 6d 1e 35 	movss  -0xcae193(%rip),%xmm2        # e77b08 <(anonymous namespace)::FGHighlightColor+0x1be8>
+ 1b25c9a:	ff 
+ 1b25c9b:	f3 0f 5c d0          	subss  %xmm0,%xmm2
+ 1b25c9f:	f3 0f 2d ca          	cvtss2si %xmm2,%ecx
+ 1b25ca3:	d1 f9                	sar    %ecx
+ 1b25ca5:	f7 d9                	neg    %ecx
+ 1b25ca7:	39 c1                	cmp    %eax,%ecx
+ 1b25ca9:	0f 4d c8             	cmovge %eax,%ecx
+ 1b25cac:	83 f9 02             	cmp    $0x2,%ecx
+ 1b25caf:	b8 01 00 00 00       	mov    $0x1,%eax
+ 1b25cb4:	0f 4d c1             	cmovge %ecx,%eax
+ 1b25cb7:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 1b25cba:	f3 0f 2a c0          	cvtsi2ss %eax,%xmm0
+ 1b25cbe:	89 44 24 1c          	mov    %eax,0x1c(%rsp)
+ 1b25cc2:	f3 0f 5e c8          	divss  %xmm0,%xmm1
+ 1b25cc6:	f3 0f 11 4c 24 18    	movss  %xmm1,0x18(%rsp)
+ 1b25ccc:	8b 74 24 08          	mov    0x8(%rsp),%esi
+ 1b25cd0:	48 89 e0             	mov    %rsp,%rax
+ 1b25cd3:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+ 1b25cd8:	48 8d 44 24 1c       	lea    0x1c(%rsp),%rax
+ 1b25cdd:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+ 1b25ce2:	48 8d 44 24 18       	lea    0x18(%rsp),%rax
+ 1b25ce7:	48 89 44 24 30       	mov    %rax,0x30(%rsp)
+ 1b25cec:	83 fb 01             	cmp    $0x1,%ebx
+ 1b25cef:	41 b8 02 00 00 00    	mov    $0x2,%r8d
+ 1b25cf5:	41 83 d8 00          	sbb    $0x0,%r8d
+ 1b25cf9:	48 8d 05 f0 74 03 00 	lea    0x374f0(%rip),%rax        # 1b5d1f0 <UE::Core::Private::Function::TFunctionRefCaller<AFGPipeSubsystem::SimulatePipeNetworks(float)::$_0, void, int>::Call(void*, int&)>
+ 1b25d00:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+ 1b25d05:	48 8d 44 24 20       	lea    0x20(%rsp),%rax
+ 1b25d0a:	48 89 44 24 50       	mov    %rax,0x50(%rsp)
+ 1b25d0f:	48 c7 44 24 38 00 00 	movq   $0x0,0x38(%rsp)
+ 1b25d16:	00 00 
+ 1b25d18:	c7 44 24 40 00 00 00 	movl   $0x0,0x40(%rsp)
+ 1b25d1f:	00 
+ 1b25d20:	48 8d 3d f7 e7 40 ff 	lea    -0xbf1809(%rip),%rdi        # f3451e <(anonymous namespace)::FGHighlightColor+0xbe5fe>
+ 1b25d27:	48 8d 4c 24 48       	lea    0x48(%rsp),%rcx
+ 1b25d2c:	4c 8d 4c 24 38       	lea    0x38(%rsp),%r9
+ 1b25d31:	ba 01 00 00 00       	mov    $0x1,%edx
+ 1b25d36:	e8 65 91 d2 ff       	call   184eea0 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)>
+ 1b25d3b:	48 8b 3c 24          	mov    (%rsp),%rdi
+ 1b25d3f:	48 85 ff             	test   %rdi,%rdi
+ 1b25d42:	74 05                	je     1b25d49 <AFGPipeSubsystem::SimulatePipeNetworks(float)+0x399>
+ 1b25d44:	e8 47 0e 62 00       	call   2146b90 <FMemory::Free(void*)@plt>
+ 1b25d49:	48 83 c4 58          	add    $0x58,%rsp
+ 1b25d4d:	5b                   	pop    %rbx
+ 1b25d4e:	41 5c                	pop    %r12

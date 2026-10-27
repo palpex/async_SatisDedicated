@@ -1,0 +1,29 @@
+{
+  "updated_utc": "2026-10-27T01:36:43.402081+00:00",
+  "exec_session_id": 20322,
+  "rea_pid": 105115,
+  "ghidra_pid": 105462,
+  "runtime_directory": "/tmp/rea-ghidra-Wh2mn8",
+  "target": "server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so",
+  "procedure": "0x187fc40",
+  "output": "evidence/rea-tick-factory-actors.json",
+  "status_at_observation": "completed",
+  "note": "Revalidate live process/session before waiting or restarting; this record alone is not liveness evidence.",
+  "process_observations": {
+    "rea_pid": "node .tools/rea/node_modules/.bin/rea function /var/www/async_SatisDedicated/server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so 0x187fc40 --provider ghidra --snapshot /var/www/async_SatisDedicated/evidence/factorygame-snapshot.json --json ",
+    "ghidra_pid": "/usr/lib/jvm/java-21-openjdk-amd64/bin/java -Djava.system.class.loader=ghidra.GhidraClassLoader -Dfile.encoding=UTF8 -Duser.country=US -Duser.language=en -Duser.variant= -Dsun.java2d.opengl=false -Djdk.tls.client.protocols=TLSv1.2,TLSv1.3 -Dcpu.core.limit= -Dcpu.core.override= -Dfont.size.override= -Dpython.console.encoding=UTF-8 -Xshare:off -Djavax.xml.accessExternalDTD= -Djavax.xml.accessExternalSchema= -Djavax.xml.accessExternalStylesheet= --enable-native-access=ALL-UNNAMED -Dsun.java2d.pmoffscreen=false -Dsun.java2d.xrender=true -Dsun.java2d.uiScale=1 -Dawt.useSystemAAFontSettings=on -Xmx2G -XX:ParallelGCThreads=2 -XX:CICompilerCount=2 -Djava.awt.headless=true -Duser.home=/tmp/rea-ghidra-Wh2mn8/home -Djava.io.tmpdir=/tmp/rea-ghidra-Wh2mn8/tmp -showversion -cp /var/www/async_SatisDedicated/.tools/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Utility/lib/Utility.jar ghidra.Ghidra ghidra.app.util.headless.AnalyzeHeadless /tmp/rea-ghidra-Wh2mn8/project rea-project -import /tmp/rea-ghidra-Wh2mn8/target-637c2c70e65f.so -readOnly -deleteProject -log /tmp/rea-ghidra-Wh2mn8/ghidra.log -scriptlog /tmp/rea-ghidra-Wh2mn8/script.log -scriptPath /var/www/async_SatisDedicated/.tools/rea/node_modules/rea-agents/bridge/ghidra -postScript /var/www/async_SatisDedicated/.tools/rea/node_modules/rea-agents/bridge/ghidra/ReaGhidraNoReturnFix.java -postScript /var/www/async_SatisDedicated/.tools/rea/node_modules/rea-agents/bridge/ghidra/ReaGhidraBridge.java /tmp/rea-ghidra-Wh2mn8/session.json "
+  },
+  "output_bytes": 0,
+  "finished_output": "evidence/rea-tick-factory-actors.json",
+  "validation": "Invalid target selection: Ghidra rebases shared ELF by +0x100000; request selected SteerAvoidFloor rather than TickFactoryActors.",
+  "corrected_session": {
+    "exec_session_id": 90548,
+    "client_pid": 179062,
+    "server_pid": 179089,
+    "ghidra_pid": 184606,
+    "target_closed": true,
+    "close_evidence": "evidence/rea-corrected-session-close.json",
+    "artifact_address_adjustment": "Ghidra Program VA = ELF VA + 0x100000",
+    "note": "Queries completed; Ghidra target closed successfully. Recheck client process if cleanup is needed."
+  }
+}

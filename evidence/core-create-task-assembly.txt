@@ -1,0 +1,233 @@
+
+server/Engine/Binaries/Linux/libFactoryServer-Core-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000004acf90 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)>:
+  4acf90:	55                   	push   %rbp
+  4acf91:	41 57                	push   %r15
+  4acf93:	41 56                	push   %r14
+  4acf95:	41 55                	push   %r13
+  4acf97:	41 54                	push   %r12
+  4acf99:	53                   	push   %rbx
+  4acf9a:	48 83 ec 18          	sub    $0x18,%rsp
+  4acf9e:	89 cd                	mov    %ecx,%ebp
+  4acfa0:	49 89 d5             	mov    %rdx,%r13
+  4acfa3:	49 89 f4             	mov    %rsi,%r12
+  4acfa6:	48 89 7c 24 10       	mov    %rdi,0x10(%rsp)
+  4acfab:	48 8d 3d 1e 7e 78 00 	lea    0x787e1e(%rip),%rdi        # c34dd0 <_DYNAMIC+0x1f0>
+  4acfb2:	e8 49 d0 72 00       	call   bda000 <__tls_get_addr@plt>
+  4acfb7:	49 89 c6             	mov    %rax,%r14
+  4acfba:	48 8d 98 78 00 00 00 	lea    0x78(%rax),%rbx
+  4acfc1:	48 8b 80 78 00 00 00 	mov    0x78(%rax),%rax
+  4acfc8:	48 85 c0             	test   %rax,%rax
+  4acfcb:	75 60                	jne    4ad02d <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x9d>
+  4acfcd:	4c 89 f0             	mov    %r14,%rax
+  4acfd0:	41 80 be 88 00 00 00 	cmpb   $0x0,0x88(%r14)
+  4acfd7:	00 
+  4acfd8:	0f 84 41 03 00 00    	je     4ad31f <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x38f>
+  4acfde:	4c 89 f0             	mov    %r14,%rax
+  4acfe1:	48 89 c1             	mov    %rax,%rcx
+  4acfe4:	48 8b 80 80 00 00 00 	mov    0x80(%rax),%rax
+  4acfeb:	48 c7 81 80 00 00 00 	movq   $0x0,0x80(%rcx)
+  4acff2:	00 00 00 00 
+  4acff6:	48 85 c0             	test   %rax,%rax
+  4acff9:	75 0f                	jne    4ad00a <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x7a>
+  4acffb:	bf 00 00 01 00       	mov    $0x10000,%edi
+  4ad000:	be 08 00 00 00       	mov    $0x8,%esi
+  4ad005:	e8 a6 cd 72 00       	call   bd9db0 <FMemory::Malloc(unsigned long, unsigned int)@plt>
+  4ad00a:	c7 00 ff ff ff ff    	movl   $0xffffffff,(%rax)
+  4ad010:	48 8d 48 58          	lea    0x58(%rax),%rcx
+  4ad014:	48 89 48 40          	mov    %rcx,0x40(%rax)
+  4ad018:	c7 40 48 00 00 00 00 	movl   $0x0,0x48(%rax)
+  4ad01f:	48 89 03             	mov    %rax,(%rbx)
+  4ad022:	48 89 df             	mov    %rbx,%rdi
+  4ad025:	e8 96 e4 ff ff       	call   4ab4c0 <TLinearAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::AllocateBlock(TLinearAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::FBlockHeader*&)>
+  4ad02a:	48 8b 03             	mov    (%rbx),%rax
+  4ad02d:	4c 8b 78 40          	mov    0x40(%rax),%r15
+  4ad031:	49 83 c7 0f          	add    $0xf,%r15
+  4ad035:	49 83 e7 f0          	and    $0xfffffffffffffff0,%r15
+  4ad039:	49 8d b7 f0 00 00 00 	lea    0xf0(%r15),%rsi
+  4ad040:	48 8d 90 00 00 01 00 	lea    0x10000(%rax),%rdx
+  4ad047:	8b 48 48             	mov    0x48(%rax),%ecx
+  4ad04a:	48 39 d6             	cmp    %rdx,%rsi
+  4ad04d:	0f 86 c5 02 00 00    	jbe    4ad318 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x388>
+  4ad053:	48 89 50 40          	mov    %rdx,0x40(%rax)
+  4ad057:	f7 d1                	not    %ecx
+  4ad059:	f0 29 08             	lock sub %ecx,(%rax)
+  4ad05c:	0f 85 6b ff ff ff    	jne    4acfcd <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x3d>
+  4ad062:	48 8b 03             	mov    (%rbx),%rax
+  4ad065:	c7 00 ff ff ff ff    	movl   $0xffffffff,(%rax)
+  4ad06b:	48 8d 48 58          	lea    0x58(%rax),%rcx
+  4ad06f:	48 89 48 40          	mov    %rcx,0x40(%rax)
+  4ad073:	c7 40 48 00 00 00 00 	movl   $0x0,0x48(%rax)
+  4ad07a:	4c 8d 78 67          	lea    0x67(%rax),%r15
+  4ad07e:	49 83 e7 f0          	and    $0xfffffffffffffff0,%r15
+  4ad082:	49 8d b7 f0 00 00 00 	lea    0xf0(%r15),%rsi
+  4ad089:	48 8d 90 00 00 01 00 	lea    0x10000(%rax),%rdx
+  4ad090:	b9 01 00 00 00       	mov    $0x1,%ecx
+  4ad095:	48 39 d6             	cmp    %rdx,%rsi
+  4ad098:	76 46                	jbe    4ad0e0 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x150>
+  4ad09a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+  4ad0a0:	48 89 50 40          	mov    %rdx,0x40(%rax)
+  4ad0a4:	f0 ff 00             	lock incl (%rax)
+  4ad0a7:	0f 85 20 ff ff ff    	jne    4acfcd <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x3d>
+  4ad0ad:	48 8b 03             	mov    (%rbx),%rax
+  4ad0b0:	c7 00 ff ff ff ff    	movl   $0xffffffff,(%rax)
+  4ad0b6:	48 8d 50 58          	lea    0x58(%rax),%rdx
+  4ad0ba:	48 89 50 40          	mov    %rdx,0x40(%rax)
+  4ad0be:	c7 40 48 00 00 00 00 	movl   $0x0,0x48(%rax)
+  4ad0c5:	4c 8d 78 67          	lea    0x67(%rax),%r15
+  4ad0c9:	49 83 e7 f0          	and    $0xfffffffffffffff0,%r15
+  4ad0cd:	49 8d b7 f0 00 00 00 	lea    0xf0(%r15),%rsi
+  4ad0d4:	48 8d 90 00 00 01 00 	lea    0x10000(%rax),%rdx
+  4ad0db:	48 39 d6             	cmp    %rdx,%rsi
+  4ad0de:	77 c0                	ja     4ad0a0 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x110>
+  4ad0e0:	49 8d 97 f8 00 00 00 	lea    0xf8(%r15),%rdx
+  4ad0e7:	48 89 50 40          	mov    %rdx,0x40(%rax)
+  4ad0eb:	89 48 48             	mov    %ecx,0x48(%rax)
+  4ad0ee:	49 8d 4f f8          	lea    -0x8(%r15),%rcx
+  4ad0f2:	29 c1                	sub    %eax,%ecx
+  4ad0f4:	41 89 4f f8          	mov    %ecx,-0x8(%r15)
+  4ad0f8:	41 c7 47 fc f0 00 00 	movl   $0xf0,-0x4(%r15)
+  4ad0ff:	00 
+  4ad100:	48 b8 01 00 00 00 01 	movabs $0x100000001,%rax
+  4ad107:	00 00 00 
+  4ad10a:	49 89 47 08          	mov    %rax,0x8(%r15)
+  4ad10e:	49 c7 47 10 00 00 00 	movq   $0x0,0x10(%r15)
+  4ad115:	00 
+  4ad116:	41 c7 47 18 00 00 00 	movl   $0x0,0x18(%r15)
+  4ad11d:	00 
+  4ad11e:	41 c7 47 20 ff ff ff 	movl   $0xffffffff,0x20(%r15)
+  4ad125:	ff 
+  4ad126:	49 c7 47 30 00 00 00 	movq   $0x0,0x30(%r15)
+  4ad12d:	00 
+  4ad12e:	48 b8 00 00 00 00 01 	movabs $0x100000000,%rax
+  4ad135:	00 00 00 
+  4ad138:	49 89 47 38          	mov    %rax,0x38(%r15)
+  4ad13c:	49 8d 5f 40          	lea    0x40(%r15),%rbx
+  4ad140:	41 c6 47 40 01       	movb   $0x1,0x40(%r15)
+  4ad145:	48 8b 0d 2c 7d 78 00 	mov    0x787d2c(%rip),%rcx        # c34e78 <vtable for LowLevelTasks::TTaskDelegate<LowLevelTasks::FTask* (bool), 48u>::TTaskDelegateDummy@@Base+0x43af0>
+  4ad14c:	48 83 c1 10          	add    $0x10,%rcx
+  4ad150:	49 89 4f 70          	mov    %rcx,0x70(%r15)
+  4ad154:	49 c7 47 78 00 00 00 	movq   $0x0,0x78(%r15)
+  4ad15b:	00 
+  4ad15c:	48 b9 20 00 00 00 00 	movabs $0xe800000000000020,%rcx
+  4ad163:	00 00 e8 
+  4ad166:	49 89 8f 80 00 00 00 	mov    %rcx,0x80(%r15)
+  4ad16d:	49 c7 87 90 00 00 00 	movq   $0x0,0x90(%r15)
+  4ad174:	00 00 00 00 
+  4ad178:	49 89 87 98 00 00 00 	mov    %rax,0x98(%r15)
+  4ad17f:	66 41 c7 87 a0 00 00 	movw   $0x0,0xa0(%r15)
+  4ad186:	00 00 00 
+  4ad189:	48 8b 05 f0 7c 78 00 	mov    0x787cf0(%rip),%rax        # c34e80 <vtable for FBaseGraphTask@@Base+0x43838>
+  4ad190:	48 83 c0 10          	add    $0x10,%rax
+  4ad194:	49 89 07             	mov    %rax,(%r15)
+  4ad197:	4d 85 ed             	test   %r13,%r13
+  4ad19a:	74 0d                	je     4ad1a9 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x219>
+  4ad19c:	4c 89 ff             	mov    %r15,%rdi
+  4ad19f:	4c 89 ee             	mov    %r13,%rsi
+  4ad1a2:	31 d2                	xor    %edx,%edx
+  4ad1a4:	e8 07 e5 ff ff       	call   4ab6b0 <_ZN2UE5Tasks7Private9FTaskBase16AddPrerequisitesI6TArrayI12TRefCountPtrI14FBaseGraphTaskE21TSizedInlineAllocatorILj4ELi32E22TSizedDefaultAllocatorILi32EEEETnPDTcldtclsr3stdE7declvalIT_EE5beginEELPPS7_0EEEvRKSD_b>
+  4ad1a9:	b0 ff                	mov    $0xff,%al
+  4ad1ab:	f0 0f c0 03          	lock xadd %al,(%rbx)
+  4ad1af:	a8 02                	test   $0x2,%al
+  4ad1b1:	0f 85 92 01 00 00    	jne    4ad349 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x3b9>
+  4ad1b7:	48 8b 05 52 7e 78 00 	mov    0x787e52(%rip),%rax        # c35010 <vtable for TGraphTask<TFunctionGraphTaskImpl<void (), (ESubsequentsMode::Type)0> >@@Base+0x43850>
+  4ad1be:	48 83 c0 10          	add    $0x10,%rax
+  4ad1c2:	49 89 07             	mov    %rax,(%r15)
+  4ad1c5:	49 8b 04 24          	mov    (%r12),%rax
+  4ad1c9:	49 89 87 b0 00 00 00 	mov    %rax,0xb0(%r15)
+  4ad1d0:	49 8b 4c 24 28       	mov    0x28(%r12),%rcx
+  4ad1d5:	49 89 8f d8 00 00 00 	mov    %rcx,0xd8(%r15)
+  4ad1dc:	49 c7 44 24 28 00 00 	movq   $0x0,0x28(%r12)
+  4ad1e3:	00 00 
+  4ad1e5:	49 8b 4c 24 20       	mov    0x20(%r12),%rcx
+  4ad1ea:	49 89 8f d0 00 00 00 	mov    %rcx,0xd0(%r15)
+  4ad1f1:	41 0f 28 44 24 10    	movaps 0x10(%r12),%xmm0
+  4ad1f7:	41 0f 29 87 c0 00 00 	movaps %xmm0,0xc0(%r15)
+  4ad1fe:	00 
+  4ad1ff:	48 85 c0             	test   %rax,%rax
+  4ad202:	74 08                	je     4ad20c <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x27c>
+  4ad204:	49 c7 04 24 00 00 00 	movq   $0x0,(%r12)
+  4ad20b:	00 
+  4ad20c:	49 8d 5f 70          	lea    0x70(%r15),%rbx
+  4ad210:	41 89 af e0 00 00 00 	mov    %ebp,0xe0(%r15)
+  4ad217:	48 8d 74 24 0e       	lea    0xe(%rsp),%rsi
+  4ad21c:	48 8d 54 24 0d       	lea    0xd(%rsp),%rdx
+  4ad221:	89 ef                	mov    %ebp,%edi
+  4ad223:	e8 e8 cd 72 00       	call   bda010 <UE::Tasks::Private::TranslatePriority(ENamedThreads::Type, LowLevelTasks::ETaskPriority&, UE::Tasks::EExtendedTaskPriority&)@plt>
+  4ad228:	44 0f b6 64 24 0e    	movzbl 0xe(%rsp),%r12d
+  4ad22e:	0f b6 6c 24 0d       	movzbl 0xd(%rsp),%ebp
+  4ad233:	49 8d 77 48          	lea    0x48(%r15),%rsi
+  4ad237:	49 8b 87 80 00 00 00 	mov    0x80(%r15),%rax
+  4ad23e:	a8 20                	test   $0x20,%al
+  4ad240:	0f 84 10 01 00 00    	je     4ad356 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x3c6>
+  4ad246:	49 8b 47 70          	mov    0x70(%r15),%rax
+  4ad24a:	48 89 df             	mov    %rbx,%rdi
+  4ad24d:	ff 50 18             	call   *0x18(%rax)
+  4ad250:	48 8d 05 51 44 74 00 	lea    0x744451(%rip),%rax        # bf16a8 <vtable for LowLevelTasks::TTaskDelegate<LowLevelTasks::FTask* (bool), 48u>::TTaskDelegateImpl<LowLevelTasks::FTask::Init<UE::Tasks::Private::FTaskBase::Init(char16_t const*, LowLevelTasks::ETaskPriority, UE::Tasks::EExtendedTaskPriority, UE::Tasks::ETaskFlags)::{lambda()#1}>(char16_t const*, LowLevelTasks::ETaskPriority, UE::Tasks::Private::FTaskBase::Init(char16_t const*, LowLevelTasks::ETaskPriority, UE::Tasks::EExtendedTaskPriority, UE::Tasks::ETaskFlags)::{lambda()#1}&&, LowLevelTasks::ETaskFlags)::{lambda(bool)#1}, false>+0x10>
+  4ad257:	49 89 47 70          	mov    %rax,0x70(%r15)
+  4ad25b:	4d 89 7f 48          	mov    %r15,0x48(%r15)
+  4ad25f:	4d 89 7f 50          	mov    %r15,0x50(%r15)
+  4ad263:	4c 89 f0             	mov    %r14,%rax
+  4ad266:	49 8b 86 28 00 00 00 	mov    0x28(%r14),%rax
+  4ad26d:	48 85 c0             	test   %rax,%rax
+  4ad270:	74 1d                	je     4ad28f <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x2ff>
+  4ad272:	41 80 fc 06          	cmp    $0x6,%r12b
+  4ad276:	48 8b 5c 24 10       	mov    0x10(%rsp),%rbx
+  4ad27b:	75 0c                	jne    4ad289 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x2f9>
+  4ad27d:	4c 8b 60 38          	mov    0x38(%rax),%r12
+  4ad281:	49 c1 ec 3b          	shr    $0x3b,%r12
+  4ad285:	41 80 e4 07          	and    $0x7,%r12b
+  4ad289:	48 8b 40 30          	mov    0x30(%rax),%rax
+  4ad28d:	eb 19                	jmp    4ad2a8 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x318>
+  4ad28f:	41 80 fc 06          	cmp    $0x6,%r12b
+  4ad293:	41 0f b6 c4          	movzbl %r12b,%eax
+  4ad297:	41 bc 01 00 00 00    	mov    $0x1,%r12d
+  4ad29d:	44 0f 45 e0          	cmovne %eax,%r12d
+  4ad2a1:	31 c0                	xor    %eax,%eax
+  4ad2a3:	48 8b 5c 24 10       	mov    0x10(%rsp),%rbx
+  4ad2a8:	49 89 47 78          	mov    %rax,0x78(%r15)
+  4ad2ac:	48 8d 05 e9 fc dd ff 	lea    -0x220317(%rip),%rax        # 28cf9c <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x2463b>
+  4ad2b3:	48 c1 e0 06          	shl    $0x6,%rax
+  4ad2b7:	48 b9 80 ff ff ff ff 	movabs $0x7ffffffffffff80,%rcx
+  4ad2be:	ff ff 07 
+  4ad2c1:	48 21 c1             	and    %rax,%rcx
+  4ad2c4:	41 0f b6 c4          	movzbl %r12b,%eax
+  4ad2c8:	48 c1 e0 3b          	shl    $0x3b,%rax
+  4ad2cc:	48 09 c8             	or     %rcx,%rax
+  4ad2cf:	48 b9 00 00 00 00 00 	movabs $0xc000000000000000,%rcx
+  4ad2d6:	00 00 c0 
+  4ad2d9:	48 09 c1             	or     %rax,%rcx
+  4ad2dc:	49 89 8f 80 00 00 00 	mov    %rcx,0x80(%r15)
+  4ad2e3:	41 88 6f 1c          	mov    %bpl,0x1c(%r15)
+  4ad2e7:	4c 89 3b             	mov    %r15,(%rbx)
+  4ad2ea:	4d 85 ff             	test   %r15,%r15
+  4ad2ed:	74 05                	je     4ad2f4 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x364>
+  4ad2ef:	f0 41 ff 47 08       	lock incl 0x8(%r15)
+  4ad2f4:	c6 44 24 0f 01       	movb   $0x1,0xf(%rsp)
+  4ad2f9:	48 8d 74 24 0f       	lea    0xf(%rsp),%rsi
+  4ad2fe:	4c 89 ff             	mov    %r15,%rdi
+  4ad301:	e8 1a d2 ff ff       	call   4aa520 <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)>
+  4ad306:	48 89 d8             	mov    %rbx,%rax
+  4ad309:	48 83 c4 18          	add    $0x18,%rsp
+  4ad30d:	5b                   	pop    %rbx
+  4ad30e:	41 5c                	pop    %r12
+  4ad310:	41 5d                	pop    %r13
+  4ad312:	41 5e                	pop    %r14
+  4ad314:	41 5f                	pop    %r15
+  4ad316:	5d                   	pop    %rbp
+  4ad317:	c3                   	ret    
+  4ad318:	ff c1                	inc    %ecx
+  4ad31a:	e9 c1 fd ff ff       	jmp    4ad0e0 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)+0x150>
+  4ad31f:	49 8d b6 80 00 00 00 	lea    0x80(%r14),%rsi
+  4ad326:	48 8d 3d 63 5e ff ff 	lea    -0xa19d(%rip),%rdi        # 4a3190 <TBlockAllocationCache<65536u, FAlignedAllocator>::FTLSCleanup::~FTLSCleanup()>
+  4ad32d:	48 8d 15 0c c5 78 00 	lea    0x78c50c(%rip),%rdx        # c39840 <__dso_handle>
+  4ad334:	e8 e7 cc 72 00       	call   bda020 <__cxa_thread_atexit@plt>
+  4ad339:	4c 89 f0             	mov    %r14,%rax
+  4ad33c:	41                   	rex.B
+  4ad33d:	c6                   	.byte 0xc6
+  4ad33e:	86                   	.byte 0x86
+  4ad33f:	88                   	.byte 0x88

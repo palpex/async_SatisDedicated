@@ -1,0 +1,100 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"evidence_id\":\"ev_af97a30125ad8e6b6a1dc92b902ddf2225d9c2f1a4cc5a0465e92b168cc89f2c\",\"subject\":{\"name\":\"libFactoryServer-FactoryGame-Linux-Shipping.so\",\"digest\":{\"sha256\":\"637c2c70e65f6386697a6a5f5746f64b187d2fcfeee56df1aeef3f172268c0c1\"},\"local_path\":\"/var/www/async_SatisDedicated/server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so\",\"format\":\"elf\",\"architecture\":\"x86_64\"},\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"analysis_profile\":{\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"parameters\":{\"target_kind\":\"executable\",\"target_format\":\"elf\",\"architecture\":\"x86_64\",\"available_architectures\":[\"x86_64\"],\"import_mode\":\"ephemeral-source-immutable\",\"annotation_policy\":\"atomic-function-entry-metadata-v1\",\"load_image_observations\":\"source-mappings-entry-context-v2\",\"function_body_evidence\":\"complete-inclusive-ranges-v1\",\"function_references\":\"complete-body-and-entry-reference-manager-v2\",\"call_relationship_coverage\":\"function-body-call-coverage-v5\",\"function_dossier_coverage\":\"observed-facets-and-call-relationships-v1\",\"string_inventory_evidence\":\"defined-data-coverage-v1\",\"location_resolution\":\"explicit-address-exact-entry-symbol-first-v3\",\"procedure_file_offset_resolution\":\"address-first-unique-target-source-mapping-v2\",\"instruction_flow_evidence\":\"decoded-return-pcode-v1\",\"instruction_references\":\"exact-address-incoming-without-synthetic-entry-v2\",\"function_boundary_observations\":\"ghidra-function-boundary-limitations-v4\",\"no_return_repair\":\"returning-imports-decoded-return-v2\",\"process_launch\":\"inspected-jvm-launch-support-v1\",\"jump_table_evidence\":\"typed-case-default-blocks-v1\",\"decompiler_jump_loads\":true,\"loader\":\"auto-from-header\",\"language_id\":\"auto-from-header\",\"compiler_spec_id\":\"auto-default\",\"analyzer_preset\":\"ghidra-default\",\"function_coordinate_context\":{\"kind\":\"native-function-coordinate-context-v1\",\"selected_image\":null,\"mapping_sha256\":\"55a7964dc0bcdf067484a281c658e6ca8457a49405e0ea9dbd080366ee4c3198\"}},\"digest\":\"ae80ece8c83379eddabbdf379bbffca5da84c7df7fa7c159f45fa810468f85d9\"},\"predicate_type\":\"rea.analysis\",\"operation\":\"procedure_pseudo_code\",\"parameters\":{\"procedure\":\"_ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThreads4TypeERK12TRefCountPtrI14FBaseGraphTaskE\"},\"raw_result\":null,\"normalized_result\":\"\\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\\n/* FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type,\\n   TRefCountPtr<FBaseGraphTask> const&) */\\n\\nvoid FFactoryTickFunction::ExecuteTick(float param_1,long param_2,undefined4 param_3)\\n\\n{\\n  uint uVar1;\\n  code *pcVar2;\\n  char cVar3;\\n  uint uVar4;\\n  long lVar5;\\n  timespec local_40;\\n  double local_30;\\n  \\n  lVar5 = *(long *)(param_2 + 0x28);\\n  if ((lVar5 != 0) && ((*(uint *)(lVar5 + 8) & 0x40000000) == 0)) {\\n    uVar1 = *(uint *)(lVar5 + 0xc);\\n    if (((int)uVar1 < 0) &&\\n       (cVar3 = FDebug::CheckVerifyFailedImpl2\\n                          (\\\"Index >= 0\\\",\\\"Runtime/CoreUObject/Public\\\\\\\\UObject/UObjectArray.h\\\",0x40d,\\n                           L\\\"\\\"), cVar3 != '\\\\0')) {\\n      pcVar2 = (code *)swi(3);\\n      (*pcVar2)();\\n      return;\\n    }\\n    if ((int)uVar1 < _DAT_027529dc) {\\n      uVar4 = uVar1 >> 0x10;\\n      if (((int)uVar1 < 0) &&\\n         (cVar3 = FDebug::CheckVerifyFailedImpl2\\n                            (\\\"IsValidIndex(Index)\\\",\\n                             \\\"Runtime/CoreUObject/Public\\\\\\\\UObject/UObjectArray.h\\\",0x32c,\\n                             L\\\"IsValidIndex(%d)\\\",(ulong)uVar1), cVar3 != '\\\\0')) {\\n        pcVar2 = (code *)swi(3);\\n        (*pcVar2)();\\n        return;\\n      }\\n      if ((_DAT_027529e4 <= uVar4) &&\\n         (cVar3 = FDebug::CheckVerifyFailedImpl2\\n                            (\\\"ChunkIndex < (uint32)NumChunks\\\",\\n                             \\\"Runtime/CoreUObject/Public\\\\\\\\UObject/UObjectArray.h\\\",0x32d,\\n                             L\\\"ChunkIndex (%d) < NumChunks (%d)\\\",(ulong)uVar4), cVar3 != '\\\\0')) {\\n        pcVar2 = (code *)swi(3);\\n        (*pcVar2)();\\n        return;\\n      }\\n      if ((_GetContainerName <= (int)uVar1) &&\\n         (cVar3 = FDebug::CheckVerifyFailedImpl2\\n                            (\\\"Index < MaxElements\\\",\\n                             \\\"Runtime/CoreUObject/Public\\\\\\\\UObject/UObjectArray.h\\\",0x32e,\\n                             L\\\"Index (%d) < MaxElements (%d)\\\",(ulong)uVar1), cVar3 != '\\\\0')) {\\n        pcVar2 = (code *)swi(3);\\n        (*pcVar2)();\\n        return;\\n      }\\n      lVar5 = *(long *)(_Z_Construct_UClass_UPhysicalMaterial_NoRegister + (ulong)uVar4 * 8);\\n      if ((lVar5 == 0) &&\\n         (cVar3 = FDebug::CheckVerifyFailedImpl2\\n                            (\\\"Chunk\\\",\\\"Runtime/CoreUObject/Public\\\\\\\\UObject/UObjectArray.h\\\",0x330,L\\\"\\\")\\n         , cVar3 != '\\\\0')) {\\n        pcVar2 = (code *)swi(3);\\n        (*pcVar2)();\\n        return;\\n      }\\n      lVar5 = lVar5 + (ulong)((uVar1 & 0xffff) * 0x18);\\n      if (lVar5 == 0) {\\n        lVar5 = 0;\\n        cVar3 = FDebug::CheckVerifyFailedImpl2\\n                          (\\\"ItemPtr\\\",\\\"Runtime/CoreUObject/Public\\\\\\\\UObject/UObjectArray.h\\\",0x34b,L\\\"\\\")\\n        ;\\n        if (cVar3 != '\\\\0') {\\n          pcVar2 = (code *)swi(3);\\n          (*pcVar2)();\\n          return;\\n        }\\n      }\\n    }\\n    else {\\n      lVar5 = 0;\\n    }\\n    if ((*(uint *)(lVar5 + 8) & 0x10000000) == 0) {\\n      _GTickFactoryTime = 0.0;\\n      if ((int)FUnixTime::ClockSource < 0) {\\n        FUnixTime::ClockSource._0_4_ = FUnixTime::CalibrateAndSelectClock();\\n      }\\n      clock_gettime((int)FUnixTime::ClockSource,&local_40);\\n      local_30 = (double)local_40.tv_nsec / 1000000000.0 + (double)local_40.tv_sec;\\n      AFGBuildableSubsystem::TickFactory\\n                ((AFGBuildableSubsystem *)(param_1 * *(float *)(*(long *)(param_2 + 0x28) + 0x70)),\\n                 *(long *)(param_2 + 0x28),param_3);\\n      if ((int)FUnixTime::ClockSource < 0) {\\n        FUnixTime::ClockSource._0_4_ = FUnixTime::CalibrateAndSelectClock();\\n      }\\n      clock_gettime((int)FUnixTime::ClockSource,&local_40);\\n      _GTickFactoryTime =\\n           (((double)local_40.tv_nsec / 1000000000.0 + (double)local_40.tv_sec) - local_30) +\\n           _GTickFactoryTime;\\n    }\\n  }\\n  return;\\n}\\n\\n\",\"confidence\":\"observed\",\"authority\":\"shipped-artifact\",\"environment\":null,\"limitations\":[\"The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.\",\"The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.\",\"Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.\",\"Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.\",\"Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.\",\"External functions and functions without an analyzable body return null; other decompiler failures remain explicit.\",\"Ghidra Listing reports a terminal call at 0x190cc60 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x190cd89 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x190cdd7 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x190ce25 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x190ce73 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x190cebe with no resolved callee; its no-return basis is unknown.\"],\"relationship_coverage\":null,\"locations\":[],\"evidence_links\":[]}"
+    }
+  ],
+  "structuredContent": {
+    "evidence_id": "ev_af97a30125ad8e6b6a1dc92b902ddf2225d9c2f1a4cc5a0465e92b168cc89f2c",
+    "subject": {
+      "name": "libFactoryServer-FactoryGame-Linux-Shipping.so",
+      "digest": {
+        "sha256": "637c2c70e65f6386697a6a5f5746f64b187d2fcfeee56df1aeef3f172268c0c1"
+      },
+      "local_path": "/var/www/async_SatisDedicated/server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so",
+      "format": "elf",
+      "architecture": "x86_64"
+    },
+    "provider": {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "version": "12.1.4"
+    },
+    "analysis_profile": {
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "parameters": {
+        "target_kind": "executable",
+        "target_format": "elf",
+        "architecture": "x86_64",
+        "available_architectures": [
+          "x86_64"
+        ],
+        "import_mode": "ephemeral-source-immutable",
+        "annotation_policy": "atomic-function-entry-metadata-v1",
+        "load_image_observations": "source-mappings-entry-context-v2",
+        "function_body_evidence": "complete-inclusive-ranges-v1",
+        "function_references": "complete-body-and-entry-reference-manager-v2",
+        "call_relationship_coverage": "function-body-call-coverage-v5",
+        "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+        "string_inventory_evidence": "defined-data-coverage-v1",
+        "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+        "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+        "instruction_flow_evidence": "decoded-return-pcode-v1",
+        "instruction_references": "exact-address-incoming-without-synthetic-entry-v2",
+        "function_boundary_observations": "ghidra-function-boundary-limitations-v4",
+        "no_return_repair": "returning-imports-decoded-return-v2",
+        "process_launch": "inspected-jvm-launch-support-v1",
+        "jump_table_evidence": "typed-case-default-blocks-v1",
+        "decompiler_jump_loads": true,
+        "loader": "auto-from-header",
+        "language_id": "auto-from-header",
+        "compiler_spec_id": "auto-default",
+        "analyzer_preset": "ghidra-default",
+        "function_coordinate_context": {
+          "kind": "native-function-coordinate-context-v1",
+          "selected_image": null,
+          "mapping_sha256": "55a7964dc0bcdf067484a281c658e6ca8457a49405e0ea9dbd080366ee4c3198"
+        }
+      },
+      "digest": "ae80ece8c83379eddabbdf379bbffca5da84c7df7fa7c159f45fa810468f85d9"
+    },
+    "predicate_type": "rea.analysis",
+    "operation": "procedure_pseudo_code",
+    "parameters": {
+      "procedure": "_ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThreads4TypeERK12TRefCountPtrI14FBaseGraphTaskE"
+    },
+    "raw_result": null,
+    "normalized_result": "\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\n/* FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type,\n   TRefCountPtr<FBaseGraphTask> const&) */\n\nvoid FFactoryTickFunction::ExecuteTick(float param_1,long param_2,undefined4 param_3)\n\n{\n  uint uVar1;\n  code *pcVar2;\n  char cVar3;\n  uint uVar4;\n  long lVar5;\n  timespec local_40;\n  double local_30;\n  \n  lVar5 = *(long *)(param_2 + 0x28);\n  if ((lVar5 != 0) && ((*(uint *)(lVar5 + 8) & 0x40000000) == 0)) {\n    uVar1 = *(uint *)(lVar5 + 0xc);\n    if (((int)uVar1 < 0) &&\n       (cVar3 = FDebug::CheckVerifyFailedImpl2\n                          (\"Index >= 0\",\"Runtime/CoreUObject/Public\\\\UObject/UObjectArray.h\",0x40d,\n                           L\"\"), cVar3 != '\\0')) {\n      pcVar2 = (code *)swi(3);\n      (*pcVar2)();\n      return;\n    }\n    if ((int)uVar1 < _DAT_027529dc) {\n      uVar4 = uVar1 >> 0x10;\n      if (((int)uVar1 < 0) &&\n         (cVar3 = FDebug::CheckVerifyFailedImpl2\n                            (\"IsValidIndex(Index)\",\n                             \"Runtime/CoreUObject/Public\\\\UObject/UObjectArray.h\",0x32c,\n                             L\"IsValidIndex(%d)\",(ulong)uVar1), cVar3 != '\\0')) {\n        pcVar2 = (code *)swi(3);\n        (*pcVar2)();\n        return;\n      }\n      if ((_DAT_027529e4 <= uVar4) &&\n         (cVar3 = FDebug::CheckVerifyFailedImpl2\n                            (\"ChunkIndex < (uint32)NumChunks\",\n                             \"Runtime/CoreUObject/Public\\\\UObject/UObjectArray.h\",0x32d,\n                             L\"ChunkIndex (%d) < NumChunks (%d)\",(ulong)uVar4), cVar3 != '\\0')) {\n        pcVar2 = (code *)swi(3);\n        (*pcVar2)();\n        return;\n      }\n      if ((_GetContainerName <= (int)uVar1) &&\n         (cVar3 = FDebug::CheckVerifyFailedImpl2\n                            (\"Index < MaxElements\",\n                             \"Runtime/CoreUObject/Public\\\\UObject/UObjectArray.h\",0x32e,\n                             L\"Index (%d) < MaxElements (%d)\",(ulong)uVar1), cVar3 != '\\0')) {\n        pcVar2 = (code *)swi(3);\n        (*pcVar2)();\n        return;\n      }\n      lVar5 = *(long *)(_Z_Construct_UClass_UPhysicalMaterial_NoRegister + (ulong)uVar4 * 8);\n      if ((lVar5 == 0) &&\n         (cVar3 = FDebug::CheckVerifyFailedImpl2\n                            (\"Chunk\",\"Runtime/CoreUObject/Public\\\\UObject/UObjectArray.h\",0x330,L\"\")\n         , cVar3 != '\\0')) {\n        pcVar2 = (code *)swi(3);\n        (*pcVar2)();\n        return;\n      }\n      lVar5 = lVar5 + (ulong)((uVar1 & 0xffff) * 0x18);\n      if (lVar5 == 0) {\n        lVar5 = 0;\n        cVar3 = FDebug::CheckVerifyFailedImpl2\n                          (\"ItemPtr\",\"Runtime/CoreUObject/Public\\\\UObject/UObjectArray.h\",0x34b,L\"\")\n        ;\n        if (cVar3 != '\\0') {\n          pcVar2 = (code *)swi(3);\n          (*pcVar2)();\n          return;\n        }\n      }\n    }\n    else {\n      lVar5 = 0;\n    }\n    if ((*(uint *)(lVar5 + 8) & 0x10000000) == 0) {\n      _GTickFactoryTime = 0.0;\n      if ((int)FUnixTime::ClockSource < 0) {\n        FUnixTime::ClockSource._0_4_ = FUnixTime::CalibrateAndSelectClock();\n      }\n      clock_gettime((int)FUnixTime::ClockSource,&local_40);\n      local_30 = (double)local_40.tv_nsec / 1000000000.0 + (double)local_40.tv_sec;\n      AFGBuildableSubsystem::TickFactory\n                ((AFGBuildableSubsystem *)(param_1 * *(float *)(*(long *)(param_2 + 0x28) + 0x70)),\n                 *(long *)(param_2 + 0x28),param_3);\n      if ((int)FUnixTime::ClockSource < 0) {\n        FUnixTime::ClockSource._0_4_ = FUnixTime::CalibrateAndSelectClock();\n      }\n      clock_gettime((int)FUnixTime::ClockSource,&local_40);\n      _GTickFactoryTime =\n           (((double)local_40.tv_nsec / 1000000000.0 + (double)local_40.tv_sec) - local_30) +\n           _GTickFactoryTime;\n    }\n  }\n  return;\n}\n\n",
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+      "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+      "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+      "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+      "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+      "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+      "Ghidra Listing reports a terminal call at 0x190cc60 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x190cd89 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x190cdd7 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x190ce25 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x190ce73 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x190cebe with no resolved callee; its no-return basis is unknown."
+    ],
+    "relationship_coverage": null,
+    "locations": [],
+    "evidence_links": []
+  }
+}

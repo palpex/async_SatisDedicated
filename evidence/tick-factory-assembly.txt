@@ -1,0 +1,1910 @@
+
+server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000187faf0 <AFGBuildableSubsystem::TickFactory(float, ELevelTick)>:
+ 187faf0:	48 85 ff             	test   %rdi,%rdi
+ 187faf3:	0f 84 38 01 00 00    	je     187fc31 <AFGBuildableSubsystem::TickFactory(float, ELevelTick)+0x141>
+ 187faf9:	83 fe 01             	cmp    $0x1,%esi
+ 187fafc:	0f 84 2f 01 00 00    	je     187fc31 <AFGBuildableSubsystem::TickFactory(float, ELevelTick)+0x141>
+ 187fb02:	55                   	push   %rbp
+ 187fb03:	41 57                	push   %r15
+ 187fb05:	41 56                	push   %r14
+ 187fb07:	53                   	push   %rbx
+ 187fb08:	50                   	push   %rax
+ 187fb09:	48 89 fb             	mov    %rdi,%rbx
+ 187fb0c:	8b 47 08             	mov    0x8(%rdi),%eax
+ 187fb0f:	a9 00 00 00 40       	test   $0x40000000,%eax
+ 187fb14:	0f 85 0d 01 00 00    	jne    187fc27 <AFGBuildableSubsystem::TickFactory(float, ELevelTick)+0x137>
+ 187fb1a:	48 89 df             	mov    %rbx,%rdi
+ 187fb1d:	f3 0f 11 04 24       	movss  %xmm0,(%rsp)
+ 187fb22:	e8 b9 7d 8c 00       	call   21478e0 <AActor::GetWorld() const@plt>
+ 187fb27:	48 85 c0             	test   %rax,%rax
+ 187fb2a:	0f 84 f7 00 00 00    	je     187fc27 <AFGBuildableSubsystem::TickFactory(float, ELevelTick)+0x137>
+ 187fb30:	e8 cb 79 8d 00       	call   2157500 <Z_Construct_UClass_UFGFactoryTickSettings_NoRegister()@plt>
+ 187fb35:	48 8b 88 10 01 00 00 	mov    0x110(%rax),%rcx
+ 187fb3c:	48 85 c9             	test   %rcx,%rcx
+ 187fb3f:	75 12                	jne    187fb53 <AFGBuildableSubsystem::TickFactory(float, ELevelTick)+0x63>
+ 187fb41:	48 89 c7             	mov    %rax,%rdi
+ 187fb44:	49 89 c6             	mov    %rax,%r14
+ 187fb47:	e8 e4 c5 8d 00       	call   215c130 <UClass::InternalCreateDefaultObjectWrapper() const@plt>
+ 187fb4c:	49 8b 8e 10 01 00 00 	mov    0x110(%r14),%rcx
+ 187fb53:	f3 0f 10 41 38       	movss  0x38(%rcx),%xmm0
+ 187fb58:	f3 0f 11 44 24 04    	movss  %xmm0,0x4(%rsp)
+ 187fb5e:	e8 9d 79 8d 00       	call   2157500 <Z_Construct_UClass_UFGFactoryTickSettings_NoRegister()@plt>
+ 187fb63:	48 8b 88 10 01 00 00 	mov    0x110(%rax),%rcx
+ 187fb6a:	48 85 c9             	test   %rcx,%rcx
+ 187fb6d:	75 12                	jne    187fb81 <AFGBuildableSubsystem::TickFactory(float, ELevelTick)+0x91>
+ 187fb6f:	48 89 c7             	mov    %rax,%rdi
+ 187fb72:	49 89 c6             	mov    %rax,%r14
+ 187fb75:	e8 b6 c5 8d 00       	call   215c130 <UClass::InternalCreateDefaultObjectWrapper() const@plt>
+ 187fb7a:	49 8b 8e 10 01 00 00 	mov    0x110(%r14),%rcx
+ 187fb81:	8b 41 3c             	mov    0x3c(%rcx),%eax
+ 187fb84:	f3 0f 10 05 a8 7d 5f 	movss  -0xa08258(%rip),%xmm0        # e77934 <(anonymous namespace)::FGHighlightColor+0x1a14>
+ 187fb8b:	ff 
+ 187fb8c:	f3 0f 10 54 24 04    	movss  0x4(%rsp),%xmm2
+ 187fb92:	f3 0f 5e c2          	divss  %xmm2,%xmm0
+ 187fb96:	f3 0f 2a c8          	cvtsi2ss %eax,%xmm1
+ 187fb9a:	f3 0f 59 ca          	mulss  %xmm2,%xmm1
+ 187fb9e:	f3 0f 5d 0c 24       	minss  (%rsp),%xmm1
+ 187fba3:	f3 0f 59 c1          	mulss  %xmm1,%xmm0
+ 187fba7:	f3 0f 58 c0          	addss  %xmm0,%xmm0
+ 187fbab:	f3 0f 10 15 55 7f 5f 	movss  -0xa080ab(%rip),%xmm2        # e77b08 <(anonymous namespace)::FGHighlightColor+0x1be8>
+ 187fbb2:	ff 
+ 187fbb3:	f3 0f 5c d0          	subss  %xmm0,%xmm2
+ 187fbb7:	f3 0f 2d ca          	cvtss2si %xmm2,%ecx
+ 187fbbb:	d1 f9                	sar    %ecx
+ 187fbbd:	f7 d9                	neg    %ecx
+ 187fbbf:	39 c1                	cmp    %eax,%ecx
+ 187fbc1:	0f 4d c8             	cmovge %eax,%ecx
+ 187fbc4:	83 f9 02             	cmp    $0x2,%ecx
+ 187fbc7:	41 be 01 00 00 00    	mov    $0x1,%r14d
+ 187fbcd:	44 0f 4d f1          	cmovge %ecx,%r14d
+ 187fbd1:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 187fbd4:	f3 41 0f 2a c6       	cvtsi2ss %r14d,%xmm0
+ 187fbd9:	0f 28 d1             	movaps %xmm1,%xmm2
+ 187fbdc:	f3 0f 5e d0          	divss  %xmm0,%xmm2
+ 187fbe0:	f3 0f 11 14 24       	movss  %xmm2,(%rsp)
+ 187fbe5:	f3 0f 58 8b c8 07 00 	addss  0x7c8(%rbx),%xmm1
+ 187fbec:	00 
+ 187fbed:	f3 0f 11 8b c8 07 00 	movss  %xmm1,0x7c8(%rbx)
+ 187fbf4:	00 
+ 187fbf5:	41 8d 46 ff          	lea    -0x1(%r14),%eax
+ 187fbf9:	48 8b 0d e8 5e d6 00 	mov    0xd65ee8(%rip),%rcx        # 25e5ae8 <AFGBuildableSubsystem::mCurrentSubStepMax@@Base-0x5d104>
+ 187fc00:	88 01                	mov    %al,(%rcx)
+ 187fc02:	31 ed                	xor    %ebp,%ebp
+ 187fc04:	4c 8b 3d d5 5e d6 00 	mov    0xd65ed5(%rip),%r15        # 25e5ae0 <AFGBuildableSubsystem::mCurrentSubStep@@Base-0x5d10d>
+ 187fc0b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 187fc10:	41 88 2f             	mov    %bpl,(%r15)
+ 187fc13:	48 89 df             	mov    %rbx,%rdi
+ 187fc16:	f3 0f 10 04 24       	movss  (%rsp),%xmm0
+ 187fc1b:	e8 f0 36 8f 00       	call   2173310 <AFGBuildableSubsystem::TickFactoryActors(float)@plt>
+ 187fc20:	ff c5                	inc    %ebp
+ 187fc22:	41 39 ee             	cmp    %ebp,%r14d
+ 187fc25:	75 e9                	jne    187fc10 <AFGBuildableSubsystem::TickFactory(float, ELevelTick)+0x120>
+ 187fc27:	48 83 c4 08          	add    $0x8,%rsp
+ 187fc2b:	5b                   	pop    %rbx
+ 187fc2c:	41 5e                	pop    %r14
+ 187fc2e:	41 5f                	pop    %r15
+ 187fc30:	5d                   	pop    %rbp
+ 187fc31:	c3                   	ret    
+ 187fc32:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 187fc39:	1f 84 00 00 00 00 00 
+
+000000000187fc40 <AFGBuildableSubsystem::TickFactoryActors(float)>:
+ 187fc40:	55                   	push   %rbp
+ 187fc41:	41 57                	push   %r15
+ 187fc43:	41 56                	push   %r14
+ 187fc45:	41 55                	push   %r13
+ 187fc47:	41 54                	push   %r12
+ 187fc49:	53                   	push   %rbx
+ 187fc4a:	48 81 ec 88 00 00 00 	sub    $0x88,%rsp
+ 187fc51:	49 89 fc             	mov    %rdi,%r12
+ 187fc54:	f3 0f 11 44 24 30    	movss  %xmm0,0x30(%rsp)
+ 187fc5a:	f3 0f 11 44 24 18    	movss  %xmm0,0x18(%rsp)
+ 187fc60:	48 63 9f 48 09 00 00 	movslq 0x948(%rdi),%rbx
+ 187fc67:	48 85 db             	test   %rbx,%rbx
+ 187fc6a:	74 3f                	je     187fcab <AFGBuildableSubsystem::TickFactoryActors(float)+0x6b>
+ 187fc6c:	4d 8b b4 24 40 09 00 	mov    0x940(%r12),%r14
+ 187fc73:	00 
+ 187fc74:	48 c1 e3 04          	shl    $0x4,%rbx
+ 187fc78:	45 31 ff             	xor    %r15d,%r15d
+ 187fc7b:	eb 0c                	jmp    187fc89 <AFGBuildableSubsystem::TickFactoryActors(float)+0x49>
+ 187fc7d:	0f 1f 00             	nopl   (%rax)
+ 187fc80:	49 83 c7 10          	add    $0x10,%r15
+ 187fc84:	4c 39 fb             	cmp    %r15,%rbx
+ 187fc87:	74 22                	je     187fcab <AFGBuildableSubsystem::TickFactoryActors(float)+0x6b>
+ 187fc89:	4b 83 3c 3e 00       	cmpq   $0x0,(%r14,%r15,1)
+ 187fc8e:	74 f0                	je     187fc80 <AFGBuildableSubsystem::TickFactoryActors(float)+0x40>
+ 187fc90:	4b 8b 7c 3e 08       	mov    0x8(%r14,%r15,1),%rdi
+ 187fc95:	48 85 ff             	test   %rdi,%rdi
+ 187fc98:	74 e6                	je     187fc80 <AFGBuildableSubsystem::TickFactoryActors(float)+0x40>
+ 187fc9a:	48 8b 07             	mov    (%rdi),%rax
+ 187fc9d:	4c 89 e6             	mov    %r12,%rsi
+ 187fca0:	f3 0f 10 44 24 30    	movss  0x30(%rsp),%xmm0
+ 187fca6:	ff 50 18             	call   *0x18(%rax)
+ 187fca9:	eb d5                	jmp    187fc80 <AFGBuildableSubsystem::TickFactoryActors(float)+0x40>
+ 187fcab:	48 8b 05 b6 2d dc 00 	mov    0xdc2db6(%rip),%rax        # 2642a68 <CVarUseParallelTick+0x10>
+ 187fcb2:	4d 89 e7             	mov    %r12,%r15
+ 187fcb5:	8b 28                	mov    (%rax),%ebp
+ 187fcb7:	48 8b 05 c2 2d dc 00 	mov    0xdc2dc2(%rip),%rax        # 2642a80 <CVarUseParallelBuildablesTick+0x10>
+ 187fcbe:	44 8b 30             	mov    (%rax),%r14d
+ 187fcc1:	48 8b 05 30 2e dc 00 	mov    0xdc2e30(%rip),%rax        # 2642af8 <CVarUseGroupedParallelConveyorsTick+0x10>
+ 187fcc8:	44 8b 28             	mov    (%rax),%r13d
+ 187fccb:	48 8b 05 56 2e dc 00 	mov    0xdc2e56(%rip),%rax        # 2642b28 <CVarUseParallelConveyorLoadBalancing+0x10>
+ 187fcd2:	8b 00                	mov    (%rax),%eax
+ 187fcd4:	89 44 24 10          	mov    %eax,0x10(%rsp)
+ 187fcd8:	48 8b 05 a9 2e dc 00 	mov    0xdc2ea9(%rip),%rax        # 2642b88 <CVarRunFactoryTickUnbalanced+0x10>
+ 187fcdf:	45 31 e4             	xor    %r12d,%r12d
+ 187fce2:	83 38 00             	cmpl   $0x0,(%rax)
+ 187fce5:	41 0f 95 c4          	setne  %r12b
+ 187fce9:	45 01 e4             	add    %r12d,%r12d
+ 187fcec:	4c 89 ff             	mov    %r15,%rdi
+ 187fcef:	e8 ec 7b 8c 00       	call   21478e0 <AActor::GetWorld() const@plt>
+ 187fcf4:	c6 44 24 0f 01       	movb   $0x1,0xf(%rsp)
+ 187fcf9:	48 8b 05 10 2e dc 00 	mov    0xdc2e10(%rip),%rax        # 2642b10 <CVarParallelGroupSize+0x10>
+ 187fd00:	8b 30                	mov    (%rax),%esi
+ 187fd02:	83 fe 02             	cmp    $0x2,%esi
+ 187fd05:	bb 01 00 00 00       	mov    $0x1,%ebx
+ 187fd0a:	0f 4c f3             	cmovl  %ebx,%esi
+ 187fd0d:	41 3b b7 08 07 00 00 	cmp    0x708(%r15),%esi
+ 187fd14:	74 60                	je     187fd76 <AFGBuildableSubsystem::TickFactoryActors(float)+0x136>
+ 187fd16:	41 c6 87 e0 03 00 00 	movb   $0x1,0x3e0(%r15)
+ 187fd1d:	01 
+ 187fd1e:	41 c6 87 c0 04 00 00 	movb   $0x1,0x4c0(%r15)
+ 187fd25:	01 
+ 187fd26:	41 c6 87 78 04 00 00 	movb   $0x1,0x478(%r15)
+ 187fd2d:	01 
+ 187fd2e:	41 89 b7 08 07 00 00 	mov    %esi,0x708(%r15)
+ 187fd35:	48 8b 05 dc 5b d6 00 	mov    0xd65bdc(%rip),%rax        # 25e5918 <LogFactory@@Base-0x5c3ac>
+ 187fd3c:	80 38 05             	cmpb   $0x5,(%rax)
+ 187fd3f:	72 35                	jb     187fd76 <AFGBuildableSubsystem::TickFactoryActors(float)+0x136>
+ 187fd41:	44 89 6c 24 78       	mov    %r13d,0x78(%rsp)
+ 187fd46:	49 89 f5             	mov    %rsi,%r13
+ 187fd49:	e8 52 2b 8f 00       	call   21728a0 <FTaskGraphInterface::Get()@plt>
+ 187fd4e:	48 8b 08             	mov    (%rax),%rcx
+ 187fd51:	48 89 c7             	mov    %rax,%rdi
+ 187fd54:	ff 51 28             	call   *0x28(%rcx)
+ 187fd57:	48 8b 3d ba 5b d6 00 	mov    0xd65bba(%rip),%rdi        # 25e5918 <LogFactory@@Base-0x5c3ac>
+ 187fd5e:	48 8d 35 33 7e cd 00 	lea    0xcd7e33(%rip),%rsi        # 2557b98 <AFGBuildableSubsystem::TickFactoryActors(float)::LOG_Static>
+ 187fd65:	89 c2                	mov    %eax,%edx
+ 187fd67:	31 c0                	xor    %eax,%eax
+ 187fd69:	e8 f2 84 8c 00       	call   2148260 <UE::Logging::Private::BasicLog(FLogCategoryBase const&, UE::Logging::Private::FStaticBasicLogRecord const*, ...)@plt>
+ 187fd6e:	4c 89 ee             	mov    %r13,%rsi
+ 187fd71:	44 8b 6c 24 78       	mov    0x78(%rsp),%r13d
+ 187fd76:	41 8b 87 c8 03 00 00 	mov    0x3c8(%r15),%eax
+ 187fd7d:	01 f0                	add    %esi,%eax
+ 187fd7f:	ff c8                	dec    %eax
+ 187fd81:	99                   	cltd   
+ 187fd82:	f7 fe                	idiv   %esi
+ 187fd84:	89 44 24 1c          	mov    %eax,0x1c(%rsp)
+ 187fd88:	48 8d 44 24 1c       	lea    0x1c(%rsp),%rax
+ 187fd8d:	48 89 44 24 40       	mov    %rax,0x40(%rsp)
+ 187fd92:	4c 89 7c 24 48       	mov    %r15,0x48(%rsp)
+ 187fd97:	48 8d 44 24 18       	lea    0x18(%rsp),%rax
+ 187fd9c:	48 89 44 24 50       	mov    %rax,0x50(%rsp)
+ 187fda1:	45 85 f6             	test   %r14d,%r14d
+ 187fda4:	44 0f 44 e3          	cmove  %ebx,%r12d
+ 187fda8:	85 ed                	test   %ebp,%ebp
+ 187fdaa:	44 0f 44 e3          	cmove  %ebx,%r12d
+ 187fdae:	48 8d 05 2b de 01 00 	lea    0x1de2b(%rip),%rax        # 189dbe0 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_0, void, int>::Call(void*, int&)>
+ 187fdb5:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+ 187fdba:	48 8d 5c 24 40       	lea    0x40(%rsp),%rbx
+ 187fdbf:	48 89 5c 24 28       	mov    %rbx,0x28(%rsp)
+ 187fdc4:	48 c7 44 24 68 00 00 	movq   $0x0,0x68(%rsp)
+ 187fdcb:	00 00 
+ 187fdcd:	c7 44 24 70 00 00 00 	movl   $0x0,0x70(%rsp)
+ 187fdd4:	00 
+ 187fdd5:	48 8d 3d 42 47 6b ff 	lea    -0x94b8be(%rip),%rdi        # f3451e <(anonymous namespace)::FGHighlightColor+0xbe5fe>
+ 187fddc:	48 8d 4c 24 20       	lea    0x20(%rsp),%rcx
+ 187fde1:	4c 8d 4c 24 68       	lea    0x68(%rsp),%r9
+ 187fde6:	48 89 74 24 38       	mov    %rsi,0x38(%rsp)
+ 187fdeb:	ba 01 00 00 00       	mov    $0x1,%edx
+ 187fdf0:	45 89 e0             	mov    %r12d,%r8d
+ 187fdf3:	e8 a8 f0 fc ff       	call   184eea0 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)>
+ 187fdf8:	4c 89 ff             	mov    %r15,%rdi
+ 187fdfb:	e8 e0 7a 8c 00       	call   21478e0 <AActor::GetWorld() const@plt>
+ 187fe00:	48 89 c7             	mov    %rax,%rdi
+ 187fe03:	e8 c8 d5 8e 00       	call   216d3d0 <AFGConveyorChainSubsystem::Get(UWorld*)@plt>
+ 187fe08:	41 80 bf 70 01 00 00 	cmpb   $0x3,0x170(%r15)
+ 187fe0f:	03 
+ 187fe10:	4c 89 fd             	mov    %r15,%rbp
+ 187fe13:	4c 89 7c 24 30       	mov    %r15,0x30(%rsp)
+ 187fe18:	0f 85 9a 00 00 00    	jne    187feb8 <AFGBuildableSubsystem::TickFactoryActors(float)+0x278>
+ 187fe1e:	48 85 c0             	test   %rax,%rax
+ 187fe21:	74 16                	je     187fe39 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1f9>
+ 187fe23:	f3 0f 10 44 24 18    	movss  0x18(%rsp),%xmm0
+ 187fe29:	f3 0f 58 80 08 03 00 	addss  0x308(%rax),%xmm0
+ 187fe30:	00 
+ 187fe31:	f3 0f 11 80 08 03 00 	movss  %xmm0,0x308(%rax)
+ 187fe38:	00 
+ 187fe39:	48 63 9d 00 04 00 00 	movslq 0x400(%rbp),%rbx
+ 187fe40:	48 85 db             	test   %rbx,%rbx
+ 187fe43:	74 30                	je     187fe75 <AFGBuildableSubsystem::TickFactoryActors(float)+0x235>
+ 187fe45:	4c 8b b5 f8 03 00 00 	mov    0x3f8(%rbp),%r14
+ 187fe4c:	48 c1 e3 03          	shl    $0x3,%rbx
+ 187fe50:	45 31 ff             	xor    %r15d,%r15d
+ 187fe53:	66 66 66 66 2e 0f 1f 	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 187fe5a:	84 00 00 00 00 00 
+ 187fe60:	4b 8b 34 3e          	mov    (%r14,%r15,1),%rsi
+ 187fe64:	48 89 ef             	mov    %rbp,%rdi
+ 187fe67:	e8 b4 34 8f 00       	call   2173320 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)@plt>
+ 187fe6c:	49 83 c7 08          	add    $0x8,%r15
+ 187fe70:	4c 39 fb             	cmp    %r15,%rbx
+ 187fe73:	75 eb                	jne    187fe60 <AFGBuildableSubsystem::TickFactoryActors(float)+0x220>
+ 187fe75:	c7 85 00 04 00 00 00 	movl   $0x0,0x400(%rbp)
+ 187fe7c:	00 00 00 
+ 187fe7f:	83 bd 04 04 00 00 00 	cmpl   $0x0,0x404(%rbp)
+ 187fe86:	48 8d 5c 24 40       	lea    0x40(%rsp),%rbx
+ 187fe8b:	0f 84 4e 03 00 00    	je     18801df <AFGBuildableSubsystem::TickFactoryActors(float)+0x59f>
+ 187fe91:	48 8d 8d f8 03 00 00 	lea    0x3f8(%rbp),%rcx
+ 187fe98:	4c 8d 8d 04 04 00 00 	lea    0x404(%rbp),%r9
+ 187fe9f:	bf 08 00 00 00       	mov    $0x8,%edi
+ 187fea4:	be 08 00 00 00       	mov    $0x8,%esi
+ 187fea9:	31 d2                	xor    %edx,%edx
+ 187feab:	45 31 c0             	xor    %r8d,%r8d
+ 187feae:	e8 8d 40 a6 ff       	call   12e3f40 <void UE::Core::Private::ReallocTo<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()), TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()), decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 187feb3:	e9 27 03 00 00       	jmp    18801df <AFGBuildableSubsystem::TickFactoryActors(float)+0x59f>
+ 187feb8:	48 85 c0             	test   %rax,%rax
+ 187febb:	0f 84 1e 03 00 00    	je     18801df <AFGBuildableSubsystem::TickFactoryActors(float)+0x59f>
+ 187fec1:	f3 0f 10 80 0c 03 00 	movss  0x30c(%rax),%xmm0
+ 187fec8:	00 
+ 187fec9:	0f 57 c9             	xorps  %xmm1,%xmm1
+ 187fecc:	0f 2e c1             	ucomiss %xmm1,%xmm0
+ 187fecf:	75 06                	jne    187fed7 <AFGBuildableSubsystem::TickFactoryActors(float)+0x297>
+ 187fed1:	0f 8b 08 03 00 00    	jnp    18801df <AFGBuildableSubsystem::TickFactoryActors(float)+0x59f>
+ 187fed7:	48 89 c7             	mov    %rax,%rdi
+ 187feda:	48 89 44 24 60       	mov    %rax,0x60(%rsp)
+ 187fedf:	e8 4c 34 8f 00       	call   2173330 <AFGConveyorChainSubsystem::IsUnusuallyLargeTickDelta()@plt>
+ 187fee4:	48 8b 7c 24 60       	mov    0x60(%rsp),%rdi
+ 187fee9:	84 c0                	test   %al,%al
+ 187feeb:	0f 85 ee 02 00 00    	jne    18801df <AFGBuildableSubsystem::TickFactoryActors(float)+0x59f>
+ 187fef1:	f3 0f 10 44 24 18    	movss  0x18(%rsp),%xmm0
+ 187fef7:	e8 44 34 8f 00       	call   2173340 <AFGConveyorChainSubsystem::GetAndConsumeClientTimeDebt(float)@plt>
+ 187fefc:	f3 0f 11 44 24 1c    	movss  %xmm0,0x1c(%rsp)
+ 187ff02:	80 bd c1 04 00 00 00 	cmpb   $0x0,0x4c1(%rbp)
+ 187ff09:	0f 84 24 02 00 00    	je     1880133 <AFGBuildableSubsystem::TickFactoryActors(float)+0x4f3>
+ 187ff0f:	44 89 6c 24 78       	mov    %r13d,0x78(%rsp)
+ 187ff14:	44 89 64 24 5c       	mov    %r12d,0x5c(%rsp)
+ 187ff19:	4c 8d bd 90 04 00 00 	lea    0x490(%rbp),%r15
+ 187ff20:	8b 9d 9c 04 00 00    	mov    0x49c(%rbp),%ebx
+ 187ff26:	48 8b bd 90 04 00 00 	mov    0x490(%rbp),%rdi
+ 187ff2d:	8b b5 98 04 00 00    	mov    0x498(%rbp),%esi
+ 187ff33:	e8 58 49 a6 ff       	call   12e4890 <_Z13DestructItemsI20FActorRepListRefViewiQaantntaagtstT_Li0Entsr3stdE27is_trivially_destructible_vIS1_Esr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPS1_T0_>
+ 187ff38:	c7 85 98 04 00 00 00 	movl   $0x0,0x498(%rbp)
+ 187ff3f:	00 00 00 
+ 187ff42:	48 8b 74 24 38       	mov    0x38(%rsp),%rsi
+ 187ff47:	39 f3                	cmp    %esi,%ebx
+ 187ff49:	7d 2b                	jge    187ff76 <AFGBuildableSubsystem::TickFactoryActors(float)+0x336>
+ 187ff4b:	4c 8d 8d 9c 04 00 00 	lea    0x49c(%rbp),%r9
+ 187ff52:	41 39 31             	cmp    %esi,(%r9)
+ 187ff55:	74 1f                	je     187ff76 <AFGBuildableSubsystem::TickFactoryActors(float)+0x336>
+ 187ff57:	bf 10 00 00 00       	mov    $0x10,%edi
+ 187ff5c:	be 08 00 00 00       	mov    $0x8,%esi
+ 187ff61:	48 8b 54 24 38       	mov    0x38(%rsp),%rdx
+ 187ff66:	4c 89 f9             	mov    %r15,%rcx
+ 187ff69:	45 31 c0             	xor    %r8d,%r8d
+ 187ff6c:	e8 cf 3f a6 ff       	call   12e3f40 <void UE::Core::Private::ReallocTo<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()), TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()), decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 187ff71:	48 8b 74 24 38       	mov    0x38(%rsp),%rsi
+ 187ff76:	4c 89 ff             	mov    %r15,%rdi
+ 187ff79:	ba 01 00 00 00       	mov    $0x1,%edx
+ 187ff7e:	e8 9d 93 ea ff       	call   1729320 <TArray<TArray<AFGBuildable*, TSizedDefaultAllocator<32> >, TSizedDefaultAllocator<32> >::SetNum(int, EAllowShrinking)>
+ 187ff83:	83 bd 88 04 00 00 00 	cmpl   $0x0,0x488(%rbp)
+ 187ff8a:	0f 8e 77 01 00 00    	jle    1880107 <AFGBuildableSubsystem::TickFactoryActors(float)+0x4c7>
+ 187ff90:	45 31 f6             	xor    %r14d,%r14d
+ 187ff93:	45 31 e4             	xor    %r12d,%r12d
+ 187ff96:	eb 3f                	jmp    187ffd7 <AFGBuildableSubsystem::TickFactoryActors(float)+0x397>
+ 187ff98:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+ 187ff9f:	00 
+ 187ffa0:	4b 8d 0c 2f          	lea    (%r15,%r13,1),%rcx
+ 187ffa4:	48 83 c1 08          	add    $0x8,%rcx
+ 187ffa8:	8d 50 01             	lea    0x1(%rax),%edx
+ 187ffab:	89 11                	mov    %edx,(%rcx)
+ 187ffad:	48 8b 4d 00          	mov    0x0(%rbp),%rcx
+ 187ffb1:	48 98                	cltq   
+ 187ffb3:	4a 8b 14 e3          	mov    (%rbx,%r12,8),%rdx
+ 187ffb7:	48 89 14 c1          	mov    %rdx,(%rcx,%rax,8)
+ 187ffbb:	49 ff c4             	inc    %r12
+ 187ffbe:	48 8b 6c 24 30       	mov    0x30(%rsp),%rbp
+ 187ffc3:	48 63 85 88 04 00 00 	movslq 0x488(%rbp),%rax
+ 187ffca:	49 83 c6 08          	add    $0x8,%r14
+ 187ffce:	49 39 c4             	cmp    %rax,%r12
+ 187ffd1:	0f 8d 30 01 00 00    	jge    1880107 <AFGBuildableSubsystem::TickFactoryActors(float)+0x4c7>
+ 187ffd7:	44 89 e0             	mov    %r12d,%eax
+ 187ffda:	31 d2                	xor    %edx,%edx
+ 187ffdc:	f7 74 24 38          	divl   0x38(%rsp)
+ 187ffe0:	41 89 d7             	mov    %edx,%r15d
+ 187ffe3:	4c 63 8d 98 04 00 00 	movslq 0x498(%rbp),%r9
+ 187ffea:	41 39 d1             	cmp    %edx,%r9d
+ 187ffed:	7e 72                	jle    1880061 <AFGBuildableSubsystem::TickFactoryActors(float)+0x421>
+ 187ffef:	4c 8b ad 90 04 00 00 	mov    0x490(%rbp),%r13
+ 187fff6:	4c 63 8d 88 04 00 00 	movslq 0x488(%rbp),%r9
+ 187fffd:	4d 39 cc             	cmp    %r9,%r12
+ 1880000:	48 89 eb             	mov    %rbp,%rbx
+ 1880003:	0f 8d 8a 00 00 00    	jge    1880093 <AFGBuildableSubsystem::TickFactoryActors(float)+0x453>
+ 1880009:	49 c1 e7 04          	shl    $0x4,%r15
+ 188000d:	4b 8d 2c 2f          	lea    (%r15,%r13,1),%rbp
+ 1880011:	48 8b 9b 80 04 00 00 	mov    0x480(%rbx),%rbx
+ 1880018:	4e 8d 04 33          	lea    (%rbx,%r14,1),%r8
+ 188001c:	4c 8b 4d 00          	mov    0x0(%rbp),%r9
+ 1880020:	4d 39 c1             	cmp    %r8,%r9
+ 1880023:	77 12                	ja     1880037 <AFGBuildableSubsystem::TickFactoryActors(float)+0x3f7>
+ 1880025:	4f 63 54 3d 0c       	movslq 0xc(%r13,%r15,1),%r10
+ 188002a:	4b 8d 04 d1          	lea    (%r9,%r10,8),%rax
+ 188002e:	4c 39 c0             	cmp    %r8,%rax
+ 1880031:	0f 87 8e 00 00 00    	ja     18800c5 <AFGBuildableSubsystem::TickFactoryActors(float)+0x485>
+ 1880037:	43 8b 44 3d 08       	mov    0x8(%r13,%r15,1),%eax
+ 188003c:	43 3b 44 3d 0c       	cmp    0xc(%r13,%r15,1),%eax
+ 1880041:	0f 85 59 ff ff ff    	jne    187ffa0 <AFGBuildableSubsystem::TickFactoryActors(float)+0x360>
+ 1880047:	4b 8d 14 2f          	lea    (%r15,%r13,1),%rdx
+ 188004b:	48 83 c2 0c          	add    $0xc,%rdx
+ 188004f:	bf 08 08 00 00       	mov    $0x808,%edi
+ 1880054:	48 89 ee             	mov    %rbp,%rsi
+ 1880057:	e8 34 3d aa ff       	call   1323d90 <decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned short, TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 188005c:	e9 3f ff ff ff       	jmp    187ffa0 <AFGBuildableSubsystem::TickFactoryActors(float)+0x360>
+ 1880061:	48 8d 3d 3f 51 67 ff 	lea    -0x98aec1(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1880068:	48 8d 35 b1 05 64 ff 	lea    -0x9bfa4f(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 188006f:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1880074:	48 8d 0d 87 e2 6c ff 	lea    -0x931d79(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 188007b:	4d 89 f8             	mov    %r15,%r8
+ 188007e:	31 c0                	xor    %eax,%eax
+ 1880080:	e8 fb 6a 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880085:	84 c0                	test   %al,%al
+ 1880087:	0f 84 62 ff ff ff    	je     187ffef <AFGBuildableSubsystem::TickFactoryActors(float)+0x3af>
+ 188008d:	cc                   	int3   
+ 188008e:	e9 5c ff ff ff       	jmp    187ffef <AFGBuildableSubsystem::TickFactoryActors(float)+0x3af>
+ 1880093:	48 8d 3d 0d 51 67 ff 	lea    -0x98aef3(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 188009a:	48 8d 35 7f 05 64 ff 	lea    -0x9bfa81(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 18800a1:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 18800a6:	48 8d 0d 55 e2 6c ff 	lea    -0x931dab(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 18800ad:	4d 89 e0             	mov    %r12,%r8
+ 18800b0:	31 c0                	xor    %eax,%eax
+ 18800b2:	e8 c9 6a 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 18800b7:	84 c0                	test   %al,%al
+ 18800b9:	0f 84 4a ff ff ff    	je     1880009 <AFGBuildableSubsystem::TickFactoryActors(float)+0x3c9>
+ 18800bf:	cc                   	int3   
+ 18800c0:	e9 44 ff ff ff       	jmp    1880009 <AFGBuildableSubsystem::TickFactoryActors(float)+0x3c9>
+ 18800c5:	4f 63 5c 3d 08       	movslq 0x8(%r13,%r15,1),%r11
+ 18800ca:	48 83 ec 08          	sub    $0x8,%rsp
+ 18800ce:	48 8d 3d d9 4b 67 ff 	lea    -0x98b427(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 18800d5:	48 8d 35 44 05 64 ff 	lea    -0x9bfabc(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 18800dc:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 18800e1:	48 8d 0d 62 3a 70 ff 	lea    -0x8fc59e(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 18800e8:	31 c0                	xor    %eax,%eax
+ 18800ea:	6a 08                	push   $0x8
+ 18800ec:	41 53                	push   %r11
+ 18800ee:	41 52                	push   %r10
+ 18800f0:	e8 8b 6a 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 18800f5:	48 83 c4 20          	add    $0x20,%rsp
+ 18800f9:	84 c0                	test   %al,%al
+ 18800fb:	0f 84 36 ff ff ff    	je     1880037 <AFGBuildableSubsystem::TickFactoryActors(float)+0x3f7>
+ 1880101:	cc                   	int3   
+ 1880102:	e9 30 ff ff ff       	jmp    1880037 <AFGBuildableSubsystem::TickFactoryActors(float)+0x3f7>
+ 1880107:	c6 85 c1 04 00 00 00 	movb   $0x0,0x4c1(%rbp)
+ 188010e:	f3 0f 10 44 24 1c    	movss  0x1c(%rsp),%xmm0
+ 1880114:	f3 0f 11 84 24 84 00 	movss  %xmm0,0x84(%rsp)
+ 188011b:	00 00 
+ 188011d:	48 8b 7c 24 60       	mov    0x60(%rsp),%rdi
+ 1880122:	44 8b 64 24 5c       	mov    0x5c(%rsp),%r12d
+ 1880127:	48 8d 5c 24 40       	lea    0x40(%rsp),%rbx
+ 188012c:	44 8b 6c 24 78       	mov    0x78(%rsp),%r13d
+ 1880131:	eb 0e                	jmp    1880141 <AFGBuildableSubsystem::TickFactoryActors(float)+0x501>
+ 1880133:	48 8b 7c 24 60       	mov    0x60(%rsp),%rdi
+ 1880138:	f3 0f 11 84 24 84 00 	movss  %xmm0,0x84(%rsp)
+ 188013f:	00 00 
+ 1880141:	e8 0a 32 8f 00       	call   2173350 <AFGConveyorChainSubsystem::GetAverageServerTickDeltaTime()@plt>
+ 1880146:	0f 57 05 13 6e 5f ff 	xorps  -0xa091ed(%rip),%xmm0        # e76f60 <(anonymous namespace)::FGHighlightColor+0x1040>
+ 188014d:	f3 0f 10 8c 24 84 00 	movss  0x84(%rsp),%xmm1
+ 1880154:	00 00 
+ 1880156:	0f 2e c8             	ucomiss %xmm0,%xmm1
+ 1880159:	0f 82 80 00 00 00    	jb     18801df <AFGBuildableSubsystem::TickFactoryActors(float)+0x59f>
+ 188015f:	f3 0f 10 44 24 18    	movss  0x18(%rsp),%xmm0
+ 1880165:	f3 0f 58 44 24 1c    	addss  0x1c(%rsp),%xmm0
+ 188016b:	48 8b 44 24 60       	mov    0x60(%rsp),%rax
+ 1880170:	f3 0f 58 80 0c 03 00 	addss  0x30c(%rax),%xmm0
+ 1880177:	00 
+ 1880178:	f3 0f 11 80 0c 03 00 	movss  %xmm0,0x30c(%rax)
+ 188017f:	00 
+ 1880180:	8b b5 98 04 00 00    	mov    0x498(%rbp),%esi
+ 1880186:	48 89 6c 24 40       	mov    %rbp,0x40(%rsp)
+ 188018b:	48 8d 44 24 18       	lea    0x18(%rsp),%rax
+ 1880190:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+ 1880195:	48 8d 44 24 1c       	lea    0x1c(%rsp),%rax
+ 188019a:	48 89 44 24 50       	mov    %rax,0x50(%rsp)
+ 188019f:	48 8d 05 1a db 01 00 	lea    0x1db1a(%rip),%rax        # 189dcc0 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_1, void, int>::Call(void*, int&)>
+ 18801a6:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+ 18801ab:	48 89 5c 24 28       	mov    %rbx,0x28(%rsp)
+ 18801b0:	48 c7 44 24 68 00 00 	movq   $0x0,0x68(%rsp)
+ 18801b7:	00 00 
+ 18801b9:	c7 44 24 70 00 00 00 	movl   $0x0,0x70(%rsp)
+ 18801c0:	00 
+ 18801c1:	48 8d 3d 56 43 6b ff 	lea    -0x94bcaa(%rip),%rdi        # f3451e <(anonymous namespace)::FGHighlightColor+0xbe5fe>
+ 18801c8:	48 8d 4c 24 20       	lea    0x20(%rsp),%rcx
+ 18801cd:	4c 8d 4c 24 68       	lea    0x68(%rsp),%r9
+ 18801d2:	ba 01 00 00 00       	mov    $0x1,%edx
+ 18801d7:	45 89 e0             	mov    %r12d,%r8d
+ 18801da:	e8 c1 ec fc ff       	call   184eea0 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)>
+ 18801df:	45 85 ed             	test   %r13d,%r13d
+ 18801e2:	0f 84 e6 09 00 00    	je     1880bce <AFGBuildableSubsystem::TickFactoryActors(float)+0xf8e>
+ 18801e8:	80 bd 78 04 00 00 00 	cmpb   $0x0,0x478(%rbp)
+ 18801ef:	0f 84 de 0c 00 00    	je     1880ed3 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1293>
+ 18801f5:	44 89 64 24 5c       	mov    %r12d,0x5c(%rsp)
+ 18801fa:	4c 8d bd 68 04 00 00 	lea    0x468(%rbp),%r15
+ 1880201:	8b 9d 74 04 00 00    	mov    0x474(%rbp),%ebx
+ 1880207:	48 8b bd 68 04 00 00 	mov    0x468(%rbp),%rdi
+ 188020e:	8b b5 70 04 00 00    	mov    0x470(%rbp),%esi
+ 1880214:	e8 77 46 a6 ff       	call   12e4890 <_Z13DestructItemsI20FActorRepListRefViewiQaantntaagtstT_Li0Entsr3stdE27is_trivially_destructible_vIS1_Esr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPS1_T0_>
+ 1880219:	c7 85 70 04 00 00 00 	movl   $0x0,0x470(%rbp)
+ 1880220:	00 00 00 
+ 1880223:	48 8b 74 24 38       	mov    0x38(%rsp),%rsi
+ 1880228:	39 f3                	cmp    %esi,%ebx
+ 188022a:	7d 2b                	jge    1880257 <AFGBuildableSubsystem::TickFactoryActors(float)+0x617>
+ 188022c:	4c 8d 8d 74 04 00 00 	lea    0x474(%rbp),%r9
+ 1880233:	41 39 31             	cmp    %esi,(%r9)
+ 1880236:	74 1f                	je     1880257 <AFGBuildableSubsystem::TickFactoryActors(float)+0x617>
+ 1880238:	bf 10 00 00 00       	mov    $0x10,%edi
+ 188023d:	be 08 00 00 00       	mov    $0x8,%esi
+ 1880242:	48 8b 54 24 38       	mov    0x38(%rsp),%rdx
+ 1880247:	4c 89 f9             	mov    %r15,%rcx
+ 188024a:	45 31 c0             	xor    %r8d,%r8d
+ 188024d:	e8 ee 3c a6 ff       	call   12e3f40 <void UE::Core::Private::ReallocTo<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()), TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()), decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 1880252:	48 8b 74 24 38       	mov    0x38(%rsp),%rsi
+ 1880257:	4c 89 ff             	mov    %r15,%rdi
+ 188025a:	48 89 f3             	mov    %rsi,%rbx
+ 188025d:	ba 01 00 00 00       	mov    $0x1,%edx
+ 1880262:	e8 b9 90 ea ff       	call   1729320 <TArray<TArray<AFGBuildable*, TSizedDefaultAllocator<32> >, TSizedDefaultAllocator<32> >::SetNum(int, EAllowShrinking)>
+ 1880267:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 188026a:	0f 29 44 24 20       	movaps %xmm0,0x20(%rsp)
+ 188026f:	48 8d 7c 24 20       	lea    0x20(%rsp),%rdi
+ 1880274:	89 de                	mov    %ebx,%esi
+ 1880276:	ba 01 00 00 00       	mov    $0x1,%edx
+ 188027b:	e8 c0 71 c8 ff       	call   1507440 <TArray<float, TSizedDefaultAllocator<32> >::SetNumZeroed(int, EAllowShrinking)>
+ 1880280:	8b 85 f0 03 00 00    	mov    0x3f0(%rbp),%eax
+ 1880286:	85 c0                	test   %eax,%eax
+ 1880288:	0f 8e 25 0c 00 00    	jle    1880eb3 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1273>
+ 188028e:	83 7c 24 10 00       	cmpl   $0x0,0x10(%rsp)
+ 1880293:	0f 84 60 09 00 00    	je     1880bf9 <AFGBuildableSubsystem::TickFactoryActors(float)+0xfb9>
+ 1880299:	4c 8d bd 08 04 00 00 	lea    0x408(%rbp),%r15
+ 18802a0:	48 8b 1d 19 d9 d5 00 	mov    0xd5d919(%rip),%rbx        # 25ddbc0 <UE::GC::GIsIncrementalReachabilityPending@Base>
+ 18802a7:	31 ff                	xor    %edi,%edi
+ 18802a9:	4c 89 7c 24 78       	mov    %r15,0x78(%rsp)
+ 18802ae:	eb 33                	jmp    18802e3 <AFGBuildableSubsystem::TickFactoryActors(float)+0x6a3>
+ 18802b0:	4b 8d 0c 2e          	lea    (%r14,%r13,1),%rcx
+ 18802b4:	48 83 c1 08          	add    $0x8,%rcx
+ 18802b8:	8d 50 01             	lea    0x1(%rax),%edx
+ 18802bb:	89 11                	mov    %edx,(%rcx)
+ 18802bd:	49 8b 0c 24          	mov    (%r12),%rcx
+ 18802c1:	48 98                	cltq   
+ 18802c3:	48 8b 55 00          	mov    0x0(%rbp),%rdx
+ 18802c7:	48 89 14 c1          	mov    %rdx,(%rcx,%rax,8)
+ 18802cb:	48 8b 6c 24 30       	mov    0x30(%rsp),%rbp
+ 18802d0:	48 ff c7             	inc    %rdi
+ 18802d3:	48 63 85 f0 03 00 00 	movslq 0x3f0(%rbp),%rax
+ 18802da:	48 39 c7             	cmp    %rax,%rdi
+ 18802dd:	0f 8d d0 0b 00 00    	jge    1880eb3 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1273>
+ 18802e3:	48 8b 8d e8 03 00 00 	mov    0x3e8(%rbp),%rcx
+ 18802ea:	48 8b 0c f9          	mov    (%rcx,%rdi,8),%rcx
+ 18802ee:	48 83 39 00          	cmpq   $0x0,(%rcx)
+ 18802f2:	48 89 7c 24 10       	mov    %rdi,0x10(%rsp)
+ 18802f7:	0f 84 93 01 00 00    	je     1880490 <AFGBuildableSubsystem::TickFactoryActors(float)+0x850>
+ 18802fd:	4c 63 c8             	movslq %eax,%r9
+ 1880300:	4c 39 cf             	cmp    %r9,%rdi
+ 1880303:	0f 8d a6 05 00 00    	jge    18808af <AFGBuildableSubsystem::TickFactoryActors(float)+0xc6f>
+ 1880309:	48 8b 85 e8 03 00 00 	mov    0x3e8(%rbp),%rax
+ 1880310:	48 8b 04 f8          	mov    (%rax,%rdi,8),%rax
+ 1880314:	4c 8b 28             	mov    (%rax),%r13
+ 1880317:	0f b6 03             	movzbl (%rbx),%eax
+ 188031a:	4d 85 ed             	test   %r13,%r13
+ 188031d:	74 0f                	je     188032e <AFGBuildableSubsystem::TickFactoryActors(float)+0x6ee>
+ 188031f:	84 c0                	test   %al,%al
+ 1880321:	74 0b                	je     188032e <AFGBuildableSubsystem::TickFactoryActors(float)+0x6ee>
+ 1880323:	4c 89 ef             	mov    %r13,%rdi
+ 1880326:	e8 b5 6c 8c 00       	call   2146fe0 <UE::GC::MarkAsReachable(UObject const*)@plt>
+ 188032b:	0f b6 03             	movzbl (%rbx),%eax
+ 188032e:	4c 89 6c 24 40       	mov    %r13,0x40(%rsp)
+ 1880333:	4d 89 ec             	mov    %r13,%r12
+ 1880336:	4d 85 ed             	test   %r13,%r13
+ 1880339:	74 14                	je     188034f <AFGBuildableSubsystem::TickFactoryActors(float)+0x70f>
+ 188033b:	84 c0                	test   %al,%al
+ 188033d:	74 10                	je     188034f <AFGBuildableSubsystem::TickFactoryActors(float)+0x70f>
+ 188033f:	4c 89 ef             	mov    %r13,%rdi
+ 1880342:	e8 99 6c 8c 00       	call   2146fe0 <UE::GC::MarkAsReachable(UObject const*)@plt>
+ 1880347:	4c 8b 64 24 40       	mov    0x40(%rsp),%r12
+ 188034c:	0f b6 03             	movzbl (%rbx),%eax
+ 188034f:	84 c0                	test   %al,%al
+ 1880351:	74 0d                	je     1880360 <AFGBuildableSubsystem::TickFactoryActors(float)+0x720>
+ 1880353:	4d 85 e4             	test   %r12,%r12
+ 1880356:	74 08                	je     1880360 <AFGBuildableSubsystem::TickFactoryActors(float)+0x720>
+ 1880358:	4c 89 e7             	mov    %r12,%rdi
+ 188035b:	e8 80 6c 8c 00       	call   2146fe0 <UE::GC::MarkAsReachable(UObject const*)@plt>
+ 1880360:	49 c1 ec 04          	shr    $0x4,%r12
+ 1880364:	44 89 e0             	mov    %r12d,%eax
+ 1880367:	c1 e8 10             	shr    $0x10,%eax
+ 188036a:	44 31 e0             	xor    %r12d,%eax
+ 188036d:	69 c0 6b ca eb 85    	imul   $0x85ebca6b,%eax,%eax
+ 1880373:	89 c1                	mov    %eax,%ecx
+ 1880375:	c1 e9 0d             	shr    $0xd,%ecx
+ 1880378:	31 c1                	xor    %eax,%ecx
+ 188037a:	69 c1 35 ae b2 c2    	imul   $0xc2b2ae35,%ecx,%eax
+ 1880380:	89 c6                	mov    %eax,%esi
+ 1880382:	c1 ee 10             	shr    $0x10,%esi
+ 1880385:	31 c6                	xor    %eax,%esi
+ 1880387:	4c 89 ff             	mov    %r15,%rdi
+ 188038a:	48 8d 54 24 40       	lea    0x40(%rsp),%rdx
+ 188038f:	e8 4c 62 ef ff       	call   17765e0 <int TSet<TTuple<TObjectPtr<UFGMessage>, double>, TDefaultMapHashableKeyFuncs<TObjectPtr<UFGMessage>, double, false>, FDefaultSetAllocator>::FindIndexByHash<TObjectPtr<UFGMessage const> >(unsigned int, TObjectPtr<UFGMessage const> const&) const>
+ 1880394:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 1880397:	0f 84 73 01 00 00    	je     1880510 <AFGBuildableSubsystem::TickFactoryActors(float)+0x8d0>
+ 188039d:	0f b6 03             	movzbl (%rbx),%eax
+ 18803a0:	4d 85 ed             	test   %r13,%r13
+ 18803a3:	74 0f                	je     18803b4 <AFGBuildableSubsystem::TickFactoryActors(float)+0x774>
+ 18803a5:	84 c0                	test   %al,%al
+ 18803a7:	74 0b                	je     18803b4 <AFGBuildableSubsystem::TickFactoryActors(float)+0x774>
+ 18803a9:	4c 89 ef             	mov    %r13,%rdi
+ 18803ac:	e8 2f 6c 8c 00       	call   2146fe0 <UE::GC::MarkAsReachable(UObject const*)@plt>
+ 18803b1:	0f b6 03             	movzbl (%rbx),%eax
+ 18803b4:	4d 85 ed             	test   %r13,%r13
+ 18803b7:	74 0f                	je     18803c8 <AFGBuildableSubsystem::TickFactoryActors(float)+0x788>
+ 18803b9:	84 c0                	test   %al,%al
+ 18803bb:	74 0b                	je     18803c8 <AFGBuildableSubsystem::TickFactoryActors(float)+0x788>
+ 18803bd:	4c 89 ef             	mov    %r13,%rdi
+ 18803c0:	e8 1b 6c 8c 00       	call   2146fe0 <UE::GC::MarkAsReachable(UObject const*)@plt>
+ 18803c5:	0f b6 03             	movzbl (%rbx),%eax
+ 18803c8:	4c 89 6c 24 40       	mov    %r13,0x40(%rsp)
+ 18803cd:	4d 85 ed             	test   %r13,%r13
+ 18803d0:	74 14                	je     18803e6 <AFGBuildableSubsystem::TickFactoryActors(float)+0x7a6>
+ 18803d2:	84 c0                	test   %al,%al
+ 18803d4:	74 10                	je     18803e6 <AFGBuildableSubsystem::TickFactoryActors(float)+0x7a6>
+ 18803d6:	4c 89 ef             	mov    %r13,%rdi
+ 18803d9:	e8 02 6c 8c 00       	call   2146fe0 <UE::GC::MarkAsReachable(UObject const*)@plt>
+ 18803de:	4c 8b 6c 24 40       	mov    0x40(%rsp),%r13
+ 18803e3:	0f b6 03             	movzbl (%rbx),%eax
+ 18803e6:	84 c0                	test   %al,%al
+ 18803e8:	74 0d                	je     18803f7 <AFGBuildableSubsystem::TickFactoryActors(float)+0x7b7>
+ 18803ea:	4d 85 ed             	test   %r13,%r13
+ 18803ed:	74 08                	je     18803f7 <AFGBuildableSubsystem::TickFactoryActors(float)+0x7b7>
+ 18803ef:	4c 89 ef             	mov    %r13,%rdi
+ 18803f2:	e8 e9 6b 8c 00       	call   2146fe0 <UE::GC::MarkAsReachable(UObject const*)@plt>
+ 18803f7:	49 c1 ed 04          	shr    $0x4,%r13
+ 18803fb:	44 89 e8             	mov    %r13d,%eax
+ 18803fe:	c1 e8 10             	shr    $0x10,%eax
+ 1880401:	44 31 e8             	xor    %r13d,%eax
+ 1880404:	69 c0 6b ca eb 85    	imul   $0x85ebca6b,%eax,%eax
+ 188040a:	89 c1                	mov    %eax,%ecx
+ 188040c:	c1 e9 0d             	shr    $0xd,%ecx
+ 188040f:	31 c1                	xor    %eax,%ecx
+ 1880411:	69 c1 35 ae b2 c2    	imul   $0xc2b2ae35,%ecx,%eax
+ 1880417:	89 c6                	mov    %eax,%esi
+ 1880419:	c1 ee 10             	shr    $0x10,%esi
+ 188041c:	31 c6                	xor    %eax,%esi
+ 188041e:	4c 89 ff             	mov    %r15,%rdi
+ 1880421:	48 8d 54 24 40       	lea    0x40(%rsp),%rdx
+ 1880426:	e8 b5 61 ef ff       	call   17765e0 <int TSet<TTuple<TObjectPtr<UFGMessage>, double>, TDefaultMapHashableKeyFuncs<TObjectPtr<UFGMessage>, double, false>, FDefaultSetAllocator>::FindIndexByHash<TObjectPtr<UFGMessage const> >(unsigned int, TObjectPtr<UFGMessage const> const&) const>
+ 188042b:	83 f8 ff             	cmp    $0xffffffff,%eax
+ 188042e:	74 0f                	je     188043f <AFGBuildableSubsystem::TickFactoryActors(float)+0x7ff>
+ 1880430:	48 98                	cltq   
+ 1880432:	48 8d 04 40          	lea    (%rax,%rax,2),%rax
+ 1880436:	48 c1 e0 03          	shl    $0x3,%rax
+ 188043a:	49 03 07             	add    (%r15),%rax
+ 188043d:	75 28                	jne    1880467 <AFGBuildableSubsystem::TickFactoryActors(float)+0x827>
+ 188043f:	48 8d 3d 50 82 61 ff 	lea    -0x9e7db0(%rip),%rdi        # e98696 <(anonymous namespace)::FGHighlightColor+0x22776>
+ 1880446:	48 8d 35 4c 0e 64 ff 	lea    -0x9bf1b4(%rip),%rsi        # ec1299 <(anonymous namespace)::FGHighlightColor+0x4b379>
+ 188044d:	ba d9 02 00 00       	mov    $0x2d9,%edx
+ 1880452:	48 8d 0d 6d 91 70 ff 	lea    -0x8f6e93(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 1880459:	31 c0                	xor    %eax,%eax
+ 188045b:	e8 20 67 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880460:	84 c0                	test   %al,%al
+ 1880462:	74 01                	je     1880465 <AFGBuildableSubsystem::TickFactoryActors(float)+0x825>
+ 1880464:	cc                   	int3   
+ 1880465:	31 c0                	xor    %eax,%eax
+ 1880467:	44 8b 70 08          	mov    0x8(%rax),%r14d
+ 188046b:	8b 85 70 04 00 00    	mov    0x470(%rbp),%eax
+ 1880471:	45 85 f6             	test   %r14d,%r14d
+ 1880474:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1880479:	0f 89 7d 02 00 00    	jns    18806fc <AFGBuildableSubsystem::TickFactoryActors(float)+0xabc>
+ 188047f:	e9 e2 04 00 00       	jmp    1880966 <AFGBuildableSubsystem::TickFactoryActors(float)+0xd26>
+ 1880484:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 188048b:	00 00 00 00 00 
+ 1880490:	8b 44 24 28          	mov    0x28(%rsp),%eax
+ 1880494:	85 c0                	test   %eax,%eax
+ 1880496:	0f 8e 74 03 00 00    	jle    1880810 <AFGBuildableSubsystem::TickFactoryActors(float)+0xbd0>
+ 188049c:	bd ff ff ff ff       	mov    $0xffffffff,%ebp
+ 18804a1:	ba ff ff ff 7f       	mov    $0x7fffffff,%edx
+ 18804a6:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+ 18804ab:	45 31 ed             	xor    %r13d,%r13d
+ 18804ae:	eb 1f                	jmp    18804cf <AFGBuildableSubsystem::TickFactoryActors(float)+0x88f>
+ 18804b0:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+ 18804b5:	42 8b 14 a9          	mov    (%rcx,%r13,4),%edx
+ 18804b9:	8b 44 24 28          	mov    0x28(%rsp),%eax
+ 18804bd:	44 89 ed             	mov    %r13d,%ebp
+ 18804c0:	49 ff c5             	inc    %r13
+ 18804c3:	48 63 f0             	movslq %eax,%rsi
+ 18804c6:	49 39 f5             	cmp    %rsi,%r13
+ 18804c9:	0f 8d c1 00 00 00    	jge    1880590 <AFGBuildableSubsystem::TickFactoryActors(float)+0x950>
+ 18804cf:	42 39 14 a9          	cmp    %edx,(%rcx,%r13,4)
+ 18804d3:	7d eb                	jge    18804c0 <AFGBuildableSubsystem::TickFactoryActors(float)+0x880>
+ 18804d5:	4c 63 c8             	movslq %eax,%r9
+ 18804d8:	4d 39 cd             	cmp    %r9,%r13
+ 18804db:	7c d3                	jl     18804b0 <AFGBuildableSubsystem::TickFactoryActors(float)+0x870>
+ 18804dd:	48 8d 3d c3 4c 67 ff 	lea    -0x98b33d(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 18804e4:	48 8d 35 35 01 64 ff 	lea    -0x9bfecb(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 18804eb:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 18804f0:	48 8d 0d 0b de 6c ff 	lea    -0x9321f5(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 18804f7:	4d 89 e8             	mov    %r13,%r8
+ 18804fa:	31 c0                	xor    %eax,%eax
+ 18804fc:	e8 7f 66 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880501:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1880506:	84 c0                	test   %al,%al
+ 1880508:	74 a6                	je     18804b0 <AFGBuildableSubsystem::TickFactoryActors(float)+0x870>
+ 188050a:	cc                   	int3   
+ 188050b:	eb a3                	jmp    18804b0 <AFGBuildableSubsystem::TickFactoryActors(float)+0x870>
+ 188050d:	0f 1f 00             	nopl   (%rax)
+ 1880510:	8b 44 24 28          	mov    0x28(%rsp),%eax
+ 1880514:	b9 ff ff ff ff       	mov    $0xffffffff,%ecx
+ 1880519:	85 c0                	test   %eax,%eax
+ 188051b:	0f 8e 7f 01 00 00    	jle    18806a0 <AFGBuildableSubsystem::TickFactoryActors(float)+0xa60>
+ 1880521:	be ff ff ff 7f       	mov    $0x7fffffff,%esi
+ 1880526:	48 8b 54 24 20       	mov    0x20(%rsp),%rdx
+ 188052b:	31 ed                	xor    %ebp,%ebp
+ 188052d:	eb 1e                	jmp    188054d <AFGBuildableSubsystem::TickFactoryActors(float)+0x90d>
+ 188052f:	90                   	nop
+ 1880530:	48 8b 54 24 20       	mov    0x20(%rsp),%rdx
+ 1880535:	8b 34 aa             	mov    (%rdx,%rbp,4),%esi
+ 1880538:	8b 44 24 28          	mov    0x28(%rsp),%eax
+ 188053c:	89 e9                	mov    %ebp,%ecx
+ 188053e:	48 ff c5             	inc    %rbp
+ 1880541:	48 63 f8             	movslq %eax,%rdi
+ 1880544:	48 39 fd             	cmp    %rdi,%rbp
+ 1880547:	0f 8d 53 01 00 00    	jge    18806a0 <AFGBuildableSubsystem::TickFactoryActors(float)+0xa60>
+ 188054d:	39 34 aa             	cmp    %esi,(%rdx,%rbp,4)
+ 1880550:	7d ec                	jge    188053e <AFGBuildableSubsystem::TickFactoryActors(float)+0x8fe>
+ 1880552:	4c 63 c8             	movslq %eax,%r9
+ 1880555:	4c 39 cd             	cmp    %r9,%rbp
+ 1880558:	7c d6                	jl     1880530 <AFGBuildableSubsystem::TickFactoryActors(float)+0x8f0>
+ 188055a:	48 8d 3d 46 4c 67 ff 	lea    -0x98b3ba(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1880561:	48 8d 35 b8 00 64 ff 	lea    -0x9bff48(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880568:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 188056d:	48 8d 0d 8e dd 6c ff 	lea    -0x932272(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880574:	49 89 e8             	mov    %rbp,%r8
+ 1880577:	31 c0                	xor    %eax,%eax
+ 1880579:	e8 02 66 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 188057e:	84 c0                	test   %al,%al
+ 1880580:	74 ae                	je     1880530 <AFGBuildableSubsystem::TickFactoryActors(float)+0x8f0>
+ 1880582:	cc                   	int3   
+ 1880583:	eb ab                	jmp    1880530 <AFGBuildableSubsystem::TickFactoryActors(float)+0x8f0>
+ 1880585:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+ 188058c:	00 00 00 00 
+ 1880590:	83 fd ff             	cmp    $0xffffffff,%ebp
+ 1880593:	0f 84 77 02 00 00    	je     1880810 <AFGBuildableSubsystem::TickFactoryActors(float)+0xbd0>
+ 1880599:	48 8b 5c 24 30       	mov    0x30(%rsp),%rbx
+ 188059e:	4c 63 8b f0 03 00 00 	movslq 0x3f0(%rbx),%r9
+ 18805a5:	4c 39 cf             	cmp    %r9,%rdi
+ 18805a8:	0f 8d f1 04 00 00    	jge    1880a9f <AFGBuildableSubsystem::TickFactoryActors(float)+0xe5f>
+ 18805ae:	48 8b 83 e8 03 00 00 	mov    0x3e8(%rbx),%rax
+ 18805b5:	48 8b 04 f8          	mov    (%rax,%rdi,8),%rax
+ 18805b9:	8b 58 10             	mov    0x10(%rax),%ebx
+ 18805bc:	8b 44 24 28          	mov    0x28(%rsp),%eax
+ 18805c0:	85 ed                	test   %ebp,%ebp
+ 18805c2:	0f 88 49 05 00 00    	js     1880b11 <AFGBuildableSubsystem::TickFactoryActors(float)+0xed1>
+ 18805c8:	39 e8                	cmp    %ebp,%eax
+ 18805ca:	0f 8e 41 05 00 00    	jle    1880b11 <AFGBuildableSubsystem::TickFactoryActors(float)+0xed1>
+ 18805d0:	41 89 ed             	mov    %ebp,%r13d
+ 18805d3:	48 8b 44 24 20       	mov    0x20(%rsp),%rax
+ 18805d8:	42 01 1c a8          	add    %ebx,(%rax,%r13,4)
+ 18805dc:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
+ 18805e1:	8b 80 70 04 00 00    	mov    0x470(%rax),%eax
+ 18805e7:	85 ed                	test   %ebp,%ebp
+ 18805e9:	0f 88 5b 05 00 00    	js     1880b4a <AFGBuildableSubsystem::TickFactoryActors(float)+0xf0a>
+ 18805ef:	39 e8                	cmp    %ebp,%eax
+ 18805f1:	0f 8e 53 05 00 00    	jle    1880b4a <AFGBuildableSubsystem::TickFactoryActors(float)+0xf0a>
+ 18805f7:	48 8b 5c 24 30       	mov    0x30(%rsp),%rbx
+ 18805fc:	4c 8b b3 68 04 00 00 	mov    0x468(%rbx),%r14
+ 1880603:	4c 63 8b f0 03 00 00 	movslq 0x3f0(%rbx),%r9
+ 188060a:	4c 39 cf             	cmp    %r9,%rdi
+ 188060d:	0f 8d c5 04 00 00    	jge    1880ad8 <AFGBuildableSubsystem::TickFactoryActors(float)+0xe98>
+ 1880613:	49 c1 e5 04          	shl    $0x4,%r13
+ 1880617:	4f 8d 24 2e          	lea    (%r14,%r13,1),%r12
+ 188061b:	48 8d 2c fd 00 00 00 	lea    0x0(,%rdi,8),%rbp
+ 1880622:	00 
+ 1880623:	48 03 ab e8 03 00 00 	add    0x3e8(%rbx),%rbp
+ 188062a:	4d 8b 0c 24          	mov    (%r12),%r9
+ 188062e:	49 39 e9             	cmp    %rbp,%r9
+ 1880631:	0f 87 42 02 00 00    	ja     1880879 <AFGBuildableSubsystem::TickFactoryActors(float)+0xc39>
+ 1880637:	4f 63 54 2e 0c       	movslq 0xc(%r14,%r13,1),%r10
+ 188063c:	4b 8d 04 d1          	lea    (%r9,%r10,8),%rax
+ 1880640:	48 39 e8             	cmp    %rbp,%rax
+ 1880643:	0f 86 30 02 00 00    	jbe    1880879 <AFGBuildableSubsystem::TickFactoryActors(float)+0xc39>
+ 1880649:	4f 63 5c 2e 08       	movslq 0x8(%r14,%r13,1),%r11
+ 188064e:	48 83 ec 08          	sub    $0x8,%rsp
+ 1880652:	48 8d 3d 55 46 67 ff 	lea    -0x98b9ab(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 1880659:	48 8d 35 c0 ff 63 ff 	lea    -0x9c0040(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880660:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 1880665:	48 8d 0d de 34 70 ff 	lea    -0x8fcb22(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 188066c:	49 89 e8             	mov    %rbp,%r8
+ 188066f:	31 c0                	xor    %eax,%eax
+ 1880671:	6a 08                	push   $0x8
+ 1880673:	41 53                	push   %r11
+ 1880675:	41 52                	push   %r10
+ 1880677:	e8 04 65 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 188067c:	48 8b 7c 24 30       	mov    0x30(%rsp),%rdi
+ 1880681:	48 83 c4 20          	add    $0x20,%rsp
+ 1880685:	84 c0                	test   %al,%al
+ 1880687:	0f 84 ec 01 00 00    	je     1880879 <AFGBuildableSubsystem::TickFactoryActors(float)+0xc39>
+ 188068d:	cc                   	int3   
+ 188068e:	e9 e6 01 00 00       	jmp    1880879 <AFGBuildableSubsystem::TickFactoryActors(float)+0xc39>
+ 1880693:	66 66 66 66 2e 0f 1f 	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 188069a:	84 00 00 00 00 00 
+ 18806a0:	89 4c 24 1c          	mov    %ecx,0x1c(%rsp)
+ 18806a4:	4c 89 6c 24 68       	mov    %r13,0x68(%rsp)
+ 18806a9:	4d 85 ed             	test   %r13,%r13
+ 18806ac:	74 0d                	je     18806bb <AFGBuildableSubsystem::TickFactoryActors(float)+0xa7b>
+ 18806ae:	80 3b 00             	cmpb   $0x0,(%rbx)
+ 18806b1:	74 08                	je     18806bb <AFGBuildableSubsystem::TickFactoryActors(float)+0xa7b>
+ 18806b3:	4c 89 ef             	mov    %r13,%rdi
+ 18806b6:	e8 25 69 8c 00       	call   2146fe0 <UE::GC::MarkAsReachable(UObject const*)@plt>
+ 18806bb:	48 8d 44 24 68       	lea    0x68(%rsp),%rax
+ 18806c0:	48 89 44 24 40       	mov    %rax,0x40(%rsp)
+ 18806c5:	48 8d 44 24 1c       	lea    0x1c(%rsp),%rax
+ 18806ca:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+ 18806cf:	4c 89 ff             	mov    %r15,%rdi
+ 18806d2:	48 8d 74 24 40       	lea    0x40(%rsp),%rsi
+ 18806d7:	31 d2                	xor    %edx,%edx
+ 18806d9:	e8 82 b9 ef ff       	call   177c060 <FSetElementId TSet<TTuple<TObjectPtr<AFGBuildable>, int>, TDefaultMapHashableKeyFuncs<TObjectPtr<AFGBuildable>, int, false>, FDefaultSetAllocator>::Emplace<TPairInitializer<TObjectPtr<AFGBuildable>&&, int const&> >(TPairInitializer<TObjectPtr<AFGBuildable>&&, int const&>&&, bool*)>
+ 18806de:	44 8b 74 24 1c       	mov    0x1c(%rsp),%r14d
+ 18806e3:	48 8b 6c 24 30       	mov    0x30(%rsp),%rbp
+ 18806e8:	8b 85 70 04 00 00    	mov    0x470(%rbp),%eax
+ 18806ee:	45 85 f6             	test   %r14d,%r14d
+ 18806f1:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 18806f6:	0f 88 6a 02 00 00    	js     1880966 <AFGBuildableSubsystem::TickFactoryActors(float)+0xd26>
+ 18806fc:	44 39 f0             	cmp    %r14d,%eax
+ 18806ff:	0f 8e 61 02 00 00    	jle    1880966 <AFGBuildableSubsystem::TickFactoryActors(float)+0xd26>
+ 1880705:	45 89 f0             	mov    %r14d,%r8d
+ 1880708:	4c 8b ad 68 04 00 00 	mov    0x468(%rbp),%r13
+ 188070f:	4c 63 8d f0 03 00 00 	movslq 0x3f0(%rbp),%r9
+ 1880716:	4c 39 cf             	cmp    %r9,%rdi
+ 1880719:	49 89 ef             	mov    %rbp,%r15
+ 188071c:	0f 8d c6 01 00 00    	jge    18808e8 <AFGBuildableSubsystem::TickFactoryActors(float)+0xca8>
+ 1880722:	4c 89 c3             	mov    %r8,%rbx
+ 1880725:	48 c1 e3 04          	shl    $0x4,%rbx
+ 1880729:	4e 8d 24 2b          	lea    (%rbx,%r13,1),%r12
+ 188072d:	48 8d 2c fd 00 00 00 	lea    0x0(,%rdi,8),%rbp
+ 1880734:	00 
+ 1880735:	49 03 af e8 03 00 00 	add    0x3e8(%r15),%rbp
+ 188073c:	4d 8b 0c 24          	mov    (%r12),%r9
+ 1880740:	49 39 e9             	cmp    %rbp,%r9
+ 1880743:	77 12                	ja     1880757 <AFGBuildableSubsystem::TickFactoryActors(float)+0xb17>
+ 1880745:	4d 63 54 1d 0c       	movslq 0xc(%r13,%rbx,1),%r10
+ 188074a:	4b 8d 04 d1          	lea    (%r9,%r10,8),%rax
+ 188074e:	48 39 e8             	cmp    %rbp,%rax
+ 1880751:	0f 87 88 02 00 00    	ja     18809df <AFGBuildableSubsystem::TickFactoryActors(float)+0xd9f>
+ 1880757:	41 8b 44 1d 08       	mov    0x8(%r13,%rbx,1),%eax
+ 188075c:	41 3b 44 1d 0c       	cmp    0xc(%r13,%rbx,1),%eax
+ 1880761:	4c 8b 7c 24 78       	mov    0x78(%rsp),%r15
+ 1880766:	75 30                	jne    1880798 <AFGBuildableSubsystem::TickFactoryActors(float)+0xb58>
+ 1880768:	4a 8d 14 2b          	lea    (%rbx,%r13,1),%rdx
+ 188076c:	48 83 c2 0c          	add    $0xc,%rdx
+ 1880770:	bf 08 08 00 00       	mov    $0x808,%edi
+ 1880775:	4c 89 e6             	mov    %r12,%rsi
+ 1880778:	44 89 74 24 60       	mov    %r14d,0x60(%rsp)
+ 188077d:	4d 89 fe             	mov    %r15,%r14
+ 1880780:	4d 89 c7             	mov    %r8,%r15
+ 1880783:	e8 08 36 aa ff       	call   1323d90 <decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned short, TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 1880788:	4d 89 f8             	mov    %r15,%r8
+ 188078b:	4d 89 f7             	mov    %r14,%r15
+ 188078e:	44 8b 74 24 60       	mov    0x60(%rsp),%r14d
+ 1880793:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1880798:	4a 8d 0c 2b          	lea    (%rbx,%r13,1),%rcx
+ 188079c:	48 83 c1 08          	add    $0x8,%rcx
+ 18807a0:	8d 50 01             	lea    0x1(%rax),%edx
+ 18807a3:	89 11                	mov    %edx,(%rcx)
+ 18807a5:	49 8b 0c 24          	mov    (%r12),%rcx
+ 18807a9:	48 98                	cltq   
+ 18807ab:	48 8b 55 00          	mov    0x0(%rbp),%rdx
+ 18807af:	48 89 14 c1          	mov    %rdx,(%rcx,%rax,8)
+ 18807b3:	48 8b 6c 24 30       	mov    0x30(%rsp),%rbp
+ 18807b8:	4c 63 8d f0 03 00 00 	movslq 0x3f0(%rbp),%r9
+ 18807bf:	4c 39 cf             	cmp    %r9,%rdi
+ 18807c2:	0f 8d 5f 01 00 00    	jge    1880927 <AFGBuildableSubsystem::TickFactoryActors(float)+0xce7>
+ 18807c8:	48 8b 85 e8 03 00 00 	mov    0x3e8(%rbp),%rax
+ 18807cf:	48 8b 04 f8          	mov    (%rax,%rdi,8),%rax
+ 18807d3:	8b 58 10             	mov    0x10(%rax),%ebx
+ 18807d6:	8b 44 24 28          	mov    0x28(%rsp),%eax
+ 18807da:	45 85 f6             	test   %r14d,%r14d
+ 18807dd:	0f 88 bf 01 00 00    	js     18809a2 <AFGBuildableSubsystem::TickFactoryActors(float)+0xd62>
+ 18807e3:	44 39 f0             	cmp    %r14d,%eax
+ 18807e6:	0f 8e b6 01 00 00    	jle    18809a2 <AFGBuildableSubsystem::TickFactoryActors(float)+0xd62>
+ 18807ec:	48 8b 44 24 20       	mov    0x20(%rsp),%rax
+ 18807f1:	42 01 1c 80          	add    %ebx,(%rax,%r8,4)
+ 18807f5:	48 8b 1d c4 d3 d5 00 	mov    0xd5d3c4(%rip),%rbx        # 25ddbc0 <UE::GC::GIsIncrementalReachabilityPending@Base>
+ 18807fc:	e9 cf fa ff ff       	jmp    18802d0 <AFGBuildableSubsystem::TickFactoryActors(float)+0x690>
+ 1880801:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 1880808:	0f 1f 84 00 00 00 00 
+ 188080f:	00 
+ 1880810:	89 f8                	mov    %edi,%eax
+ 1880812:	31 d2                	xor    %edx,%edx
+ 1880814:	f7 74 24 38          	divl   0x38(%rsp)
+ 1880818:	41 89 d5             	mov    %edx,%r13d
+ 188081b:	48 8b 5c 24 30       	mov    0x30(%rsp),%rbx
+ 1880820:	4c 63 8b 70 04 00 00 	movslq 0x470(%rbx),%r9
+ 1880827:	41 39 d1             	cmp    %edx,%r9d
+ 188082a:	0f 8e ff 01 00 00    	jle    1880a2f <AFGBuildableSubsystem::TickFactoryActors(float)+0xdef>
+ 1880830:	4c 8b b3 68 04 00 00 	mov    0x468(%rbx),%r14
+ 1880837:	4c 63 8b f0 03 00 00 	movslq 0x3f0(%rbx),%r9
+ 188083e:	4c 39 cf             	cmp    %r9,%rdi
+ 1880841:	0f 8d 1f 02 00 00    	jge    1880a66 <AFGBuildableSubsystem::TickFactoryActors(float)+0xe26>
+ 1880847:	49 c1 e5 04          	shl    $0x4,%r13
+ 188084b:	4f 8d 24 2e          	lea    (%r14,%r13,1),%r12
+ 188084f:	48 8d 2c fd 00 00 00 	lea    0x0(,%rdi,8),%rbp
+ 1880856:	00 
+ 1880857:	48 03 ab e8 03 00 00 	add    0x3e8(%rbx),%rbp
+ 188085e:	4d 8b 0c 24          	mov    (%r12),%r9
+ 1880862:	49 39 e9             	cmp    %rbp,%r9
+ 1880865:	77 12                	ja     1880879 <AFGBuildableSubsystem::TickFactoryActors(float)+0xc39>
+ 1880867:	4f 63 54 2e 0c       	movslq 0xc(%r14,%r13,1),%r10
+ 188086c:	4b 8d 04 d1          	lea    (%r9,%r10,8),%rax
+ 1880870:	48 39 e8             	cmp    %rbp,%rax
+ 1880873:	0f 87 0b 03 00 00    	ja     1880b84 <AFGBuildableSubsystem::TickFactoryActors(float)+0xf44>
+ 1880879:	43 8b 44 2e 08       	mov    0x8(%r14,%r13,1),%eax
+ 188087e:	43 3b 44 2e 0c       	cmp    0xc(%r14,%r13,1),%eax
+ 1880883:	48 8b 1d 36 d3 d5 00 	mov    0xd5d336(%rip),%rbx        # 25ddbc0 <UE::GC::GIsIncrementalReachabilityPending@Base>
+ 188088a:	0f 85 20 fa ff ff    	jne    18802b0 <AFGBuildableSubsystem::TickFactoryActors(float)+0x670>
+ 1880890:	4b 8d 14 2e          	lea    (%r14,%r13,1),%rdx
+ 1880894:	48 83 c2 0c          	add    $0xc,%rdx
+ 1880898:	bf 08 08 00 00       	mov    $0x808,%edi
+ 188089d:	4c 89 e6             	mov    %r12,%rsi
+ 18808a0:	e8 eb 34 aa ff       	call   1323d90 <decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned short, TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 18808a5:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 18808aa:	e9 01 fa ff ff       	jmp    18802b0 <AFGBuildableSubsystem::TickFactoryActors(float)+0x670>
+ 18808af:	48 8d 3d f1 48 67 ff 	lea    -0x98b70f(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 18808b6:	48 8d 35 63 fd 63 ff 	lea    -0x9c029d(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 18808bd:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 18808c2:	48 8d 0d 39 da 6c ff 	lea    -0x9325c7(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 18808c9:	4c 8b 44 24 10       	mov    0x10(%rsp),%r8
+ 18808ce:	31 c0                	xor    %eax,%eax
+ 18808d0:	e8 ab 62 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 18808d5:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 18808da:	84 c0                	test   %al,%al
+ 18808dc:	0f 84 27 fa ff ff    	je     1880309 <AFGBuildableSubsystem::TickFactoryActors(float)+0x6c9>
+ 18808e2:	cc                   	int3   
+ 18808e3:	e9 21 fa ff ff       	jmp    1880309 <AFGBuildableSubsystem::TickFactoryActors(float)+0x6c9>
+ 18808e8:	48 8d 3d b8 48 67 ff 	lea    -0x98b748(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 18808ef:	48 8d 35 2a fd 63 ff 	lea    -0x9c02d6(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 18808f6:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 18808fb:	48 8d 0d 00 da 6c ff 	lea    -0x932600(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880902:	4c 89 c3             	mov    %r8,%rbx
+ 1880905:	4c 8b 44 24 10       	mov    0x10(%rsp),%r8
+ 188090a:	31 c0                	xor    %eax,%eax
+ 188090c:	e8 6f 62 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880911:	49 89 d8             	mov    %rbx,%r8
+ 1880914:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1880919:	84 c0                	test   %al,%al
+ 188091b:	0f 84 01 fe ff ff    	je     1880722 <AFGBuildableSubsystem::TickFactoryActors(float)+0xae2>
+ 1880921:	cc                   	int3   
+ 1880922:	e9 fb fd ff ff       	jmp    1880722 <AFGBuildableSubsystem::TickFactoryActors(float)+0xae2>
+ 1880927:	48 8d 3d 79 48 67 ff 	lea    -0x98b787(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 188092e:	48 8d 35 eb fc 63 ff 	lea    -0x9c0315(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880935:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 188093a:	48 8d 0d c1 d9 6c ff 	lea    -0x93263f(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880941:	4c 89 c3             	mov    %r8,%rbx
+ 1880944:	4c 8b 44 24 10       	mov    0x10(%rsp),%r8
+ 1880949:	31 c0                	xor    %eax,%eax
+ 188094b:	e8 30 62 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880950:	49 89 d8             	mov    %rbx,%r8
+ 1880953:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1880958:	84 c0                	test   %al,%al
+ 188095a:	0f 84 68 fe ff ff    	je     18807c8 <AFGBuildableSubsystem::TickFactoryActors(float)+0xb88>
+ 1880960:	cc                   	int3   
+ 1880961:	e9 62 fe ff ff       	jmp    18807c8 <AFGBuildableSubsystem::TickFactoryActors(float)+0xb88>
+ 1880966:	4c 63 c8             	movslq %eax,%r9
+ 1880969:	4d 63 c6             	movslq %r14d,%r8
+ 188096c:	48 8d 3d 34 48 67 ff 	lea    -0x98b7cc(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1880973:	48 8d 35 a6 fc 63 ff 	lea    -0x9c035a(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 188097a:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 188097f:	48 8d 0d 7c d9 6c ff 	lea    -0x932684(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880986:	4c 89 c3             	mov    %r8,%rbx
+ 1880989:	31 c0                	xor    %eax,%eax
+ 188098b:	e8 f0 61 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880990:	84 c0                	test   %al,%al
+ 1880992:	74 01                	je     1880995 <AFGBuildableSubsystem::TickFactoryActors(float)+0xd55>
+ 1880994:	cc                   	int3   
+ 1880995:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 188099a:	49 89 d8             	mov    %rbx,%r8
+ 188099d:	e9 66 fd ff ff       	jmp    1880708 <AFGBuildableSubsystem::TickFactoryActors(float)+0xac8>
+ 18809a2:	4c 63 c8             	movslq %eax,%r9
+ 18809a5:	48 8d 3d fb 47 67 ff 	lea    -0x98b805(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 18809ac:	48 8d 35 6d fc 63 ff 	lea    -0x9c0393(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 18809b3:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 18809b8:	48 8d 0d 43 d9 6c ff 	lea    -0x9326bd(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 18809bf:	4d 89 c6             	mov    %r8,%r14
+ 18809c2:	31 c0                	xor    %eax,%eax
+ 18809c4:	e8 b7 61 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 18809c9:	4d 89 f0             	mov    %r14,%r8
+ 18809cc:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 18809d1:	84 c0                	test   %al,%al
+ 18809d3:	0f 84 13 fe ff ff    	je     18807ec <AFGBuildableSubsystem::TickFactoryActors(float)+0xbac>
+ 18809d9:	cc                   	int3   
+ 18809da:	e9 0d fe ff ff       	jmp    18807ec <AFGBuildableSubsystem::TickFactoryActors(float)+0xbac>
+ 18809df:	4d 63 5c 1d 08       	movslq 0x8(%r13,%rbx,1),%r11
+ 18809e4:	48 83 ec 08          	sub    $0x8,%rsp
+ 18809e8:	48 8d 3d bf 42 67 ff 	lea    -0x98bd41(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 18809ef:	48 8d 35 2a fc 63 ff 	lea    -0x9c03d6(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 18809f6:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 18809fb:	48 8d 0d 48 31 70 ff 	lea    -0x8fceb8(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 1880a02:	4d 89 c7             	mov    %r8,%r15
+ 1880a05:	49 89 e8             	mov    %rbp,%r8
+ 1880a08:	31 c0                	xor    %eax,%eax
+ 1880a0a:	6a 08                	push   $0x8
+ 1880a0c:	41 53                	push   %r11
+ 1880a0e:	41 52                	push   %r10
+ 1880a10:	e8 6b 61 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880a15:	4d 89 f8             	mov    %r15,%r8
+ 1880a18:	48 8b 7c 24 30       	mov    0x30(%rsp),%rdi
+ 1880a1d:	48 83 c4 20          	add    $0x20,%rsp
+ 1880a21:	84 c0                	test   %al,%al
+ 1880a23:	0f 84 2e fd ff ff    	je     1880757 <AFGBuildableSubsystem::TickFactoryActors(float)+0xb17>
+ 1880a29:	cc                   	int3   
+ 1880a2a:	e9 28 fd ff ff       	jmp    1880757 <AFGBuildableSubsystem::TickFactoryActors(float)+0xb17>
+ 1880a2f:	48 8d 3d 71 47 67 ff 	lea    -0x98b88f(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1880a36:	48 8d 35 e3 fb 63 ff 	lea    -0x9c041d(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880a3d:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1880a42:	48 8d 0d b9 d8 6c ff 	lea    -0x932747(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880a49:	4d 89 e8             	mov    %r13,%r8
+ 1880a4c:	31 c0                	xor    %eax,%eax
+ 1880a4e:	e8 2d 61 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880a53:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1880a58:	84 c0                	test   %al,%al
+ 1880a5a:	0f 84 d0 fd ff ff    	je     1880830 <AFGBuildableSubsystem::TickFactoryActors(float)+0xbf0>
+ 1880a60:	cc                   	int3   
+ 1880a61:	e9 ca fd ff ff       	jmp    1880830 <AFGBuildableSubsystem::TickFactoryActors(float)+0xbf0>
+ 1880a66:	48 8d 3d 3a 47 67 ff 	lea    -0x98b8c6(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1880a6d:	48 8d 35 ac fb 63 ff 	lea    -0x9c0454(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880a74:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1880a79:	48 8d 0d 82 d8 6c ff 	lea    -0x93277e(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880a80:	4c 8b 44 24 10       	mov    0x10(%rsp),%r8
+ 1880a85:	31 c0                	xor    %eax,%eax
+ 1880a87:	e8 f4 60 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880a8c:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1880a91:	84 c0                	test   %al,%al
+ 1880a93:	0f 84 ae fd ff ff    	je     1880847 <AFGBuildableSubsystem::TickFactoryActors(float)+0xc07>
+ 1880a99:	cc                   	int3   
+ 1880a9a:	e9 a8 fd ff ff       	jmp    1880847 <AFGBuildableSubsystem::TickFactoryActors(float)+0xc07>
+ 1880a9f:	48 8d 3d 01 47 67 ff 	lea    -0x98b8ff(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1880aa6:	48 8d 35 73 fb 63 ff 	lea    -0x9c048d(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880aad:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1880ab2:	48 8d 0d 49 d8 6c ff 	lea    -0x9327b7(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880ab9:	4c 8b 44 24 10       	mov    0x10(%rsp),%r8
+ 1880abe:	31 c0                	xor    %eax,%eax
+ 1880ac0:	e8 bb 60 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880ac5:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1880aca:	84 c0                	test   %al,%al
+ 1880acc:	0f 84 dc fa ff ff    	je     18805ae <AFGBuildableSubsystem::TickFactoryActors(float)+0x96e>
+ 1880ad2:	cc                   	int3   
+ 1880ad3:	e9 d6 fa ff ff       	jmp    18805ae <AFGBuildableSubsystem::TickFactoryActors(float)+0x96e>
+ 1880ad8:	48 8d 3d c8 46 67 ff 	lea    -0x98b938(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1880adf:	48 8d 35 3a fb 63 ff 	lea    -0x9c04c6(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880ae6:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1880aeb:	48 8d 0d 10 d8 6c ff 	lea    -0x9327f0(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880af2:	4c 8b 44 24 10       	mov    0x10(%rsp),%r8
+ 1880af7:	31 c0                	xor    %eax,%eax
+ 1880af9:	e8 82 60 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880afe:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1880b03:	84 c0                	test   %al,%al
+ 1880b05:	0f 84 08 fb ff ff    	je     1880613 <AFGBuildableSubsystem::TickFactoryActors(float)+0x9d3>
+ 1880b0b:	cc                   	int3   
+ 1880b0c:	e9 02 fb ff ff       	jmp    1880613 <AFGBuildableSubsystem::TickFactoryActors(float)+0x9d3>
+ 1880b11:	4c 63 c8             	movslq %eax,%r9
+ 1880b14:	4c 63 ed             	movslq %ebp,%r13
+ 1880b17:	48 8d 3d 89 46 67 ff 	lea    -0x98b977(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1880b1e:	48 8d 35 fb fa 63 ff 	lea    -0x9c0505(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880b25:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1880b2a:	48 8d 0d d1 d7 6c ff 	lea    -0x93282f(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880b31:	4d 89 e8             	mov    %r13,%r8
+ 1880b34:	31 c0                	xor    %eax,%eax
+ 1880b36:	e8 45 60 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880b3b:	84 c0                	test   %al,%al
+ 1880b3d:	74 01                	je     1880b40 <AFGBuildableSubsystem::TickFactoryActors(float)+0xf00>
+ 1880b3f:	cc                   	int3   
+ 1880b40:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1880b45:	e9 89 fa ff ff       	jmp    18805d3 <AFGBuildableSubsystem::TickFactoryActors(float)+0x993>
+ 1880b4a:	4c 63 c8             	movslq %eax,%r9
+ 1880b4d:	48 8d 3d 53 46 67 ff 	lea    -0x98b9ad(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1880b54:	48 8d 35 c5 fa 63 ff 	lea    -0x9c053b(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880b5b:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1880b60:	48 8d 0d 9b d7 6c ff 	lea    -0x932865(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880b67:	4d 89 e8             	mov    %r13,%r8
+ 1880b6a:	31 c0                	xor    %eax,%eax
+ 1880b6c:	e8 0f 60 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880b71:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1880b76:	84 c0                	test   %al,%al
+ 1880b78:	0f 84 79 fa ff ff    	je     18805f7 <AFGBuildableSubsystem::TickFactoryActors(float)+0x9b7>
+ 1880b7e:	cc                   	int3   
+ 1880b7f:	e9 73 fa ff ff       	jmp    18805f7 <AFGBuildableSubsystem::TickFactoryActors(float)+0x9b7>
+ 1880b84:	4f 63 5c 2e 08       	movslq 0x8(%r14,%r13,1),%r11
+ 1880b89:	48 83 ec 08          	sub    $0x8,%rsp
+ 1880b8d:	48 8d 3d 1a 41 67 ff 	lea    -0x98bee6(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 1880b94:	48 8d 35 85 fa 63 ff 	lea    -0x9c057b(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880b9b:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 1880ba0:	48 8d 0d a3 2f 70 ff 	lea    -0x8fd05d(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 1880ba7:	49 89 e8             	mov    %rbp,%r8
+ 1880baa:	31 c0                	xor    %eax,%eax
+ 1880bac:	6a 08                	push   $0x8
+ 1880bae:	41 53                	push   %r11
+ 1880bb0:	41 52                	push   %r10
+ 1880bb2:	e8 c9 5f 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880bb7:	48 8b 7c 24 30       	mov    0x30(%rsp),%rdi
+ 1880bbc:	48 83 c4 20          	add    $0x20,%rsp
+ 1880bc0:	84 c0                	test   %al,%al
+ 1880bc2:	0f 84 b1 fc ff ff    	je     1880879 <AFGBuildableSubsystem::TickFactoryActors(float)+0xc39>
+ 1880bc8:	cc                   	int3   
+ 1880bc9:	e9 ab fc ff ff       	jmp    1880879 <AFGBuildableSubsystem::TickFactoryActors(float)+0xc39>
+ 1880bce:	8b b5 f0 03 00 00    	mov    0x3f0(%rbp),%esi
+ 1880bd4:	48 89 6c 24 40       	mov    %rbp,0x40(%rsp)
+ 1880bd9:	48 8d 44 24 0f       	lea    0xf(%rsp),%rax
+ 1880bde:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+ 1880be3:	48 8d 44 24 18       	lea    0x18(%rsp),%rax
+ 1880be8:	48 89 44 24 50       	mov    %rax,0x50(%rsp)
+ 1880bed:	48 8d 05 cc d2 01 00 	lea    0x1d2cc(%rip),%rax        # 189dec0 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_3, void, int>::Call(void*, int&)>
+ 1880bf4:	e9 00 03 00 00       	jmp    1880ef9 <AFGBuildableSubsystem::TickFactoryActors(float)+0x12b9>
+ 1880bf9:	45 31 f6             	xor    %r14d,%r14d
+ 1880bfc:	45 31 e4             	xor    %r12d,%r12d
+ 1880bff:	eb 4a                	jmp    1880c4b <AFGBuildableSubsystem::TickFactoryActors(float)+0x100b>
+ 1880c01:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 1880c08:	0f 1f 84 00 00 00 00 
+ 1880c0f:	00 
+ 1880c10:	bf 08 08 00 00       	mov    $0x808,%edi
+ 1880c15:	4c 89 fe             	mov    %r15,%rsi
+ 1880c18:	e8 73 31 aa ff       	call   1323d90 <decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned short, TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 1880c1d:	8d 48 01             	lea    0x1(%rax),%ecx
+ 1880c20:	89 0b                	mov    %ecx,(%rbx)
+ 1880c22:	49 8b 0f             	mov    (%r15),%rcx
+ 1880c25:	48 98                	cltq   
+ 1880c27:	48 8b 55 00          	mov    0x0(%rbp),%rdx
+ 1880c2b:	48 89 14 c1          	mov    %rdx,(%rcx,%rax,8)
+ 1880c2f:	49 ff c4             	inc    %r12
+ 1880c32:	48 8b 6c 24 30       	mov    0x30(%rsp),%rbp
+ 1880c37:	48 63 85 f0 03 00 00 	movslq 0x3f0(%rbp),%rax
+ 1880c3e:	49 83 c6 08          	add    $0x8,%r14
+ 1880c42:	49 39 c4             	cmp    %rax,%r12
+ 1880c45:	0f 8d 68 02 00 00    	jge    1880eb3 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1273>
+ 1880c4b:	48 8b 85 e8 03 00 00 	mov    0x3e8(%rbp),%rax
+ 1880c52:	4a 8b 04 e0          	mov    (%rax,%r12,8),%rax
+ 1880c56:	48 83 38 00          	cmpq   $0x0,(%rax)
+ 1880c5a:	74 74                	je     1880cd0 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1090>
+ 1880c5c:	4c 63 8d 70 04 00 00 	movslq 0x470(%rbp),%r9
+ 1880c63:	4d 85 c9             	test   %r9,%r9
+ 1880c66:	0f 8e ed 00 00 00    	jle    1880d59 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1119>
+ 1880c6c:	4c 8b bd 68 04 00 00 	mov    0x468(%rbp),%r15
+ 1880c73:	4c 63 8d f0 03 00 00 	movslq 0x3f0(%rbp),%r9
+ 1880c7a:	4d 39 cc             	cmp    %r9,%r12
+ 1880c7d:	0f 8d 08 01 00 00    	jge    1880d8b <AFGBuildableSubsystem::TickFactoryActors(float)+0x114b>
+ 1880c83:	48 8b ad e8 03 00 00 	mov    0x3e8(%rbp),%rbp
+ 1880c8a:	4c 01 f5             	add    %r14,%rbp
+ 1880c8d:	4d 8b 0f             	mov    (%r15),%r9
+ 1880c90:	49 39 e9             	cmp    %rbp,%r9
+ 1880c93:	77 11                	ja     1880ca6 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1066>
+ 1880c95:	4d 63 57 0c          	movslq 0xc(%r15),%r10
+ 1880c99:	4b 8d 04 d1          	lea    (%r9,%r10,8),%rax
+ 1880c9d:	48 39 e8             	cmp    %rbp,%rax
+ 1880ca0:	0f 87 81 01 00 00    	ja     1880e27 <AFGBuildableSubsystem::TickFactoryActors(float)+0x11e7>
+ 1880ca6:	49 8d 5f 08          	lea    0x8(%r15),%rbx
+ 1880caa:	41 8b 47 08          	mov    0x8(%r15),%eax
+ 1880cae:	41 3b 47 0c          	cmp    0xc(%r15),%eax
+ 1880cb2:	0f 85 65 ff ff ff    	jne    1880c1d <AFGBuildableSubsystem::TickFactoryActors(float)+0xfdd>
+ 1880cb8:	49 8d 57 0c          	lea    0xc(%r15),%rdx
+ 1880cbc:	e9 4f ff ff ff       	jmp    1880c10 <AFGBuildableSubsystem::TickFactoryActors(float)+0xfd0>
+ 1880cc1:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 1880cc8:	0f 1f 84 00 00 00 00 
+ 1880ccf:	00 
+ 1880cd0:	44 89 e0             	mov    %r12d,%eax
+ 1880cd3:	31 d2                	xor    %edx,%edx
+ 1880cd5:	f7 74 24 38          	divl   0x38(%rsp)
+ 1880cd9:	41 89 d5             	mov    %edx,%r13d
+ 1880cdc:	4c 63 8d 70 04 00 00 	movslq 0x470(%rbp),%r9
+ 1880ce3:	41 39 d1             	cmp    %edx,%r9d
+ 1880ce6:	0f 8e d1 00 00 00    	jle    1880dbd <AFGBuildableSubsystem::TickFactoryActors(float)+0x117d>
+ 1880cec:	48 8b 8d 68 04 00 00 	mov    0x468(%rbp),%rcx
+ 1880cf3:	4c 63 8d f0 03 00 00 	movslq 0x3f0(%rbp),%r9
+ 1880cfa:	4d 39 cc             	cmp    %r9,%r12
+ 1880cfd:	0f 8d ec 00 00 00    	jge    1880def <AFGBuildableSubsystem::TickFactoryActors(float)+0x11af>
+ 1880d03:	49 c1 e5 04          	shl    $0x4,%r13
+ 1880d07:	4e 8d 3c 29          	lea    (%rcx,%r13,1),%r15
+ 1880d0b:	48 8b 9d e8 03 00 00 	mov    0x3e8(%rbp),%rbx
+ 1880d12:	4e 8d 04 33          	lea    (%rbx,%r14,1),%r8
+ 1880d16:	4d 8b 0f             	mov    (%r15),%r9
+ 1880d19:	4d 39 c1             	cmp    %r8,%r9
+ 1880d1c:	77 12                	ja     1880d30 <AFGBuildableSubsystem::TickFactoryActors(float)+0x10f0>
+ 1880d1e:	4e 63 54 29 0c       	movslq 0xc(%rcx,%r13,1),%r10
+ 1880d23:	4b 8d 04 d1          	lea    (%r9,%r10,8),%rax
+ 1880d27:	4c 39 c0             	cmp    %r8,%rax
+ 1880d2a:	0f 87 3b 01 00 00    	ja     1880e6b <AFGBuildableSubsystem::TickFactoryActors(float)+0x122b>
+ 1880d30:	4a 8d 2c e3          	lea    (%rbx,%r12,8),%rbp
+ 1880d34:	4a 8d 1c 29          	lea    (%rcx,%r13,1),%rbx
+ 1880d38:	48 83 c3 08          	add    $0x8,%rbx
+ 1880d3c:	42 8b 44 29 08       	mov    0x8(%rcx,%r13,1),%eax
+ 1880d41:	42 3b 44 29 0c       	cmp    0xc(%rcx,%r13,1),%eax
+ 1880d46:	0f 85 d1 fe ff ff    	jne    1880c1d <AFGBuildableSubsystem::TickFactoryActors(float)+0xfdd>
+ 1880d4c:	4a 8d 14 29          	lea    (%rcx,%r13,1),%rdx
+ 1880d50:	48 83 c2 0c          	add    $0xc,%rdx
+ 1880d54:	e9 b7 fe ff ff       	jmp    1880c10 <AFGBuildableSubsystem::TickFactoryActors(float)+0xfd0>
+ 1880d59:	48 8d 3d 47 44 67 ff 	lea    -0x98bbb9(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1880d60:	48 8d 35 b9 f8 63 ff 	lea    -0x9c0747(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880d67:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1880d6c:	48 8d 0d 8f d5 6c ff 	lea    -0x932a71(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880d73:	45 31 c0             	xor    %r8d,%r8d
+ 1880d76:	31 c0                	xor    %eax,%eax
+ 1880d78:	e8 03 5e 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880d7d:	84 c0                	test   %al,%al
+ 1880d7f:	0f 84 e7 fe ff ff    	je     1880c6c <AFGBuildableSubsystem::TickFactoryActors(float)+0x102c>
+ 1880d85:	cc                   	int3   
+ 1880d86:	e9 e1 fe ff ff       	jmp    1880c6c <AFGBuildableSubsystem::TickFactoryActors(float)+0x102c>
+ 1880d8b:	48 8d 3d 15 44 67 ff 	lea    -0x98bbeb(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1880d92:	48 8d 35 87 f8 63 ff 	lea    -0x9c0779(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880d99:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1880d9e:	48 8d 0d 5d d5 6c ff 	lea    -0x932aa3(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880da5:	4d 89 e0             	mov    %r12,%r8
+ 1880da8:	31 c0                	xor    %eax,%eax
+ 1880daa:	e8 d1 5d 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880daf:	84 c0                	test   %al,%al
+ 1880db1:	0f 84 cc fe ff ff    	je     1880c83 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1043>
+ 1880db7:	cc                   	int3   
+ 1880db8:	e9 c6 fe ff ff       	jmp    1880c83 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1043>
+ 1880dbd:	48 8d 3d e3 43 67 ff 	lea    -0x98bc1d(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1880dc4:	48 8d 35 55 f8 63 ff 	lea    -0x9c07ab(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880dcb:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1880dd0:	48 8d 0d 2b d5 6c ff 	lea    -0x932ad5(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880dd7:	4d 89 e8             	mov    %r13,%r8
+ 1880dda:	31 c0                	xor    %eax,%eax
+ 1880ddc:	e8 9f 5d 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880de1:	84 c0                	test   %al,%al
+ 1880de3:	0f 84 03 ff ff ff    	je     1880cec <AFGBuildableSubsystem::TickFactoryActors(float)+0x10ac>
+ 1880de9:	cc                   	int3   
+ 1880dea:	e9 fd fe ff ff       	jmp    1880cec <AFGBuildableSubsystem::TickFactoryActors(float)+0x10ac>
+ 1880def:	48 8d 3d b1 43 67 ff 	lea    -0x98bc4f(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 1880df6:	48 8d 35 23 f8 63 ff 	lea    -0x9c07dd(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880dfd:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1880e02:	48 89 cb             	mov    %rcx,%rbx
+ 1880e05:	48 8d 0d f6 d4 6c ff 	lea    -0x932b0a(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1880e0c:	4d 89 e0             	mov    %r12,%r8
+ 1880e0f:	31 c0                	xor    %eax,%eax
+ 1880e11:	e8 6a 5d 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880e16:	48 89 d9             	mov    %rbx,%rcx
+ 1880e19:	84 c0                	test   %al,%al
+ 1880e1b:	0f 84 e2 fe ff ff    	je     1880d03 <AFGBuildableSubsystem::TickFactoryActors(float)+0x10c3>
+ 1880e21:	cc                   	int3   
+ 1880e22:	e9 dc fe ff ff       	jmp    1880d03 <AFGBuildableSubsystem::TickFactoryActors(float)+0x10c3>
+ 1880e27:	4d 63 5f 08          	movslq 0x8(%r15),%r11
+ 1880e2b:	48 83 ec 08          	sub    $0x8,%rsp
+ 1880e2f:	48 8d 3d 78 3e 67 ff 	lea    -0x98c188(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 1880e36:	48 8d 35 e3 f7 63 ff 	lea    -0x9c081d(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880e3d:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 1880e42:	48 8d 0d 01 2d 70 ff 	lea    -0x8fd2ff(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 1880e49:	49 89 e8             	mov    %rbp,%r8
+ 1880e4c:	31 c0                	xor    %eax,%eax
+ 1880e4e:	6a 08                	push   $0x8
+ 1880e50:	41 53                	push   %r11
+ 1880e52:	41 52                	push   %r10
+ 1880e54:	e8 27 5d 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880e59:	48 83 c4 20          	add    $0x20,%rsp
+ 1880e5d:	84 c0                	test   %al,%al
+ 1880e5f:	0f 84 41 fe ff ff    	je     1880ca6 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1066>
+ 1880e65:	cc                   	int3   
+ 1880e66:	e9 3b fe ff ff       	jmp    1880ca6 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1066>
+ 1880e6b:	4e 63 5c 29 08       	movslq 0x8(%rcx,%r13,1),%r11
+ 1880e70:	48 83 ec 08          	sub    $0x8,%rsp
+ 1880e74:	48 8d 3d 33 3e 67 ff 	lea    -0x98c1cd(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 1880e7b:	48 8d 35 9e f7 63 ff 	lea    -0x9c0862(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1880e82:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 1880e87:	48 89 cd             	mov    %rcx,%rbp
+ 1880e8a:	48 8d 0d b9 2c 70 ff 	lea    -0x8fd347(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 1880e91:	31 c0                	xor    %eax,%eax
+ 1880e93:	6a 08                	push   $0x8
+ 1880e95:	41 53                	push   %r11
+ 1880e97:	41 52                	push   %r10
+ 1880e99:	e8 e2 5c 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1880e9e:	48 89 e9             	mov    %rbp,%rcx
+ 1880ea1:	48 83 c4 20          	add    $0x20,%rsp
+ 1880ea5:	84 c0                	test   %al,%al
+ 1880ea7:	0f 84 83 fe ff ff    	je     1880d30 <AFGBuildableSubsystem::TickFactoryActors(float)+0x10f0>
+ 1880ead:	cc                   	int3   
+ 1880eae:	e9 7d fe ff ff       	jmp    1880d30 <AFGBuildableSubsystem::TickFactoryActors(float)+0x10f0>
+ 1880eb3:	c6 85 78 04 00 00 00 	movb   $0x0,0x478(%rbp)
+ 1880eba:	48 8b 7c 24 20       	mov    0x20(%rsp),%rdi
+ 1880ebf:	48 85 ff             	test   %rdi,%rdi
+ 1880ec2:	74 05                	je     1880ec9 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1289>
+ 1880ec4:	e8 c7 5c 8c 00       	call   2146b90 <FMemory::Free(void*)@plt>
+ 1880ec9:	44 8b 64 24 5c       	mov    0x5c(%rsp),%r12d
+ 1880ece:	48 8d 5c 24 40       	lea    0x40(%rsp),%rbx
+ 1880ed3:	8b b5 70 04 00 00    	mov    0x470(%rbp),%esi
+ 1880ed9:	48 89 6c 24 40       	mov    %rbp,0x40(%rsp)
+ 1880ede:	48 8d 44 24 18       	lea    0x18(%rsp),%rax
+ 1880ee3:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+ 1880ee8:	48 8d 44 24 0f       	lea    0xf(%rsp),%rax
+ 1880eed:	48 89 44 24 50       	mov    %rax,0x50(%rsp)
+ 1880ef2:	48 8d 05 87 ce 01 00 	lea    0x1ce87(%rip),%rax        # 189dd80 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)>
+ 1880ef9:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+ 1880efe:	48 89 5c 24 28       	mov    %rbx,0x28(%rsp)
+ 1880f03:	48 c7 44 24 68 00 00 	movq   $0x0,0x68(%rsp)
+ 1880f0a:	00 00 
+ 1880f0c:	c7 44 24 70 00 00 00 	movl   $0x0,0x70(%rsp)
+ 1880f13:	00 
+ 1880f14:	48 8d 3d 03 36 6b ff 	lea    -0x94c9fd(%rip),%rdi        # f3451e <(anonymous namespace)::FGHighlightColor+0xbe5fe>
+ 1880f1b:	48 8d 4c 24 20       	lea    0x20(%rsp),%rcx
+ 1880f20:	4c 8d 4c 24 68       	lea    0x68(%rsp),%r9
+ 1880f25:	ba 01 00 00 00       	mov    $0x1,%edx
+ 1880f2a:	45 89 e0             	mov    %r12d,%r8d
+ 1880f2d:	e8 6e df fc ff       	call   184eea0 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)>
+ 1880f32:	48 63 9d 60 04 00 00 	movslq 0x460(%rbp),%rbx
+ 1880f39:	48 85 db             	test   %rbx,%rbx
+ 1880f3c:	74 6a                	je     1880fa8 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1368>
+ 1880f3e:	4c 8b b5 58 04 00 00 	mov    0x458(%rbp),%r14
+ 1880f45:	48 c1 e3 03          	shl    $0x3,%rbx
+ 1880f49:	45 31 ff             	xor    %r15d,%r15d
+ 1880f4c:	eb 1a                	jmp    1880f68 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1328>
+ 1880f4e:	66 90                	xchg   %ax,%ax
+ 1880f50:	f3 0f 10 44 24 18    	movss  0x18(%rsp),%xmm0
+ 1880f56:	48 8b 07             	mov    (%rdi),%rax
+ 1880f59:	ff 90 30 09 00 00    	call   *0x930(%rax)
+ 1880f5f:	49 83 c7 08          	add    $0x8,%r15
+ 1880f63:	4c 39 fb             	cmp    %r15,%rbx
+ 1880f66:	74 40                	je     1880fa8 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1368>
+ 1880f68:	4b 8b 3c 3e          	mov    (%r14,%r15,1),%rdi
+ 1880f6c:	0f b6 87 19 06 00 00 	movzbl 0x619(%rdi),%eax
+ 1880f73:	f6 d0                	not    %al
+ 1880f75:	a8 03                	test   $0x3,%al
+ 1880f77:	75 d7                	jne    1880f50 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1310>
+ 1880f79:	83 bf 88 06 00 00 00 	cmpl   $0x0,0x688(%rdi)
+ 1880f80:	f3 0f 10 44 24 18    	movss  0x18(%rsp),%xmm0
+ 1880f86:	74 ce                	je     1880f56 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1316>
+ 1880f88:	80 7c 24 0f 00       	cmpb   $0x0,0xf(%rsp)
+ 1880f8d:	74 c7                	je     1880f56 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1316>
+ 1880f8f:	f3 0f 58 87 50 07 00 	addss  0x750(%rdi),%xmm0
+ 1880f96:	00 
+ 1880f97:	f3 0f 11 87 50 07 00 	movss  %xmm0,0x750(%rdi)
+ 1880f9e:	00 
+ 1880f9f:	49 83 c7 08          	add    $0x8,%r15
+ 1880fa3:	4c 39 fb             	cmp    %r15,%rbx
+ 1880fa6:	75 c0                	jne    1880f68 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1328>
+ 1880fa8:	48 63 9d 48 09 00 00 	movslq 0x948(%rbp),%rbx
+ 1880faf:	48 85 db             	test   %rbx,%rbx
+ 1880fb2:	74 47                	je     1880ffb <AFGBuildableSubsystem::TickFactoryActors(float)+0x13bb>
+ 1880fb4:	4c 8b b5 40 09 00 00 	mov    0x940(%rbp),%r14
+ 1880fbb:	48 c1 e3 04          	shl    $0x4,%rbx
+ 1880fbf:	45 31 ff             	xor    %r15d,%r15d
+ 1880fc2:	eb 15                	jmp    1880fd9 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1399>
+ 1880fc4:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 1880fcb:	00 00 00 00 00 
+ 1880fd0:	49 83 c7 10          	add    $0x10,%r15
+ 1880fd4:	4c 39 fb             	cmp    %r15,%rbx
+ 1880fd7:	74 22                	je     1880ffb <AFGBuildableSubsystem::TickFactoryActors(float)+0x13bb>
+ 1880fd9:	4b 83 3c 3e 00       	cmpq   $0x0,(%r14,%r15,1)
+ 1880fde:	74 f0                	je     1880fd0 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1390>
+ 1880fe0:	4b 8b 7c 3e 08       	mov    0x8(%r14,%r15,1),%rdi
+ 1880fe5:	48 85 ff             	test   %rdi,%rdi
+ 1880fe8:	74 e6                	je     1880fd0 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1390>
+ 1880fea:	f3 0f 10 44 24 18    	movss  0x18(%rsp),%xmm0
+ 1880ff0:	48 8b 07             	mov    (%rdi),%rax
+ 1880ff3:	48 89 ee             	mov    %rbp,%rsi
+ 1880ff6:	ff 50 20             	call   *0x20(%rax)
+ 1880ff9:	eb d5                	jmp    1880fd0 <AFGBuildableSubsystem::TickFactoryActors(float)+0x1390>
+ 1880ffb:	48 81 c4 88 00 00 00 	add    $0x88,%rsp
+ 1881002:	5b                   	pop    %rbx
+ 1881003:	41 5c                	pop    %r12
+ 1881005:	41 5d                	pop    %r13
+ 1881007:	41 5e                	pop    %r14
+ 1881009:	41 5f                	pop    %r15
+ 188100b:	5d                   	pop    %rbp
+ 188100c:	c3                   	ret    
+ 188100d:	0f 1f 00             	nopl   (%rax)
+
+0000000001881010 <AFGBuildableSubsystem::AddConveyorChainActor(AFGConveyorChainActor*)>:
+ 1881010:	53                   	push   %rbx
+ 1881011:	48 83 ec 10          	sub    $0x10,%rsp
+ 1881015:	48 89 fb             	mov    %rdi,%rbx
+ 1881018:	48 89 74 24 08       	mov    %rsi,0x8(%rsp)
+ 188101d:	4c 8b 8f 80 04 00 00 	mov    0x480(%rdi),%r9
+ 1881024:	48 8d 44 24 08       	lea    0x8(%rsp),%rax
+ 1881029:	49 39 c1             	cmp    %rax,%r9
+ 188102c:	77 10                	ja     188103e <AFGBuildableSubsystem::AddConveyorChainActor(AFGConveyorChainActor*)+0x2e>
+ 188102e:	4c 63 93 8c 04 00 00 	movslq 0x48c(%rbx),%r10
+ 1881035:	4b 8d 0c d1          	lea    (%r9,%r10,8),%rcx
+ 1881039:	48 39 c1             	cmp    %rax,%rcx
+ 188103c:	77 4e                	ja     188108c <AFGBuildableSubsystem::AddConveyorChainActor(AFGConveyorChainActor*)+0x7c>
+ 188103e:	8b 83 88 04 00 00    	mov    0x488(%rbx),%eax
+ 1881044:	3b 83 8c 04 00 00    	cmp    0x48c(%rbx),%eax
+ 188104a:	75 18                	jne    1881064 <AFGBuildableSubsystem::AddConveyorChainActor(AFGConveyorChainActor*)+0x54>
+ 188104c:	48 8d b3 80 04 00 00 	lea    0x480(%rbx),%rsi
+ 1881053:	48 8d 93 8c 04 00 00 	lea    0x48c(%rbx),%rdx
+ 188105a:	bf 08 08 00 00       	mov    $0x808,%edi
+ 188105f:	e8 2c 2d aa ff       	call   1323d90 <decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned short, TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 1881064:	8d 48 01             	lea    0x1(%rax),%ecx
+ 1881067:	89 8b 88 04 00 00    	mov    %ecx,0x488(%rbx)
+ 188106d:	48 8b 8b 80 04 00 00 	mov    0x480(%rbx),%rcx
+ 1881074:	48 98                	cltq   
+ 1881076:	48 8b 54 24 08       	mov    0x8(%rsp),%rdx
+ 188107b:	48 89 14 c1          	mov    %rdx,(%rcx,%rax,8)
+ 188107f:	c6 83 c1 04 00 00 01 	movb   $0x1,0x4c1(%rbx)
+ 1881086:	48 83 c4 10          	add    $0x10,%rsp
+ 188108a:	5b                   	pop    %rbx
+ 188108b:	c3                   	ret    
+ 188108c:	4c 63 9b 88 04 00 00 	movslq 0x488(%rbx),%r11
+ 1881093:	48 83 ec 08          	sub    $0x8,%rsp
+ 1881097:	48 8d 3d 10 3c 67 ff 	lea    -0x98c3f0(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 188109e:	48 8d 35 7b f5 63 ff 	lea    -0x9c0a85(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 18810a5:	48 8d 0d 9e 2a 70 ff 	lea    -0x8fd562(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 18810ac:	4c 8d 44 24 10       	lea    0x10(%rsp),%r8
+ 18810b1:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 18810b6:	31 c0                	xor    %eax,%eax
+ 18810b8:	6a 08                	push   $0x8
+ 18810ba:	41 53                	push   %r11
+ 18810bc:	41 52                	push   %r10
+ 18810be:	e8 bd 5a 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 18810c3:	48 83 c4 20          	add    $0x20,%rsp
+ 18810c7:	84 c0                	test   %al,%al
+ 18810c9:	0f 84 6f ff ff ff    	je     188103e <AFGBuildableSubsystem::AddConveyorChainActor(AFGConveyorChainActor*)+0x2e>
+ 18810cf:	cc                   	int3   
+ 18810d0:	e9 69 ff ff ff       	jmp    188103e <AFGBuildableSubsystem::AddConveyorChainActor(AFGConveyorChainActor*)+0x2e>
+ 18810d5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+ 18810dc:	00 00 00 00 
+
+00000000018810e0 <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)>:
+ 18810e0:	55                   	push   %rbp
+ 18810e1:	41 57                	push   %r15
+ 18810e3:	41 56                	push   %r14
+ 18810e5:	41 55                	push   %r13
+ 18810e7:	41 54                	push   %r12
+ 18810e9:	53                   	push   %rbx
+ 18810ea:	48 83 ec 18          	sub    $0x18,%rsp
+ 18810ee:	48 89 34 24          	mov    %rsi,(%rsp)
+ 18810f2:	4c 8b 8f 80 04 00 00 	mov    0x480(%rdi),%r9
+ 18810f9:	48 89 e0             	mov    %rsp,%rax
+ 18810fc:	49 39 c1             	cmp    %rax,%r9
+ 18810ff:	77 14                	ja     1881115 <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0x35>
+ 1881101:	4c 63 97 8c 04 00 00 	movslq 0x48c(%rdi),%r10
+ 1881108:	4b 8d 0c d1          	lea    (%r9,%r10,8),%rcx
+ 188110c:	48 39 c1             	cmp    %rax,%rcx
+ 188110f:	0f 87 09 01 00 00    	ja     188121e <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0x13e>
+ 1881115:	4c 63 b7 88 04 00 00 	movslq 0x488(%rdi),%r14
+ 188111c:	4d 85 f6             	test   %r14,%r14
+ 188111f:	0f 84 e3 00 00 00    	je     1881208 <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0x128>
+ 1881125:	48 89 7c 24 10       	mov    %rdi,0x10(%rsp)
+ 188112a:	4c 8b bf 80 04 00 00 	mov    0x480(%rdi),%r15
+ 1881131:	49 8b 07             	mov    (%r15),%rax
+ 1881134:	48 3b 04 24          	cmp    (%rsp),%rax
+ 1881138:	41 0f 94 c4          	sete   %r12b
+ 188113c:	45 31 db             	xor    %r11d,%r11d
+ 188113f:	45 31 ed             	xor    %r13d,%r13d
+ 1881142:	eb 18                	jmp    188115c <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0x7c>
+ 1881144:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 188114b:	00 00 00 00 00 
+ 1881150:	41 01 eb             	add    %ebp,%r11d
+ 1881153:	4c 39 f3             	cmp    %r14,%rbx
+ 1881156:	0f 8d a0 00 00 00    	jge    18811fc <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0x11c>
+ 188115c:	44 89 e2             	mov    %r12d,%edx
+ 188115f:	44 89 e9             	mov    %r13d,%ecx
+ 1881162:	41 80 f4 01          	xor    $0x1,%r12b
+ 1881166:	49 63 c5             	movslq %r13d,%rax
+ 1881169:	8d 70 01             	lea    0x1(%rax),%esi
+ 188116c:	41 39 f6             	cmp    %esi,%r14d
+ 188116f:	41 0f 4f f6          	cmovg  %r14d,%esi
+ 1881173:	48 8b 3c 24          	mov    (%rsp),%rdi
+ 1881177:	4c 8d 48 01          	lea    0x1(%rax),%r9
+ 188117b:	41 89 d0             	mov    %edx,%r8d
+ 188117e:	41 80 e0 01          	and    $0x1,%r8b
+ 1881182:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 1881189:	1f 84 00 00 00 00 00 
+ 1881190:	4c 89 cb             	mov    %r9,%rbx
+ 1881193:	4d 39 f1             	cmp    %r14,%r9
+ 1881196:	7d 28                	jge    18811c0 <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0xe0>
+ 1881198:	49 39 3c df          	cmp    %rdi,(%r15,%rbx,8)
+ 188119c:	41 0f 94 c2          	sete   %r10b
+ 18811a0:	41 ff c5             	inc    %r13d
+ 18811a3:	4c 8d 4b 01          	lea    0x1(%rbx),%r9
+ 18811a7:	45 38 d0             	cmp    %r10b,%r8b
+ 18811aa:	74 e4                	je     1881190 <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0xb0>
+ 18811ac:	f6 c2 01             	test   $0x1,%dl
+ 18811af:	75 a2                	jne    1881153 <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0x73>
+ 18811b1:	eb 15                	jmp    18811c8 <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0xe8>
+ 18811b3:	66 66 66 66 2e 0f 1f 	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 18811ba:	84 00 00 00 00 00 
+ 18811c0:	41 89 f5             	mov    %esi,%r13d
+ 18811c3:	f6 c2 01             	test   $0x1,%dl
+ 18811c6:	75 8b                	jne    1881153 <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0x73>
+ 18811c8:	44 89 ed             	mov    %r13d,%ebp
+ 18811cb:	29 cd                	sub    %ecx,%ebp
+ 18811cd:	41 39 cb             	cmp    %ecx,%r11d
+ 18811d0:	0f 84 7a ff ff ff    	je     1881150 <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0x70>
+ 18811d6:	49 63 cb             	movslq %r11d,%rcx
+ 18811d9:	49 8d 3c cf          	lea    (%r15,%rcx,8),%rdi
+ 18811dd:	49 8d 34 c7          	lea    (%r15,%rax,8),%rsi
+ 18811e1:	48 63 d5             	movslq %ebp,%rdx
+ 18811e4:	48 c1 e2 03          	shl    $0x3,%rdx
+ 18811e8:	44 89 5c 24 0c       	mov    %r11d,0xc(%rsp)
+ 18811ed:	e8 be 5d 8c 00       	call   2146fb0 <memmove@plt>
+ 18811f2:	44 8b 5c 24 0c       	mov    0xc(%rsp),%r11d
+ 18811f7:	e9 54 ff ff ff       	jmp    1881150 <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0x70>
+ 18811fc:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 1881201:	44 89 9f 88 04 00 00 	mov    %r11d,0x488(%rdi)
+ 1881208:	c6 87 c1 04 00 00 01 	movb   $0x1,0x4c1(%rdi)
+ 188120f:	48 83 c4 18          	add    $0x18,%rsp
+ 1881213:	5b                   	pop    %rbx
+ 1881214:	41 5c                	pop    %r12
+ 1881216:	41 5d                	pop    %r13
+ 1881218:	41 5e                	pop    %r14
+ 188121a:	41 5f                	pop    %r15
+ 188121c:	5d                   	pop    %rbp
+ 188121d:	c3                   	ret    
+ 188121e:	4c 63 9f 88 04 00 00 	movslq 0x488(%rdi),%r11
+ 1881225:	48 83 ec 08          	sub    $0x8,%rsp
+ 1881229:	48 89 fb             	mov    %rdi,%rbx
+ 188122c:	48 8d 3d 7b 3a 67 ff 	lea    -0x98c585(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 1881233:	48 8d 35 e6 f3 63 ff 	lea    -0x9c0c1a(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 188123a:	48 8d 0d 09 29 70 ff 	lea    -0x8fd6f7(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 1881241:	4c 8d 44 24 08       	lea    0x8(%rsp),%r8
+ 1881246:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 188124b:	31 c0                	xor    %eax,%eax
+ 188124d:	6a 08                	push   $0x8
+ 188124f:	41 53                	push   %r11
+ 1881251:	41 52                	push   %r10
+ 1881253:	e8 28 59 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1881258:	48 89 df             	mov    %rbx,%rdi
+ 188125b:	48 83 c4 20          	add    $0x20,%rsp
+ 188125f:	84 c0                	test   %al,%al
+ 1881261:	0f 84 ae fe ff ff    	je     1881115 <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0x35>
+ 1881267:	cc                   	int3   
+ 1881268:	e9 a8 fe ff ff       	jmp    1881115 <AFGBuildableSubsystem::RemoveConveyorChainActor(AFGConveyorChainActor*)+0x35>
+ 188126d:	0f 1f 00             	nopl   (%rax)
+
+0000000001881270 <AFGBuildableSubsystem::IsServerSubSystem() const>:
+ 1881270:	80 bf 70 01 00 00 03 	cmpb   $0x3,0x170(%rdi)
+ 1881277:	0f 94 c0             	sete   %al
+ 188127a:	c3                   	ret    
+ 188127b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000001881280 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)>:
+ 1881280:	48 85 f6             	test   %rsi,%rsi
+ 1881283:	0f 84 49 04 00 00    	je     18816d2 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x452>
+ 1881289:	41 57                	push   %r15
+ 188128b:	41 56                	push   %r14
+ 188128d:	41 54                	push   %r12
+ 188128f:	53                   	push   %rbx
+ 1881290:	48 81 ec f8 00 00 00 	sub    $0xf8,%rsp
+ 1881297:	48 89 f3             	mov    %rsi,%rbx
+ 188129a:	49 89 fe             	mov    %rdi,%r14
+ 188129d:	48 63 46 10          	movslq 0x10(%rsi),%rax
+ 18812a1:	48 85 c0             	test   %rax,%rax
+ 18812a4:	0f 84 01 01 00 00    	je     18813ab <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x12b>
+ 18812aa:	48 8b 4b 08          	mov    0x8(%rbx),%rcx
+ 18812ae:	48 c1 e0 03          	shl    $0x3,%rax
+ 18812b2:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 18812b5:	31 d2                	xor    %edx,%edx
+ 18812b7:	eb 10                	jmp    18812c9 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x49>
+ 18812b9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 18812c0:	48 83 c2 08          	add    $0x8,%rdx
+ 18812c4:	48 39 d0             	cmp    %rdx,%rax
+ 18812c7:	74 17                	je     18812e0 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x60>
+ 18812c9:	48 8b 34 11          	mov    (%rcx,%rdx,1),%rsi
+ 18812cd:	80 be f8 06 00 00 00 	cmpb   $0x0,0x6f8(%rsi)
+ 18812d4:	75 ea                	jne    18812c0 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x40>
+ 18812d6:	f3 0f 58 86 20 06 00 	addss  0x620(%rsi),%xmm0
+ 18812dd:	00 
+ 18812de:	eb e0                	jmp    18812c0 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x40>
+ 18812e0:	48 8d bc 24 80 00 00 	lea    0x80(%rsp),%rdi
+ 18812e7:	00 
+ 18812e8:	f3 0f 11 44 24 0c    	movss  %xmm0,0xc(%rsp)
+ 18812ee:	e8 cd a7 8e 00       	call   216bac0 <FActorSpawnParameters::FActorSpawnParameters()@plt>
+ 18812f3:	f3 0f 10 4c 24 0c    	movss  0xc(%rsp),%xmm1
+ 18812f9:	c6 84 24 b0 00 00 00 	movb   $0x1,0xb0(%rsp)
+ 1881300:	01 
+ 1881301:	f3 0f 10 05 ab 6a 5f 	movss  -0xa09555(%rip),%xmm0        # e77db4 <(anonymous namespace)::FGHighlightColor+0x1e94>
+ 1881308:	ff 
+ 1881309:	0f 2e c1             	ucomiss %xmm1,%xmm0
+ 188130c:	0f 83 ae 00 00 00    	jae    18813c0 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x140>
+ 1881312:	f3 0f 10 05 4e 66 5f 	movss  -0xa099b2(%rip),%xmm0        # e77968 <(anonymous namespace)::FGHighlightColor+0x1a48>
+ 1881319:	ff 
+ 188131a:	0f 2e c1             	ucomiss %xmm1,%xmm0
+ 188131d:	0f 83 27 01 00 00    	jae    188144a <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x1ca>
+ 1881323:	f3 0f 10 05 c5 69 5f 	movss  -0xa0963b(%rip),%xmm0        # e77cf0 <(anonymous namespace)::FGHighlightColor+0x1dd0>
+ 188132a:	ff 
+ 188132b:	4c 89 f7             	mov    %r14,%rdi
+ 188132e:	0f 2e c1             	ucomiss %xmm1,%xmm0
+ 1881331:	0f 83 7a 01 00 00    	jae    18814b1 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x231>
+ 1881337:	e8 a4 65 8c 00       	call   21478e0 <AActor::GetWorld() const@plt>
+ 188133c:	49 89 c6             	mov    %rax,%r14
+ 188133f:	f3 0f 10 05 0d 68 5f 	movss  -0xa097f3(%rip),%xmm0        # e77b54 <(anonymous namespace)::FGHighlightColor+0x1c34>
+ 1881346:	ff 
+ 1881347:	0f 2e 44 24 0c       	ucomiss 0xc(%rsp),%xmm0
+ 188134c:	0f 83 bb 01 00 00    	jae    188150d <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x28d>
+ 1881352:	e8 19 1f 8d 00       	call   2153270 <Z_Construct_UClass_AFGConveyorChainActor_RepSizeNoCull_NoRegister()@plt>
+ 1881357:	49 89 c7             	mov    %rax,%r15
+ 188135a:	48 8d 7c 24 10       	lea    0x10(%rsp),%rdi
+ 188135f:	e8 5c a7 8e 00       	call   216bac0 <FActorSpawnParameters::FActorSpawnParameters()@plt>
+ 1881364:	66 c7 44 24 40 00 01 	movw   $0x100,0x40(%rsp)
+ 188136b:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 188136e:	0f 29 44 24 20       	movaps %xmm0,0x20(%rsp)
+ 1881373:	80 4c 24 42 04       	orb    $0x4,0x42(%rsp)
+ 1881378:	4d 85 ff             	test   %r15,%r15
+ 188137b:	0f 84 e0 01 00 00    	je     1881561 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x2e1>
+ 1881381:	48 8b 15 d0 d1 d5 00 	mov    0xd5d1d0(%rip),%rdx        # 25de558 <UE::Math::TTransform<double>::Identity@Base>
+ 1881388:	48 8d 4c 24 10       	lea    0x10(%rsp),%rcx
+ 188138d:	4c 89 f7             	mov    %r14,%rdi
+ 1881390:	4c 89 fe             	mov    %r15,%rsi
+ 1881393:	e8 48 a7 8e 00       	call   216bae0 <UWorld::SpawnActor(UClass*, UE::Math::TTransform<double> const*, FActorSpawnParameters const&)@plt>
+ 1881398:	48 85 c0             	test   %rax,%rax
+ 188139b:	0f 84 c0 01 00 00    	je     1881561 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x2e1>
+ 18813a1:	49 89 c6             	mov    %rax,%r14
+ 18813a4:	e8 c7 1e 8d 00       	call   2153270 <Z_Construct_UClass_AFGConveyorChainActor_RepSizeNoCull_NoRegister()@plt>
+ 18813a9:	eb 77                	jmp    1881422 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x1a2>
+ 18813ab:	48 8d bc 24 80 00 00 	lea    0x80(%rsp),%rdi
+ 18813b2:	00 
+ 18813b3:	e8 08 a7 8e 00       	call   216bac0 <FActorSpawnParameters::FActorSpawnParameters()@plt>
+ 18813b8:	c6 84 24 b0 00 00 00 	movb   $0x1,0xb0(%rsp)
+ 18813bf:	01 
+ 18813c0:	4c 89 f7             	mov    %r14,%rdi
+ 18813c3:	e8 18 65 8c 00       	call   21478e0 <AActor::GetWorld() const@plt>
+ 18813c8:	49 89 c6             	mov    %rax,%r14
+ 18813cb:	e8 70 ab 8c 00       	call   214bf40 <Z_Construct_UClass_AFGConveyorChainActor_NoRegister()@plt>
+ 18813d0:	49 89 c7             	mov    %rax,%r15
+ 18813d3:	48 8d 7c 24 10       	lea    0x10(%rsp),%rdi
+ 18813d8:	e8 e3 a6 8e 00       	call   216bac0 <FActorSpawnParameters::FActorSpawnParameters()@plt>
+ 18813dd:	66 c7 44 24 40 00 01 	movw   $0x100,0x40(%rsp)
+ 18813e4:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 18813e7:	0f 29 44 24 20       	movaps %xmm0,0x20(%rsp)
+ 18813ec:	80 4c 24 42 04       	orb    $0x4,0x42(%rsp)
+ 18813f1:	4d 85 ff             	test   %r15,%r15
+ 18813f4:	0f 84 67 01 00 00    	je     1881561 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x2e1>
+ 18813fa:	48 8b 15 57 d1 d5 00 	mov    0xd5d157(%rip),%rdx        # 25de558 <UE::Math::TTransform<double>::Identity@Base>
+ 1881401:	48 8d 4c 24 10       	lea    0x10(%rsp),%rcx
+ 1881406:	4c 89 f7             	mov    %r14,%rdi
+ 1881409:	4c 89 fe             	mov    %r15,%rsi
+ 188140c:	e8 cf a6 8e 00       	call   216bae0 <UWorld::SpawnActor(UClass*, UE::Math::TTransform<double> const*, FActorSpawnParameters const&)@plt>
+ 1881411:	48 85 c0             	test   %rax,%rax
+ 1881414:	0f 84 47 01 00 00    	je     1881561 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x2e1>
+ 188141a:	49 89 c6             	mov    %rax,%r14
+ 188141d:	e8 1e ab 8c 00       	call   214bf40 <Z_Construct_UClass_AFGConveyorChainActor_NoRegister()@plt>
+ 1881422:	49 8b 4e 10          	mov    0x10(%r14),%rcx
+ 1881426:	48 63 50 38          	movslq 0x38(%rax),%rdx
+ 188142a:	3b 51 38             	cmp    0x38(%rcx),%edx
+ 188142d:	0f 8f 2e 01 00 00    	jg     1881561 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x2e1>
+ 1881433:	48 83 c0 30          	add    $0x30,%rax
+ 1881437:	48 8b 49 30          	mov    0x30(%rcx),%rcx
+ 188143b:	48 39 04 d1          	cmp    %rax,(%rcx,%rdx,8)
+ 188143f:	0f 85 1c 01 00 00    	jne    1881561 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x2e1>
+ 1881445:	e9 1a 01 00 00       	jmp    1881564 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x2e4>
+ 188144a:	4c 89 f7             	mov    %r14,%rdi
+ 188144d:	e8 8e 64 8c 00       	call   21478e0 <AActor::GetWorld() const@plt>
+ 1881452:	49 89 c6             	mov    %rax,%r14
+ 1881455:	e8 76 1d 8d 00       	call   21531d0 <Z_Construct_UClass_AFGConveyorChainActor_RepSizeMedium_NoRegister()@plt>
+ 188145a:	49 89 c7             	mov    %rax,%r15
+ 188145d:	48 8d 7c 24 10       	lea    0x10(%rsp),%rdi
+ 1881462:	e8 59 a6 8e 00       	call   216bac0 <FActorSpawnParameters::FActorSpawnParameters()@plt>
+ 1881467:	66 c7 44 24 40 00 01 	movw   $0x100,0x40(%rsp)
+ 188146e:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 1881471:	0f 29 44 24 20       	movaps %xmm0,0x20(%rsp)
+ 1881476:	80 4c 24 42 04       	orb    $0x4,0x42(%rsp)
+ 188147b:	4d 85 ff             	test   %r15,%r15
+ 188147e:	0f 84 dd 00 00 00    	je     1881561 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x2e1>
+ 1881484:	48 8b 15 cd d0 d5 00 	mov    0xd5d0cd(%rip),%rdx        # 25de558 <UE::Math::TTransform<double>::Identity@Base>
+ 188148b:	48 8d 4c 24 10       	lea    0x10(%rsp),%rcx
+ 1881490:	4c 89 f7             	mov    %r14,%rdi
+ 1881493:	4c 89 fe             	mov    %r15,%rsi
+ 1881496:	e8 45 a6 8e 00       	call   216bae0 <UWorld::SpawnActor(UClass*, UE::Math::TTransform<double> const*, FActorSpawnParameters const&)@plt>
+ 188149b:	48 85 c0             	test   %rax,%rax
+ 188149e:	0f 84 bd 00 00 00    	je     1881561 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x2e1>
+ 18814a4:	49 89 c6             	mov    %rax,%r14
+ 18814a7:	e8 24 1d 8d 00       	call   21531d0 <Z_Construct_UClass_AFGConveyorChainActor_RepSizeMedium_NoRegister()@plt>
+ 18814ac:	e9 71 ff ff ff       	jmp    1881422 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x1a2>
+ 18814b1:	e8 2a 64 8c 00       	call   21478e0 <AActor::GetWorld() const@plt>
+ 18814b6:	49 89 c6             	mov    %rax,%r14
+ 18814b9:	e8 52 1d 8d 00       	call   2153210 <Z_Construct_UClass_AFGConveyorChainActor_RepSizeLarge_NoRegister()@plt>
+ 18814be:	49 89 c7             	mov    %rax,%r15
+ 18814c1:	48 8d 7c 24 10       	lea    0x10(%rsp),%rdi
+ 18814c6:	e8 f5 a5 8e 00       	call   216bac0 <FActorSpawnParameters::FActorSpawnParameters()@plt>
+ 18814cb:	66 c7 44 24 40 00 01 	movw   $0x100,0x40(%rsp)
+ 18814d2:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 18814d5:	0f 29 44 24 20       	movaps %xmm0,0x20(%rsp)
+ 18814da:	80 4c 24 42 04       	orb    $0x4,0x42(%rsp)
+ 18814df:	4d 85 ff             	test   %r15,%r15
+ 18814e2:	74 7d                	je     1881561 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x2e1>
+ 18814e4:	48 8b 15 6d d0 d5 00 	mov    0xd5d06d(%rip),%rdx        # 25de558 <UE::Math::TTransform<double>::Identity@Base>
+ 18814eb:	48 8d 4c 24 10       	lea    0x10(%rsp),%rcx
+ 18814f0:	4c 89 f7             	mov    %r14,%rdi
+ 18814f3:	4c 89 fe             	mov    %r15,%rsi
+ 18814f6:	e8 e5 a5 8e 00       	call   216bae0 <UWorld::SpawnActor(UClass*, UE::Math::TTransform<double> const*, FActorSpawnParameters const&)@plt>
+ 18814fb:	48 85 c0             	test   %rax,%rax
+ 18814fe:	74 61                	je     1881561 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x2e1>
+ 1881500:	49 89 c6             	mov    %rax,%r14
+ 1881503:	e8 08 1d 8d 00       	call   2153210 <Z_Construct_UClass_AFGConveyorChainActor_RepSizeLarge_NoRegister()@plt>
+ 1881508:	e9 15 ff ff ff       	jmp    1881422 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x1a2>
+ 188150d:	e8 2e 1d 8d 00       	call   2153240 <Z_Construct_UClass_AFGConveyorChainActor_RepSizeHuge_NoRegister()@plt>
+ 1881512:	49 89 c7             	mov    %rax,%r15
+ 1881515:	48 8d 7c 24 10       	lea    0x10(%rsp),%rdi
+ 188151a:	e8 a1 a5 8e 00       	call   216bac0 <FActorSpawnParameters::FActorSpawnParameters()@plt>
+ 188151f:	66 c7 44 24 40 00 01 	movw   $0x100,0x40(%rsp)
+ 1881526:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 1881529:	0f 29 44 24 20       	movaps %xmm0,0x20(%rsp)
+ 188152e:	80 4c 24 42 04       	orb    $0x4,0x42(%rsp)
+ 1881533:	4d 85 ff             	test   %r15,%r15
+ 1881536:	74 29                	je     1881561 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x2e1>
+ 1881538:	48 8b 15 19 d0 d5 00 	mov    0xd5d019(%rip),%rdx        # 25de558 <UE::Math::TTransform<double>::Identity@Base>
+ 188153f:	48 8d 4c 24 10       	lea    0x10(%rsp),%rcx
+ 1881544:	4c 89 f7             	mov    %r14,%rdi
+ 1881547:	4c 89 fe             	mov    %r15,%rsi
+ 188154a:	e8 91 a5 8e 00       	call   216bae0 <UWorld::SpawnActor(UClass*, UE::Math::TTransform<double> const*, FActorSpawnParameters const&)@plt>
+ 188154f:	48 85 c0             	test   %rax,%rax
+ 1881552:	74 0d                	je     1881561 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x2e1>
+ 1881554:	49 89 c6             	mov    %rax,%r14
+ 1881557:	e8 e4 1c 8d 00       	call   2153240 <Z_Construct_UClass_AFGConveyorChainActor_RepSizeHuge_NoRegister()@plt>
+ 188155c:	e9 c1 fe ff ff       	jmp    1881422 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x1a2>
+ 1881561:	45 31 f6             	xor    %r14d,%r14d
+ 1881564:	48 83 7c 24 50 00    	cmpq   $0x0,0x50(%rsp)
+ 188156a:	74 17                	je     1881583 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x303>
+ 188156c:	48 8d 7c 24 60       	lea    0x60(%rsp),%rdi
+ 1881571:	48 8b 44 24 78       	mov    0x78(%rsp),%rax
+ 1881576:	48 85 c0             	test   %rax,%rax
+ 1881579:	48 0f 45 f8          	cmovne %rax,%rdi
+ 188157d:	48 8b 07             	mov    (%rdi),%rax
+ 1881580:	ff 50 10             	call   *0x10(%rax)
+ 1881583:	4d 85 f6             	test   %r14,%r14
+ 1881586:	0f 84 47 01 00 00    	je     18816d3 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x453>
+ 188158c:	4c 63 4b 10          	movslq 0x10(%rbx),%r9
+ 1881590:	4d 85 c9             	test   %r9,%r9
+ 1881593:	0f 8e 4d 01 00 00    	jle    18816e6 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x466>
+ 1881599:	48 8b 43 08          	mov    0x8(%rbx),%rax
+ 188159d:	48 8b 30             	mov    (%rax),%rsi
+ 18815a0:	48 8b 43 08          	mov    0x8(%rbx),%rax
+ 18815a4:	8b 4b 10             	mov    0x10(%rbx),%ecx
+ 18815a7:	ff c9                	dec    %ecx
+ 18815a9:	48 63 c9             	movslq %ecx,%rcx
+ 18815ac:	48 8b 14 c8          	mov    (%rax,%rcx,8),%rdx
+ 18815b0:	4c 89 f7             	mov    %r14,%rdi
+ 18815b3:	e8 c8 1d 8f 00       	call   2173380 <AFGConveyorChainActor::SetStartAndEndConveyors(AFGBuildableConveyorBase*, AFGBuildableConveyorBase*)@plt>
+ 18815b8:	4c 63 4b 10          	movslq 0x10(%rbx),%r9
+ 18815bc:	4d 85 c9             	test   %r9,%r9
+ 18815bf:	0f 8e 8f 01 00 00    	jle    1881754 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x4d4>
+ 18815c5:	48 8b 43 08          	mov    0x8(%rbx),%rax
+ 18815c9:	48 8b 00             	mov    (%rax),%rax
+ 18815cc:	48 8b 80 c0 01 00 00 	mov    0x1c0(%rax),%rax
+ 18815d3:	48 85 c0             	test   %rax,%rax
+ 18815d6:	75 09                	jne    18815e1 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x361>
+ 18815d8:	48 8b 05 79 cf d5 00 	mov    0xd5cf79(%rip),%rax        # 25de558 <UE::Math::TTransform<double>::Identity@Base>
+ 18815df:	eb 06                	jmp    18815e7 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x367>
+ 18815e1:	48 05 f0 01 00 00    	add    $0x1f0,%rax
+ 18815e7:	0f 28 00             	movaps (%rax),%xmm0
+ 18815ea:	0f 28 48 10          	movaps 0x10(%rax),%xmm1
+ 18815ee:	0f 28 50 20          	movaps 0x20(%rax),%xmm2
+ 18815f2:	0f 28 58 30          	movaps 0x30(%rax),%xmm3
+ 18815f6:	0f 29 44 24 10       	movaps %xmm0,0x10(%rsp)
+ 18815fb:	0f 29 4c 24 20       	movaps %xmm1,0x20(%rsp)
+ 1881600:	0f 28 40 50          	movaps 0x50(%rax),%xmm0
+ 1881604:	0f 29 44 24 60       	movaps %xmm0,0x60(%rsp)
+ 1881609:	0f 28 40 40          	movaps 0x40(%rax),%xmm0
+ 188160d:	0f 29 44 24 50       	movaps %xmm0,0x50(%rsp)
+ 1881612:	0f 29 5c 24 40       	movaps %xmm3,0x40(%rsp)
+ 1881617:	0f 29 54 24 30       	movaps %xmm2,0x30(%rsp)
+ 188161c:	48 8b 05 c5 c7 d5 00 	mov    0xd5c7c5(%rip),%rax        # 25ddde8 <UE::Math::TQuat<double>::Identity@Base>
+ 1881623:	0f 28 00             	movaps (%rax),%xmm0
+ 1881626:	0f 28 48 10          	movaps 0x10(%rax),%xmm1
+ 188162a:	0f 29 44 24 10       	movaps %xmm0,0x10(%rsp)
+ 188162f:	0f 29 4c 24 20       	movaps %xmm1,0x20(%rsp)
+ 1881634:	48 8d 74 24 10       	lea    0x10(%rsp),%rsi
+ 1881639:	4c 89 f7             	mov    %r14,%rdi
+ 188163c:	31 d2                	xor    %edx,%edx
+ 188163e:	31 c9                	xor    %ecx,%ecx
+ 1881640:	45 31 c0             	xor    %r8d,%r8d
+ 1881643:	e8 78 ad 8e 00       	call   216c3c0 <AActor::FinishSpawning(UE::Math::TTransform<double> const&, bool, FComponentInstanceDataCache const*, ESpawnActorScaleMethod)@plt>
+ 1881648:	4d 85 f6             	test   %r14,%r14
+ 188164b:	74 14                	je     1881661 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x3e1>
+ 188164d:	48 8b 05 6c c5 d5 00 	mov    0xd5c56c(%rip),%rax        # 25ddbc0 <UE::GC::GIsIncrementalReachabilityPending@Base>
+ 1881654:	80 38 00             	cmpb   $0x0,(%rax)
+ 1881657:	74 08                	je     1881661 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x3e1>
+ 1881659:	4c 89 f7             	mov    %r14,%rdi
+ 188165c:	e8 7f 59 8c 00       	call   2146fe0 <UE::GC::MarkAsReachable(UObject const*)@plt>
+ 1881661:	4c 89 73 18          	mov    %r14,0x18(%rbx)
+ 1881665:	4c 63 7b 10          	movslq 0x10(%rbx),%r15
+ 1881669:	4d 85 ff             	test   %r15,%r15
+ 188166c:	74 2e                	je     188169c <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x41c>
+ 188166e:	48 8b 5b 08          	mov    0x8(%rbx),%rbx
+ 1881672:	49 c1 e7 03          	shl    $0x3,%r15
+ 1881676:	45 31 e4             	xor    %r12d,%r12d
+ 1881679:	eb 0e                	jmp    1881689 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x409>
+ 188167b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 1881680:	49 83 c4 08          	add    $0x8,%r12
+ 1881684:	4d 39 e7             	cmp    %r12,%r15
+ 1881687:	74 13                	je     188169c <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x41c>
+ 1881689:	4a 8b 3c 23          	mov    (%rbx,%r12,1),%rdi
+ 188168d:	48 85 ff             	test   %rdi,%rdi
+ 1881690:	74 ee                	je     1881680 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x400>
+ 1881692:	4c 89 f6             	mov    %r14,%rsi
+ 1881695:	e8 f6 bc 8e 00       	call   216d390 <AFGBuildableConveyorBase::SetConveyorChainActor(AFGConveyorChainActor*)@plt>
+ 188169a:	eb e4                	jmp    1881680 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x400>
+ 188169c:	48 83 bc 24 c0 00 00 	cmpq   $0x0,0xc0(%rsp)
+ 18816a3:	00 00 
+ 18816a5:	74 1d                	je     18816c4 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x444>
+ 18816a7:	48 8d bc 24 d0 00 00 	lea    0xd0(%rsp),%rdi
+ 18816ae:	00 
+ 18816af:	48 8b 84 24 e8 00 00 	mov    0xe8(%rsp),%rax
+ 18816b6:	00 
+ 18816b7:	48 85 c0             	test   %rax,%rax
+ 18816ba:	48 0f 45 f8          	cmovne %rax,%rdi
+ 18816be:	48 8b 07             	mov    (%rdi),%rax
+ 18816c1:	ff 50 10             	call   *0x10(%rax)
+ 18816c4:	48 81 c4 f8 00 00 00 	add    $0xf8,%rsp
+ 18816cb:	5b                   	pop    %rbx
+ 18816cc:	41 5c                	pop    %r12
+ 18816ce:	41 5e                	pop    %r14
+ 18816d0:	41 5f                	pop    %r15
+ 18816d2:	c3                   	ret    
+ 18816d3:	e8 1c e3 8b 00       	call   213f9f4 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)::Impl::ExecCheckImplInternal()>
+ 18816d8:	cc                   	int3   
+ 18816d9:	4c 63 4b 10          	movslq 0x10(%rbx),%r9
+ 18816dd:	4d 85 c9             	test   %r9,%r9
+ 18816e0:	0f 8f b3 fe ff ff    	jg     1881599 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x319>
+ 18816e6:	48 8d 3d ba 3a 67 ff 	lea    -0x98c546(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 18816ed:	48 8d 35 2c ef 63 ff 	lea    -0x9c10d4(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 18816f4:	48 8d 0d 07 cc 6c ff 	lea    -0x9333f9(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 18816fb:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1881700:	45 31 c0             	xor    %r8d,%r8d
+ 1881703:	31 c0                	xor    %eax,%eax
+ 1881705:	e8 76 54 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 188170a:	84 c0                	test   %al,%al
+ 188170c:	74 01                	je     188170f <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x48f>
+ 188170e:	cc                   	int3   
+ 188170f:	4c 63 4b 10          	movslq 0x10(%rbx),%r9
+ 1881713:	48 8b 43 08          	mov    0x8(%rbx),%rax
+ 1881717:	4c 8b 38             	mov    (%rax),%r15
+ 188171a:	4d 85 c9             	test   %r9,%r9
+ 188171d:	7f 2d                	jg     188174c <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x4cc>
+ 188171f:	41 8d 41 ff          	lea    -0x1(%r9),%eax
+ 1881723:	4c 63 c0             	movslq %eax,%r8
+ 1881726:	48 8d 3d 7a 3a 67 ff 	lea    -0x98c586(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 188172d:	48 8d 35 ec ee 63 ff 	lea    -0x9c1114(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1881734:	48 8d 0d c7 cb 6c ff 	lea    -0x933439(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 188173b:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 1881740:	31 c0                	xor    %eax,%eax
+ 1881742:	e8 39 54 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1881747:	84 c0                	test   %al,%al
+ 1881749:	74 01                	je     188174c <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x4cc>
+ 188174b:	cc                   	int3   
+ 188174c:	4c 89 fe             	mov    %r15,%rsi
+ 188174f:	e9 4c fe ff ff       	jmp    18815a0 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x320>
+ 1881754:	48 8d 3d 4c 3a 67 ff 	lea    -0x98c5b4(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 188175b:	48 8d 35 be ee 63 ff 	lea    -0x9c1142(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 1881762:	48 8d 0d 99 cb 6c ff 	lea    -0x933467(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 1881769:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 188176e:	45 31 c0             	xor    %r8d,%r8d
+ 1881771:	31 c0                	xor    %eax,%eax
+ 1881773:	e8 08 54 8c 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 1881778:	84 c0                	test   %al,%al
+ 188177a:	0f 84 45 fe ff ff    	je     18815c5 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x345>
+ 1881780:	cc                   	int3   
+ 1881781:	e9 3f fe ff ff       	jmp    18815c5 <AFGBuildableSubsystem::MigrateConveyorGroupToChainActor(FConveyorTickGroup*)+0x345>
+ 1881786:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ 188178d:	00 00 00 
+
+0000000001881790 <AFGBuildableSubsystem::GetLocalPlayerController() const>:
+ 1881790:	55                   	push   %rbp
+ 1881791:	41 57                	push   %r15
+ 1881793:	41 56                	push   %r14
+ 1881795:	53                   	push   %rbx
+ 1881796:	50                   	push   %rax
+ 1881797:	e8 44 61 8c 00       	call   21478e0 <AActor::GetWorld() const@plt>
+ 188179c:	48 89 c7             	mov    %rax,%rdi
+ 188179f:	e8 1c b2 8e 00       	call   216c9c0 <UWorld::GetPlayerControllerIterator() const@plt>
+ 18817a4:	85 d2                	test   %edx,%edx
+ 18817a6:	78 69                	js     1881811 <AFGBuildableSubsystem::GetLocalPlayerController() const+0x81>
+ 18817a8:	49 89 c6             	mov    %rax,%r14
+ 18817ab:	89 d5                	mov    %edx,%ebp
+ 18817ad:	39 50 08             	cmp    %edx,0x8(%rax)
+ 18817b0:	7e 5f                	jle    1881811 <AFGBuildableSubsystem::GetLocalPlayerController() const+0x81>
+ 18817b2:	41 89 ef             	mov    %ebp,%r15d
+ 18817b5:	49 c1 e7 03          	shl    $0x3,%r15
+ 18817b9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 18817c0:	49 8b 3e             	mov    (%r14),%rdi
+ 18817c3:	4c 01 ff             	add    %r15,%rdi
+ 18817c6:	e8 75 53 8c 00       	call   2146b40 <FWeakObjectPtr::Get() const@plt>
+ 18817cb:	48 89 c3             	mov    %rax,%rbx
+ 18817ce:	48 8b 00             	mov    (%rax),%rax
+ 18817d1:	48 89 df             	mov    %rbx,%rdi
+ 18817d4:	ff 90 00 08 00 00    	call   *0x800(%rax)
+ 18817da:	84 c0                	test   %al,%al
+ 18817dc:	75 0e                	jne    18817ec <AFGBuildableSubsystem::GetLocalPlayerController() const+0x5c>
+ 18817de:	ff c5                	inc    %ebp
+ 18817e0:	49 83 c7 08          	add    $0x8,%r15
+ 18817e4:	41 39 6e 08          	cmp    %ebp,0x8(%r14)
+ 18817e8:	7f d6                	jg     18817c0 <AFGBuildableSubsystem::GetLocalPlayerController() const+0x30>
+ 18817ea:	eb 25                	jmp    1881811 <AFGBuildableSubsystem::GetLocalPlayerController() const+0x81>
+ 18817ec:	48 85 db             	test   %rbx,%rbx
+ 18817ef:	74 20                	je     1881811 <AFGBuildableSubsystem::GetLocalPlayerController() const+0x81>
+ 18817f1:	e8 8a 86 8c 00       	call   2149e80 <Z_Construct_UClass_AFGPlayerController_NoRegister()@plt>
+ 18817f6:	48 8b 4b 10          	mov    0x10(%rbx),%rcx
+ 18817fa:	48 63 50 38          	movslq 0x38(%rax),%rdx
+ 18817fe:	3b 51 38             	cmp    0x38(%rcx),%edx
+ 1881801:	7f 0e                	jg     1881811 <AFGBuildableSubsystem::GetLocalPlayerController() const+0x81>
+ 1881803:	48 83 c0 30          	add    $0x30,%rax
+ 1881807:	48 8b 49 30          	mov    0x30(%rcx),%rcx
+ 188180b:	48 39 04 d1          	cmp    %rax,(%rcx,%rdx,8)
+ 188180f:	74 02                	je     1881813 <AFGBuildableSubsystem::GetLocalPlayerController() const+0x83>
+ 1881811:	31 db                	xor    %ebx,%ebx
+ 1881813:	48 89 d8             	mov    %rbx,%rax
+ 1881816:	48 83 c4 08          	add    $0x8,%rsp
+ 188181a:	5b                   	pop    %rbx
+ 188181b:	41 5e                	pop    %r14
+ 188181d:	41 5f                	pop    %r15
+ 188181f:	5d                   	pop    %rbp
+ 1881820:	c3                   	ret    
+ 1881821:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 1881828:	0f 1f 84 00 00 00 00 
+ 188182f:	00 
+
+0000000001881830 <AFGBuildableSubsystem::GetDistanceSqToBoundingBox(UE::Math::TVector<double> const&, AFGBuildable*) const>:
+ 1881830:	41 56                	push   %r14
+ 1881832:	53                   	push   %rbx
+ 1881833:	48 83 ec 38          	sub    $0x38,%rsp
+ 1881837:	48 89 d7             	mov    %rdx,%rdi
+ 188183a:	48 89 f3             	mov    %rsi,%rbx
+ 188183d:	48 85 d2             	test   %rdx,%rdx
+ 1881840:	0f 84 e0 00 00 00    	je     1881926 <AFGBuildableSubsystem::GetDistanceSqToBoundingBox(UE::Math::TVector<double> const&, AFGBuildable*) const+0xf6>
+ 1881846:	48 8b 07             	mov    (%rdi),%rax
+ 1881849:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+ 188184e:	48 8d 4c 24 08       	lea    0x8(%rsp),%rcx
+ 1881853:	31 f6                	xor    %esi,%esi
+ 1881855:	45 31 c0             	xor    %r8d,%r8d
+ 1881858:	ff 90 78 03 00 00    	call   *0x378(%rax)
+ 188185e:	f2 0f 10 6c 24 20    	movsd  0x20(%rsp),%xmm5
+ 1881864:	f2 44 0f 10 44 24 28 	movsd  0x28(%rsp),%xmm8
+ 188186b:	f2 0f 10 74 24 08    	movsd  0x8(%rsp),%xmm6
+ 1881871:	f2 44 0f 10 4c 24 10 	movsd  0x10(%rsp),%xmm9
+ 1881878:	66 0f 28 cd          	movapd %xmm5,%xmm1
+ 188187c:	f2 0f 5c ce          	subsd  %xmm6,%xmm1
+ 1881880:	66 41 0f 28 c0       	movapd %xmm8,%xmm0
+ 1881885:	f2 41 0f 5c c1       	subsd  %xmm9,%xmm0
+ 188188a:	f2 0f 10 64 24 30    	movsd  0x30(%rsp),%xmm4
+ 1881890:	f2 0f 10 7c 24 18    	movsd  0x18(%rsp),%xmm7
+ 1881896:	f2 0f 10 1b          	movsd  (%rbx),%xmm3
+ 188189a:	f2 0f 10 53 08       	movsd  0x8(%rbx),%xmm2
+ 188189f:	66 0f 2e cb          	ucomisd %xmm3,%xmm1
+ 18818a3:	77 12                	ja     18818b7 <AFGBuildableSubsystem::GetDistanceSqToBoundingBox(UE::Math::TVector<double> const&, AFGBuildable*) const+0x87>
+ 18818a5:	f2 0f 58 ee          	addsd  %xmm6,%xmm5
+ 18818a9:	66 0f 2e dd          	ucomisd %xmm5,%xmm3
+ 18818ad:	66 0f 28 cb          	movapd %xmm3,%xmm1
+ 18818b1:	76 04                	jbe    18818b7 <AFGBuildableSubsystem::GetDistanceSqToBoundingBox(UE::Math::TVector<double> const&, AFGBuildable*) const+0x87>
+ 18818b3:	66 0f 28 cd          	movapd %xmm5,%xmm1
+ 18818b7:	66 0f 28 ec          	movapd %xmm4,%xmm5
+ 18818bb:	f2 0f 5c ef          	subsd  %xmm7,%xmm5
+ 18818bf:	f2 0f 10 73 10       	movsd  0x10(%rbx),%xmm6
+ 18818c4:	66 0f 2e c2          	ucomisd %xmm2,%xmm0
+ 18818c8:	77 15                	ja     18818df <AFGBuildableSubsystem::GetDistanceSqToBoundingBox(UE::Math::TVector<double> const&, AFGBuildable*) const+0xaf>
+ 18818ca:	f2 45 0f 58 c1       	addsd  %xmm9,%xmm8
+ 18818cf:	66 41 0f 2e d0       	ucomisd %xmm8,%xmm2
+ 18818d4:	66 0f 28 c2          	movapd %xmm2,%xmm0
+ 18818d8:	76 05                	jbe    18818df <AFGBuildableSubsystem::GetDistanceSqToBoundingBox(UE::Math::TVector<double> const&, AFGBuildable*) const+0xaf>
+ 18818da:	66 41 0f 28 c0       	movapd %xmm8,%xmm0
+ 18818df:	66 0f 2e ee          	ucomisd %xmm6,%xmm5
+ 18818e3:	77 12                	ja     18818f7 <AFGBuildableSubsystem::GetDistanceSqToBoundingBox(UE::Math::TVector<double> const&, AFGBuildable*) const+0xc7>
+ 18818e5:	f2 0f 58 e7          	addsd  %xmm7,%xmm4
+ 18818e9:	66 0f 2e f4          	ucomisd %xmm4,%xmm6
+ 18818ed:	66 0f 28 ee          	movapd %xmm6,%xmm5
+ 18818f1:	76 04                	jbe    18818f7 <AFGBuildableSubsystem::GetDistanceSqToBoundingBox(UE::Math::TVector<double> const&, AFGBuildable*) const+0xc7>
+ 18818f3:	66 0f 28 ec          	movapd %xmm4,%xmm5
+ 18818f7:	f2 0f 5c cb          	subsd  %xmm3,%xmm1
+ 18818fb:	f2 0f 59 c9          	mulsd  %xmm1,%xmm1
+ 18818ff:	f2 0f 5c c2          	subsd  %xmm2,%xmm0
+ 1881903:	f2 0f 59 c0          	mulsd  %xmm0,%xmm0
+ 1881907:	f2 0f 58 c1          	addsd  %xmm1,%xmm0
+ 188190b:	f2 0f 5c ee          	subsd  %xmm6,%xmm5
+ 188190f:	f2 0f 59 ed          	mulsd  %xmm5,%xmm5
+ 1881913:	f2 0f 58 e8          	addsd  %xmm0,%xmm5
+ 1881917:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 188191a:	f2 0f 5a c5          	cvtsd2ss %xmm5,%xmm0
+ 188191e:	48 83 c4 38          	add    $0x38,%rsp
+ 1881922:	5b                   	pop    %rbx
+ 1881923:	41 5e                	pop    %r14
+ 1881925:	c3                   	ret    
+ 1881926:	49 89 fe             	mov    %rdi,%r14
+ 1881929:	e8 96 df 8b 00       	call   213f8c4 <AFGBuildableSubsystem::GetDistanceSqToBoundingBox(UE::Math::TVector<double> const&, AFGBuildable*) const::Impl::ExecCheckImplInternal()>
+ 188192e:	4c 89 f7             	mov    %r14,%rdi
+ 1881931:	cc                   	int3   
+ 1881932:	e9 0f ff ff ff       	jmp    1881846 <AFGBuildableSubsystem::GetDistanceSqToBoundingBox(UE::Math::TVector<double> const&, AFGBuildable*) const+0x16>
+ 1881937:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ 188193e:	00 00 

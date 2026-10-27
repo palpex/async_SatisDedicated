@@ -1,0 +1,49 @@
+steamcmd.sh[85747]: Starting  /var/www/async_SatisDedicated/.tools/steamcmd/linux32/steamcmd
+WARNING: setlocale('en_US.UTF-8') failed, using locale: 'C'. International characters may not work.
+Redirecting stderr to '/root/Steam/logs/stderr.txt'
+Logging directory: '/root/Steam/logs'
+[  0%] Checking for available updates...
+[----] Verifying installation...
+UpdateUI: skip show logo
+Steam Console Client (c) Valve Corporation - version 1792617903
+-- type 'quit' to exit --
+Loading Steam API...[0mOK
+[0m"@ShutdownOnFailedCommand" = "1"
+[0m"@NoPromptForPassword" = "1"
+[0m"@sSteamCmdForcePlatformType" = "linux"
+[0m
+Connecting anonymously to Steam Public...[0mOK
+[0mWaiting for client config...[0mOK
+[0mWaiting for user info...[0mOK
+[0m Update state (0x3) reconfiguring, progress: 0.00 (0 / 0)
+[0m Update state (0x61) downloading, progress: 0.53 (15450592 / 2901208976)
+[0m Update state (0x61) downloading, progress: 3.16 (91539648 / 2901208976)
+[0m Update state (0x61) downloading, progress: 5.76 (167251452 / 2901208976)
+[0m Update state (0x61) downloading, progress: 8.90 (258182890 / 2901208976)
+[0m Update state (0x61) downloading, progress: 10.80 (313407889 / 2901208976)
+[0m Update state (0x61) downloading, progress: 16.03 (465011275 / 2901208976)
+[0m Update state (0x61) downloading, progress: 22.16 (642960605 / 2901208976)
+[0m Update state (0x61) downloading, progress: 25.34 (735228921 / 2901208976)
+[0m Update state (0x61) downloading, progress: 28.07 (814489472 / 2901208976)
+[0m Update state (0x61) downloading, progress: 34.00 (986525592 / 2901208976)
+[0m Update state (0x61) downloading, progress: 40.34 (1170426688 / 2901208976)
+[0m Update state (0x61) downloading, progress: 44.48 (1290421101 / 2901208976)
+[0m Update state (0x61) downloading, progress: 49.60 (1439100515 / 2901208976)
+[0m Update state (0x61) downloading, progress: 57.79 (1676472345 / 2901208976)
+[0m Update state (0x61) downloading, progress: 66.39 (1926257520 / 2901208976)
+[0m Update state (0x61) downloading, progress: 73.04 (2118987667 / 2901208976)
+[0m Update state (0x61) downloading, progress: 80.10 (2323927100 / 2901208976)
+[0m Update state (0x61) downloading, progress: 82.60 (2396281492 / 2901208976)
+[0m Update state (0x61) downloading, progress: 85.52 (2481216148 / 2901208976)
+[0m Update state (0x61) downloading, progress: 88.20 (2558810772 / 2901208976)
+[0m Update state (0x61) downloading, progress: 91.09 (2642696852 / 2901208976)
+[0m Update state (0x61) downloading, progress: 94.40 (2738681536 / 2901208976)
+[0m Update state (0x61) downloading, progress: 97.40 (2825852512 / 2901208976)
+[0m Update state (0x81) verifying update, progress: 6.67 (193566268 / 2901208976)
+[0m Update state (0x81) verifying update, progress: 29.53 (856748182 / 2901208976)
+[0m Update state (0x81) verifying update, progress: 40.01 (1160819587 / 2901208976)
+[0m Update state (0x81) verifying update, progress: 59.13 (1715550765 / 2901208976)
+[0m Update state (0x0) unknown, progress: 0.00 (0 / 0)
+[0mSuccess! App '1690800' fully installed.
+[0mUnloading Steam API...[0mOK
+[0m

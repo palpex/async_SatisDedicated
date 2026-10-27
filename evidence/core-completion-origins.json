@@ -1,0 +1,148 @@
+{
+  "artifact": "server/Engine/Binaries/Linux/libFactoryServer-Core-Linux-Shipping.debug",
+  "entries": [
+    {
+      "name": "_ZN14FBaseGraphTask16CreateGraphEventEv",
+      "die": "0x6e08b",
+      "cu": "0x22",
+      "ranges": [
+        [
+          "0x4850d9",
+          "0x4850f2"
+        ]
+      ]
+    },
+    {
+      "name": "_ZN14FBaseGraphTask19DispatchSubsequentsEN13ENamedThreads4TypeE",
+      "die": "0x6e0d7",
+      "cu": "0x22",
+      "ranges": [
+        [
+          "0x4850f2",
+          "0x485110"
+        ]
+      ]
+    },
+    {
+      "name": "_ZN14FBaseGraphTask16CreateGraphEventEv",
+      "die": "0x6e21a",
+      "cu": "0x22",
+      "ranges": [
+        [
+          "0x484ff9",
+          "0x485011"
+        ]
+      ]
+    },
+    {
+      "name": "_ZN14FBaseGraphTask19DispatchSubsequentsEN13ENamedThreads4TypeE",
+      "die": "0xf1b3c",
+      "cu": "0x22",
+      "ranges": [
+        [
+          "0x49fa06",
+          "0x49fa27"
+        ]
+      ]
+    },
+    {
+      "name": "_ZN14FBaseGraphTask16CreateGraphEventEv",
+      "die": "0x17f190",
+      "cu": "0xf7a28",
+      "ranges": [
+        [
+          "0x4ec18e",
+          "0x4ec1a3"
+        ]
+      ]
+    },
+    {
+      "name": "_ZN14FBaseGraphTask16CreateGraphEventEv",
+      "die": "0x17f8f3",
+      "cu": "0xf7a28",
+      "ranges": [
+        [
+          "0x4ec2a2",
+          "0x4ec2bb"
+        ]
+      ]
+    },
+    {
+      "name": "_ZN14FBaseGraphTask16CreateGraphEventEv",
+      "die": "0x1807db",
+      "cu": "0xf7a28",
+      "ranges": [
+        [
+          "0x4ec785",
+          "0x4ec79f"
+        ]
+      ]
+    },
+    {
+      "name": "_ZN14FBaseGraphTask19DispatchSubsequentsEN13ENamedThreads4TypeE",
+      "die": "0x2398c0",
+      "cu": "0xf7a28",
+      "ranges": [
+        [
+          "0x4f6b7d",
+          "0x4f6b96"
+        ]
+      ]
+    },
+    {
+      "name": "_ZN14FBaseGraphTask19DispatchSubsequentsEN13ENamedThreads4TypeE",
+      "die": "0x23a96e",
+      "cu": "0xf7a28",
+      "ranges": [
+        [
+          "0x4f6cf3",
+          "0x4f6d0d"
+        ]
+      ]
+    },
+    {
+      "name": "_ZN14FBaseGraphTask19DispatchSubsequentsEN13ENamedThreads4TypeE",
+      "die": "0x23af69",
+      "cu": "0xf7a28",
+      "ranges": [
+        [
+          "0x4f6dca",
+          "0x4f6de3"
+        ]
+      ]
+    },
+    {
+      "name": "_ZN8FIoBatch27IssueAndDispatchSubsequentsE12TRefCountPtrI14FBaseGraphTaskE",
+      "die": "0x8cd225",
+      "cu": "0x7d63cb",
+      "ranges": [
+        [
+          "0x641c50",
+          "0x641d51"
+        ]
+      ]
+    },
+    {
+      "name": "_ZN17FIoDispatcherImpl32IssueBatchAndDispatchSubsequentsER8FIoBatch12TRefCountPtrI14FBaseGraphTaskE",
+      "die": "0x8cd27b",
+      "cu": "0x7d63cb",
+      "ranges": [
+        [
+          "0x641c69",
+          "0x641d51"
+        ]
+      ]
+    },
+    {
+      "name": "_ZN14FBaseGraphTask19DispatchSubsequentsEN13ENamedThreads4TypeE",
+      "die": "0x9c8bb3",
+      "cu": "0x7d63cb",
+      "ranges": [
+        [
+          "0x6a6023",
+          "0x6a603c"
+        ]
+      ]
+    }
+  ]
+}

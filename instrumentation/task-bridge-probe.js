@@ -1,0 +1,22 @@
+'use strict';
+const bridge=Module.load('/var/www/async_SatisDedicated/build/libsatis_task_bridge.so');
+const init=new NativeFunction(bridge.getExportByName('satis_task_bridge_init'),'int',[]);
+const error=new NativeFunction(bridge.getExportByName('satis_task_bridge_error'),'pointer',[]);
+const start=new NativeFunction(bridge.getExportByName('satis_task_probe_start'),'int',['uint','uint']);
+const read=new NativeFunction(bridge.getExportByName('satis_task_probe_read'),'int',['pointer']);
+const outstanding=new NativeFunction(bridge.getExportByName('satis_task_outstanding'),'uint64',[]);
+const initialized=init();
+send({kind:'bridge-init',result:initialized,error:error().readUtf8String()});
+if(initialized!==0)throw new Error('Bridge initialization rejected');
+const result=start(32,500000);
+send({kind:'bridge-probe-start',result});
+let checks=0;
+const timer=setInterval(()=>{
+ const data=Memory.alloc(88);read(data);
+ const names=['submitted','completed','destroyed','maxConcurrency','checksum','expectedChecksum','wrongThread','failures','continuationCalls','continuationDisposals','continuationWrongThread'];
+ const output={kind:'bridge-probe',outstanding:outstanding().toString()};
+ names.forEach((name,index)=>output[name]=data.add(index*8).readU64().toString());
+ send(output);
+ checks++;
+ if(output.completed===output.submitted && output.destroyed===output.submitted && output.outstanding==='0' && output.continuationCalls==='1' && output.continuationDisposals==='1' || checks===20)clearInterval(timer);
+},250);

@@ -1,0 +1,130 @@
+{
+  "artifact": "server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.debug",
+  "cu_offset": "0x314b779",
+  "types": [
+    {
+      "die_offset": "0x318929d",
+      "name": "AFGBuildable",
+      "declaration": true,
+      "size": null,
+      "members": []
+    },
+    {
+      "die_offset": "0x31b5309",
+      "name": "AFGBuildableSubsystem",
+      "declaration": true,
+      "size": null,
+      "members": [
+        {
+          "DW_AT_name": "mCurrentSubStepMax",
+          "DW_AT_type": 12506,
+          "DW_AT_decl_file": 176,
+          "DW_AT_decl_line": 749,
+          "DW_AT_external": true,
+          "DW_AT_declaration": true
+        },
+        {
+          "DW_AT_name": "mCurrentSubStep",
+          "DW_AT_type": 12506,
+          "DW_AT_decl_file": 176,
+          "DW_AT_decl_line": 747,
+          "DW_AT_external": true,
+          "DW_AT_declaration": true
+        },
+        {
+          "DW_AT_name": "MaterialParameter_ConveyorSpeed",
+          "DW_AT_type": 132416,
+          "DW_AT_decl_file": 176,
+          "DW_AT_decl_line": 544,
+          "DW_AT_external": true,
+          "DW_AT_declaration": true,
+          "DW_AT_accessibility": 1
+        }
+      ]
+    },
+    {
+      "die_offset": "0x31de169",
+      "name": "IFGFactoryTickHandlerInterface",
+      "declaration": true,
+      "size": null,
+      "members": []
+    },
+    {
+      "die_offset": "0x320bbee",
+      "name": "FConveyorTickGroup",
+      "declaration": false,
+      "size": 32,
+      "members": [
+        {
+          "DW_AT_name": "ForceIntoSharedByBuildable",
+          "DW_AT_type": 251584,
+          "DW_AT_decl_file": 176,
+          "DW_AT_decl_line": 95,
+          "DW_AT_data_member_location": 0
+        },
+        {
+          "DW_AT_name": "Conveyors",
+          "DW_AT_type": 656443,
+          "DW_AT_decl_file": 176,
+          "DW_AT_decl_line": 98,
+          "DW_AT_data_member_location": 8
+        },
+        {
+          "DW_AT_name": "ChainActor",
+          "DW_AT_type": 787658,
+          "DW_AT_decl_file": 176,
+          "DW_AT_decl_line": 101,
+          "DW_AT_data_member_location": 24
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "die_offset": "0x31b7dfb",
+      "address": "0x187fc40",
+      "high_pc_value": 5069,
+      "high_pc_form": "DW_FORM_data4",
+      "decl_line": 583
+    },
+    {
+      "die_offset": "0x32d42c2",
+      "address": "0x187faf0",
+      "high_pc_value": 322,
+      "high_pc_form": "DW_FORM_data4",
+      "decl_line": 529
+    },
+    {
+      "die_offset": "0x335e92c",
+      "address": "0x189dbe0",
+      "high_pc_value": 211,
+      "high_pc_form": "DW_FORM_data4",
+      "decl_line": null
+    },
+    {
+      "die_offset": "0x335eb70",
+      "address": "0x189dcc0",
+      "high_pc_value": 182,
+      "high_pc_form": "DW_FORM_data4",
+      "decl_line": null
+    },
+    {
+      "die_offset": "0x335fcb7",
+      "address": "0x189dd80",
+      "high_pc_value": 315,
+      "high_pc_form": "DW_FORM_data4",
+      "decl_line": null
+    },
+    {
+      "die_offset": "0x335ffb2",
+      "address": "0x189dec0",
+      "high_pc_value": 242,
+      "high_pc_form": "DW_FORM_data4",
+      "decl_line": null
+    }
+  ],
+  "limitations": [
+    "Build-specific DWARF; declarations can lack full type layouts.",
+    "Static metadata does not prove thread safety or runtime behavior."
+  ]
+}

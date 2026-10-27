@@ -1,0 +1,269 @@
+
+server/Engine/Binaries/Linux/libFactoryServer-Core-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000484fc0 <AnyTaskCompleted(TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const&)>:
+  484fc0:	55                   	push   %rbp
+  484fc1:	41 57                	push   %r15
+  484fc3:	41 56                	push   %r14
+  484fc5:	41 55                	push   %r13
+  484fc7:	41 54                	push   %r12
+  484fc9:	53                   	push   %rbx
+  484fca:	48 83 ec 58          	sub    $0x58,%rsp
+  484fce:	49 89 fd             	mov    %rdi,%r13
+  484fd1:	83 7e 28 00          	cmpl   $0x0,0x28(%rsi)
+  484fd5:	48 89 7c 24 10       	mov    %rdi,0x10(%rsp)
+  484fda:	0f 84 f9 00 00 00    	je     4850d9 <AnyTaskCompleted(TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const&)+0x119>
+  484fe0:	49 89 f6             	mov    %rsi,%r14
+  484fe3:	bf 10 00 00 00       	mov    $0x10,%edi
+  484fe8:	be 10 00 00 00       	mov    $0x10,%esi
+  484fed:	e8 be 4d 75 00       	call   bd9db0 <FMemory::Malloc(unsigned long, unsigned int)@plt>
+  484ff2:	49 89 c7             	mov    %rax,%r15
+  484ff5:	41 8b 5e 28          	mov    0x28(%r14),%ebx
+  484ff9:	bf a8 00 00 00       	mov    $0xa8,%edi
+  484ffe:	e8 8d 78 02 00       	call   4ac890 <FGraphEventImpl::operator new(unsigned long)>
+  485003:	49 89 c4             	mov    %rax,%r12
+  485006:	48 89 c7             	mov    %rax,%rdi
+  485009:	e8 82 7b 02 00       	call   4acb90 <FGraphEventImpl::FGraphEventImpl()>
+  48500e:	4d 89 27             	mov    %r12,(%r15)
+  485011:	41 89 5f 08          	mov    %ebx,0x8(%r15)
+  485015:	4d 89 65 00          	mov    %r12,0x0(%r13)
+  485019:	4d 85 e4             	test   %r12,%r12
+  48501c:	74 06                	je     485024 <AnyTaskCompleted(TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const&)+0x64>
+  48501e:	f0 41 ff 44 24 08    	lock incl 0x8(%r12)
+  485024:	4d 8b 66 20          	mov    0x20(%r14),%r12
+  485028:	4d 85 e4             	test   %r12,%r12
+  48502b:	4d 0f 44 e6          	cmove  %r14,%r12
+  48502f:	49 63 5e 28          	movslq 0x28(%r14),%rbx
+  485033:	48 85 db             	test   %rbx,%rbx
+  485036:	0f 84 d4 00 00 00    	je     485110 <AnyTaskCompleted(TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const&)+0x150>
+  48503c:	48 c1 e3 03          	shl    $0x3,%rbx
+  485040:	4c 8d 6c 24 18       	lea    0x18(%rsp),%r13
+  485045:	48 8d 6c 24 20       	lea    0x20(%rsp),%rbp
+  48504a:	eb 12                	jmp    48505e <AnyTaskCompleted(TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const&)+0x9e>
+  48504c:	0f 1f 40 00          	nopl   0x0(%rax)
+  485050:	49 83 c4 08          	add    $0x8,%r12
+  485054:	48 83 c3 f8          	add    $0xfffffffffffffff8,%rbx
+  485058:	0f 84 b2 00 00 00    	je     485110 <AnyTaskCompleted(TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const&)+0x150>
+  48505e:	41 8b 46 28          	mov    0x28(%r14),%eax
+  485062:	48 c7 44 24 48 00 00 	movq   $0x0,0x48(%rsp)
+  485069:	00 00 
+  48506b:	48 8d 0d 1e c0 76 00 	lea    0x76c01e(%rip),%rcx        # bf1090 <vtable for UE::Core::Private::Function::TFunction_OwnedObject<AnyTaskCompleted(TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const&)::$_0, true, false>+0x10>
+  485072:	48 89 4c 24 30       	mov    %rcx,0x30(%rsp)
+  485077:	4c 89 7c 24 38       	mov    %r15,0x38(%rsp)
+  48507c:	89 44 24 40          	mov    %eax,0x40(%rsp)
+  485080:	48 8d 05 39 a9 01 00 	lea    0x1a939(%rip),%rax        # 49f9c0 <UE::Core::Private::Function::TFunctionRefCaller<AnyTaskCompleted(TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const&)::$_0, void>::Call(void*)>
+  485087:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+  48508c:	4c 89 ef             	mov    %r13,%rdi
+  48508f:	48 89 ee             	mov    %rbp,%rsi
+  485092:	4c 89 e2             	mov    %r12,%rdx
+  485095:	b9 ff 00 00 00       	mov    $0xff,%ecx
+  48509a:	e8 41 e8 01 00       	call   4a38e0 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)>
+  48509f:	48 8b 7c 24 18       	mov    0x18(%rsp),%rdi
+  4850a4:	48 85 ff             	test   %rdi,%rdi
+  4850a7:	74 0c                	je     4850b5 <AnyTaskCompleted(TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const&)+0xf5>
+  4850a9:	f0 ff 4f 08          	lock decl 0x8(%rdi)
+  4850ad:	75 06                	jne    4850b5 <AnyTaskCompleted(TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const&)+0xf5>
+  4850af:	48 8b 07             	mov    (%rdi),%rax
+  4850b2:	ff 50 08             	call   *0x8(%rax)
+  4850b5:	48 83 7c 24 20 00    	cmpq   $0x0,0x20(%rsp)
+  4850bb:	74 93                	je     485050 <AnyTaskCompleted(TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const&)+0x90>
+  4850bd:	48 8b 7c 24 48       	mov    0x48(%rsp),%rdi
+  4850c2:	48 85 ff             	test   %rdi,%rdi
+  4850c5:	48 8d 44 24 30       	lea    0x30(%rsp),%rax
+  4850ca:	48 0f 44 f8          	cmove  %rax,%rdi
+  4850ce:	48 8b 07             	mov    (%rdi),%rax
+  4850d1:	ff 50 10             	call   *0x10(%rax)
+  4850d4:	e9 77 ff ff ff       	jmp    485050 <AnyTaskCompleted(TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const&)+0x90>
+  4850d9:	bf a8 00 00 00       	mov    $0xa8,%edi
+  4850de:	e8 ad 77 02 00       	call   4ac890 <FGraphEventImpl::operator new(unsigned long)>
+  4850e3:	49 89 c6             	mov    %rax,%r14
+  4850e6:	48 89 c7             	mov    %rax,%rdi
+  4850e9:	e8 a2 7a 02 00       	call   4acb90 <FGraphEventImpl::FGraphEventImpl()>
+  4850ee:	4d 89 75 00          	mov    %r14,0x0(%r13)
+  4850f2:	41 80 7e 1c 02       	cmpb   $0x2,0x1c(%r14)
+  4850f7:	75 05                	jne    4850fe <AnyTaskCompleted(TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const&)+0x13e>
+  4850f9:	f0 41 ff 46 08       	lock incl 0x8(%r14)
+  4850fe:	c6 44 24 0f 01       	movb   $0x1,0xf(%rsp)
+  485103:	48 8d 74 24 0f       	lea    0xf(%rsp),%rsi
+  485108:	4c 89 f7             	mov    %r14,%rdi
+  48510b:	e8 10 54 02 00       	call   4aa520 <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)>
+  485110:	48 8b 44 24 10       	mov    0x10(%rsp),%rax
+  485115:	48 83 c4 58          	add    $0x58,%rsp
+  485119:	5b                   	pop    %rbx
+  48511a:	41 5c                	pop    %r12
+  48511c:	41 5d                	pop    %r13
+  48511e:	41 5e                	pop    %r14
+  485120:	41 5f                	pop    %r15
+  485122:	5d                   	pop    %rbp
+  485123:	c3                   	ret    
+  485124:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+  48512b:	00 00 00 00 00 
+
+0000000000485130 <UE::FWordMutex::LockSlow()>:
+  485130:	55                   	push   %rbp
+  485131:	41 57                	push   %r15
+  485133:	41 56                	push   %r14
+  485135:	41 55                	push   %r13
+  485137:	41 54                	push   %r12
+  485139:	53                   	push   %rbx
+  48513a:	48 83 ec 78          	sub    $0x78,%rsp
+  48513e:	48 89 fb             	mov    %rdi,%rbx
+  485141:	4c 8d 74 24 10       	lea    0x10(%rsp),%r14
+  485146:	31 ed                	xor    %ebp,%ebp
+  485148:	4c 8d 7c 24 38       	lea    0x38(%rsp),%r15
+  48514d:	49 89 e5             	mov    %rsp,%r13
+  485150:	eb 20                	jmp    485172 <UE::FWordMutex::LockSlow()+0x42>
+  485152:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+  485159:	1f 84 00 00 00 00 00 
+  485160:	48 89 c1             	mov    %rax,%rcx
+  485163:	48 83 c9 01          	or     $0x1,%rcx
+  485167:	f0 48 0f b1 0b       	lock cmpxchg %rcx,(%rbx)
+  48516c:	0f 84 a5 00 00 00    	je     485217 <UE::FWordMutex::LockSlow()+0xe7>
+  485172:	48 8b 03             	mov    (%rbx),%rax
+  485175:	a8 01                	test   $0x1,%al
+  485177:	74 e7                	je     485160 <UE::FWordMutex::LockSlow()+0x30>
+  485179:	48 83 f8 03          	cmp    $0x3,%rax
+  48517d:	77 11                	ja     485190 <UE::FWordMutex::LockSlow()+0x60>
+  48517f:	83 fd 27             	cmp    $0x27,%ebp
+  485182:	7f 0c                	jg     485190 <UE::FWordMutex::LockSlow()+0x60>
+  485184:	e8 a7 4e 75 00       	call   bda030 <FGenericPlatformProcess::YieldThread()@plt>
+  485189:	ff c5                	inc    %ebp
+  48518b:	eb e5                	jmp    485172 <UE::FWordMutex::LockSlow()+0x42>
+  48518d:	0f 1f 00             	nopl   (%rax)
+  485190:	0f 57 c0             	xorps  %xmm0,%xmm0
+  485193:	0f 29 44 24 50       	movaps %xmm0,0x50(%rsp)
+  485198:	0f 29 44 24 40       	movaps %xmm0,0x40(%rsp)
+  48519d:	0f 29 44 24 30       	movaps %xmm0,0x30(%rsp)
+  4851a2:	0f 29 44 24 20       	movaps %xmm0,0x20(%rsp)
+  4851a7:	0f 29 44 24 10       	movaps %xmm0,0x10(%rsp)
+  4851ac:	0f 29 04 24          	movaps %xmm0,(%rsp)
+  4851b0:	48 c7 44 24 60 00 00 	movq   $0x0,0x60(%rsp)
+  4851b7:	00 00 
+  4851b9:	c6 44 24 68 01       	movb   $0x1,0x68(%rsp)
+  4851be:	c6 44 24 68 01       	movb   $0x1,0x68(%rsp)
+  4851c3:	48 89 c1             	mov    %rax,%rcx
+  4851c6:	48 83 e1 fc          	and    $0xfffffffffffffffc,%rcx
+  4851ca:	74 06                	je     4851d2 <UE::FWordMutex::LockSlow()+0xa2>
+  4851cc:	48 89 0c 24          	mov    %rcx,(%rsp)
+  4851d0:	eb 05                	jmp    4851d7 <UE::FWordMutex::LockSlow()+0xa7>
+  4851d2:	4c 89 6c 24 08       	mov    %r13,0x8(%rsp)
+  4851d7:	89 c1                	mov    %eax,%ecx
+  4851d9:	83 e1 03             	and    $0x3,%ecx
+  4851dc:	4c 09 e9             	or     %r13,%rcx
+  4851df:	f0 48 0f b1 0b       	lock cmpxchg %rcx,(%rbx)
+  4851e4:	75 24                	jne    48520a <UE::FWordMutex::LockSlow()+0xda>
+  4851e6:	e8 55 4e 75 00       	call   bda040 <LowLevelTasks::Private::FOversubscriptionTls::GetIsOversubscriptionAllowedRef()@plt>
+  4851eb:	49 89 c4             	mov    %rax,%r12
+  4851ee:	0f b6 28             	movzbl (%rax),%ebp
+  4851f1:	c6 00 00             	movb   $0x0,(%rax)
+  4851f4:	4c 89 f7             	mov    %r14,%rdi
+  4851f7:	f2 0f 10 05 71 d1 dc 	movsd  -0x232e8f(%rip),%xmm0        # 252370 <oo2::cost_twostep_literals(unsigned char const*, int, int, oo2::newlzf_codecosts const&)::disable_from_lrl+0x940>
+  4851fe:	ff 
+  4851ff:	e8 3c 35 0a 00       	call   528740 <UE::HAL::Private::FGenericPlatformManualResetEvent::WaitUntil(UE::FMonotonicTimePoint)>
+  485204:	41 88 2c 24          	mov    %bpl,(%r12)
+  485208:	31 ed                	xor    %ebp,%ebp
+  48520a:	4c 89 ff             	mov    %r15,%rdi
+  48520d:	e8 7e 51 75 00       	call   bda390 <std::__1::condition_variable::~condition_variable()@plt>
+  485212:	e9 5b ff ff ff       	jmp    485172 <UE::FWordMutex::LockSlow()+0x42>
+  485217:	48 83 c4 78          	add    $0x78,%rsp
+  48521b:	5b                   	pop    %rbx
+  48521c:	41 5c                	pop    %r12
+  48521e:	41 5d                	pop    %r13
+  485220:	41 5e                	pop    %r14
+  485222:	41 5f                	pop    %r15
+  485224:	5d                   	pop    %rbp
+  485225:	c3                   	ret    
+  485226:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  48522d:	00 00 00 
+
+0000000000485230 <UE::FWordMutex::UnlockSlow(unsigned long long)>:
+  485230:	41 56                	push   %r14
+  485232:	53                   	push   %rbx
+  485233:	50                   	push   %rax
+  485234:	48 89 f0             	mov    %rsi,%rax
+  485237:	48 83 e0 fe          	and    $0xfffffffffffffffe,%rax
+  48523b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  485240:	48 89 c1             	mov    %rax,%rcx
+  485243:	48 83 c9 02          	or     $0x2,%rcx
+  485247:	f0 48 0f b1 0f       	lock cmpxchg %rcx,(%rdi)
+  48524c:	74 15                	je     485263 <UE::FWordMutex::UnlockSlow(unsigned long long)+0x33>
+  48524e:	48 83 f8 04          	cmp    $0x4,%rax
+  485252:	72 07                	jb     48525b <UE::FWordMutex::UnlockSlow(unsigned long long)+0x2b>
+  485254:	89 c1                	mov    %eax,%ecx
+  485256:	83 e1 02             	and    $0x2,%ecx
+  485259:	74 e5                	je     485240 <UE::FWordMutex::UnlockSlow(unsigned long long)+0x10>
+  48525b:	48 83 c4 08          	add    $0x8,%rsp
+  48525f:	5b                   	pop    %rbx
+  485260:	41 5e                	pop    %r14
+  485262:	c3                   	ret    
+  485263:	31 d2                	xor    %edx,%edx
+  485265:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  48526c:	00 00 00 00 
+  485270:	48 89 c8             	mov    %rcx,%rax
+  485273:	48 83 e0 fc          	and    $0xfffffffffffffffc,%rax
+  485277:	48 8b 58 08          	mov    0x8(%rax),%rbx
+  48527b:	48 85 db             	test   %rbx,%rbx
+  48527e:	75 2b                	jne    4852ab <UE::FWordMutex::UnlockSlow(unsigned long long)+0x7b>
+  485280:	48 89 c6             	mov    %rax,%rsi
+  485283:	66 66 66 66 2e 0f 1f 	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+  48528a:	84 00 00 00 00 00 
+  485290:	4c 8b 06             	mov    (%rsi),%r8
+  485293:	4d 8b 48 08          	mov    0x8(%r8),%r9
+  485297:	4c 89 48 08          	mov    %r9,0x8(%rax)
+  48529b:	49 89 70 08          	mov    %rsi,0x8(%r8)
+  48529f:	48 8b 58 08          	mov    0x8(%rax),%rbx
+  4852a3:	4c 89 c6             	mov    %r8,%rsi
+  4852a6:	48 85 db             	test   %rbx,%rbx
+  4852a9:	74 e5                	je     485290 <UE::FWordMutex::UnlockSlow(unsigned long long)+0x60>
+  4852ab:	f6 c1 01             	test   $0x1,%cl
+  4852ae:	75 20                	jne    4852d0 <UE::FWordMutex::UnlockSlow(unsigned long long)+0xa0>
+  4852b0:	48 8b 73 08          	mov    0x8(%rbx),%rsi
+  4852b4:	48 39 de             	cmp    %rbx,%rsi
+  4852b7:	75 31                	jne    4852ea <UE::FWordMutex::UnlockSlow(unsigned long long)+0xba>
+  4852b9:	48 89 c8             	mov    %rcx,%rax
+  4852bc:	f0 48 0f b1 17       	lock cmpxchg %rdx,(%rdi)
+  4852c1:	74 37                	je     4852fa <UE::FWordMutex::UnlockSlow(unsigned long long)+0xca>
+  4852c3:	48 89 c1             	mov    %rax,%rcx
+  4852c6:	eb a8                	jmp    485270 <UE::FWordMutex::UnlockSlow(unsigned long long)+0x40>
+  4852c8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+  4852cf:	00 
+  4852d0:	48 89 ce             	mov    %rcx,%rsi
+  4852d3:	48 83 e6 fd          	and    $0xfffffffffffffffd,%rsi
+  4852d7:	48 89 c8             	mov    %rcx,%rax
+  4852da:	f0 48 0f b1 37       	lock cmpxchg %rsi,(%rdi)
+  4852df:	0f 84 76 ff ff ff    	je     48525b <UE::FWordMutex::UnlockSlow(unsigned long long)+0x2b>
+  4852e5:	48 89 c1             	mov    %rax,%rcx
+  4852e8:	eb 86                	jmp    485270 <UE::FWordMutex::UnlockSlow(unsigned long long)+0x40>
+  4852ea:	48 c7 06 00 00 00 00 	movq   $0x0,(%rsi)
+  4852f1:	48 89 70 08          	mov    %rsi,0x8(%rax)
+  4852f5:	f0 48 83 27 fd       	lock andq $0xfffffffffffffffd,(%rdi)
+  4852fa:	4c 8d 73 10          	lea    0x10(%rbx),%r14
+  4852fe:	4c 89 f7             	mov    %r14,%rdi
+  485301:	e8 ca 50 75 00       	call   bda3d0 <std::__1::mutex::lock()@plt>
+  485306:	c6 43 68 00          	movb   $0x0,0x68(%rbx)
+  48530a:	48 83 c3 38          	add    $0x38,%rbx
+  48530e:	48 89 df             	mov    %rbx,%rdi
+  485311:	e8 ca 50 75 00       	call   bda3e0 <std::__1::condition_variable::notify_one()@plt>
+  485316:	4c 89 f7             	mov    %r14,%rdi
+  485319:	48 83 c4 08          	add    $0x8,%rsp
+  48531d:	5b                   	pop    %rbx
+  48531e:	41 5e                	pop    %r14
+  485320:	e9 cb 50 75 00       	jmp    bda3f0 <std::__1::mutex::unlock()@plt>
+  485325:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  48532c:	00 00 00 00 
+
+0000000000485330 <Audio::FSimpleWaveReader::FSimpleWaveReader(TUniquePtr<FArchive, TDefaultDelete<FArchive> >&&)>:
+  485330:	53                   	push   %rbx
+  485331:	48 89 fb             	mov    %rdi,%rbx
+  485334:	48 8b 06             	mov    (%rsi),%rax
+  485337:	48 89 07             	mov    %rax,(%rdi)
+  48533a:	48 c7 06 00 00 00 00 	movq   $0x0,(%rsi)
+  485341:	48 c7 47 08 00 00 00 	movq   $0x0,0x8(%rdi)
+  485348:	00 
+  485349:	48 8d 77 10          	lea    0x10(%rdi),%rsi
+  48534d:	c7                   	.byte 0xc7
+  48534e:	47                   	rex.RXB
+  48534f:	10                   	.byte 0x10

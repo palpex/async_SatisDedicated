@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-10-27T01:33:43.972998+00:00",
+  "runtime_evidence_id": "ev_a9d08b01c3608d713dbffbef824ec42a33deabad585c2ff443bc9243d553ab76",
+  "server_pid": 344530,
+  "steam_build": "25782485",
+  "core_gnu_build_id": "36a6397531db8df2",
+  "sha256": {
+    "src/satis_task_bridge.cpp": "f90749fc29a296ea5f7a2f12f69ef2a61f6beca7444fae34dd40e28fe4b61ddc",
+    "include/satis_task_bridge.h": "22373abe4e2967b8090aba411b6fb709828d7e8df0d21d35f0d4511071de431e",
+    "build/libsatis_task_bridge.so": "4c7baf4ba78dabb70dbde06081d00e9b92fe2e48baf9556fee5bf6eca9ad3b5e",
+    "instrumentation/task-bridge-probe.js": "8ac0d73b4cbf6a7a6f88f40333fe83fbcff4f2557fba22599adedc97fed94916",
+    "server/Engine/Binaries/Linux/libFactoryServer-Core-Linux-Shipping.so": "954e4f4055f1c7775732a8be797ddccc44391453bb6d807103dd1edf37fb34c7"
+  },
+  "limitations": [
+    "Hashes describe local files after completed probe; REA Frida reports no independently attested target artifact digest.",
+    "This does not validate simulation behavior or speedup."
+  ]
+}

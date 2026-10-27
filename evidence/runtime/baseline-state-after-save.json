@@ -1,0 +1,18 @@
+{
+  "data": {
+    "serverGameState": {
+      "activeSessionName": "AsyncRewriteBaseline",
+      "numConnectedPlayers": 0,
+      "playerLimit": 4,
+      "techTier": 2,
+      "activeSchematic": "None",
+      "gamePhase": "/Script/FactoryGame.FGGamePhase'/Game/FactoryGame/GamePhases/GP_Project_Assembly_Phase_0.GP_Project_Assembly_Phase_0'",
+      "isGameRunning": true,
+      "totalGameDuration": 279,
+      "isGamePaused": false,
+      "averageTickRate": 28.665767669677734,
+      "autoLoadSessionName": "AsyncRewriteBaseline",
+      "agreeToCrashUploadRequested": false
+    }
+  }
+}

@@ -1,0 +1,179 @@
+
+server/Engine/Binaries/Linux/libFactoryServer-Core-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000047b060 <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)>:
+  47b060:	55                   	push   %rbp
+  47b061:	41 57                	push   %r15
+  47b063:	41 56                	push   %r14
+  47b065:	41 55                	push   %r13
+  47b067:	41 54                	push   %r12
+  47b069:	53                   	push   %rbx
+  47b06a:	50                   	push   %rax
+  47b06b:	49 89 f7             	mov    %rsi,%r15
+  47b06e:	89 fd                	mov    %edi,%ebp
+  47b070:	48 8d 3d 59 9d 7b 00 	lea    0x7b9d59(%rip),%rdi        # c34dd0 <_DYNAMIC+0x1f0>
+  47b077:	e8 84 ef 75 00       	call   bda000 <__tls_get_addr@plt>
+  47b07c:	48 89 c3             	mov    %rax,%rbx
+  47b07f:	4c 8d a0 78 00 00 00 	lea    0x78(%rax),%r12
+  47b086:	48 8b 80 78 00 00 00 	mov    0x78(%rax),%rax
+  47b08d:	48 85 c0             	test   %rax,%rax
+  47b090:	75 61                	jne    47b0f3 <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x93>
+  47b092:	48 89 d8             	mov    %rbx,%rax
+  47b095:	80 bb 88 00 00 00 00 	cmpb   $0x0,0x88(%rbx)
+  47b09c:	0f 84 4a 03 00 00    	je     47b3ec <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x38c>
+  47b0a2:	48 89 d8             	mov    %rbx,%rax
+  47b0a5:	48 89 c1             	mov    %rax,%rcx
+  47b0a8:	48 8b 80 80 00 00 00 	mov    0x80(%rax),%rax
+  47b0af:	48 c7 81 80 00 00 00 	movq   $0x0,0x80(%rcx)
+  47b0b6:	00 00 00 00 
+  47b0ba:	48 85 c0             	test   %rax,%rax
+  47b0bd:	75 0f                	jne    47b0ce <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x6e>
+  47b0bf:	bf 00 00 01 00       	mov    $0x10000,%edi
+  47b0c4:	be 08 00 00 00       	mov    $0x8,%esi
+  47b0c9:	e8 e2 ec 75 00       	call   bd9db0 <FMemory::Malloc(unsigned long, unsigned int)@plt>
+  47b0ce:	c7 00 ff ff ff ff    	movl   $0xffffffff,(%rax)
+  47b0d4:	48 8d 48 58          	lea    0x58(%rax),%rcx
+  47b0d8:	48 89 48 40          	mov    %rcx,0x40(%rax)
+  47b0dc:	c7 40 48 00 00 00 00 	movl   $0x0,0x48(%rax)
+  47b0e3:	49 89 04 24          	mov    %rax,(%r12)
+  47b0e7:	4c 89 e7             	mov    %r12,%rdi
+  47b0ea:	e8 d1 03 03 00       	call   4ab4c0 <TLinearAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::AllocateBlock(TLinearAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::FBlockHeader*&)>
+  47b0ef:	49 8b 04 24          	mov    (%r12),%rax
+  47b0f3:	4c 8b 70 40          	mov    0x40(%rax),%r14
+  47b0f7:	49 83 c6 0f          	add    $0xf,%r14
+  47b0fb:	49 83 e6 f0          	and    $0xfffffffffffffff0,%r14
+  47b0ff:	49 8d b6 f0 00 00 00 	lea    0xf0(%r14),%rsi
+  47b106:	48 8d 90 00 00 01 00 	lea    0x10000(%rax),%rdx
+  47b10d:	8b 48 48             	mov    0x48(%rax),%ecx
+  47b110:	48 39 d6             	cmp    %rdx,%rsi
+  47b113:	0f 86 cc 02 00 00    	jbe    47b3e5 <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x385>
+  47b119:	48 89 50 40          	mov    %rdx,0x40(%rax)
+  47b11d:	f7 d1                	not    %ecx
+  47b11f:	f0 29 08             	lock sub %ecx,(%rax)
+  47b122:	0f 85 6a ff ff ff    	jne    47b092 <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x32>
+  47b128:	49 8b 04 24          	mov    (%r12),%rax
+  47b12c:	c7 00 ff ff ff ff    	movl   $0xffffffff,(%rax)
+  47b132:	48 8d 48 58          	lea    0x58(%rax),%rcx
+  47b136:	48 89 48 40          	mov    %rcx,0x40(%rax)
+  47b13a:	c7 40 48 00 00 00 00 	movl   $0x0,0x48(%rax)
+  47b141:	4c 8d 70 67          	lea    0x67(%rax),%r14
+  47b145:	49 83 e6 f0          	and    $0xfffffffffffffff0,%r14
+  47b149:	49 8d b6 f0 00 00 00 	lea    0xf0(%r14),%rsi
+  47b150:	48 8d 90 00 00 01 00 	lea    0x10000(%rax),%rdx
+  47b157:	b9 01 00 00 00       	mov    $0x1,%ecx
+  47b15c:	48 39 d6             	cmp    %rdx,%rsi
+  47b15f:	76 50                	jbe    47b1b1 <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x151>
+  47b161:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+  47b168:	0f 1f 84 00 00 00 00 
+  47b16f:	00 
+  47b170:	48 89 50 40          	mov    %rdx,0x40(%rax)
+  47b174:	f0 ff 00             	lock incl (%rax)
+  47b177:	0f 85 15 ff ff ff    	jne    47b092 <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x32>
+  47b17d:	49 8b 04 24          	mov    (%r12),%rax
+  47b181:	c7 00 ff ff ff ff    	movl   $0xffffffff,(%rax)
+  47b187:	48 8d 50 58          	lea    0x58(%rax),%rdx
+  47b18b:	48 89 50 40          	mov    %rdx,0x40(%rax)
+  47b18f:	c7 40 48 00 00 00 00 	movl   $0x0,0x48(%rax)
+  47b196:	4c 8d 70 67          	lea    0x67(%rax),%r14
+  47b19a:	49 83 e6 f0          	and    $0xfffffffffffffff0,%r14
+  47b19e:	49 8d b6 f0 00 00 00 	lea    0xf0(%r14),%rsi
+  47b1a5:	48 8d 90 00 00 01 00 	lea    0x10000(%rax),%rdx
+  47b1ac:	48 39 d6             	cmp    %rdx,%rsi
+  47b1af:	77 bf                	ja     47b170 <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x110>
+  47b1b1:	49 8d 96 f8 00 00 00 	lea    0xf8(%r14),%rdx
+  47b1b8:	48 89 50 40          	mov    %rdx,0x40(%rax)
+  47b1bc:	89 48 48             	mov    %ecx,0x48(%rax)
+  47b1bf:	49 8d 4e f8          	lea    -0x8(%r14),%rcx
+  47b1c3:	29 c1                	sub    %eax,%ecx
+  47b1c5:	41 89 4e f8          	mov    %ecx,-0x8(%r14)
+  47b1c9:	41 c7 46 fc f0 00 00 	movl   $0xf0,-0x4(%r14)
+  47b1d0:	00 
+  47b1d1:	48 b8 01 00 00 00 01 	movabs $0x100000001,%rax
+  47b1d8:	00 00 00 
+  47b1db:	49 89 46 08          	mov    %rax,0x8(%r14)
+  47b1df:	49 c7 46 10 00 00 00 	movq   $0x0,0x10(%r14)
+  47b1e6:	00 
+  47b1e7:	41 c7 46 18 00 00 00 	movl   $0x0,0x18(%r14)
+  47b1ee:	00 
+  47b1ef:	41 c7 46 20 ff ff ff 	movl   $0xffffffff,0x20(%r14)
+  47b1f6:	ff 
+  47b1f7:	49 c7 46 30 00 00 00 	movq   $0x0,0x30(%r14)
+  47b1fe:	00 
+  47b1ff:	48 b8 00 00 00 00 01 	movabs $0x100000000,%rax
+  47b206:	00 00 00 
+  47b209:	49 89 46 38          	mov    %rax,0x38(%r14)
+  47b20d:	41 c6 46 40 01       	movb   $0x1,0x40(%r14)
+  47b212:	48 8b 0d 5f 9c 7b 00 	mov    0x7b9c5f(%rip),%rcx        # c34e78 <vtable for LowLevelTasks::TTaskDelegate<LowLevelTasks::FTask* (bool), 48u>::TTaskDelegateDummy@@Base+0x43af0>
+  47b219:	48 83 c1 10          	add    $0x10,%rcx
+  47b21d:	49 89 4e 70          	mov    %rcx,0x70(%r14)
+  47b221:	49 c7 46 78 00 00 00 	movq   $0x0,0x78(%r14)
+  47b228:	00 
+  47b229:	48 b9 20 00 00 00 00 	movabs $0xe800000000000020,%rcx
+  47b230:	00 00 e8 
+  47b233:	49 89 8e 80 00 00 00 	mov    %rcx,0x80(%r14)
+  47b23a:	49 c7 86 90 00 00 00 	movq   $0x0,0x90(%r14)
+  47b241:	00 00 00 00 
+  47b245:	49 89 86 98 00 00 00 	mov    %rax,0x98(%r14)
+  47b24c:	66 41 c7 86 a0 00 00 	movw   $0x0,0xa0(%r14)
+  47b253:	00 00 00 
+  47b256:	48 8b 05 23 9c 7b 00 	mov    0x7b9c23(%rip),%rax        # c34e80 <vtable for FBaseGraphTask@@Base+0x43838>
+  47b25d:	48 83 c0 10          	add    $0x10,%rax
+  47b261:	49 89 06             	mov    %rax,(%r14)
+  47b264:	b0 ff                	mov    $0xff,%al
+  47b266:	f0 41 0f c0 46 40    	lock xadd %al,0x40(%r14)
+  47b26c:	a8 02                	test   $0x2,%al
+  47b26e:	0f 85 a1 01 00 00    	jne    47b415 <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x3b5>
+  47b274:	48 8b 05 0d 9c 7b 00 	mov    0x7b9c0d(%rip),%rax        # c34e88 <vtable for TGraphTask<FAsyncGraphTask>@@Base+0x43508>
+  47b27b:	48 83 c0 10          	add    $0x10,%rax
+  47b27f:	49 89 06             	mov    %rax,(%r14)
+  47b282:	41 89 ae b0 00 00 00 	mov    %ebp,0xb0(%r14)
+  47b289:	49 8b 07             	mov    (%r15),%rax
+  47b28c:	49 89 86 c0 00 00 00 	mov    %rax,0xc0(%r14)
+  47b293:	49 8b 4f 28          	mov    0x28(%r15),%rcx
+  47b297:	49 89 8e e8 00 00 00 	mov    %rcx,0xe8(%r14)
+  47b29e:	49 c7 47 28 00 00 00 	movq   $0x0,0x28(%r15)
+  47b2a5:	00 
+  47b2a6:	49 8b 4f 20          	mov    0x20(%r15),%rcx
+  47b2aa:	49 89 8e e0 00 00 00 	mov    %rcx,0xe0(%r14)
+  47b2b1:	41 0f 28 47 10       	movaps 0x10(%r15),%xmm0
+  47b2b6:	41 0f 29 86 d0 00 00 	movaps %xmm0,0xd0(%r14)
+  47b2bd:	00 
+  47b2be:	48 85 c0             	test   %rax,%rax
+  47b2c1:	74 07                	je     47b2ca <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x26a>
+  47b2c3:	49 c7 07 00 00 00 00 	movq   $0x0,(%r15)
+  47b2ca:	4d 8d 7e 70          	lea    0x70(%r14),%r15
+  47b2ce:	48 8d 74 24 07       	lea    0x7(%rsp),%rsi
+  47b2d3:	48 8d 54 24 06       	lea    0x6(%rsp),%rdx
+  47b2d8:	89 ef                	mov    %ebp,%edi
+  47b2da:	e8 31 ed 75 00       	call   bda010 <UE::Tasks::Private::TranslatePriority(ENamedThreads::Type, LowLevelTasks::ETaskPriority&, UE::Tasks::EExtendedTaskPriority&)@plt>
+  47b2df:	44 0f b6 64 24 07    	movzbl 0x7(%rsp),%r12d
+  47b2e5:	0f b6 6c 24 06       	movzbl 0x6(%rsp),%ebp
+  47b2ea:	49 8d 76 48          	lea    0x48(%r14),%rsi
+  47b2ee:	49 8b 86 80 00 00 00 	mov    0x80(%r14),%rax
+  47b2f5:	a8 20                	test   $0x20,%al
+  47b2f7:	0f 84 26 01 00 00    	je     47b423 <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x3c3>
+  47b2fd:	49 8b 46 70          	mov    0x70(%r14),%rax
+  47b301:	4c 89 ff             	mov    %r15,%rdi
+  47b304:	ff 50 18             	call   *0x18(%rax)
+  47b307:	48 8d 05 9a 63 77 00 	lea    0x77639a(%rip),%rax        # bf16a8 <vtable for LowLevelTasks::TTaskDelegate<LowLevelTasks::FTask* (bool), 48u>::TTaskDelegateImpl<LowLevelTasks::FTask::Init<UE::Tasks::Private::FTaskBase::Init(char16_t const*, LowLevelTasks::ETaskPriority, UE::Tasks::EExtendedTaskPriority, UE::Tasks::ETaskFlags)::{lambda()#1}>(char16_t const*, LowLevelTasks::ETaskPriority, UE::Tasks::Private::FTaskBase::Init(char16_t const*, LowLevelTasks::ETaskPriority, UE::Tasks::EExtendedTaskPriority, UE::Tasks::ETaskFlags)::{lambda()#1}&&, LowLevelTasks::ETaskFlags)::{lambda(bool)#1}, false>+0x10>
+  47b30e:	49 89 46 70          	mov    %rax,0x70(%r14)
+  47b312:	4d 89 76 48          	mov    %r14,0x48(%r14)
+  47b316:	4d 89 76 50          	mov    %r14,0x50(%r14)
+  47b31a:	48 89 d8             	mov    %rbx,%rax
+  47b31d:	48 8b 83 28 00 00 00 	mov    0x28(%rbx),%rax
+  47b324:	48 85 c0             	test   %rax,%rax
+  47b327:	74 18                	je     47b341 <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x2e1>
+  47b329:	41 80 fc 06          	cmp    $0x6,%r12b
+  47b32d:	75 0c                	jne    47b33b <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x2db>
+  47b32f:	4c 8b 60 38          	mov    0x38(%rax),%r12
+  47b333:	49 c1 ec 3b          	shr    $0x3b,%r12
+  47b337:	41 80 e4 07          	and    $0x7,%r12b
+  47b33b:	48 8b 40 30          	mov    0x30(%rax),%rax
+  47b33f:	eb 14                	jmp    47b355 <AsyncTask(ENamedThreads::Type, TUniqueFunction<void ()>)+0x2f5>
+  47b341:	41 80 fc 06          	cmp    $0x6,%r12b
+  47b345:	41 0f b6 c4          	movzbl %r12b,%eax
+  47b349:	41 bc 01 00 00 00    	mov    $0x1,%r12d
+  47b34f:	44                   	rex.R

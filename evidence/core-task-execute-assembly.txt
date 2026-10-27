@@ -1,0 +1,567 @@
+
+server/Engine/Binaries/Linux/libFactoryServer-Core-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000004afa90 <TGraphTask<FAsyncGraphTask>::ExecuteTask()>:
+  4afa90:	41 57                	push   %r15
+  4afa92:	41 56                	push   %r14
+  4afa94:	53                   	push   %rbx
+  4afa95:	48 89 fb             	mov    %rdi,%rbx
+  4afa98:	48 85 ff             	test   %rdi,%rdi
+  4afa9b:	74 04                	je     4afaa1 <TGraphTask<FAsyncGraphTask>::ExecuteTask()+0x11>
+  4afa9d:	f0 ff 43 08          	lock incl 0x8(%rbx)
+  4afaa1:	48 8d bb c0 00 00 00 	lea    0xc0(%rbx),%rdi
+  4afaa8:	e8 23 6e ff ff       	call   4a68d0 <UE::Core::Private::Function::TFunctionRefBase<UE::Core::Private::Function::TFunctionStorage<false>, TSharedPtr<IAsyncTaskNotificationImpl, (ESPMode)1> ()>::CheckCallable() const>
+  4afaad:	4c 8d b3 d0 00 00 00 	lea    0xd0(%rbx),%r14
+  4afab4:	4c 8b bb c0 00 00 00 	mov    0xc0(%rbx),%r15
+  4afabb:	48 8b bb e8 00 00 00 	mov    0xe8(%rbx),%rdi
+  4afac2:	48 85 ff             	test   %rdi,%rdi
+  4afac5:	49 0f 44 fe          	cmove  %r14,%rdi
+  4afac9:	48 8b 07             	mov    (%rdi),%rax
+  4afacc:	ff 50 08             	call   *0x8(%rax)
+  4afacf:	48 89 c7             	mov    %rax,%rdi
+  4afad2:	41 ff d7             	call   *%r15
+  4afad5:	48 83 bb c0 00 00 00 	cmpq   $0x0,0xc0(%rbx)
+  4afadc:	00 
+  4afadd:	74 17                	je     4afaf6 <TGraphTask<FAsyncGraphTask>::ExecuteTask()+0x66>
+  4afadf:	48 8b 83 e8 00 00 00 	mov    0xe8(%rbx),%rax
+  4afae6:	48 85 c0             	test   %rax,%rax
+  4afae9:	4c 0f 45 f0          	cmovne %rax,%r14
+  4afaed:	49 8b 06             	mov    (%r14),%rax
+  4afaf0:	4c 89 f7             	mov    %r14,%rdi
+  4afaf3:	ff 50 10             	call   *0x10(%rax)
+  4afaf6:	48 85 db             	test   %rbx,%rbx
+  4afaf9:	74 14                	je     4afb0f <TGraphTask<FAsyncGraphTask>::ExecuteTask()+0x7f>
+  4afafb:	f0 ff 4b 08          	lock decl 0x8(%rbx)
+  4afaff:	75 0e                	jne    4afb0f <TGraphTask<FAsyncGraphTask>::ExecuteTask()+0x7f>
+  4afb01:	48 8b 03             	mov    (%rbx),%rax
+  4afb04:	48 89 df             	mov    %rbx,%rdi
+  4afb07:	5b                   	pop    %rbx
+  4afb08:	41 5e                	pop    %r14
+  4afb0a:	41 5f                	pop    %r15
+  4afb0c:	ff 60 08             	jmp    *0x8(%rax)
+  4afb0f:	5b                   	pop    %rbx
+  4afb10:	41 5e                	pop    %r14
+  4afb12:	41 5f                	pop    %r15
+  4afb14:	c3                   	ret    
+  4afb15:	cc                   	int3   
+  4afb16:	cc                   	int3   
+  4afb17:	cc                   	int3   
+  4afb18:	cc                   	int3   
+  4afb19:	cc                   	int3   
+  4afb1a:	cc                   	int3   
+  4afb1b:	cc                   	int3   
+  4afb1c:	cc                   	int3   
+  4afb1d:	cc                   	int3   
+  4afb1e:	cc                   	int3   
+  4afb1f:	cc                   	int3   
+
+00000000004afb20 <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)>:
+  4afb20:	55                   	push   %rbp
+  4afb21:	41 57                	push   %r15
+  4afb23:	41 56                	push   %r14
+  4afb25:	41 55                	push   %r13
+  4afb27:	41 54                	push   %r12
+  4afb29:	53                   	push   %rbx
+  4afb2a:	48 83 ec 18          	sub    $0x18,%rsp
+  4afb2e:	49 bd 00 00 00 00 ff 	movabs $0xffffffff00000000,%r13
+  4afb35:	ff ff ff 
+  4afb38:	48 8b 07             	mov    (%rdi),%rax
+  4afb3b:	48 85 f6             	test   %rsi,%rsi
+  4afb3e:	0f 84 c1 00 00 00    	je     4afc05 <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0xe5>
+  4afb44:	48 bd 00 00 00 00 01 	movabs $0x100000000,%rbp
+  4afb4b:	00 00 00 
+  4afb4e:	4c 8d 05 23 a0 db ff 	lea    -0x245fdd(%rip),%r8        # 269b78 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x1217>
+  4afb55:	4c 8d 35 33 ce da ff 	lea    -0x2531cd(%rip),%r14        # 25c98f <flagLR+0xa35f>
+  4afb5c:	4c 8d 3d 83 75 de ff 	lea    -0x218a7d(%rip),%r15        # 2970e6 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x2e785>
+  4afb63:	eb 39                	jmp    4afb9e <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x7e>
+  4afb65:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  4afb6c:	00 00 00 00 
+  4afb70:	45 31 e4             	xor    %r12d,%r12d
+  4afb73:	4c 89 66 18          	mov    %r12,0x18(%rsi)
+  4afb77:	48 8b 4f 08          	mov    0x8(%rdi),%rcx
+  4afb7b:	48 89 f2             	mov    %rsi,%rdx
+  4afb7e:	48 2b 11             	sub    (%rcx),%rdx
+  4afb81:	48 c1 ea 06          	shr    $0x6,%rdx
+  4afb85:	48 89 c1             	mov    %rax,%rcx
+  4afb88:	4c 21 e9             	and    %r13,%rcx
+  4afb8b:	48 01 e9             	add    %rbp,%rcx
+  4afb8e:	89 d2                	mov    %edx,%edx
+  4afb90:	48 01 ca             	add    %rcx,%rdx
+  4afb93:	f0 48 0f b1 17       	lock cmpxchg %rdx,(%rdi)
+  4afb98:	0f 84 10 01 00 00    	je     4afcae <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x18e>
+  4afb9e:	83 f8 ff             	cmp    $0xffffffff,%eax
+  4afba1:	74 cd                	je     4afb70 <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x50>
+  4afba3:	48 8b 5f 08          	mov    0x8(%rdi),%rbx
+  4afba7:	8b 4b 08             	mov    0x8(%rbx),%ecx
+  4afbaa:	4c 63 e0             	movslq %eax,%r12
+  4afbad:	85 c0                	test   %eax,%eax
+  4afbaf:	78 0d                	js     4afbbe <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x9e>
+  4afbb1:	39 c1                	cmp    %eax,%ecx
+  4afbb3:	7e 09                	jle    4afbbe <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x9e>
+  4afbb5:	49 c1 e4 06          	shl    $0x6,%r12
+  4afbb9:	4c 03 23             	add    (%rbx),%r12
+  4afbbc:	eb b5                	jmp    4afb73 <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x53>
+  4afbbe:	4c 63 c9             	movslq %ecx,%r9
+  4afbc1:	48 89 7c 24 10       	mov    %rdi,0x10(%rsp)
+  4afbc6:	4c 89 c7             	mov    %r8,%rdi
+  4afbc9:	48 89 74 24 08       	mov    %rsi,0x8(%rsp)
+  4afbce:	4c 89 f6             	mov    %r14,%rsi
+  4afbd1:	ba 2b 04 00 00       	mov    $0x42b,%edx
+  4afbd6:	4c 89 f9             	mov    %r15,%rcx
+  4afbd9:	4d 89 e0             	mov    %r12,%r8
+  4afbdc:	48 89 04 24          	mov    %rax,(%rsp)
+  4afbe0:	31 c0                	xor    %eax,%eax
+  4afbe2:	e8 69 a2 72 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  4afbe7:	4c 8d 05 8a 9f db ff 	lea    -0x246076(%rip),%r8        # 269b78 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x1217>
+  4afbee:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+  4afbf3:	48 8b 74 24 08       	mov    0x8(%rsp),%rsi
+  4afbf8:	89 c1                	mov    %eax,%ecx
+  4afbfa:	48 8b 04 24          	mov    (%rsp),%rax
+  4afbfe:	84 c9                	test   %cl,%cl
+  4afc00:	74 b3                	je     4afbb5 <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x95>
+  4afc02:	cc                   	int3   
+  4afc03:	eb b0                	jmp    4afbb5 <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x95>
+  4afc05:	48 bd ff ff ff ff 01 	movabs $0x1ffffffff,%rbp
+  4afc0c:	00 00 00 
+  4afc0f:	48 8d 15 62 9f db ff 	lea    -0x24609e(%rip),%rdx        # 269b78 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x1217>
+  4afc16:	4c 8d 35 72 cd da ff 	lea    -0x25328e(%rip),%r14        # 25c98f <flagLR+0xa35f>
+  4afc1d:	4c 8d 3d c2 74 de ff 	lea    -0x218b3e(%rip),%r15        # 2970e6 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x2e785>
+  4afc24:	eb 21                	jmp    4afc47 <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x127>
+  4afc26:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  4afc2d:	00 00 00 
+  4afc30:	45 31 e4             	xor    %r12d,%r12d
+  4afc33:	4c 89 66 18          	mov    %r12,0x18(%rsi)
+  4afc37:	48 89 c1             	mov    %rax,%rcx
+  4afc3a:	4c 21 e9             	and    %r13,%rcx
+  4afc3d:	48 01 e9             	add    %rbp,%rcx
+  4afc40:	f0 48 0f b1 0f       	lock cmpxchg %rcx,(%rdi)
+  4afc45:	74 67                	je     4afcae <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x18e>
+  4afc47:	83 f8 ff             	cmp    $0xffffffff,%eax
+  4afc4a:	74 e4                	je     4afc30 <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x110>
+  4afc4c:	48 8b 5f 08          	mov    0x8(%rdi),%rbx
+  4afc50:	8b 4b 08             	mov    0x8(%rbx),%ecx
+  4afc53:	4c 63 e0             	movslq %eax,%r12
+  4afc56:	85 c0                	test   %eax,%eax
+  4afc58:	78 0d                	js     4afc67 <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x147>
+  4afc5a:	39 c1                	cmp    %eax,%ecx
+  4afc5c:	7e 09                	jle    4afc67 <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x147>
+  4afc5e:	49 c1 e4 06          	shl    $0x6,%r12
+  4afc62:	4c 03 23             	add    (%rbx),%r12
+  4afc65:	eb cc                	jmp    4afc33 <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x113>
+  4afc67:	4c 63 c9             	movslq %ecx,%r9
+  4afc6a:	48 89 7c 24 10       	mov    %rdi,0x10(%rsp)
+  4afc6f:	48 89 d7             	mov    %rdx,%rdi
+  4afc72:	48 89 74 24 08       	mov    %rsi,0x8(%rsp)
+  4afc77:	4c 89 f6             	mov    %r14,%rsi
+  4afc7a:	ba 2b 04 00 00       	mov    $0x42b,%edx
+  4afc7f:	4c 89 f9             	mov    %r15,%rcx
+  4afc82:	4d 89 e0             	mov    %r12,%r8
+  4afc85:	48 89 04 24          	mov    %rax,(%rsp)
+  4afc89:	31 c0                	xor    %eax,%eax
+  4afc8b:	e8 c0 a1 72 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  4afc90:	48 8d 15 e1 9e db ff 	lea    -0x24611f(%rip),%rdx        # 269b78 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x1217>
+  4afc97:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+  4afc9c:	48 8b 74 24 08       	mov    0x8(%rsp),%rsi
+  4afca1:	89 c1                	mov    %eax,%ecx
+  4afca3:	48 8b 04 24          	mov    (%rsp),%rax
+  4afca7:	84 c9                	test   %cl,%cl
+  4afca9:	74 b3                	je     4afc5e <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x13e>
+  4afcab:	cc                   	int3   
+  4afcac:	eb b0                	jmp    4afc5e <LowLevelTasks::TEventStack<LowLevelTasks::FReserveScheduler::FYieldedWork>::Push(LowLevelTasks::FReserveScheduler::FYieldedWork*)+0x13e>
+  4afcae:	48 83 c4 18          	add    $0x18,%rsp
+  4afcb2:	5b                   	pop    %rbx
+  4afcb3:	41 5c                	pop    %r12
+  4afcb5:	41 5d                	pop    %r13
+  4afcb7:	41 5e                	pop    %r14
+  4afcb9:	41 5f                	pop    %r15
+  4afcbb:	5d                   	pop    %rbp
+  4afcbc:	c3                   	ret    
+  4afcbd:	cc                   	int3   
+  4afcbe:	cc                   	int3   
+  4afcbf:	cc                   	int3   
+
+00000000004afcc0 <_Z21DefaultConstructItemsIN13LowLevelTasks17FReserveScheduler12FYieldedWorkEiQaantntaagtstT_Li0Entsr20TIsZeroConstructTypeIS3_EE5Valuesr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPvT0_>:
+  4afcc0:	85 f6                	test   %esi,%esi
+  4afcc2:	74 44                	je     4afd08 <_Z21DefaultConstructItemsIN13LowLevelTasks17FReserveScheduler12FYieldedWorkEiQaantntaagtstT_Li0Entsr20TIsZeroConstructTypeIS3_EE5Valuesr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPvT0_+0x48>
+  4afcc4:	41 57                	push   %r15
+  4afcc6:	41 56                	push   %r14
+  4afcc8:	53                   	push   %rbx
+  4afcc9:	89 f3                	mov    %esi,%ebx
+  4afccb:	49 89 fe             	mov    %rdi,%r14
+  4afcce:	4c 8b 3d 43 53 78 00 	mov    0x785343(%rip),%r15        # c35018 <vtable for LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>@@Base+0x43670>
+  4afcd5:	49 83 c7 10          	add    $0x10,%r15
+  4afcd9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+  4afce0:	4c 89 f7             	mov    %r14,%rdi
+  4afce3:	31 f6                	xor    %esi,%esi
+  4afce5:	e8 46 a1 72 00       	call   bd9e30 <FEventRef::FEventRef(EEventMode)@plt>
+  4afcea:	4d 89 7e 10          	mov    %r15,0x10(%r14)
+  4afcee:	49 c7 46 18 00 00 00 	movq   $0x0,0x18(%r14)
+  4afcf5:	00 
+  4afcf6:	41 c6 46 20 00       	movb   $0x0,0x20(%r14)
+  4afcfb:	49 83 c6 40          	add    $0x40,%r14
+  4afcff:	ff cb                	dec    %ebx
+  4afd01:	75 dd                	jne    4afce0 <_Z21DefaultConstructItemsIN13LowLevelTasks17FReserveScheduler12FYieldedWorkEiQaantntaagtstT_Li0Entsr20TIsZeroConstructTypeIS3_EE5Valuesr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPvT0_+0x20>
+  4afd03:	5b                   	pop    %rbx
+  4afd04:	41 5e                	pop    %r14
+  4afd06:	41 5f                	pop    %r15
+  4afd08:	c3                   	ret    
+  4afd09:	cc                   	int3   
+  4afd0a:	cc                   	int3   
+  4afd0b:	cc                   	int3   
+  4afd0c:	cc                   	int3   
+  4afd0d:	cc                   	int3   
+  4afd0e:	cc                   	int3   
+  4afd0f:	cc                   	int3   
+
+00000000004afd10 <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)>:
+  4afd10:	55                   	push   %rbp
+  4afd11:	41 57                	push   %r15
+  4afd13:	41 56                	push   %r14
+  4afd15:	41 55                	push   %r13
+  4afd17:	41 54                	push   %r12
+  4afd19:	53                   	push   %rbx
+  4afd1a:	50                   	push   %rax
+  4afd1b:	49 89 cf             	mov    %rcx,%r15
+  4afd1e:	45 8b 30             	mov    (%r8),%r14d
+  4afd21:	41 8b 01             	mov    (%r9),%eax
+  4afd24:	45 8d 2c 16          	lea    (%r14,%rdx,1),%r13d
+  4afd28:	45 89 28             	mov    %r13d,(%r8)
+  4afd2b:	89 c1                	mov    %eax,%ecx
+  4afd2d:	44 29 f1             	sub    %r14d,%ecx
+  4afd30:	39 d1                	cmp    %edx,%ecx
+  4afd32:	0f 83 b1 00 00 00    	jae    4afde9 <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)+0xd9>
+  4afd38:	45 39 f5             	cmp    %r14d,%r13d
+  4afd3b:	0f 8c c4 00 00 00    	jl     4afe05 <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)+0xf5>
+  4afd41:	4c 89 cb             	mov    %r9,%rbx
+  4afd44:	41 89 fc             	mov    %edi,%r12d
+  4afd47:	85 c0                	test   %eax,%eax
+  4afd49:	74 15                	je     4afd60 <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)+0x50>
+  4afd4b:	49 63 c5             	movslq %r13d,%rax
+  4afd4e:	48 8d 0c 40          	lea    (%rax,%rax,2),%rcx
+  4afd52:	48 c1 e9 03          	shr    $0x3,%rcx
+  4afd56:	48 8d 3c 08          	lea    (%rax,%rcx,1),%rdi
+  4afd5a:	48 83 c7 10          	add    $0x10,%rdi
+  4afd5e:	eb 10                	jmp    4afd70 <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)+0x60>
+  4afd60:	41 83 fd 05          	cmp    $0x5,%r13d
+  4afd64:	b8 04 00 00 00       	mov    $0x4,%eax
+  4afd69:	41 0f 43 c5          	cmovae %r13d,%eax
+  4afd6d:	48 63 f8             	movslq %eax,%rdi
+  4afd70:	49 0f af fc          	imul   %r12,%rdi
+  4afd74:	be 40 00 00 00       	mov    $0x40,%esi
+  4afd79:	e8 42 ab 72 00       	call   bda8c0 <FMemory::QuantizeSize(unsigned long, unsigned int)@plt>
+  4afd7e:	48 89 c1             	mov    %rax,%rcx
+  4afd81:	48 c1 e9 20          	shr    $0x20,%rcx
+  4afd85:	74 14                	je     4afd9b <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)+0x8b>
+  4afd87:	31 d2                	xor    %edx,%edx
+  4afd89:	49 f7 f4             	div    %r12
+  4afd8c:	49 8b 3f             	mov    (%r15),%rdi
+  4afd8f:	bd ff ff ff 7f       	mov    $0x7fffffff,%ebp
+  4afd94:	41 39 c5             	cmp    %eax,%r13d
+  4afd97:	7e 14                	jle    4afdad <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)+0x9d>
+  4afd99:	eb 23                	jmp    4afdbe <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)+0xae>
+  4afd9b:	31 d2                	xor    %edx,%edx
+  4afd9d:	41 f7 f4             	div    %r12d
+  4afda0:	49 8b 3f             	mov    (%r15),%rdi
+  4afda3:	bd ff ff ff 7f       	mov    $0x7fffffff,%ebp
+  4afda8:	41 39 c5             	cmp    %eax,%r13d
+  4afdab:	7f 11                	jg     4afdbe <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)+0xae>
+  4afdad:	85 c0                	test   %eax,%eax
+  4afdaf:	75 0b                	jne    4afdbc <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)+0xac>
+  4afdb1:	31 c9                	xor    %ecx,%ecx
+  4afdb3:	89 c5                	mov    %eax,%ebp
+  4afdb5:	48 85 ff             	test   %rdi,%rdi
+  4afdb8:	74 2d                	je     4afde7 <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)+0xd7>
+  4afdba:	eb 02                	jmp    4afdbe <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)+0xae>
+  4afdbc:	89 c5                	mov    %eax,%ebp
+  4afdbe:	49 8d 84 24 00 00 00 	lea    -0x80000000(%r12),%rax
+  4afdc5:	80 
+  4afdc6:	48 3d 01 00 00 80    	cmp    $0xffffffff80000001,%rax
+  4afdcc:	72 2d                	jb     4afdfb <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)+0xeb>
+  4afdce:	85 ed                	test   %ebp,%ebp
+  4afdd0:	78 29                	js     4afdfb <decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<2u, TAlignedHeapAllocator<64u>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)()), TAlignedHeapAllocator<64u>::ForAnyElementType&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TAlignedHeapAllocator<64u>::ForAnyElementType&>()).GetInitialCapacity)())&)+0xeb>
+  4afdd2:	89 ee                	mov    %ebp,%esi
+  4afdd4:	49 0f af f4          	imul   %r12,%rsi
+  4afdd8:	ba 40 00 00 00       	mov    $0x40,%edx
+  4afddd:	e8 3e a0 72 00       	call   bd9e20 <FMemory::Realloc(void*, unsigned long, unsigned int)@plt>
+  4afde2:	49 89 07             	mov    %rax,(%r15)
+  4afde5:	89 e9                	mov    %ebp,%ecx
+  4afde7:	89 0b                	mov    %ecx,(%rbx)
+  4afde9:	44 89 f0             	mov    %r14d,%eax
+  4afdec:	48 83 c4 08          	add    $0x8,%rsp
+  4afdf0:	5b                   	pop    %rbx
+  4afdf1:	41 5c                	pop    %r12
+  4afdf3:	41 5d                	pop    %r13
+  4afdf5:	41 5e                	pop    %r14
+  4afdf7:	41 5f                	pop    %r15
+  4afdf9:	5d                   	pop    %rbp
+  4afdfa:	c3                   	ret    
+  4afdfb:	89 ef                	mov    %ebp,%edi
+  4afdfd:	4c 89 e6             	mov    %r12,%rsi
+  4afe00:	e8 9b ac 72 00       	call   bdaaa0 <UE::Core::Private::OnInvalidAlignedHeapAllocatorNum(int, unsigned long)@plt>
+  4afe05:	44 89 ef             	mov    %r13d,%edi
+  4afe08:	e8 63 a1 72 00       	call   bd9f70 <UE::Core::Private::OnInvalidArrayNum(unsigned long long)@plt>
+  4afe0d:	cc                   	int3   
+  4afe0e:	cc                   	int3   
+  4afe0f:	cc                   	int3   
+
+00000000004afe10 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)>:
+  4afe10:	41 57                	push   %r15
+  4afe12:	41 56                	push   %r14
+  4afe14:	41 54                	push   %r12
+  4afe16:	53                   	push   %rbx
+  4afe17:	50                   	push   %rax
+  4afe18:	48 89 fb             	mov    %rdi,%rbx
+  4afe1b:	45 85 c0             	test   %r8d,%r8d
+  4afe1e:	74 13                	je     4afe33 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)+0x23>
+  4afe20:	48 8b 05 f1 51 78 00 	mov    0x7851f1(%rip),%rax        # c35018 <vtable for LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>@@Base+0x43670>
+  4afe27:	48 83 c0 10          	add    $0x10,%rax
+  4afe2b:	48 89 06             	mov    %rax,(%rsi)
+  4afe2e:	e9 55 01 00 00       	jmp    4aff88 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)+0x178>
+  4afe33:	49 89 d6             	mov    %rdx,%r14
+  4afe36:	48 8b 05 e3 51 78 00 	mov    0x7851e3(%rip),%rax        # c35020 <vtable for LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, true>@@Base+0x43630>
+  4afe3d:	48 83 c0 10          	add    $0x10,%rax
+  4afe41:	48 89 06             	mov    %rax,(%rsi)
+  4afe44:	48 8d 3d 85 4f 78 00 	lea    0x784f85(%rip),%rdi        # c34dd0 <_DYNAMIC+0x1f0>
+  4afe4b:	e8 b0 a1 72 00       	call   bda000 <__tls_get_addr@plt>
+  4afe50:	49 89 c7             	mov    %rax,%r15
+  4afe53:	4c 8d a0 a0 00 00 00 	lea    0xa0(%rax),%r12
+  4afe5a:	48 8b 80 a0 00 00 00 	mov    0xa0(%rax),%rax
+  4afe61:	48 85 c0             	test   %rax,%rax
+  4afe64:	75 62                	jne    4afec8 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)+0xb8>
+  4afe66:	4c 89 f8             	mov    %r15,%rax
+  4afe69:	41 80 bf 88 00 00 00 	cmpb   $0x0,0x88(%r15)
+  4afe70:	00 
+  4afe71:	0f 84 2f 01 00 00    	je     4affa6 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)+0x196>
+  4afe77:	4c 89 f8             	mov    %r15,%rax
+  4afe7a:	48 89 c1             	mov    %rax,%rcx
+  4afe7d:	48 8b 80 80 00 00 00 	mov    0x80(%rax),%rax
+  4afe84:	48 c7 81 80 00 00 00 	movq   $0x0,0x80(%rcx)
+  4afe8b:	00 00 00 00 
+  4afe8f:	48 85 c0             	test   %rax,%rax
+  4afe92:	75 0f                	jne    4afea3 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)+0x93>
+  4afe94:	bf 00 00 01 00       	mov    $0x10000,%edi
+  4afe99:	be 08 00 00 00       	mov    $0x8,%esi
+  4afe9e:	e8 0d 9f 72 00       	call   bd9db0 <FMemory::Malloc(unsigned long, unsigned int)@plt>
+  4afea3:	c7 00 ff ff ff ff    	movl   $0xffffffff,(%rax)
+  4afea9:	48 8d 48 58          	lea    0x58(%rax),%rcx
+  4afead:	48 89 48 40          	mov    %rcx,0x40(%rax)
+  4afeb1:	c7 40 48 00 00 00 00 	movl   $0x0,0x48(%rax)
+  4afeb8:	49 89 04 24          	mov    %rax,(%r12)
+  4afebc:	4c 89 e7             	mov    %r12,%rdi
+  4afebf:	e8 bc bf ff ff       	call   4abe80 <TLinearAllocatorBase<LowLevelTasks::FLowLevelTasksBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::AllocateBlock(TLinearAllocatorBase<LowLevelTasks::FLowLevelTasksBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::FBlockHeader*&)>
+  4afec4:	49 8b 04 24          	mov    (%r12),%rax
+  4afec8:	48 8b 50 40          	mov    0x40(%rax),%rdx
+  4afecc:	48 83 c2 03          	add    $0x3,%rdx
+  4afed0:	48 83 e2 fc          	and    $0xfffffffffffffffc,%rdx
+  4afed4:	48 8d b0 00 00 01 00 	lea    0x10000(%rax),%rsi
+  4afedb:	8b 48 48             	mov    0x48(%rax),%ecx
+  4afede:	48 39 f2             	cmp    %rsi,%rdx
+  4afee1:	0f 82 bb 00 00 00    	jb     4affa2 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)+0x192>
+  4afee7:	48 89 70 40          	mov    %rsi,0x40(%rax)
+  4afeeb:	f7 d1                	not    %ecx
+  4afeed:	f0 29 08             	lock sub %ecx,(%rax)
+  4afef0:	0f 85 70 ff ff ff    	jne    4afe66 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)+0x56>
+  4afef6:	49 8b 04 24          	mov    (%r12),%rax
+  4afefa:	c7 00 ff ff ff ff    	movl   $0xffffffff,(%rax)
+  4aff00:	48 8d 48 58          	lea    0x58(%rax),%rcx
+  4aff04:	48 89 48 40          	mov    %rcx,0x40(%rax)
+  4aff08:	c7 40 48 00 00 00 00 	movl   $0x0,0x48(%rax)
+  4aff0f:	48 8d 50 5b          	lea    0x5b(%rax),%rdx
+  4aff13:	48 83 e2 fc          	and    $0xfffffffffffffffc,%rdx
+  4aff17:	48 8d b0 00 00 01 00 	lea    0x10000(%rax),%rsi
+  4aff1e:	b9 01 00 00 00       	mov    $0x1,%ecx
+  4aff23:	48 39 f2             	cmp    %rsi,%rdx
+  4aff26:	72 42                	jb     4aff6a <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)+0x15a>
+  4aff28:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+  4aff2f:	00 
+  4aff30:	48 89 70 40          	mov    %rsi,0x40(%rax)
+  4aff34:	f0 ff 00             	lock incl (%rax)
+  4aff37:	0f 85 29 ff ff ff    	jne    4afe66 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)+0x56>
+  4aff3d:	49 8b 04 24          	mov    (%r12),%rax
+  4aff41:	c7 00 ff ff ff ff    	movl   $0xffffffff,(%rax)
+  4aff47:	48 8d 50 58          	lea    0x58(%rax),%rdx
+  4aff4b:	48 89 50 40          	mov    %rdx,0x40(%rax)
+  4aff4f:	c7 40 48 00 00 00 00 	movl   $0x0,0x48(%rax)
+  4aff56:	48 8d 50 5b          	lea    0x5b(%rax),%rdx
+  4aff5a:	48 83 e2 fc          	and    $0xfffffffffffffffc,%rdx
+  4aff5e:	48 8d b0 00 00 01 00 	lea    0x10000(%rax),%rsi
+  4aff65:	48 39 f2             	cmp    %rsi,%rdx
+  4aff68:	73 c6                	jae    4aff30 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)+0x120>
+  4aff6a:	48 8d 72 09          	lea    0x9(%rdx),%rsi
+  4aff6e:	48 89 70 40          	mov    %rsi,0x40(%rax)
+  4aff72:	89 48 48             	mov    %ecx,0x48(%rax)
+  4aff75:	48 8d 4a f8          	lea    -0x8(%rdx),%rcx
+  4aff79:	29 c1                	sub    %eax,%ecx
+  4aff7b:	89 4a f8             	mov    %ecx,-0x8(%rdx)
+  4aff7e:	c7 42 fc 01 00 00 00 	movl   $0x1,-0x4(%rdx)
+  4aff85:	49 89 16             	mov    %rdx,(%r14)
+  4aff88:	48 8b 05 99 50 78 00 	mov    0x785099(%rip),%rax        # c35028 <vtable for LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateDummy@@Base+0x435f0>
+  4aff8f:	48 83 c0 10          	add    $0x10,%rax
+  4aff93:	48 89 03             	mov    %rax,(%rbx)
+  4aff96:	48 83 c4 08          	add    $0x8,%rsp
+  4aff9a:	5b                   	pop    %rbx
+  4aff9b:	41 5c                	pop    %r12
+  4aff9d:	41 5e                	pop    %r14
+  4aff9f:	41 5f                	pop    %r15
+  4affa1:	c3                   	ret    
+  4affa2:	ff c1                	inc    %ecx
+  4affa4:	eb c4                	jmp    4aff6a <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)+0x15a>
+  4affa6:	49 8d b7 80 00 00 00 	lea    0x80(%r15),%rsi
+  4affad:	48 8d 3d dc 31 ff ff 	lea    -0xce24(%rip),%rdi        # 4a3190 <TBlockAllocationCache<65536u, FAlignedAllocator>::FTLSCleanup::~FTLSCleanup()>
+  4affb4:	48 8d 15 85 98 78 00 	lea    0x789885(%rip),%rdx        # c39840 <__dso_handle>
+  4affbb:	e8 60 a0 72 00       	call   bda020 <__cxa_thread_atexit@plt>
+  4affc0:	4c 89 f8             	mov    %r15,%rax
+  4affc3:	41 c6 87 88 00 00 00 	movb   $0x1,0x88(%r15)
+  4affca:	01 
+  4affcb:	e9 a7 fe ff ff       	jmp    4afe77 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)+0x67>
+
+00000000004affd0 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::CallAndMove(LowLevelTasks::TTaskDelegate<bool (), 16u>&, void*, unsigned int)>:
+  4affd0:	50                   	push   %rax
+  4affd1:	41 89 c8             	mov    %ecx,%r8d
+  4affd4:	48 89 d1             	mov    %rdx,%rcx
+  4affd7:	48 89 f2             	mov    %rsi,%rdx
+  4affda:	48 83 c6 08          	add    $0x8,%rsi
+  4affde:	e8 2d fe ff ff       	call   4afe10 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, false>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)>
+  4affe3:	b0 01                	mov    $0x1,%al
+  4affe5:	59                   	pop    %rcx
+  4affe6:	c3                   	ret    
+  4affe7:	cc                   	int3   
+  4affe8:	cc                   	int3   
+  4affe9:	cc                   	int3   
+  4affea:	cc                   	int3   
+  4affeb:	cc                   	int3   
+  4affec:	cc                   	int3   
+  4affed:	cc                   	int3   
+  4affee:	cc                   	int3   
+  4affef:	cc                   	int3   
+
+00000000004afff0 <icu_64::Appendable::reserveAppendCapacity(int)>:
+  4afff0:	b8 01 00 00 00       	mov    $0x1,%eax
+  4afff5:	c3                   	ret    
+  4afff6:	cc                   	int3   
+  4afff7:	cc                   	int3   
+  4afff8:	cc                   	int3   
+  4afff9:	cc                   	int3   
+  4afffa:	cc                   	int3   
+  4afffb:	cc                   	int3   
+  4afffc:	cc                   	int3   
+  4afffd:	cc                   	int3   
+  4afffe:	cc                   	int3   
+  4affff:	cc                   	int3   
+
+00000000004b0000 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, true>::Move(LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateBase&, void*, void*, unsigned int)>:
+  4b0000:	48 8b 05 19 50 78 00 	mov    0x785019(%rip),%rax        # c35020 <vtable for LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, true>@@Base+0x43630>
+  4b0007:	48 83 c0 10          	add    $0x10,%rax
+  4b000b:	48 89 06             	mov    %rax,(%rsi)
+  4b000e:	48 8b 01             	mov    (%rcx),%rax
+  4b0011:	48 89 02             	mov    %rax,(%rdx)
+  4b0014:	48 8b 05 0d 50 78 00 	mov    0x78500d(%rip),%rax        # c35028 <vtable for LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateDummy@@Base+0x435f0>
+  4b001b:	48 83 c0 10          	add    $0x10,%rax
+  4b001f:	48 89 07             	mov    %rax,(%rdi)
+  4b0022:	c3                   	ret    
+  4b0023:	cc                   	int3   
+  4b0024:	cc                   	int3   
+  4b0025:	cc                   	int3   
+  4b0026:	cc                   	int3   
+  4b0027:	cc                   	int3   
+  4b0028:	cc                   	int3   
+  4b0029:	cc                   	int3   
+  4b002a:	cc                   	int3   
+  4b002b:	cc                   	int3   
+  4b002c:	cc                   	int3   
+  4b002d:	cc                   	int3   
+  4b002e:	cc                   	int3   
+  4b002f:	cc                   	int3   
+
+00000000004b0030 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, true>::CallAndMove(LowLevelTasks::TTaskDelegate<bool (), 16u>&, void*, unsigned int)>:
+  4b0030:	48 8b 05 e9 4f 78 00 	mov    0x784fe9(%rip),%rax        # c35020 <vtable for LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, true>@@Base+0x43630>
+  4b0037:	48 83 c0 10          	add    $0x10,%rax
+  4b003b:	48 89 46 08          	mov    %rax,0x8(%rsi)
+  4b003f:	48 8b 02             	mov    (%rdx),%rax
+  4b0042:	48 89 06             	mov    %rax,(%rsi)
+  4b0045:	48 8b 05 dc 4f 78 00 	mov    0x784fdc(%rip),%rax        # c35028 <vtable for LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateDummy@@Base+0x435f0>
+  4b004c:	48 83 c0 10          	add    $0x10,%rax
+  4b0050:	48 89 07             	mov    %rax,(%rdi)
+  4b0053:	b0 01                	mov    $0x1,%al
+  4b0055:	c3                   	ret    
+  4b0056:	cc                   	int3   
+  4b0057:	cc                   	int3   
+  4b0058:	cc                   	int3   
+  4b0059:	cc                   	int3   
+  4b005a:	cc                   	int3   
+  4b005b:	cc                   	int3   
+  4b005c:	cc                   	int3   
+  4b005d:	cc                   	int3   
+  4b005e:	cc                   	int3   
+  4b005f:	cc                   	int3   
+
+00000000004b0060 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, true>::Destroy(void*)>:
+  4b0060:	41 56                	push   %r14
+  4b0062:	53                   	push   %rbx
+  4b0063:	50                   	push   %rax
+  4b0064:	48 8b 1e             	mov    (%rsi),%rbx
+  4b0067:	48 85 db             	test   %rbx,%rbx
+  4b006a:	74 58                	je     4b00c4 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, true>::Destroy(void*)+0x64>
+  4b006c:	8b 43 f8             	mov    -0x8(%rbx),%eax
+  4b006f:	48 83 c3 f8          	add    $0xfffffffffffffff8,%rbx
+  4b0073:	48 29 c3             	sub    %rax,%rbx
+  4b0076:	f0 ff 0b             	lock decl (%rbx)
+  4b0079:	75 49                	jne    4b00c4 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, true>::Destroy(void*)+0x64>
+  4b007b:	48 8b 43 40          	mov    0x40(%rbx),%rax
+  4b007f:	48 29 d8             	sub    %rbx,%rax
+  4b0082:	48 3d 00 00 01 00    	cmp    $0x10000,%rax
+  4b0088:	75 42                	jne    4b00cc <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, true>::Destroy(void*)+0x6c>
+  4b008a:	48 8d 3d 3f 4d 78 00 	lea    0x784d3f(%rip),%rdi        # c34dd0 <_DYNAMIC+0x1f0>
+  4b0091:	e8 6a 9f 72 00       	call   bda000 <__tls_get_addr@plt>
+  4b0096:	49 89 c6             	mov    %rax,%r14
+  4b0099:	80 b8 88 00 00 00 00 	cmpb   $0x0,0x88(%rax)
+  4b00a0:	74 39                	je     4b00db <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, true>::Destroy(void*)+0x7b>
+  4b00a2:	4c 89 f0             	mov    %r14,%rax
+  4b00a5:	49 8b be 80 00 00 00 	mov    0x80(%r14),%rdi
+  4b00ac:	49 89 9e 80 00 00 00 	mov    %rbx,0x80(%r14)
+  4b00b3:	48 85 ff             	test   %rdi,%rdi
+  4b00b6:	74 0c                	je     4b00c4 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, true>::Destroy(void*)+0x64>
+  4b00b8:	48 83 c4 08          	add    $0x8,%rsp
+  4b00bc:	5b                   	pop    %rbx
+  4b00bd:	41 5e                	pop    %r14
+  4b00bf:	e9 2c 9d 72 00       	jmp    bd9df0 <FMemory::Free(void*)@plt>
+  4b00c4:	48 83 c4 08          	add    $0x8,%rsp
+  4b00c8:	5b                   	pop    %rbx
+  4b00c9:	41 5e                	pop    %r14
+  4b00cb:	c3                   	ret    
+  4b00cc:	48 89 df             	mov    %rbx,%rdi
+  4b00cf:	48 83 c4 08          	add    $0x8,%rsp
+  4b00d3:	5b                   	pop    %rbx
+  4b00d4:	41 5e                	pop    %r14
+  4b00d6:	e9 15 9d 72 00       	jmp    bd9df0 <FMemory::Free(void*)@plt>
+  4b00db:	49 8d b6 80 00 00 00 	lea    0x80(%r14),%rsi
+  4b00e2:	48 8d 3d a7 30 ff ff 	lea    -0xcf59(%rip),%rdi        # 4a3190 <TBlockAllocationCache<65536u, FAlignedAllocator>::FTLSCleanup::~FTLSCleanup()>
+  4b00e9:	48 8d 15 50 97 78 00 	lea    0x789750(%rip),%rdx        # c39840 <__dso_handle>
+  4b00f0:	e8 2b 9f 72 00       	call   bda020 <__cxa_thread_atexit@plt>
+  4b00f5:	4c 89 f0             	mov    %r14,%rax
+  4b00f8:	41 c6 86 88 00 00 00 	movb   $0x1,0x88(%r14)
+  4b00ff:	01 
+  4b0100:	eb a0                	jmp    4b00a2 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateImpl<LowLevelTasks::FReserveScheduler::FYieldedWork::CompletedDelegate::{lambda()#1}, true>::Destroy(void*)+0x42>
+  4b0102:	cc                   	int3   
+  4b0103:	cc                   	int3   
+  4b0104:	cc                   	int3   
+  4b0105:	cc                   	int3   
+  4b0106:	cc                   	int3   
+  4b0107:	cc                   	int3   
+  4b0108:	cc                   	int3   
+  4b0109:	cc                   	int3   
+  4b010a:	cc                   	int3   
+  4b010b:	cc                   	int3   
+  4b010c:	cc                   	int3   
+  4b010d:	cc                   	int3   
+  4b010e:	cc                   	int3   
+  4b010f:	cc                   	int3   
+
+00000000004b0110 <LowLevelTasks::TTaskDelegate<bool (), 16u>::TTaskDelegateDummy::Call(void*) const>:
+  4b0110:	50                   	push   %rax
+  4b0111:	48 8d 3d 93 f3 da ff 	lea    -0x250c6d(%rip),%rdi        # 25f4ab <flagLR+0xce7b>
+  4b0118:	48 8d 35 8f d7 da ff 	lea    -0x252871(%rip),%rsi        # 25d8ae <flagLR+0xb27e>
+  4b011f:	48                   	rex.W

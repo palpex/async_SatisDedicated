@@ -1,0 +1,10 @@
+.tools/
+server/
+.runtime/
+__pycache__/
+*.pyc
+*.so
+build/
+evidence/rea-factorygame-session.bundle.json
+.pytest_cache/
+

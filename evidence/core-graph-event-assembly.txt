@@ -1,0 +1,487 @@
+
+server/Engine/Binaries/Linux/libFactoryServer-Core-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000004ac890 <FGraphEventImpl::operator new(unsigned long)>:
+  4ac890:	55                   	push   %rbp
+  4ac891:	41 57                	push   %r15
+  4ac893:	41 56                	push   %r14
+  4ac895:	41 54                	push   %r12
+  4ac897:	53                   	push   %rbx
+  4ac898:	0f b6 05 21 7e 7a 00 	movzbl 0x7a7e21(%rip),%eax        # c546c0 <guard variable for GetGraphEventImplAllocator()::Singleton>
+  4ac89f:	84 c0                	test   %al,%al
+  4ac8a1:	0f 84 90 02 00 00    	je     4acb37 <FGraphEventImpl::operator new(unsigned long)+0x2a7>
+  4ac8a7:	8b 3d 53 7d 7a 00    	mov    0x7a7d53(%rip),%edi        # c54600 <GetGraphEventImplAllocator()::Singleton>
+  4ac8ad:	e8 7e d9 72 00       	call   bda230 <pthread_getspecific@plt>
+  4ac8b2:	48 89 c3             	mov    %rax,%rbx
+  4ac8b5:	48 85 c0             	test   %rax,%rax
+  4ac8b8:	74 35                	je     4ac8ef <FGraphEventImpl::operator new(unsigned long)+0x5f>
+  4ac8ba:	48 8b 43 08          	mov    0x8(%rbx),%rax
+  4ac8be:	48 85 c0             	test   %rax,%rax
+  4ac8c1:	74 62                	je     4ac925 <FGraphEventImpl::operator new(unsigned long)+0x95>
+  4ac8c3:	8b 73 10             	mov    0x10(%rbx),%esi
+  4ac8c6:	48 8b 08             	mov    (%rax),%rcx
+  4ac8c9:	48 89 4b 08          	mov    %rcx,0x8(%rbx)
+  4ac8cd:	8d 56 ff             	lea    -0x1(%rsi),%edx
+  4ac8d0:	89 53 10             	mov    %edx,0x10(%rbx)
+  4ac8d3:	85 f6                	test   %esi,%esi
+  4ac8d5:	0f 8e 2b 02 00 00    	jle    4acb06 <FGraphEventImpl::operator new(unsigned long)+0x276>
+  4ac8db:	85 d2                	test   %edx,%edx
+  4ac8dd:	0f 95 c2             	setne  %dl
+  4ac8e0:	48 85 c9             	test   %rcx,%rcx
+  4ac8e3:	0f 95 c1             	setne  %cl
+  4ac8e6:	38 d1                	cmp    %dl,%cl
+  4ac8e8:	74 68                	je     4ac952 <FGraphEventImpl::operator new(unsigned long)+0xc2>
+  4ac8ea:	e9 17 02 00 00       	jmp    4acb06 <FGraphEventImpl::operator new(unsigned long)+0x276>
+  4ac8ef:	bf 18 00 00 00       	mov    $0x18,%edi
+  4ac8f4:	be 10 00 00 00       	mov    $0x10,%esi
+  4ac8f9:	e8 b2 d4 72 00       	call   bd9db0 <FMemory::Malloc(unsigned long, unsigned int)@plt>
+  4ac8fe:	48 89 c3             	mov    %rax,%rbx
+  4ac901:	0f 57 c0             	xorps  %xmm0,%xmm0
+  4ac904:	0f 11 00             	movups %xmm0,(%rax)
+  4ac907:	c7 40 10 00 00 00 00 	movl   $0x0,0x10(%rax)
+  4ac90e:	8b 3d ec 7c 7a 00    	mov    0x7a7cec(%rip),%edi        # c54600 <GetGraphEventImplAllocator()::Singleton>
+  4ac914:	48 89 c6             	mov    %rax,%rsi
+  4ac917:	e8 14 db 72 00       	call   bda430 <pthread_setspecific@plt>
+  4ac91c:	48 8b 43 08          	mov    0x8(%rbx),%rax
+  4ac920:	48 85 c0             	test   %rax,%rax
+  4ac923:	75 9e                	jne    4ac8c3 <FGraphEventImpl::operator new(unsigned long)+0x33>
+  4ac925:	48 8b 03             	mov    (%rbx),%rax
+  4ac928:	48 85 c0             	test   %rax,%rax
+  4ac92b:	74 2e                	je     4ac95b <FGraphEventImpl::operator new(unsigned long)+0xcb>
+  4ac92d:	48 89 43 08          	mov    %rax,0x8(%rbx)
+  4ac931:	49 89 de             	mov    %rbx,%r14
+  4ac934:	49 c7 06 00 00 00 00 	movq   $0x0,(%r14)
+  4ac93b:	48 8b 08             	mov    (%rax),%rcx
+  4ac93e:	48 89 4b 08          	mov    %rcx,0x8(%rbx)
+  4ac942:	c7 43 10 85 01 00 00 	movl   $0x185,0x10(%rbx)
+  4ac949:	48 85 c9             	test   %rcx,%rcx
+  4ac94c:	0f 84 b4 01 00 00    	je     4acb06 <FGraphEventImpl::operator new(unsigned long)+0x276>
+  4ac952:	5b                   	pop    %rbx
+  4ac953:	41 5c                	pop    %r12
+  4ac955:	41 5e                	pop    %r14
+  4ac957:	41 5f                	pop    %r15
+  4ac959:	5d                   	pop    %rbp
+  4ac95a:	c3                   	ret    
+  4ac95b:	4c 8b 35 c6 85 78 00 	mov    0x7885c6(%rip),%r14        # c34f28 <FLockFreeLinkPolicy::LinkAllocator@@Base-0x1fd98>
+  4ac962:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+  4ac969:	1f 84 00 00 00 00 00 
+  4ac970:	48 8b 05 c9 7c 7a 00 	mov    0x7a7cc9(%rip),%rax        # c54640 <GetGraphEventImplAllocator()::Singleton+0x40>
+  4ac977:	89 c7                	mov    %eax,%edi
+  4ac979:	81 e7 ff ff ff 03    	and    $0x3ffffff,%edi
+  4ac97f:	74 5d                	je     4ac9de <FGraphEventImpl::operator new(unsigned long)+0x14e>
+  4ac981:	48 89 c1             	mov    %rax,%rcx
+  4ac984:	48 c1 e9 1a          	shr    $0x1a,%rcx
+  4ac988:	4c 8d b8 00 00 00 04 	lea    0x4000000(%rax),%r15
+  4ac98f:	4c 89 fa             	mov    %r15,%rdx
+  4ac992:	48 c1 ea 1a          	shr    $0x1a,%rdx
+  4ac996:	48 39 ca             	cmp    %rcx,%rdx
+  4ac999:	72 32                	jb     4ac9cd <FGraphEventImpl::operator new(unsigned long)+0x13d>
+  4ac99b:	89 f9                	mov    %edi,%ecx
+  4ac99d:	c1 e9 0e             	shr    $0xe,%ecx
+  4ac9a0:	89 c2                	mov    %eax,%edx
+  4ac9a2:	81 e2 ff 3f 00 00    	and    $0x3fff,%edx
+  4ac9a8:	49 8b 74 ce 40       	mov    0x40(%r14,%rcx,8),%rsi
+  4ac9ad:	48 8d 14 52          	lea    (%rdx,%rdx,2),%rdx
+  4ac9b1:	44 8b 44 d6 10       	mov    0x10(%rsi,%rdx,8),%r8d
+  4ac9b6:	49 81 e7 00 00 00 fc 	and    $0xfffffffffc000000,%r15
+  4ac9bd:	4d 09 c7             	or     %r8,%r15
+  4ac9c0:	f0 4c 0f b1 3d 77 7c 	lock cmpxchg %r15,0x7a7c77(%rip)        # c54640 <GetGraphEventImplAllocator()::Singleton+0x40>
+  4ac9c7:	7a 00 
+  4ac9c9:	75 a5                	jne    4ac970 <FGraphEventImpl::operator new(unsigned long)+0xe0>
+  4ac9cb:	eb 1b                	jmp    4ac9e8 <FGraphEventImpl::operator new(unsigned long)+0x158>
+  4ac9cd:	89 fd                	mov    %edi,%ebp
+  4ac9cf:	49 89 c4             	mov    %rax,%r12
+  4ac9d2:	e8 f9 da 72 00       	call   bda4d0 <LockFreeTagCounterHasOverflowed()@plt>
+  4ac9d7:	4c 89 e0             	mov    %r12,%rax
+  4ac9da:	89 ef                	mov    %ebp,%edi
+  4ac9dc:	eb bd                	jmp    4ac99b <FGraphEventImpl::operator new(unsigned long)+0x10b>
+  4ac9de:	48 c7 43 08 00 00 00 	movq   $0x0,0x8(%rbx)
+  4ac9e5:	00 
+  4ac9e6:	eb 2d                	jmp    4aca15 <FGraphEventImpl::operator new(unsigned long)+0x185>
+  4ac9e8:	48 8d 04 d6          	lea    (%rsi,%rdx,8),%rax
+  4ac9ec:	48 83 c0 10          	add    $0x10,%rax
+  4ac9f0:	c7 00 00 00 00 00    	movl   $0x0,(%rax)
+  4ac9f6:	49 8b 44 ce 40       	mov    0x40(%r14,%rcx,8),%rax
+  4ac9fb:	4c 8b 74 d0 08       	mov    0x8(%rax,%rdx,8),%r14
+  4aca00:	e8 bb da 72 00       	call   bda4c0 <FLockFreeLinkPolicy::FreeLockFreeLink(unsigned int)@plt>
+  4aca05:	4c 89 f0             	mov    %r14,%rax
+  4aca08:	4c 89 73 08          	mov    %r14,0x8(%rbx)
+  4aca0c:	4d 85 f6             	test   %r14,%r14
+  4aca0f:	0f 85 26 ff ff ff    	jne    4ac93b <FGraphEventImpl::operator new(unsigned long)+0xab>
+  4aca15:	bf 00 00 01 00       	mov    $0x10000,%edi
+  4aca1a:	31 f6                	xor    %esi,%esi
+  4aca1c:	e8 8f d3 72 00       	call   bd9db0 <FMemory::Malloc(unsigned long, unsigned int)@plt>
+  4aca21:	48 89 43 08          	mov    %rax,0x8(%rbx)
+  4aca25:	b9 40 05 00 00       	mov    $0x540,%ecx
+  4aca2a:	ba 98 04 00 00       	mov    $0x498,%edx
+  4aca2f:	be f0 03 00 00       	mov    $0x3f0,%esi
+  4aca34:	bf 48 03 00 00       	mov    $0x348,%edi
+  4aca39:	41 b8 a0 02 00 00    	mov    $0x2a0,%r8d
+  4aca3f:	41 b9 f8 01 00 00    	mov    $0x1f8,%r9d
+  4aca45:	41 ba 50 01 00 00    	mov    $0x150,%r10d
+  4aca4b:	41 bb a8 00 00 00    	mov    $0xa8,%r11d
+  4aca51:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+  4aca58:	0f 1f 84 00 00 00 00 
+  4aca5f:	00 
+  4aca60:	4e 8d 34 18          	lea    (%rax,%r11,1),%r14
+  4aca64:	4c 89 b4 10 68 fb ff 	mov    %r14,-0x498(%rax,%rdx,1)
+  4aca6b:	ff 
+  4aca6c:	4e 8d 34 10          	lea    (%rax,%r10,1),%r14
+  4aca70:	4c 89 b4 10 10 fc ff 	mov    %r14,-0x3f0(%rax,%rdx,1)
+  4aca77:	ff 
+  4aca78:	4e 8d 34 08          	lea    (%rax,%r9,1),%r14
+  4aca7c:	4c 89 b4 10 b8 fc ff 	mov    %r14,-0x348(%rax,%rdx,1)
+  4aca83:	ff 
+  4aca84:	4e 8d 34 00          	lea    (%rax,%r8,1),%r14
+  4aca88:	4c 89 b4 10 60 fd ff 	mov    %r14,-0x2a0(%rax,%rdx,1)
+  4aca8f:	ff 
+  4aca90:	4c 8d 34 38          	lea    (%rax,%rdi,1),%r14
+  4aca94:	4c 89 b4 10 08 fe ff 	mov    %r14,-0x1f8(%rax,%rdx,1)
+  4aca9b:	ff 
+  4aca9c:	41 81 f8 a0 fe 00 00 	cmp    $0xfea0,%r8d
+  4acaa3:	0f 84 8b fe ff ff    	je     4ac934 <FGraphEventImpl::operator new(unsigned long)+0xa4>
+  4acaa9:	4c 8d 34 10          	lea    (%rax,%rdx,1),%r14
+  4acaad:	4c 8d 3c 30          	lea    (%rax,%rsi,1),%r15
+  4acab1:	4c 89 bc 10 b0 fe ff 	mov    %r15,-0x150(%rax,%rdx,1)
+  4acab8:	ff 
+  4acab9:	4c 89 b4 10 58 ff ff 	mov    %r14,-0xa8(%rax,%rdx,1)
+  4acac0:	ff 
+  4acac1:	4c 8d 34 08          	lea    (%rax,%rcx,1),%r14
+  4acac5:	4c 89 34 10          	mov    %r14,(%rax,%rdx,1)
+  4acac9:	48 81 c1 40 05 00 00 	add    $0x540,%rcx
+  4acad0:	48 81 c2 40 05 00 00 	add    $0x540,%rdx
+  4acad7:	48 81 c6 40 05 00 00 	add    $0x540,%rsi
+  4acade:	48 81 c7 40 05 00 00 	add    $0x540,%rdi
+  4acae5:	49 81 c0 40 05 00 00 	add    $0x540,%r8
+  4acaec:	49 81 c1 40 05 00 00 	add    $0x540,%r9
+  4acaf3:	49 81 c2 40 05 00 00 	add    $0x540,%r10
+  4acafa:	49 81 c3 40 05 00 00 	add    $0x540,%r11
+  4acb01:	e9 5a ff ff ff       	jmp    4aca60 <FGraphEventImpl::operator new(unsigned long)+0x1d0>
+  4acb06:	48 89 c3             	mov    %rax,%rbx
+  4acb09:	48 8d 3d 6b f0 db ff 	lea    -0x240f95(%rip),%rdi        # 26bb7b <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x321a>
+  4acb10:	48 8d 35 fa 04 db ff 	lea    -0x24fb06(%rip),%rsi        # 25d011 <flagLR+0xa9e1>
+  4acb17:	48 8d 0d f2 5f e1 ff 	lea    -0x1ea00e(%rip),%rcx        # 2c2b10 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x5a1af>
+  4acb1e:	ba 59 00 00 00       	mov    $0x59,%edx
+  4acb23:	31 c0                	xor    %eax,%eax
+  4acb25:	e8 26 d3 72 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  4acb2a:	84 c0                	test   %al,%al
+  4acb2c:	74 01                	je     4acb2f <FGraphEventImpl::operator new(unsigned long)+0x29f>
+  4acb2e:	cc                   	int3   
+  4acb2f:	48 89 d8             	mov    %rbx,%rax
+  4acb32:	e9 1b fe ff ff       	jmp    4ac952 <FGraphEventImpl::operator new(unsigned long)+0xc2>
+  4acb37:	48 8d 3d 82 7b 7a 00 	lea    0x7a7b82(%rip),%rdi        # c546c0 <guard variable for GetGraphEventImplAllocator()::Singleton>
+  4acb3e:	e8 1d d2 72 00       	call   bd9d60 <__cxa_guard_acquire@plt>
+  4acb43:	85 c0                	test   %eax,%eax
+  4acb45:	0f 84 5c fd ff ff    	je     4ac8a7 <FGraphEventImpl::operator new(unsigned long)+0x17>
+  4acb4b:	48 8d 1d ae 7a 7a 00 	lea    0x7a7aae(%rip),%rbx        # c54600 <GetGraphEventImplAllocator()::Singleton>
+  4acb52:	48 89 df             	mov    %rbx,%rdi
+  4acb55:	e8 66 fb ff ff       	call   4ac6c0 <TLockFreeFixedSizeAllocator_TLSCacheBase<168, TLockFreePointerListUnordered<void*, 64>, FNoopCounter>::TLockFreeFixedSizeAllocator_TLSCacheBase()>
+  4acb5a:	48 8d 3d 9f 69 ff ff 	lea    -0x9661(%rip),%rdi        # 4a3500 <TLockFreeFixedSizeAllocator_TLSCacheBase<168, TLockFreePointerListUnordered<void*, 64>, FNoopCounter>::~TLockFreeFixedSizeAllocator_TLSCacheBase()>
+  4acb61:	48 8d 15 d8 cc 78 00 	lea    0x78ccd8(%rip),%rdx        # c39840 <__dso_handle>
+  4acb68:	48 89 de             	mov    %rbx,%rsi
+  4acb6b:	e8 20 d2 72 00       	call   bd9d90 <__cxa_atexit@plt>
+  4acb70:	48 8d 3d 49 7b 7a 00 	lea    0x7a7b49(%rip),%rdi        # c546c0 <guard variable for GetGraphEventImplAllocator()::Singleton>
+  4acb77:	e8 04 d2 72 00       	call   bd9d80 <__cxa_guard_release@plt>
+  4acb7c:	e9 26 fd ff ff       	jmp    4ac8a7 <FGraphEventImpl::operator new(unsigned long)+0x17>
+  4acb81:	cc                   	int3   
+  4acb82:	cc                   	int3   
+  4acb83:	cc                   	int3   
+  4acb84:	cc                   	int3   
+  4acb85:	cc                   	int3   
+  4acb86:	cc                   	int3   
+  4acb87:	cc                   	int3   
+  4acb88:	cc                   	int3   
+  4acb89:	cc                   	int3   
+  4acb8a:	cc                   	int3   
+  4acb8b:	cc                   	int3   
+  4acb8c:	cc                   	int3   
+  4acb8d:	cc                   	int3   
+  4acb8e:	cc                   	int3   
+  4acb8f:	cc                   	int3   
+
+00000000004acb90 <FGraphEventImpl::FGraphEventImpl()>:
+  4acb90:	41 57                	push   %r15
+  4acb92:	41 56                	push   %r14
+  4acb94:	53                   	push   %rbx
+  4acb95:	48 89 fb             	mov    %rdi,%rbx
+  4acb98:	48 b8 01 00 00 00 01 	movabs $0x100000001,%rax
+  4acb9f:	00 00 00 
+  4acba2:	48 89 47 08          	mov    %rax,0x8(%rdi)
+  4acba6:	48 c7 47 10 00 00 00 	movq   $0x0,0x10(%rdi)
+  4acbad:	00 
+  4acbae:	c7 47 18 00 00 00 00 	movl   $0x0,0x18(%rdi)
+  4acbb5:	c7 47 20 ff ff ff ff 	movl   $0xffffffff,0x20(%rdi)
+  4acbbc:	48 c7 47 30 00 00 00 	movq   $0x0,0x30(%rdi)
+  4acbc3:	00 
+  4acbc4:	48 b8 00 00 00 00 01 	movabs $0x100000000,%rax
+  4acbcb:	00 00 00 
+  4acbce:	48 89 47 38          	mov    %rax,0x38(%rdi)
+  4acbd2:	c6 47 40 01          	movb   $0x1,0x40(%rdi)
+  4acbd6:	48 8b 0d 9b 82 78 00 	mov    0x78829b(%rip),%rcx        # c34e78 <vtable for LowLevelTasks::TTaskDelegate<LowLevelTasks::FTask* (bool), 48u>::TTaskDelegateDummy@@Base+0x43af0>
+  4acbdd:	48 83 c1 10          	add    $0x10,%rcx
+  4acbe1:	48 89 4f 70          	mov    %rcx,0x70(%rdi)
+  4acbe5:	48 c7 47 78 00 00 00 	movq   $0x0,0x78(%rdi)
+  4acbec:	00 
+  4acbed:	48 b9 20 00 00 00 00 	movabs $0xe800000000000020,%rcx
+  4acbf4:	00 00 e8 
+  4acbf7:	48 89 8f 80 00 00 00 	mov    %rcx,0x80(%rdi)
+  4acbfe:	48 c7 87 90 00 00 00 	movq   $0x0,0x90(%rdi)
+  4acc05:	00 00 00 00 
+  4acc09:	48 89 87 98 00 00 00 	mov    %rax,0x98(%rdi)
+  4acc10:	66 c7 87 a0 00 00 00 	movw   $0x0,0xa0(%rdi)
+  4acc17:	00 00 
+  4acc19:	48 8b 05 60 82 78 00 	mov    0x788260(%rip),%rax        # c34e80 <vtable for FBaseGraphTask@@Base+0x43838>
+  4acc20:	48 83 c0 10          	add    $0x10,%rax
+  4acc24:	48 89 07             	mov    %rax,(%rdi)
+  4acc27:	b0 ff                	mov    $0xff,%al
+  4acc29:	f0 0f c0 47 40       	lock xadd %al,0x40(%rdi)
+  4acc2e:	a8 02                	test   $0x2,%al
+  4acc30:	0f 85 99 00 00 00    	jne    4acccf <FGraphEventImpl::FGraphEventImpl()+0x13f>
+  4acc36:	48 8d 7b 70          	lea    0x70(%rbx),%rdi
+  4acc3a:	48 8b 05 c7 83 78 00 	mov    0x7883c7(%rip),%rax        # c35008 <vtable for FGraphEventImpl@@Base+0x43870>
+  4acc41:	48 83 c0 10          	add    $0x10,%rax
+  4acc45:	48 89 03             	mov    %rax,(%rbx)
+  4acc48:	48 8d 73 48          	lea    0x48(%rbx),%rsi
+  4acc4c:	48 8b 83 80 00 00 00 	mov    0x80(%rbx),%rax
+  4acc53:	a8 20                	test   $0x20,%al
+  4acc55:	0f 84 82 00 00 00    	je     4accdd <FGraphEventImpl::FGraphEventImpl()+0x14d>
+  4acc5b:	48 8b 43 70          	mov    0x70(%rbx),%rax
+  4acc5f:	ff 50 18             	call   *0x18(%rax)
+  4acc62:	48 8d 05 3f 4a 74 00 	lea    0x744a3f(%rip),%rax        # bf16a8 <vtable for LowLevelTasks::TTaskDelegate<LowLevelTasks::FTask* (bool), 48u>::TTaskDelegateImpl<LowLevelTasks::FTask::Init<UE::Tasks::Private::FTaskBase::Init(char16_t const*, LowLevelTasks::ETaskPriority, UE::Tasks::EExtendedTaskPriority, UE::Tasks::ETaskFlags)::{lambda()#1}>(char16_t const*, LowLevelTasks::ETaskPriority, UE::Tasks::Private::FTaskBase::Init(char16_t const*, LowLevelTasks::ETaskPriority, UE::Tasks::EExtendedTaskPriority, UE::Tasks::ETaskFlags)::{lambda()#1}&&, LowLevelTasks::ETaskFlags)::{lambda(bool)#1}, false>+0x10>
+  4acc69:	48 89 43 70          	mov    %rax,0x70(%rbx)
+  4acc6d:	48 89 5b 48          	mov    %rbx,0x48(%rbx)
+  4acc71:	48 89 5b 50          	mov    %rbx,0x50(%rbx)
+  4acc75:	48 8d 3d 54 81 78 00 	lea    0x788154(%rip),%rdi        # c34dd0 <_DYNAMIC+0x1f0>
+  4acc7c:	e8 7f d3 72 00       	call   bda000 <__tls_get_addr@plt>
+  4acc81:	48 8b 80 28 00 00 00 	mov    0x28(%rax),%rax
+  4acc88:	48 85 c0             	test   %rax,%rax
+  4acc8b:	74 06                	je     4acc93 <FGraphEventImpl::FGraphEventImpl()+0x103>
+  4acc8d:	48 8b 40 30          	mov    0x30(%rax),%rax
+  4acc91:	eb 02                	jmp    4acc95 <FGraphEventImpl::FGraphEventImpl()+0x105>
+  4acc93:	31 c0                	xor    %eax,%eax
+  4acc95:	48 89 43 78          	mov    %rax,0x78(%rbx)
+  4acc99:	48 8d 05 fa da dc ff 	lea    -0x232506(%rip),%rax        # 27a79a <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x11e39>
+  4acca0:	48 c1 e0 06          	shl    $0x6,%rax
+  4acca4:	48 b9 80 ff ff ff ff 	movabs $0x7ffffffffffff80,%rcx
+  4accab:	ff ff 07 
+  4accae:	48 21 c1             	and    %rax,%rcx
+  4accb1:	48 b8 00 00 00 00 00 	movabs $0xc800000000000000,%rax
+  4accb8:	00 00 c8 
+  4accbb:	48 09 c8             	or     %rcx,%rax
+  4accbe:	48 89 83 80 00 00 00 	mov    %rax,0x80(%rbx)
+  4accc5:	c6 43 1c 02          	movb   $0x2,0x1c(%rbx)
+  4accc9:	5b                   	pop    %rbx
+  4accca:	41 5e                	pop    %r14
+  4acccc:	41 5f                	pop    %r15
+  4accce:	c3                   	ret    
+  4acccf:	48 8d 7b 40          	lea    0x40(%rbx),%rdi
+  4accd3:	e8 08 d2 72 00       	call   bd9ee0 <UE::FMutex::WakeWaitingThread()@plt>
+  4accd8:	e9 59 ff ff ff       	jmp    4acc36 <FGraphEventImpl::FGraphEventImpl()+0xa6>
+  4accdd:	4c 8b 83 80 00 00 00 	mov    0x80(%rbx),%r8
+  4acce4:	41 83 e0 3f          	and    $0x3f,%r8d
+  4acce8:	48 8d 05 94 11 dc ff 	lea    -0x23ee6c(%rip),%rax        # 26de83 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x5522>
+  4accef:	48 8d 15 c1 08 db ff 	lea    -0x24f73f(%rip),%rdx        # 25d5b7 <flagLR+0xaf87>
+  4accf6:	48 8d 0d 79 ec de ff 	lea    -0x211387(%rip),%rcx        # 29b976 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x33015>
+  4accfd:	49 89 fe             	mov    %rdi,%r14
+  4acd00:	48 89 c7             	mov    %rax,%rdi
+  4acd03:	49 89 f7             	mov    %rsi,%r15
+  4acd06:	48 89 d6             	mov    %rdx,%rsi
+  4acd09:	ba dd 01 00 00       	mov    $0x1dd,%edx
+  4acd0e:	31 c0                	xor    %eax,%eax
+  4acd10:	e8 3b d1 72 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  4acd15:	4c 89 fe             	mov    %r15,%rsi
+  4acd18:	4c 89 f7             	mov    %r14,%rdi
+  4acd1b:	84 c0                	test   %al,%al
+  4acd1d:	0f 84 38 ff ff ff    	je     4acc5b <FGraphEventImpl::FGraphEventImpl()+0xcb>
+  4acd23:	cc                   	int3   
+  4acd24:	e9 32 ff ff ff       	jmp    4acc5b <FGraphEventImpl::FGraphEventImpl()+0xcb>
+  4acd29:	cc                   	int3   
+  4acd2a:	cc                   	int3   
+  4acd2b:	cc                   	int3   
+  4acd2c:	cc                   	int3   
+  4acd2d:	cc                   	int3   
+  4acd2e:	cc                   	int3   
+  4acd2f:	cc                   	int3   
+
+00000000004acd30 <FGraphEventImpl::~FGraphEventImpl()>:
+  4acd30:	53                   	push   %rbx
+  4acd31:	48 89 fb             	mov    %rdi,%rbx
+  4acd34:	e8 87 55 00 00       	call   4b22c0 <UE::Tasks::Private::FTaskBase::~FTaskBase()>
+  4acd39:	48 89 df             	mov    %rbx,%rdi
+  4acd3c:	5b                   	pop    %rbx
+  4acd3d:	e9 3e 00 00 00       	jmp    4acd80 <FGraphEventImpl::operator delete(void*)>
+  4acd42:	cc                   	int3   
+  4acd43:	cc                   	int3   
+  4acd44:	cc                   	int3   
+  4acd45:	cc                   	int3   
+  4acd46:	cc                   	int3   
+  4acd47:	cc                   	int3   
+  4acd48:	cc                   	int3   
+  4acd49:	cc                   	int3   
+  4acd4a:	cc                   	int3   
+  4acd4b:	cc                   	int3   
+  4acd4c:	cc                   	int3   
+  4acd4d:	cc                   	int3   
+  4acd4e:	cc                   	int3   
+  4acd4f:	cc                   	int3   
+
+00000000004acd50 <FGraphEventImpl::ExecuteTask()>:
+  4acd50:	50                   	push   %rax
+  4acd51:	48 8d 3d 6c 1d dc ff 	lea    -0x23e294(%rip),%rdi        # 26eac4 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x6163>
+  4acd58:	48 8d 35 f8 00 db ff 	lea    -0x24ff08(%rip),%rsi        # 25ce57 <flagLR+0xa827>
+  4acd5f:	48 8d 0d aa 5d e1 ff 	lea    -0x1ea256(%rip),%rcx        # 2c2b10 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x5a1af>
+  4acd66:	ba e0 02 00 00       	mov    $0x2e0,%edx
+  4acd6b:	31 c0                	xor    %eax,%eax
+  4acd6d:	e8 de d0 72 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  4acd72:	84 c0                	test   %al,%al
+  4acd74:	74 01                	je     4acd77 <FGraphEventImpl::ExecuteTask()+0x27>
+  4acd76:	cc                   	int3   
+  4acd77:	58                   	pop    %rax
+  4acd78:	c3                   	ret    
+  4acd79:	cc                   	int3   
+  4acd7a:	cc                   	int3   
+  4acd7b:	cc                   	int3   
+  4acd7c:	cc                   	int3   
+  4acd7d:	cc                   	int3   
+  4acd7e:	cc                   	int3   
+  4acd7f:	cc                   	int3   
+
+00000000004acd80 <FGraphEventImpl::operator delete(void*)>:
+  4acd80:	55                   	push   %rbp
+  4acd81:	41 57                	push   %r15
+  4acd83:	41 56                	push   %r14
+  4acd85:	41 55                	push   %r13
+  4acd87:	41 54                	push   %r12
+  4acd89:	53                   	push   %rbx
+  4acd8a:	48 83 ec 18          	sub    $0x18,%rsp
+  4acd8e:	48 89 fb             	mov    %rdi,%rbx
+  4acd91:	0f b6 05 28 79 7a 00 	movzbl 0x7a7928(%rip),%eax        # c546c0 <guard variable for GetGraphEventImplAllocator()::Singleton>
+  4acd98:	84 c0                	test   %al,%al
+  4acd9a:	0f 84 9e 01 00 00    	je     4acf3e <FGraphEventImpl::operator delete(void*)+0x1be>
+  4acda0:	8b 3d 5a 78 7a 00    	mov    0x7a785a(%rip),%edi        # c54600 <GetGraphEventImplAllocator()::Singleton>
+  4acda6:	e8 85 d4 72 00       	call   bda230 <pthread_getspecific@plt>
+  4acdab:	49 89 c6             	mov    %rax,%r14
+  4acdae:	48 85 c0             	test   %rax,%rax
+  4acdb1:	0f 84 b6 00 00 00    	je     4ace6d <FGraphEventImpl::operator delete(void*)+0xed>
+  4acdb7:	41 8b 46 10          	mov    0x10(%r14),%eax
+  4acdbb:	3d 85 01 00 00       	cmp    $0x185,%eax
+  4acdc0:	0f 8e e3 00 00 00    	jle    4acea9 <FGraphEventImpl::operator delete(void*)+0x129>
+  4acdc6:	48 89 5c 24 10       	mov    %rbx,0x10(%rsp)
+  4acdcb:	49 8b 1e             	mov    (%r14),%rbx
+  4acdce:	48 85 db             	test   %rbx,%rbx
+  4acdd1:	0f 84 3a 01 00 00    	je     4acf11 <FGraphEventImpl::operator delete(void*)+0x191>
+  4acdd7:	e8 84 db 72 00       	call   bda960 <FLockFreeLinkPolicy::AllocLockFreeLink()@plt>
+  4acddc:	85 c0                	test   %eax,%eax
+  4acdde:	0f 84 cd 00 00 00    	je     4aceb1 <FGraphEventImpl::operator delete(void*)+0x131>
+  4acde4:	41 89 c7             	mov    %eax,%r15d
+  4acde7:	41 c1 ef 0e          	shr    $0xe,%r15d
+  4acdeb:	41 89 c4             	mov    %eax,%r12d
+  4acdee:	25 ff 3f 00 00       	and    $0x3fff,%eax
+  4acdf3:	4c 8b 2d 2e 81 78 00 	mov    0x78812e(%rip),%r13        # c34f28 <FLockFreeLinkPolicy::LinkAllocator@@Base-0x1fd98>
+  4acdfa:	4b 8b 4c fd 40       	mov    0x40(%r13,%r15,8),%rcx
+  4acdff:	48 8d 2c 40          	lea    (%rax,%rax,2),%rbp
+  4ace03:	48 89 5c e9 08       	mov    %rbx,0x8(%rcx,%rbp,8)
+  4ace08:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+  4ace0f:	00 
+  4ace10:	48 8b 05 29 78 7a 00 	mov    0x7a7829(%rip),%rax        # c54640 <GetGraphEventImplAllocator()::Singleton+0x40>
+  4ace17:	48 89 c1             	mov    %rax,%rcx
+  4ace1a:	48 c1 e9 1a          	shr    $0x1a,%rcx
+  4ace1e:	48 8d 98 00 00 00 04 	lea    0x4000000(%rax),%rbx
+  4ace25:	48 89 da             	mov    %rbx,%rdx
+  4ace28:	48 c1 ea 1a          	shr    $0x1a,%rdx
+  4ace2c:	48 39 ca             	cmp    %rcx,%rdx
+  4ace2f:	72 2b                	jb     4ace5c <FGraphEventImpl::operator delete(void*)+0xdc>
+  4ace31:	48 81 e3 00 00 00 fc 	and    $0xfffffffffc000000,%rbx
+  4ace38:	4c 09 e3             	or     %r12,%rbx
+  4ace3b:	4b 8b 4c fd 40       	mov    0x40(%r13,%r15,8),%rcx
+  4ace40:	89 c2                	mov    %eax,%edx
+  4ace42:	81 e2 ff ff ff 03    	and    $0x3ffffff,%edx
+  4ace48:	89 54 e9 10          	mov    %edx,0x10(%rcx,%rbp,8)
+  4ace4c:	f0 48 0f b1 1d eb 77 	lock cmpxchg %rbx,0x7a77eb(%rip)        # c54640 <GetGraphEventImplAllocator()::Singleton+0x40>
+  4ace53:	7a 00 
+  4ace55:	75 b9                	jne    4ace10 <FGraphEventImpl::operator delete(void*)+0x90>
+  4ace57:	e9 b5 00 00 00       	jmp    4acf11 <FGraphEventImpl::operator delete(void*)+0x191>
+  4ace5c:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+  4ace61:	e8 6a d6 72 00       	call   bda4d0 <LockFreeTagCounterHasOverflowed()@plt>
+  4ace66:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+  4ace6b:	eb c4                	jmp    4ace31 <FGraphEventImpl::operator delete(void*)+0xb1>
+  4ace6d:	bf 18 00 00 00       	mov    $0x18,%edi
+  4ace72:	be 10 00 00 00       	mov    $0x10,%esi
+  4ace77:	e8 34 cf 72 00       	call   bd9db0 <FMemory::Malloc(unsigned long, unsigned int)@plt>
+  4ace7c:	49 89 c6             	mov    %rax,%r14
+  4ace7f:	0f 57 c0             	xorps  %xmm0,%xmm0
+  4ace82:	0f 11 00             	movups %xmm0,(%rax)
+  4ace85:	c7 40 10 00 00 00 00 	movl   $0x0,0x10(%rax)
+  4ace8c:	8b 3d 6e 77 7a 00    	mov    0x7a776e(%rip),%edi        # c54600 <GetGraphEventImplAllocator()::Singleton>
+  4ace92:	48 89 c6             	mov    %rax,%rsi
+  4ace95:	e8 96 d5 72 00       	call   bda430 <pthread_setspecific@plt>
+  4ace9a:	41 8b 46 10          	mov    0x10(%r14),%eax
+  4ace9e:	3d 85 01 00 00       	cmp    $0x185,%eax
+  4acea3:	0f 8f 1d ff ff ff    	jg     4acdc6 <FGraphEventImpl::operator delete(void*)+0x46>
+  4acea9:	49 8b 4e 08          	mov    0x8(%r14),%rcx
+  4acead:	ff c0                	inc    %eax
+  4aceaf:	eb 73                	jmp    4acf24 <FGraphEventImpl::operator delete(void*)+0x1a4>
+  4aceb1:	48 89 1c 25 08 00 00 	mov    %rbx,0x8
+  4aceb8:	00 
+  4aceb9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+  4acec0:	48 8b 05 79 77 7a 00 	mov    0x7a7779(%rip),%rax        # c54640 <GetGraphEventImplAllocator()::Singleton+0x40>
+  4acec7:	48 89 c1             	mov    %rax,%rcx
+  4aceca:	48 c1 e9 1a          	shr    $0x1a,%rcx
+  4acece:	48 8d 98 00 00 00 04 	lea    0x4000000(%rax),%rbx
+  4aced5:	48 89 da             	mov    %rbx,%rdx
+  4aced8:	48 c1 ea 1a          	shr    $0x1a,%rdx
+  4acedc:	48 39 ca             	cmp    %rcx,%rdx
+  4acedf:	72 23                	jb     4acf04 <FGraphEventImpl::operator delete(void*)+0x184>
+  4acee1:	48 81 e3 00 00 00 fc 	and    $0xfffffffffc000000,%rbx
+  4acee8:	89 c1                	mov    %eax,%ecx
+  4aceea:	81 e1 ff ff ff 03    	and    $0x3ffffff,%ecx
+  4acef0:	89 0c 25 10 00 00 00 	mov    %ecx,0x10
+  4acef7:	f0 48 0f b1 1d 40 77 	lock cmpxchg %rbx,0x7a7740(%rip)        # c54640 <GetGraphEventImplAllocator()::Singleton+0x40>
+  4acefe:	7a 00 
+  4acf00:	75 be                	jne    4acec0 <FGraphEventImpl::operator delete(void*)+0x140>
+  4acf02:	eb 0d                	jmp    4acf11 <FGraphEventImpl::operator delete(void*)+0x191>
+  4acf04:	49 89 c7             	mov    %rax,%r15
+  4acf07:	e8 c4 d5 72 00       	call   bda4d0 <LockFreeTagCounterHasOverflowed()@plt>
+  4acf0c:	4c 89 f8             	mov    %r15,%rax
+  4acf0f:	eb d0                	jmp    4acee1 <FGraphEventImpl::operator delete(void*)+0x161>
+  4acf11:	49 8b 46 08          	mov    0x8(%r14),%rax
+  4acf15:	49 89 06             	mov    %rax,(%r14)
+  4acf18:	b8 01 00 00 00       	mov    $0x1,%eax
+  4acf1d:	31 c9                	xor    %ecx,%ecx
+  4acf1f:	48 8b 5c 24 10       	mov    0x10(%rsp),%rbx
+  4acf24:	48 89 0b             	mov    %rcx,(%rbx)
+  4acf27:	49 89 5e 08          	mov    %rbx,0x8(%r14)
+  4acf2b:	41 89 46 10          	mov    %eax,0x10(%r14)
+  4acf2f:	48 83 c4 18          	add    $0x18,%rsp
+  4acf33:	5b                   	pop    %rbx
+  4acf34:	41 5c                	pop    %r12
+  4acf36:	41 5d                	pop    %r13
+  4acf38:	41 5e                	pop    %r14
+  4acf3a:	41 5f                	pop    %r15
+  4acf3c:	5d                   	pop    %rbp
+  4acf3d:	c3                   	ret    
+  4acf3e:	48 8d 3d 7b 77 7a 00 	lea    0x7a777b(%rip),%rdi        # c546c0 <guard variable for GetGraphEventImplAllocator()::Singleton>
+  4acf45:	e8 16 ce 72 00       	call   bd9d60 <__cxa_guard_acquire@plt>
+  4acf4a:	85 c0                	test   %eax,%eax
+  4acf4c:	0f 84 4e fe ff ff    	je     4acda0 <FGraphEventImpl::operator delete(void*)+0x20>
+  4acf52:	4c 8d 35 a7 76 7a 00 	lea    0x7a76a7(%rip),%r14        # c54600 <GetGraphEventImplAllocator()::Singleton>
+  4acf59:	4c 89 f7             	mov    %r14,%rdi
+  4acf5c:	e8 5f f7 ff ff       	call   4ac6c0 <TLockFreeFixedSizeAllocator_TLSCacheBase<168, TLockFreePointerListUnordered<void*, 64>, FNoopCounter>::TLockFreeFixedSizeAllocator_TLSCacheBase()>
+  4acf61:	48 8d 3d 98 65 ff ff 	lea    -0x9a68(%rip),%rdi        # 4a3500 <TLockFreeFixedSizeAllocator_TLSCacheBase<168, TLockFreePointerListUnordered<void*, 64>, FNoopCounter>::~TLockFreeFixedSizeAllocator_TLSCacheBase()>
+  4acf68:	48 8d 15 d1 c8 78 00 	lea    0x78c8d1(%rip),%rdx        # c39840 <__dso_handle>
+  4acf6f:	4c 89 f6             	mov    %r14,%rsi
+  4acf72:	e8 19 ce 72 00       	call   bd9d90 <__cxa_atexit@plt>
+  4acf77:	48 8d 3d 42 77 7a 00 	lea    0x7a7742(%rip),%rdi        # c546c0 <guard variable for GetGraphEventImplAllocator()::Singleton>
+  4acf7e:	e8 fd cd 72 00       	call   bd9d80 <__cxa_guard_release@plt>
+  4acf83:	e9 18 fe ff ff       	jmp    4acda0 <FGraphEventImpl::operator delete(void*)+0x20>
+  4acf88:	cc                   	int3   
+  4acf89:	cc                   	int3   
+  4acf8a:	cc                   	int3   
+  4acf8b:	cc                   	int3   
+  4acf8c:	cc                   	int3   
+  4acf8d:	cc                   	int3   
+  4acf8e:	cc                   	int3   
+  4acf8f:	cc                   	int3   

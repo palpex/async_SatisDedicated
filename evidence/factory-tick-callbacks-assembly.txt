@@ -1,0 +1,305 @@
+
+server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000189dbe0 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_0, void, int>::Call(void*, int&)>:
+ 189dbe0:	55                   	push   %rbp
+ 189dbe1:	41 57                	push   %r15
+ 189dbe3:	41 56                	push   %r14
+ 189dbe5:	41 55                	push   %r13
+ 189dbe7:	41 54                	push   %r12
+ 189dbe9:	53                   	push   %rbx
+ 189dbea:	50                   	push   %rax
+ 189dbeb:	48 63 2e             	movslq (%rsi),%rbp
+ 189dbee:	48 8b 07             	mov    (%rdi),%rax
+ 189dbf1:	4c 8b 77 08          	mov    0x8(%rdi),%r14
+ 189dbf5:	48 63 00             	movslq (%rax),%rax
+ 189dbf8:	48 0f af e8          	imul   %rax,%rbp
+ 189dbfc:	41 8b 8e c8 03 00 00 	mov    0x3c8(%r14),%ecx
+ 189dc03:	44 8d 24 28          	lea    (%rax,%rbp,1),%r12d
+ 189dc07:	44 39 e1             	cmp    %r12d,%ecx
+ 189dc0a:	44 0f 4c e1          	cmovl  %ecx,%r12d
+ 189dc0e:	45 89 e7             	mov    %r12d,%r15d
+ 189dc11:	41 29 ef             	sub    %ebp,%r15d
+ 189dc14:	0f 8e 8a 00 00 00    	jle    189dca4 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_0, void, int>::Call(void*, int&)+0xc4>
+ 189dc1a:	48 89 fb             	mov    %rdi,%rbx
+ 189dc1d:	49 89 ed             	mov    %rbp,%r13
+ 189dc20:	4d 63 8e c8 03 00 00 	movslq 0x3c8(%r14),%r9
+ 189dc27:	4d 85 ed             	test   %r13,%r13
+ 189dc2a:	78 1d                	js     189dc49 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_0, void, int>::Call(void*, int&)+0x69>
+ 189dc2c:	4d 39 cd             	cmp    %r9,%r13
+ 189dc2f:	7d 18                	jge    189dc49 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_0, void, int>::Call(void*, int&)+0x69>
+ 189dc31:	49 8b 86 c0 03 00 00 	mov    0x3c0(%r14),%rax
+ 189dc38:	4a 8b 04 e8          	mov    (%rax,%r13,8),%rax
+ 189dc3c:	0f 18 08             	prefetcht0 (%rax)
+ 189dc3f:	49 ff c5             	inc    %r13
+ 189dc42:	41 ff cf             	dec    %r15d
+ 189dc45:	75 d9                	jne    189dc20 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_0, void, int>::Call(void*, int&)+0x40>
+ 189dc47:	eb 2b                	jmp    189dc74 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_0, void, int>::Call(void*, int&)+0x94>
+ 189dc49:	48 8d 3d 57 75 65 ff 	lea    -0x9a8aa9(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 189dc50:	48 8d 35 c9 29 62 ff 	lea    -0x9dd637(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 189dc57:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 189dc5c:	48 8d 0d 9f 06 6b ff 	lea    -0x94f961(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 189dc63:	4d 89 e8             	mov    %r13,%r8
+ 189dc66:	31 c0                	xor    %eax,%eax
+ 189dc68:	e8 13 8f 8a 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 189dc6d:	84 c0                	test   %al,%al
+ 189dc6f:	74 c0                	je     189dc31 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_0, void, int>::Call(void*, int&)+0x51>
+ 189dc71:	cc                   	int3   
+ 189dc72:	eb bd                	jmp    189dc31 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_0, void, int>::Call(void*, int&)+0x51>
+ 189dc74:	41 29 ec             	sub    %ebp,%r12d
+ 189dc77:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ 189dc7e:	00 00 
+ 189dc80:	49 8b 86 c0 03 00 00 	mov    0x3c0(%r14),%rax
+ 189dc87:	48 8b 3c e8          	mov    (%rax,%rbp,8),%rdi
+ 189dc8b:	48 8b 43 10          	mov    0x10(%rbx),%rax
+ 189dc8f:	f3 0f 10 00          	movss  (%rax),%xmm0
+ 189dc93:	48 8b 07             	mov    (%rdi),%rax
+ 189dc96:	ff 90 30 09 00 00    	call   *0x930(%rax)
+ 189dc9c:	48 ff c5             	inc    %rbp
+ 189dc9f:	41 ff cc             	dec    %r12d
+ 189dca2:	75 dc                	jne    189dc80 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_0, void, int>::Call(void*, int&)+0xa0>
+ 189dca4:	48 83 c4 08          	add    $0x8,%rsp
+ 189dca8:	5b                   	pop    %rbx
+ 189dca9:	41 5c                	pop    %r12
+ 189dcab:	41 5d                	pop    %r13
+ 189dcad:	41 5e                	pop    %r14
+ 189dcaf:	41 5f                	pop    %r15
+ 189dcb1:	5d                   	pop    %rbp
+ 189dcb2:	c3                   	ret    
+ 189dcb3:	66 66 66 66 2e 0f 1f 	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 189dcba:	84 00 00 00 00 00 
+
+000000000189dcc0 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_1, void, int>::Call(void*, int&)>:
+ 189dcc0:	41 57                	push   %r15
+ 189dcc2:	41 56                	push   %r14
+ 189dcc4:	41 54                	push   %r12
+ 189dcc6:	53                   	push   %rbx
+ 189dcc7:	50                   	push   %rax
+ 189dcc8:	48 89 fb             	mov    %rdi,%rbx
+ 189dccb:	44 8b 36             	mov    (%rsi),%r14d
+ 189dcce:	4c 8b 3f             	mov    (%rdi),%r15
+ 189dcd1:	41 8b 87 98 04 00 00 	mov    0x498(%r15),%eax
+ 189dcd8:	45 85 f6             	test   %r14d,%r14d
+ 189dcdb:	78 61                	js     189dd3e <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_1, void, int>::Call(void*, int&)+0x7e>
+ 189dcdd:	44 39 f0             	cmp    %r14d,%eax
+ 189dce0:	7e 5c                	jle    189dd3e <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_1, void, int>::Call(void*, int&)+0x7e>
+ 189dce2:	49 8b 87 90 04 00 00 	mov    0x490(%r15),%rax
+ 189dce9:	49 c1 e6 04          	shl    $0x4,%r14
+ 189dced:	4e 63 7c 30 08       	movslq 0x8(%rax,%r14,1),%r15
+ 189dcf2:	4d 85 ff             	test   %r15,%r15
+ 189dcf5:	74 3b                	je     189dd32 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_1, void, int>::Call(void*, int&)+0x72>
+ 189dcf7:	4e 8b 34 30          	mov    (%rax,%r14,1),%r14
+ 189dcfb:	49 c1 e7 03          	shl    $0x3,%r15
+ 189dcff:	45 31 e4             	xor    %r12d,%r12d
+ 189dd02:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 189dd09:	1f 84 00 00 00 00 00 
+ 189dd10:	4b 8b 3c 26          	mov    (%r14,%r12,1),%rdi
+ 189dd14:	48 8b 43 08          	mov    0x8(%rbx),%rax
+ 189dd18:	48 8b 4b 10          	mov    0x10(%rbx),%rcx
+ 189dd1c:	f3 0f 10 00          	movss  (%rax),%xmm0
+ 189dd20:	f3 0f 58 01          	addss  (%rcx),%xmm0
+ 189dd24:	e8 47 5b 8d 00       	call   2173870 <AFGConveyorChainActor::Factory_Tick(float)@plt>
+ 189dd29:	49 83 c4 08          	add    $0x8,%r12
+ 189dd2d:	4d 39 e7             	cmp    %r12,%r15
+ 189dd30:	75 de                	jne    189dd10 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_1, void, int>::Call(void*, int&)+0x50>
+ 189dd32:	48 83 c4 08          	add    $0x8,%rsp
+ 189dd36:	5b                   	pop    %rbx
+ 189dd37:	41 5c                	pop    %r12
+ 189dd39:	41 5e                	pop    %r14
+ 189dd3b:	41 5f                	pop    %r15
+ 189dd3d:	c3                   	ret    
+ 189dd3e:	4c 63 c8             	movslq %eax,%r9
+ 189dd41:	4d 63 f6             	movslq %r14d,%r14
+ 189dd44:	48 8d 3d 5c 74 65 ff 	lea    -0x9a8ba4(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 189dd4b:	48 8d 35 ce 28 62 ff 	lea    -0x9dd732(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 189dd52:	48 8d 0d a9 05 6b ff 	lea    -0x94fa57(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 189dd59:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 189dd5e:	4d 89 f0             	mov    %r14,%r8
+ 189dd61:	31 c0                	xor    %eax,%eax
+ 189dd63:	e8 18 8e 8a 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 189dd68:	84 c0                	test   %al,%al
+ 189dd6a:	0f 84 72 ff ff ff    	je     189dce2 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_1, void, int>::Call(void*, int&)+0x22>
+ 189dd70:	cc                   	int3   
+ 189dd71:	e9 6c ff ff ff       	jmp    189dce2 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_1, void, int>::Call(void*, int&)+0x22>
+ 189dd76:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ 189dd7d:	00 00 00 
+
+000000000189dd80 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)>:
+ 189dd80:	55                   	push   %rbp
+ 189dd81:	41 57                	push   %r15
+ 189dd83:	41 56                	push   %r14
+ 189dd85:	41 55                	push   %r13
+ 189dd87:	41 54                	push   %r12
+ 189dd89:	53                   	push   %rbx
+ 189dd8a:	50                   	push   %rax
+ 189dd8b:	48 89 fb             	mov    %rdi,%rbx
+ 189dd8e:	44 8b 36             	mov    (%rsi),%r14d
+ 189dd91:	4c 8b 3f             	mov    (%rdi),%r15
+ 189dd94:	41 8b 87 70 04 00 00 	mov    0x470(%r15),%eax
+ 189dd9b:	45 85 f6             	test   %r14d,%r14d
+ 189dd9e:	0f 88 df 00 00 00    	js     189de83 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0x103>
+ 189dda4:	44 39 f0             	cmp    %r14d,%eax
+ 189dda7:	0f 8e d6 00 00 00    	jle    189de83 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0x103>
+ 189ddad:	49 8b 87 68 04 00 00 	mov    0x468(%r15),%rax
+ 189ddb4:	49 c1 e6 04          	shl    $0x4,%r14
+ 189ddb8:	4a 63 4c 30 08       	movslq 0x8(%rax,%r14,1),%rcx
+ 189ddbd:	48 85 c9             	test   %rcx,%rcx
+ 189ddc0:	0f 84 ae 00 00 00    	je     189de74 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0xf4>
+ 189ddc6:	4e 8b 34 30          	mov    (%rax,%r14,1),%r14
+ 189ddca:	4d 8d 3c ce          	lea    (%r14,%rcx,8),%r15
+ 189ddce:	eb 1a                	jmp    189ddea <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0x6a>
+ 189ddd0:	48 8b 43 08          	mov    0x8(%rbx),%rax
+ 189ddd4:	f3 0f 10 00          	movss  (%rax),%xmm0
+ 189ddd8:	e8 93 5a 8d 00       	call   2173870 <AFGConveyorChainActor::Factory_Tick(float)@plt>
+ 189dddd:	49 83 c6 08          	add    $0x8,%r14
+ 189dde1:	4d 39 fe             	cmp    %r15,%r14
+ 189dde4:	0f 84 8a 00 00 00    	je     189de74 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0xf4>
+ 189ddea:	49 8b 06             	mov    (%r14),%rax
+ 189dded:	48 8b 78 18          	mov    0x18(%rax),%rdi
+ 189ddf1:	48 85 ff             	test   %rdi,%rdi
+ 189ddf4:	75 da                	jne    189ddd0 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0x50>
+ 189ddf6:	4c 63 60 10          	movslq 0x10(%rax),%r12
+ 189ddfa:	4d 85 e4             	test   %r12,%r12
+ 189ddfd:	74 de                	je     189dddd <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0x5d>
+ 189ddff:	4c 8b 68 08          	mov    0x8(%rax),%r13
+ 189de03:	49 c1 e4 03          	shl    $0x3,%r12
+ 189de07:	31 ed                	xor    %ebp,%ebp
+ 189de09:	eb 1f                	jmp    189de2a <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0xaa>
+ 189de0b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 189de10:	48 8b 43 08          	mov    0x8(%rbx),%rax
+ 189de14:	f3 0f 10 00          	movss  (%rax),%xmm0
+ 189de18:	48 8b 07             	mov    (%rdi),%rax
+ 189de1b:	ff 90 30 09 00 00    	call   *0x930(%rax)
+ 189de21:	48 83 c5 08          	add    $0x8,%rbp
+ 189de25:	49 39 ec             	cmp    %rbp,%r12
+ 189de28:	74 b3                	je     189dddd <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0x5d>
+ 189de2a:	49 8b 7c 2d 00       	mov    0x0(%r13,%rbp,1),%rdi
+ 189de2f:	0f b6 87 19 06 00 00 	movzbl 0x619(%rdi),%eax
+ 189de36:	f6 d0                	not    %al
+ 189de38:	a8 03                	test   $0x3,%al
+ 189de3a:	75 d4                	jne    189de10 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0x90>
+ 189de3c:	83 bf 88 06 00 00 00 	cmpl   $0x0,0x688(%rdi)
+ 189de43:	74 cb                	je     189de10 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0x90>
+ 189de45:	48 8b 43 10          	mov    0x10(%rbx),%rax
+ 189de49:	80 38 00             	cmpb   $0x0,(%rax)
+ 189de4c:	74 c2                	je     189de10 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0x90>
+ 189de4e:	48 8b 43 08          	mov    0x8(%rbx),%rax
+ 189de52:	f3 0f 10 00          	movss  (%rax),%xmm0
+ 189de56:	f3 0f 58 87 50 07 00 	addss  0x750(%rdi),%xmm0
+ 189de5d:	00 
+ 189de5e:	f3 0f 11 87 50 07 00 	movss  %xmm0,0x750(%rdi)
+ 189de65:	00 
+ 189de66:	48 83 c5 08          	add    $0x8,%rbp
+ 189de6a:	49 39 ec             	cmp    %rbp,%r12
+ 189de6d:	75 bb                	jne    189de2a <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0xaa>
+ 189de6f:	e9 69 ff ff ff       	jmp    189dddd <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0x5d>
+ 189de74:	48 83 c4 08          	add    $0x8,%rsp
+ 189de78:	5b                   	pop    %rbx
+ 189de79:	41 5c                	pop    %r12
+ 189de7b:	41 5d                	pop    %r13
+ 189de7d:	41 5e                	pop    %r14
+ 189de7f:	41 5f                	pop    %r15
+ 189de81:	5d                   	pop    %rbp
+ 189de82:	c3                   	ret    
+ 189de83:	4c 63 c8             	movslq %eax,%r9
+ 189de86:	4d 63 f6             	movslq %r14d,%r14
+ 189de89:	48 8d 3d 17 73 65 ff 	lea    -0x9a8ce9(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 189de90:	48 8d 35 89 27 62 ff 	lea    -0x9dd877(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 189de97:	48 8d 0d 64 04 6b ff 	lea    -0x94fb9c(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 189de9e:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 189dea3:	4d 89 f0             	mov    %r14,%r8
+ 189dea6:	31 c0                	xor    %eax,%eax
+ 189dea8:	e8 d3 8c 8a 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 189dead:	84 c0                	test   %al,%al
+ 189deaf:	0f 84 f8 fe ff ff    	je     189ddad <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0x2d>
+ 189deb5:	cc                   	int3   
+ 189deb6:	e9 f2 fe ff ff       	jmp    189ddad <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_2, void, int>::Call(void*, int&)+0x2d>
+ 189debb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+000000000189dec0 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_3, void, int>::Call(void*, int&)>:
+ 189dec0:	41 57                	push   %r15
+ 189dec2:	41 56                	push   %r14
+ 189dec4:	41 54                	push   %r12
+ 189dec6:	53                   	push   %rbx
+ 189dec7:	50                   	push   %rax
+ 189dec8:	48 89 fb             	mov    %rdi,%rbx
+ 189decb:	44 8b 36             	mov    (%rsi),%r14d
+ 189dece:	4c 8b 3f             	mov    (%rdi),%r15
+ 189ded1:	41 8b 87 f0 03 00 00 	mov    0x3f0(%r15),%eax
+ 189ded8:	45 85 f6             	test   %r14d,%r14d
+ 189dedb:	0f 88 99 00 00 00    	js     189df7a <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_3, void, int>::Call(void*, int&)+0xba>
+ 189dee1:	44 39 f0             	cmp    %r14d,%eax
+ 189dee4:	0f 8e 90 00 00 00    	jle    189df7a <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_3, void, int>::Call(void*, int&)+0xba>
+ 189deea:	49 8b 87 e8 03 00 00 	mov    0x3e8(%r15),%rax
+ 189def1:	4a 8b 04 f0          	mov    (%rax,%r14,8),%rax
+ 189def5:	4c 63 70 10          	movslq 0x10(%rax),%r14
+ 189def9:	4d 85 f6             	test   %r14,%r14
+ 189defc:	74 70                	je     189df6e <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_3, void, int>::Call(void*, int&)+0xae>
+ 189defe:	4c 8b 78 08          	mov    0x8(%rax),%r15
+ 189df02:	49 c1 e6 03          	shl    $0x3,%r14
+ 189df06:	45 31 e4             	xor    %r12d,%r12d
+ 189df09:	eb 1f                	jmp    189df2a <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_3, void, int>::Call(void*, int&)+0x6a>
+ 189df0b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 189df10:	48 8b 43 10          	mov    0x10(%rbx),%rax
+ 189df14:	f3 0f 10 00          	movss  (%rax),%xmm0
+ 189df18:	48 8b 07             	mov    (%rdi),%rax
+ 189df1b:	ff 90 30 09 00 00    	call   *0x930(%rax)
+ 189df21:	49 83 c4 08          	add    $0x8,%r12
+ 189df25:	4d 39 e6             	cmp    %r12,%r14
+ 189df28:	74 44                	je     189df6e <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_3, void, int>::Call(void*, int&)+0xae>
+ 189df2a:	4b 8b 3c 27          	mov    (%r15,%r12,1),%rdi
+ 189df2e:	0f b6 87 19 06 00 00 	movzbl 0x619(%rdi),%eax
+ 189df35:	f6 d0                	not    %al
+ 189df37:	a8 03                	test   $0x3,%al
+ 189df39:	75 d5                	jne    189df10 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_3, void, int>::Call(void*, int&)+0x50>
+ 189df3b:	83 bf 88 06 00 00 00 	cmpl   $0x0,0x688(%rdi)
+ 189df42:	74 cc                	je     189df10 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_3, void, int>::Call(void*, int&)+0x50>
+ 189df44:	48 8b 43 08          	mov    0x8(%rbx),%rax
+ 189df48:	80 38 00             	cmpb   $0x0,(%rax)
+ 189df4b:	74 c3                	je     189df10 <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_3, void, int>::Call(void*, int&)+0x50>
+ 189df4d:	48 8b 43 10          	mov    0x10(%rbx),%rax
+ 189df51:	f3 0f 10 00          	movss  (%rax),%xmm0
+ 189df55:	f3 0f 58 87 50 07 00 	addss  0x750(%rdi),%xmm0
+ 189df5c:	00 
+ 189df5d:	f3 0f 11 87 50 07 00 	movss  %xmm0,0x750(%rdi)
+ 189df64:	00 
+ 189df65:	49 83 c4 08          	add    $0x8,%r12
+ 189df69:	4d 39 e6             	cmp    %r12,%r14
+ 189df6c:	75 bc                	jne    189df2a <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_3, void, int>::Call(void*, int&)+0x6a>
+ 189df6e:	48 83 c4 08          	add    $0x8,%rsp
+ 189df72:	5b                   	pop    %rbx
+ 189df73:	41 5c                	pop    %r12
+ 189df75:	41 5e                	pop    %r14
+ 189df77:	41 5f                	pop    %r15
+ 189df79:	c3                   	ret    
+ 189df7a:	4c 63 c8             	movslq %eax,%r9
+ 189df7d:	4d 63 f6             	movslq %r14d,%r14
+ 189df80:	48 8d 3d 20 72 65 ff 	lea    -0x9a8de0(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 189df87:	48 8d 35 92 26 62 ff 	lea    -0x9dd96e(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 189df8e:	48 8d 0d 6d 03 6b ff 	lea    -0x94fc93(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 189df95:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 189df9a:	4d 89 f0             	mov    %r14,%r8
+ 189df9d:	31 c0                	xor    %eax,%eax
+ 189df9f:	e8 dc 8b 8a 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 189dfa4:	84 c0                	test   %al,%al
+ 189dfa6:	0f 84 3e ff ff ff    	je     189deea <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_3, void, int>::Call(void*, int&)+0x2a>
+ 189dfac:	cc                   	int3   
+ 189dfad:	e9 38 ff ff ff       	jmp    189deea <UE::Core::Private::Function::TFunctionRefCaller<AFGBuildableSubsystem::TickFactoryActors(float)::$_3, void, int>::Call(void*, int&)+0x2a>
+ 189dfb2:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 189dfb9:	1f 84 00 00 00 00 00 
+
+000000000189dfc0 <void TOctree2<AFGBuildable*, FBuildableOctreeSemantics>::FindElementsWithBoundsTestInternal<AFGBuildableSubsystem::GetNearestBuildables(TArray<AFGBuildable*, TSizedDefaultAllocator<32> >&, UE::Math::TVector<double> const&, float) const::$_0>(unsigned int, FOctreeNodeContext const&, FBoxCenterAndExtent const&, AFGBuildableSubsystem::GetNearestBuildables(TArray<AFGBuildable*, TSizedDefaultAllocator<32> >&, UE::Math::TVector<double> const&, float) const::$_0 const&) const>:
+ 189dfc0:	55                   	push   %rbp
+ 189dfc1:	41 57                	push   %r15
+ 189dfc3:	41 56                	push   %r14
+ 189dfc5:	41 55                	push   %r13
+ 189dfc7:	41 54                	push   %r12
+ 189dfc9:	53                   	push   %rbx
+ 189dfca:	48                   	rex.W
+ 189dfcb:	81                   	.byte 0x81
+ 189dfcc:	ec                   	in     (%dx),%al
+ 189dfcd:	a8 00                	test   $0x0,%al
+	...

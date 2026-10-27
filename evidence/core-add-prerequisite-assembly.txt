@@ -1,0 +1,231 @@
+
+server/Engine/Binaries/Linux/libFactoryServer-Core-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000004b2410 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)>:
+  4b2410:	55                   	push   %rbp
+  4b2411:	41 57                	push   %r15
+  4b2413:	41 56                	push   %r14
+  4b2415:	41 55                	push   %r13
+  4b2417:	41 54                	push   %r12
+  4b2419:	53                   	push   %rbx
+  4b241a:	50                   	push   %rax
+  4b241b:	4c 8d 7f 0c          	lea    0xc(%rdi),%r15
+  4b241f:	8b 47 0c             	mov    0xc(%rdi),%eax
+  4b2422:	85 c0                	test   %eax,%eax
+  4b2424:	0f 84 32 01 00 00    	je     4b255c <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x14c>
+  4b242a:	41 8b 07             	mov    (%r15),%eax
+  4b242d:	85 c0                	test   %eax,%eax
+  4b242f:	0f 88 27 01 00 00    	js     4b255c <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x14c>
+  4b2435:	f0 41 ff 07          	lock incl (%r15)
+  4b2439:	0f 88 5e 01 00 00    	js     4b259d <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x18d>
+  4b243f:	0f b6 86 a0 00 00 00 	movzbl 0xa0(%rsi),%eax
+  4b2446:	a8 01                	test   $0x1,%al
+  4b2448:	0f 85 c5 01 00 00    	jne    4b2613 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x203>
+  4b244e:	48 8d 9e a1 00 00 00 	lea    0xa1(%rsi),%rbx
+  4b2455:	b1 01                	mov    $0x1,%cl
+  4b2457:	31 c0                	xor    %eax,%eax
+  4b2459:	f0 0f b0 8e a1 00 00 	lock cmpxchg %cl,0xa1(%rsi)
+  4b2460:	00 
+  4b2461:	0f 85 7d 01 00 00    	jne    4b25e4 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x1d4>
+  4b2467:	0f b6 ae a0 00 00 00 	movzbl 0xa0(%rsi),%ebp
+  4b246e:	40 f6 c5 01          	test   $0x1,%bpl
+  4b2472:	0f 85 91 01 00 00    	jne    4b2609 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x1f9>
+  4b2478:	4c 8d b6 88 00 00 00 	lea    0x88(%rsi),%r14
+  4b247f:	8b 86 98 00 00 00    	mov    0x98(%rsi),%eax
+  4b2485:	3b 86 9c 00 00 00    	cmp    0x9c(%rsi),%eax
+  4b248b:	75 20                	jne    4b24ad <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x9d>
+  4b248d:	48 8d 96 9c 00 00 00 	lea    0x9c(%rsi),%rdx
+  4b2494:	49 89 fc             	mov    %rdi,%r12
+  4b2497:	bf 08 08 00 00       	mov    $0x808,%edi
+  4b249c:	49 89 f5             	mov    %rsi,%r13
+  4b249f:	4c 89 f6             	mov    %r14,%rsi
+  4b24a2:	e8 99 82 ff ff       	call   4aa740 <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)>
+  4b24a7:	4c 89 ee             	mov    %r13,%rsi
+  4b24aa:	4c 89 e7             	mov    %r12,%rdi
+  4b24ad:	8d 48 01             	lea    0x1(%rax),%ecx
+  4b24b0:	89 8e 98 00 00 00    	mov    %ecx,0x98(%rsi)
+  4b24b6:	48 8b 8e 90 00 00 00 	mov    0x90(%rsi),%rcx
+  4b24bd:	48 85 c9             	test   %rcx,%rcx
+  4b24c0:	4c 0f 45 f1          	cmovne %rcx,%r14
+  4b24c4:	48 98                	cltq   
+  4b24c6:	49 89 3c c6          	mov    %rdi,(%r14,%rax,8)
+  4b24ca:	b0 ff                	mov    $0xff,%al
+  4b24cc:	f0 0f c0 86 a1 00 00 	lock xadd %al,0xa1(%rsi)
+  4b24d3:	00 
+  4b24d4:	a8 02                	test   $0x2,%al
+  4b24d6:	0f 85 4e 01 00 00    	jne    4b262a <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x21a>
+  4b24dc:	40 f6 c5 01          	test   $0x1,%bpl
+  4b24e0:	0f 85 2d 01 00 00    	jne    4b2613 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x203>
+  4b24e6:	f0 ff 46 08          	lock incl 0x8(%rsi)
+  4b24ea:	48 8d 5f 40          	lea    0x40(%rdi),%rbx
+  4b24ee:	b1 01                	mov    $0x1,%cl
+  4b24f0:	31 c0                	xor    %eax,%eax
+  4b24f2:	f0 0f b0 4f 40       	lock cmpxchg %cl,0x40(%rdi)
+  4b24f7:	0f 85 57 01 00 00    	jne    4b2654 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x244>
+  4b24fd:	4c 8d 77 28          	lea    0x28(%rdi),%r14
+  4b2501:	8b 47 38             	mov    0x38(%rdi),%eax
+  4b2504:	3b 47 3c             	cmp    0x3c(%rdi),%eax
+  4b2507:	75 1d                	jne    4b2526 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x116>
+  4b2509:	48 8d 57 3c          	lea    0x3c(%rdi),%rdx
+  4b250d:	49 89 ff             	mov    %rdi,%r15
+  4b2510:	bf 08 08 00 00       	mov    $0x808,%edi
+  4b2515:	49 89 f4             	mov    %rsi,%r12
+  4b2518:	4c 89 f6             	mov    %r14,%rsi
+  4b251b:	e8 20 82 ff ff       	call   4aa740 <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)>
+  4b2520:	4c 89 e6             	mov    %r12,%rsi
+  4b2523:	4c 89 ff             	mov    %r15,%rdi
+  4b2526:	8d 48 01             	lea    0x1(%rax),%ecx
+  4b2529:	89 4f 38             	mov    %ecx,0x38(%rdi)
+  4b252c:	48 8b 4f 30          	mov    0x30(%rdi),%rcx
+  4b2530:	48 85 c9             	test   %rcx,%rcx
+  4b2533:	4c 0f 45 f1          	cmovne %rcx,%r14
+  4b2537:	48 98                	cltq   
+  4b2539:	49 89 34 c6          	mov    %rsi,(%r14,%rax,8)
+  4b253d:	b0 ff                	mov    $0xff,%al
+  4b253f:	f0 0f c0 47 40       	lock xadd %al,0x40(%rdi)
+  4b2544:	40 b5 01             	mov    $0x1,%bpl
+  4b2547:	a8 02                	test   $0x2,%al
+  4b2549:	0f 84 ca 00 00 00    	je     4b2619 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x209>
+  4b254f:	48 89 df             	mov    %rbx,%rdi
+  4b2552:	e8 89 79 72 00       	call   bd9ee0 <UE::FMutex::WakeWaitingThread()@plt>
+  4b2557:	e9 bd 00 00 00       	jmp    4b2619 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x209>
+  4b255c:	48 8d 05 85 be da ff 	lea    -0x25417b(%rip),%rax        # 25e3e8 <flagLR+0xbdb8>
+  4b2563:	48 8d 15 ed b2 da ff 	lea    -0x254d13(%rip),%rdx        # 25d857 <flagLR+0xb227>
+  4b256a:	48 8d 0d eb 69 de ff 	lea    -0x219615(%rip),%rcx        # 298f5c <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x305fb>
+  4b2571:	48 89 fb             	mov    %rdi,%rbx
+  4b2574:	48 89 c7             	mov    %rax,%rdi
+  4b2577:	49 89 f6             	mov    %rsi,%r14
+  4b257a:	48 89 d6             	mov    %rdx,%rsi
+  4b257d:	ba e7 00 00 00       	mov    $0xe7,%edx
+  4b2582:	31 c0                	xor    %eax,%eax
+  4b2584:	e8 c7 78 72 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  4b2589:	4c 89 f6             	mov    %r14,%rsi
+  4b258c:	48 89 df             	mov    %rbx,%rdi
+  4b258f:	84 c0                	test   %al,%al
+  4b2591:	0f 84 9e fe ff ff    	je     4b2435 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x25>
+  4b2597:	cc                   	int3   
+  4b2598:	e9 98 fe ff ff       	jmp    4b2435 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x25>
+  4b259d:	48 8d 05 ec bd da ff 	lea    -0x254214(%rip),%rax        # 25e390 <flagLR+0xbd60>
+  4b25a4:	48 8d 15 ac b2 da ff 	lea    -0x254d54(%rip),%rdx        # 25d857 <flagLR+0xb227>
+  4b25ab:	48 8d 0d f2 94 de ff 	lea    -0x216b0e(%rip),%rcx        # 29baa4 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x33143>
+  4b25b2:	48 89 fb             	mov    %rdi,%rbx
+  4b25b5:	48 89 c7             	mov    %rax,%rdi
+  4b25b8:	49 89 f6             	mov    %rsi,%r14
+  4b25bb:	48 89 d6             	mov    %rdx,%rsi
+  4b25be:	ba ee 00 00 00       	mov    $0xee,%edx
+  4b25c3:	41 b8 00 00 00 80    	mov    $0x80000000,%r8d
+  4b25c9:	31 c0                	xor    %eax,%eax
+  4b25cb:	e8 80 78 72 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  4b25d0:	4c 89 f6             	mov    %r14,%rsi
+  4b25d3:	48 89 df             	mov    %rbx,%rdi
+  4b25d6:	84 c0                	test   %al,%al
+  4b25d8:	0f 84 61 fe ff ff    	je     4b243f <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x2f>
+  4b25de:	cc                   	int3   
+  4b25df:	e9 5b fe ff ff       	jmp    4b243f <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x2f>
+  4b25e4:	49 89 fe             	mov    %rdi,%r14
+  4b25e7:	48 89 df             	mov    %rbx,%rdi
+  4b25ea:	49 89 f4             	mov    %rsi,%r12
+  4b25ed:	e8 fe 78 72 00       	call   bd9ef0 <UE::FMutex::LockSlow()@plt>
+  4b25f2:	4c 89 e6             	mov    %r12,%rsi
+  4b25f5:	4c 89 f7             	mov    %r14,%rdi
+  4b25f8:	0f b6 ae a0 00 00 00 	movzbl 0xa0(%rsi),%ebp
+  4b25ff:	40 f6 c5 01          	test   $0x1,%bpl
+  4b2603:	0f 84 6f fe ff ff    	je     4b2478 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x68>
+  4b2609:	b0 ff                	mov    $0xff,%al
+  4b260b:	f0 0f c0 03          	lock xadd %al,(%rbx)
+  4b260f:	a8 02                	test   $0x2,%al
+  4b2611:	75 37                	jne    4b264a <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x23a>
+  4b2613:	f0 41 ff 0f          	lock decl (%r15)
+  4b2617:	31 ed                	xor    %ebp,%ebp
+  4b2619:	89 e8                	mov    %ebp,%eax
+  4b261b:	48 83 c4 08          	add    $0x8,%rsp
+  4b261f:	5b                   	pop    %rbx
+  4b2620:	41 5c                	pop    %r12
+  4b2622:	41 5d                	pop    %r13
+  4b2624:	41 5e                	pop    %r14
+  4b2626:	41 5f                	pop    %r15
+  4b2628:	5d                   	pop    %rbp
+  4b2629:	c3                   	ret    
+  4b262a:	49 89 fe             	mov    %rdi,%r14
+  4b262d:	48 89 df             	mov    %rbx,%rdi
+  4b2630:	48 89 f3             	mov    %rsi,%rbx
+  4b2633:	e8 a8 78 72 00       	call   bd9ee0 <UE::FMutex::WakeWaitingThread()@plt>
+  4b2638:	48 89 de             	mov    %rbx,%rsi
+  4b263b:	4c 89 f7             	mov    %r14,%rdi
+  4b263e:	40 f6 c5 01          	test   $0x1,%bpl
+  4b2642:	0f 84 9e fe ff ff    	je     4b24e6 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0xd6>
+  4b2648:	eb c9                	jmp    4b2613 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x203>
+  4b264a:	48 89 df             	mov    %rbx,%rdi
+  4b264d:	e8 8e 78 72 00       	call   bd9ee0 <UE::FMutex::WakeWaitingThread()@plt>
+  4b2652:	eb bf                	jmp    4b2613 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x203>
+  4b2654:	49 89 fe             	mov    %rdi,%r14
+  4b2657:	48 89 df             	mov    %rbx,%rdi
+  4b265a:	49 89 f7             	mov    %rsi,%r15
+  4b265d:	e8 8e 78 72 00       	call   bd9ef0 <UE::FMutex::LockSlow()@plt>
+  4b2662:	4c 89 fe             	mov    %r15,%rsi
+  4b2665:	4c 89 f7             	mov    %r14,%rdi
+  4b2668:	4c 8d 77 28          	lea    0x28(%rdi),%r14
+  4b266c:	8b 47 38             	mov    0x38(%rdi),%eax
+  4b266f:	3b 47 3c             	cmp    0x3c(%rdi),%eax
+  4b2672:	0f 84 91 fe ff ff    	je     4b2509 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0xf9>
+  4b2678:	e9 a9 fe ff ff       	jmp    4b2526 <UE::Tasks::Private::FTaskBase::AddPrerequisites(UE::Tasks::Private::FTaskBase&)+0x116>
+  4b267d:	cc                   	int3   
+  4b267e:	cc                   	int3   
+  4b267f:	cc                   	int3   
+
+00000000004b2680 <UE::FManualResetEvent::WaitUntil(UE::FMonotonicTimePoint)>:
+  4b2680:	55                   	push   %rbp
+  4b2681:	41 57                	push   %r15
+  4b2683:	41 56                	push   %r14
+  4b2685:	41 55                	push   %r13
+  4b2687:	41 54                	push   %r12
+  4b2689:	53                   	push   %rbx
+  4b268a:	48 83 ec 38          	sub    $0x38,%rsp
+  4b268e:	0f b6 07             	movzbl (%rdi),%eax
+  4b2691:	40 b5 01             	mov    $0x1,%bpl
+  4b2694:	a8 01                	test   $0x1,%al
+  4b2696:	0f 85 21 01 00 00    	jne    4b27bd <UE::FManualResetEvent::WaitUntil(UE::FMonotonicTimePoint)+0x13d>
+  4b269c:	48 89 fb             	mov    %rdi,%rbx
+  4b269f:	66 0f 2e 05 c9 fc d9 	ucomisd -0x260337(%rip),%xmm0        # 252370 <oo2::cost_twostep_literals(unsigned char const*, int, int, oo2::newlzf_codecosts const&)::disable_from_lrl+0x940>
+  4b26a6:	ff 
+  4b26a7:	72 7b                	jb     4b2724 <UE::FManualResetEvent::WaitUntil(UE::FMonotonicTimePoint)+0xa4>
+  4b26a9:	4c 8d 6c 24 07       	lea    0x7(%rsp),%r13
+  4b26ae:	4c 8d 25 3b 21 ff ff 	lea    -0xdec5(%rip),%r12        # 4a47f0 <UCNV_TO_U_CALLBACK_STOP_64>
+  4b26b5:	4c 8d 74 24 28       	lea    0x28(%rsp),%r14
+  4b26ba:	4c 8d 7c 24 18       	lea    0x18(%rsp),%r15
+  4b26bf:	eb 55                	jmp    4b2716 <UE::FManualResetEvent::WaitUntil(UE::FMonotonicTimePoint)+0x96>
+  4b26c1:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+  4b26c8:	0f 1f 84 00 00 00 00 
+  4b26cf:	00 
+  4b26d0:	48 89 5c 24 10       	mov    %rbx,0x10(%rsp)
+  4b26d5:	48 8d 44 24 10       	lea    0x10(%rsp),%rax
+  4b26da:	48 89 44 24 30       	mov    %rax,0x30(%rsp)
+  4b26df:	48 8d 05 ea 00 00 00 	lea    0xea(%rip),%rax        # 4b27d0 <UE::Core::Private::Function::TFunctionRefCaller<UE::FManualResetEvent::WaitUntil(UE::FMonotonicTimePoint)::{lambda()#1}, bool>::Call(void*)>
+  4b26e6:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+  4b26eb:	4c 89 6c 24 20       	mov    %r13,0x20(%rsp)
+  4b26f0:	4c 89 64 24 18       	mov    %r12,0x18(%rsp)
+  4b26f5:	48 89 df             	mov    %rbx,%rdi
+  4b26f8:	4c 89 f6             	mov    %r14,%rsi
+  4b26fb:	4c 89 fa             	mov    %r15,%rdx
+  4b26fe:	f2 0f 10 05 6a fc d9 	movsd  -0x260396(%rip),%xmm0        # 252370 <oo2::cost_twostep_literals(unsigned char const*, int, int, oo2::newlzf_codecosts const&)::disable_from_lrl+0x940>
+  4b2705:	ff 
+  4b2706:	e8 45 79 72 00       	call   bda050 <UE::ParkingLot::Private::WaitUntil(void const*, TFunctionRef<bool ()> const&, TFunctionRef<void ()> const&, UE::FMonotonicTimePoint)@plt>
+  4b270b:	0f b6 03             	movzbl (%rbx),%eax
+  4b270e:	a8 01                	test   $0x1,%al
+  4b2710:	0f 85 a7 00 00 00    	jne    4b27bd <UE::FManualResetEvent::WaitUntil(UE::FMonotonicTimePoint)+0x13d>
+  4b2716:	a8 02                	test   $0x2,%al
+  4b2718:	75 b6                	jne    4b26d0 <UE::FManualResetEvent::WaitUntil(UE::FMonotonicTimePoint)+0x50>
+  4b271a:	b1 02                	mov    $0x2,%cl
+  4b271c:	f0 0f b0 0b          	lock cmpxchg %cl,(%rbx)
+  4b2720:	74 ae                	je     4b26d0 <UE::FManualResetEvent::WaitUntil(UE::FMonotonicTimePoint)+0x50>
+  4b2722:	eb e7                	jmp    4b270b <UE::FManualResetEvent::WaitUntil(UE::FMonotonicTimePoint)+0x8b>
+  4b2724:	41 89 c5             	mov    %eax,%r13d
+  4b2727:	f2 0f 11 44 24 08    	movsd  %xmm0,0x8(%rsp)
+  4b272d:	e8 8e 7c 72 00       	call   bda3c0 <UE::FMonotonicTimePoint::Now()@plt>
+  4b2732:	66 0f 2e 44 24 08    	ucomisd 0x8(%rsp),%xmm0
+  4b2738:	0f 83 7d 00 00 00    	jae    4b27bb <UE::FManualResetEvent::WaitUntil(UE::FMonotonicTimePoint)+0x13b>
+  4b273e:	4c                   	rex.WR
+  4b273f:	8d                   	.byte 0x8d

@@ -1,0 +1,722 @@
+chmod: changing permissions of '/var/www/async_SatisDedicated/server/Engine/Binaries/Linux/FactoryServer-Linux-Shipping': Operation not permitted
+chmod: changing permissions of '/var/www/async_SatisDedicated/server/Engine/Binaries/Linux/crashpad_handler': Operation not permitted
+Project file not found: /var/www/async_SatisDedicated/server/FactoryGame/FactoryGame.uproject
+5.6.1-513885+++FactoryGame+rel-main-anniversary-2026 1017 3
+Disabling core dumps.
+LogInit: Display: Running engine for game: FactoryGame
+LogInit: Display: Project file not found: /var/www/async_SatisDedicated/server/FactoryGame/FactoryGame.uproject
+LogInit: Display: 	Attempting to find via project info helper.
+LogPakFile: Initializing PakPlatformFile
+LogIoDispatcher: Display: Reading toc: ../../../FactoryGame/Content/Paks/global.utoc
+LogIoDispatcher: Display: Toc loaded : ../../../FactoryGame/Content/Paks/global.utoc, Id=ffffffffffffffff, Order=0, EntryCount=1, SignatureHash=FFADF1F6FBECC2E35539D2EF85FBF91C0CBC9067
+LogIoDispatcher: Display: Mounting container '../../../FactoryGame/Content/Paks/global.utoc' in location slot 0
+LogPakFile: Display: Initialized I/O dispatcher file backend. Mounted the global container: ../../../FactoryGame/Content/Paks/global.utoc
+LogPakFile: Display: Found Pak file ../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.pak attempting to mount.
+LogPakFile: Display: Mounting pak file ../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.pak.
+LogIoDispatcher: Display: Reading toc: ../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.utoc
+LogIoDispatcher: Display: Toc loaded : ../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.utoc, Id=28984470c93ced42, Order=4, EntryCount=27241, SignatureHash=62955A4E93256BC8A78E17C2FADD4726607F195E
+LogIoDispatcher: Display: Mounting container '../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.utoc' in location slot 0
+LogPakFile: Display: Mounted IoStore container "../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.utoc"
+LogFilePackageStore: Mounting container: Id=28984470c93ced42, Order=4, NumPackages=27240
+LogPakFile: Display: Mounted Pak file '../../../FactoryGame/Content/Paks/FactoryGame-LinuxServer.pak', mount point: '../../../'
+LogICUInternationalization: OS requested locale 'c' is not supported. Using the OS requested language of 'en-US-POSIX' as the locale.
+LogICUInternationalization: ICU TimeZone Detection - Raw Offset: +1:00, Platform Override: ''
+LogInit: Session CrashGUID >====================================================
+         Session CrashGUID >   UECC-Linux-45498DF1700D49FAB0DC7E24C1D1A08B
+         Session CrashGUID >====================================================
+LogConfig: Using compiled CustomConfig FactoryServer
+LogAssetRegistry: Premade AssetRegistry loaded from '../../../FactoryGame/AssetRegistry.bin'
+LogAudio: Display: Audio Device Manager not initializing due to all audio being disabled. If this is not intentional, please check command line arguments for "-nosound".
+LogPluginManager: Mounting Engine plugin Paper2D
+LogPluginManager: Mounting Engine plugin AISupport
+LogPluginManager: Mounting Engine plugin EnvironmentQueryEditor
+LogPluginManager: Mounting Engine plugin ACLPlugin
+LogPluginManager: Mounting Engine plugin AnimationData
+LogPluginManager: Mounting Engine plugin AnimationLocomotionLibrary
+LogPluginManager: Mounting Engine plugin AnimationModifierLibrary
+LogPluginManager: Mounting Engine plugin AnimationWarping
+LogPluginManager: Mounting Engine plugin ControlRigModules
+LogPluginManager: Mounting Engine plugin ControlRigSpline
+LogPluginManager: Mounting Engine plugin ControlRig
+LogPluginManager: Mounting Engine plugin IKRig
+LogPluginManager: Mounting Engine plugin SkeletalMeshModelingTools
+LogPluginManager: Mounting Engine plugin TweeningUtils
+LogPluginManager: Mounting Engine plugin CSLocTools
+LogPluginManager: Mounting Engine plugin EngineCameras
+LogPluginManager: Mounting Engine plugin GameplayCameras
+LogPluginManager: Mounting Engine plugin LensDistortion
+LogPluginManager: Mounting Engine plugin OodleNetwork
+LogPluginManager: Mounting Engine plugin AnimationSharing
+LogPluginManager: Mounting Engine plugin NamingTokens
+LogPluginManager: Mounting Engine plugin PluginUtils
+LogPluginManager: Mounting Engine plugin UObjectPlugin
+LogPluginManager: Mounting Engine plugin AssetManagerEditor
+LogPluginManager: Mounting Engine plugin AssetReferenceRestrictions
+LogPluginManager: Mounting Engine plugin BlueprintHeaderView
+LogPluginManager: Mounting Engine plugin BlueprintMaterialTextureNodes
+LogPluginManager: Mounting Engine plugin ColorGrading
+LogPluginManager: Mounting Engine plugin ContentBrowserAssetDataSource
+LogPluginManager: Mounting Engine plugin CurveEditorTools
+LogPluginManager: Mounting Engine plugin DataValidation
+LogPluginManager: Mounting Engine plugin EditorScriptingUtilities
+LogPluginManager: Mounting Engine plugin EngineAssetDefinitions
+LogPluginManager: Mounting Engine plugin FacialAnimation
+LogPluginManager: Mounting Engine plugin GameplayTagsEditor
+LogPluginManager: Mounting Engine plugin GeometryMode
+LogPluginManager: Mounting Engine plugin LightMixer
+LogPluginManager: Mounting Engine plugin ObjectMixer
+LogPluginManager: Mounting Engine plugin ProxyLODPlugin
+LogPluginManager: Mounting Engine plugin ScriptableToolsEditorMode
+LogPluginManager: Mounting Engine plugin SequencerAnimTools
+LogPluginManager: Mounting Engine plugin SpeedTreeImporter
+LogPluginManager: Mounting Engine plugin UMGWidgetPreview
+LogPluginManager: Mounting Engine plugin UVEditor
+LogPluginManager: Mounting Engine plugin EnhancedInput
+LogPluginManager: Mounting Engine plugin DatasmithContent
+LogPluginManager: Mounting Engine plugin GLTFExporter
+LogPluginManager: Mounting Engine plugin VariantManagerContent
+LogPluginManager: Mounting Engine plugin VariantManager
+LogPluginManager: Mounting Engine plugin AsyncMessageSystem
+LogPluginManager: Mounting Engine plugin AutomationUtils
+LogPluginManager: Mounting Engine plugin BackChannel
+LogPluginManager: Mounting Engine plugin BlueprintStats
+LogPluginManager: Mounting Engine plugin ChaosCaching
+LogPluginManager: Mounting Engine plugin ChaosEditor
+LogPluginManager: Mounting Engine plugin ChaosNiagara
+LogPluginManager: Mounting Engine plugin ChaosSolverPlugin
+LogPluginManager: Mounting Engine plugin ChaosUserDataPT
+LogPluginManager: Mounting Engine plugin ChaosVehiclesPlugin
+LogPluginManager: Mounting Engine plugin CharacterAI
+LogPluginManager: Mounting Engine plugin CompositeCore
+LogPluginManager: Mounting Engine plugin ControlFlows
+LogPluginManager: Mounting Engine plugin Dataflow
+LogPluginManager: Mounting Engine plugin EditorDataStorageFeatures
+LogPluginManager: Mounting Engine plugin EditorDataStorage
+LogPluginManager: Mounting Engine plugin Fracture
+LogPluginManager: Mounting Engine plugin FullBodyIK
+LogPluginManager: Mounting Engine plugin Gauntlet
+LogPluginManager: Mounting Engine plugin GeometryCollectionPlugin
+LogPluginManager: Mounting Engine plugin GeometryDataflow
+LogPluginManager: Mounting Engine plugin Landmass
+LogPluginManager: Mounting Engine plugin LevelSequenceNavigatorBridge
+LogPluginManager: Mounting Engine plugin LocalizableMessage
+LogPluginManager: Mounting Engine plugin MeshModelingToolsetExp
+LogPluginManager: Mounting Engine plugin NFORDenoise
+LogPluginManager: Mounting Engine plugin PlanarCut
+LogPluginManager: Mounting Engine plugin PlatformCrypto
+LogPluginManager: Mounting Engine plugin PythonScriptPlugin
+LogPluginManager: Mounting Engine plugin RuntimeTelemetry
+LogPluginManager: Mounting Engine plugin SlateIM
+LogPluginManager: Mounting Engine plugin ToolPresets
+LogPluginManager: Mounting Engine plugin CascadeToNiagaraConverter
+LogPluginManager: Mounting Engine plugin Cascade
+LogPluginManager: Mounting Engine plugin NiagaraSimCaching
+LogPluginManager: Mounting Engine plugin Niagara
+LogPluginManager: Mounting Engine plugin Fab
+LogPluginManager: Mounting Engine plugin AlembicImporter
+LogPluginManager: Mounting Engine plugin InterchangeAssets
+LogPluginManager: Mounting Engine plugin InterchangeEditor
+LogPluginManager: Mounting Engine plugin Interchange
+LogPluginManager: Mounting Engine plugin ImgMedia
+LogPluginManager: Mounting Engine plugin MediaCompositing
+LogPluginManager: Mounting Engine plugin MediaPlate
+LogPluginManager: Mounting Engine plugin MfMedia
+LogPluginManager: Mounting Engine plugin MeshPainting
+LogPluginManager: Mounting Engine plugin TcpMessaging
+LogPluginManager: Mounting Engine plugin UdpMessaging
+LogPluginManager: Mounting Engine plugin ActorSequence
+LogPluginManager: Mounting Engine plugin LevelSequenceEditor
+LogPluginManager: Mounting Engine plugin SequencerScripting
+LogPluginManager: Mounting Engine plugin TemplateSequence
+LogPluginManager: Mounting Engine plugin EOSShared
+LogPluginManager: Mounting Engine plugin OnlineBase
+LogPluginManager: Mounting Engine plugin OnlineServicesNull
+LogPluginManager: Mounting Engine plugin OnlineServices
+LogPluginManager: Mounting Engine plugin OnlineSubsystemNull
+LogPluginManager: Mounting Engine plugin OnlineSubsystemUtils
+LogPluginManager: Mounting Engine plugin OnlineSubsystem
+LogPluginManager: Mounting Engine plugin LauncherChunkInstaller
+LogPluginManager: Mounting Engine plugin ActorLayerUtilities
+LogPluginManager: Mounting Engine plugin AndroidFileServer
+LogPluginManager: Mounting Engine plugin ApexDestruction
+LogPluginManager: Mounting Engine plugin AppleImageUtils
+LogPluginManager: Mounting Engine plugin AssetTags
+LogPluginManager: Mounting Engine plugin AudioCapture
+LogPluginManager: Mounting Engine plugin AudioSynesthesia
+LogPluginManager: Mounting Engine plugin AudioWidgets
+LogPluginManager: Mounting Engine plugin CableComponent
+LogPluginManager: Mounting Engine plugin ChunkDownloader
+LogPluginManager: Mounting Engine plugin CustomMeshComponent
+LogPluginManager: Mounting Engine plugin DataRegistry
+LogPluginManager: Mounting Engine plugin ExampleDeviceProfileSelector
+LogPluginManager: Mounting Engine plugin GameFeatures
+LogPluginManager: Mounting Engine plugin GeometryCache
+LogPluginManager: Mounting Engine plugin GeometryProcessing
+LogPluginManager: Mounting Engine plugin GeometryScripting
+LogPluginManager: Mounting Engine plugin GooglePAD
+LogPluginManager: Mounting Engine plugin LinuxDeviceProfileSelector
+LogPluginManager: Mounting Engine plugin MeshModelingToolset
+LogPluginManager: Mounting Engine plugin Metasound
+LogPluginManager: Mounting Engine plugin ModelViewViewModel
+LogPluginManager: Mounting Engine plugin ModularGameplay
+LogPluginManager: Mounting Engine plugin MsQuic
+LogPluginManager: Mounting Engine plugin DTLSHandlerComponent
+LogPluginManager: Mounting Engine plugin ProceduralMeshComponent
+LogPluginManager: Mounting Engine plugin PropertyAccessEditor
+LogPluginManager: Mounting Engine plugin PropertyBindingUtils
+LogPluginManager: Mounting Engine plugin ReplicationGraph
+LogPluginManager: Mounting Engine plugin ResonanceAudio
+LogPluginManager: Mounting Engine plugin RigVM
+LogPluginManager: Mounting Engine plugin ScriptableToolsFramework
+LogPluginManager: Mounting Engine plugin SignificanceManager
+LogPluginManager: Mounting Engine plugin SoundFields
+LogPluginManager: Mounting Engine plugin StateTree
+LogPluginManager: Mounting Engine plugin Synthesis
+LogPluginManager: Mounting Engine plugin WaveTable
+LogPluginManager: Mounting Engine plugin WindowsDeviceProfileSelector
+LogPluginManager: Mounting Engine plugin EditorTests
+LogPluginManager: Mounting Engine plugin FbxAutomationTestBuilder
+LogPluginManager: Mounting Engine plugin FunctionalTestingEditor
+LogPluginManager: Mounting Engine plugin InterchangeTests
+LogPluginManager: Mounting Engine plugin RuntimeTests
+LogPluginManager: Mounting Engine plugin TestFramework
+LogPluginManager: Mounting Engine plugin TraceUtilities
+LogPluginManager: Mounting Engine plugin CameraCalibrationCore
+LogPluginManager: Mounting Engine plugin Takes
+LogPluginManager: Mounting Engine plugin WorldMetrics
+LogPluginManager: Mounting Engine plugin WwiseNiagara
+LogPluginManager: Mounting Engine plugin WwiseSoundEngine
+LogPluginManager: Mounting Engine plugin Wwise
+LogPluginManager: Mounting Project plugin AbstractInstance
+LogPluginManager: Mounting Project plugin EditorTools
+LogPluginManager: Mounting Project plugin GameplayEvents
+LogPluginManager: Mounting Project plugin OnlineIntegration
+LogPluginManager: Mounting Project plugin RainRendering
+LogPluginManager: Mounting Project plugin ReliableMessaging
+LogPluginManager: Mounting Project plugin Sentry
+LogPluginManager: Mounting Project plugin SignificanceISPC
+LogPluginManager: Mounting Project plugin SteamDeckConfig
+LogHAL: Log category LogOnlineSession verbosity has been raised to Verbose.
+LogNFORDenoise: NFORDenoise function starting up
+Shutdown handler: initialize.
+LogEOSShared: Initialize Initializing EOSSDK Version:1.18.1.2-47370208
+LogInit: Using libcurl 8.12.1
+LogInit:  - built for x86_64-unknown-linux-gnu
+LogInit:  - supports SSL with OpenSSL/1.1.1t
+LogInit:  - supports HTTP deflate (compression) using libz 1.3
+LogInit:  - other features:
+LogInit:      CURL_VERSION_SSL
+LogInit:      CURL_VERSION_LIBZ
+LogInit:      CURL_VERSION_IPV6
+LogInit:      CURL_VERSION_ASYNCHDNS
+LogInit:      CURL_VERSION_LARGEFILE
+LogInit:      CURL_VERSION_TLSAUTH_SRP
+LogInit:      CURL_VERSION_HTTP2
+LogInit:  CurlRequestOptions (configurable via config and command line):
+LogInit:  - bVerifyPeer = true  - Libcurl will verify peer certificate
+LogInit:  - bUseHttpProxy = false  - Libcurl will NOT use HTTP proxy
+LogInit:  - bDontReuseConnections = false  - Libcurl will reuse connections
+LogInit:  - MaxHostConnections = 16  - Libcurl will limit the number of connections to a host
+LogInit:  - LocalHostAddr = Default
+LogInit:  - BufferSize = 65536
+LogInit: CreateHttpThread using FCurlMultiPollEventLoopHttpThread
+LogInit: Creating http thread with maximum 256 concurrent requests
+LogOnline: Warning: OSS: TryLoadSubsystemAndSetDefault: LoadSubsystemModule([None]) failed
+LogOnline: OSS: Created online subsystem instance for: NULL
+LogOnline: OSS: TryLoadSubsystemAndSetDefault: Loaded subsystem for type [NULL]
+LogInit: ExecutableName: FactoryServer-Linux-Shipping
+LogInit: Build: ++FactoryGame+rel-main-anniversary-2026-CL-513885
+LogInit: Platform=LinuxServer
+LogInit: MachineId=2176cec9be3f42feb778110fdf272c69-0000fffe
+LogInit: DeviceId=
+LogInit: Engine Version: 5.6.1-513885+++FactoryGame+rel-main-anniversary-2026
+LogInit: Compatible Engine Version: 5.6.1-513885+++FactoryGame+rel-main-anniversary-2026
+LogInit: Net CL: 513885
+LogInit: OS: Ubuntu 22.04.5 LTS (5.15.0-198-generic), CPU: Intel(R) Core(TM) i5-4570 CPU @ 3.20GHz, GPU: Intel PCI-id: 8086-0412 (103c-18e7)
+LogInit: Compiled (64-bit): Oct  7 2026 17:58:36
+LogInit: Architecture: x64
+LogInit: Compiled with Clang: 18.1.0rc (github.com/llvm/llvm-project 461274b81d8641eab64d494accddc81d7db8a09e)
+LogInit: Build Configuration: Shipping
+LogInit: Branch Name: ++FactoryGame+rel-main-anniversary-2026
+LogInit: Command Line: -log -unattended -NullRHI -nosound -multihome=127.0.0.1 -Port=17877 -ReliablePort=17888 -userdir=/var/www/async_SatisDedicated/.runtime/bridge-user -ini:Engine:[SystemSettings]:FG.DedicatedServer.AllowInsecureLocalAccess=1
+LogInit: Base Directory: /var/www/async_SatisDedicated/server/Engine/Binaries/Linux/
+LogInit: Allocator: Binned2
+LogInit: Installed Engine Build: 0
+LogInit: This binary is optimized with LTO: no, PGO: no, instrumented for PGO data collection: no
+LogInit: Launcher File: /var/www/async_SatisDedicated/server/launcher_id
+LogInit: Launcher ID: 
+LogInit: Launcher Artifact: 
+LogInit: Presizing for max 2097152 objects, including 1 objects not considered by GC.
+LogInit: Object subsystem initialized
+LogCore: Linux early crashpad bootstrap started. Handler='/var/www/async_SatisDedicated/server/Engine/Binaries/Linux/crashpad_handler' Database='/var/www/async_SatisDedicated/.runtime/bridge-user/.crc-crashpad'
+[2026.10.27-01.06.20:491][  0]LogLinux: Selected Device Profile: [LinuxServer]
+[2026.10.27-01.06.20:491][  0]LogInit: Selected Device Profile: [LinuxServer]
+[2026.10.27-01.06.20:491][  0]LogHAL: Display: Platform has ~ 8 GB [8230543360 / 8589934592 / 8], which maps to Default [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
+[2026.10.27-01.06.20:491][  0]LogDeviceProfileManager: Going up to parent DeviceProfile [Linux]
+[2026.10.27-01.06.20:491][  0]LogDeviceProfileManager: Going up to parent DeviceProfile []
+[2026.10.27-01.06.20:491][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[AsyncTraceDelegateHitchThresholdMS:-1 -> 7.0]]
+[2026.10.27-01.06.20:491][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[UI.SlateSDFText.RasterizationMode:Bitmap -> Msdf]]
+[2026.10.27-01.06.20:491][  0]LogDeviceProfileManager: Pushing Device Profile CVar: [[UI.SlateSDFText.ResolutionLevel:2 -> 2]]
+[2026.10.27-01.06.20:491][  0]LogInit: Unix hardware info:
+[2026.10.27-01.06.20:491][  0]LogInit:  - we are the first instance of this executable
+[2026.10.27-01.06.20:491][  0]LogInit:  - this process' id (pid) is 280649, parent process' id (ppid) is 280641
+[2026.10.27-01.06.20:491][  0]LogInit:  - we are not running under debugger
+[2026.10.27-01.06.20:491][  0]LogInit:  - machine network name is 'plpx1'
+[2026.10.27-01.06.20:491][  0]LogInit:  - user name is 'nobody' (nobody)
+[2026.10.27-01.06.20:491][  0]LogInit:  - we're logged in locally
+[2026.10.27-01.06.20:491][  0]LogInit:  - we're running without rendering
+[2026.10.27-01.06.20:491][  0]LogInit:  - CPU: GenuineIntel 'Intel(R) Core(TM) i5-4570 CPU @ 3.20GHz' (signature: 0x306C3)
+[2026.10.27-01.06.20:491][  0]LogInit:  - Number of physical cores available for the process: 4
+[2026.10.27-01.06.20:491][  0]LogInit:  - Number of logical cores available for the process: 4
+[2026.10.27-01.06.20:491][  0]LogInit:  - GPU Brand Info: Intel PCI-id: 8086-0412 (103c-18e7)
+[2026.10.27-01.06.20:491][  0]LogInit:  - Memory allocator used: Binned2
+[2026.10.27-01.06.20:491][  0]LogInit:  - This is a licensee build.
+[2026.10.27-01.06.20:491][  0]LogCore: Benchmarking clocks:
+[2026.10.27-01.06.20:491][  0]LogCore:  - CLOCK_MONOTONIC (id=1) can sustain 43187642 (43188K, 43M) calls per second without zero deltas.
+[2026.10.27-01.06.20:491][  0]LogCore:  - CLOCK_MONOTONIC_RAW (id=4) can sustain 44425940 (44426K, 44M) calls per second without zero deltas.
+[2026.10.27-01.06.20:491][  0]LogCore:  - CLOCK_MONOTONIC_COARSE (id=6) can sustain 134631575 (134632K, 135M) calls per second with 99.999807% zero deltas.
+[2026.10.27-01.06.20:491][  0]LogCore: Selected clock_id 4 (CLOCK_MONOTONIC_RAW) since it is the fastest support clock without zero deltas.
+[2026.10.27-01.06.20:491][  0]LogInit: Unix-specific commandline switches:
+[2026.10.27-01.06.20:491][  0]LogInit:  -ansimalloc - use malloc()/free() from libc (useful for tools like valgrind and electric fence)
+[2026.10.27-01.06.20:491][  0]LogInit:  -jemalloc - use jemalloc for all memory allocation
+[2026.10.27-01.06.20:491][  0]LogInit:  -binnedmalloc - use binned malloc  for all memory allocation
+[2026.10.27-01.06.20:491][  0]LogInit:  -filemapcachesize=NUMBER - set the size for case-sensitive file mapping cache
+[2026.10.27-01.06.20:491][  0]LogInit:  -useksm - uses kernel same-page mapping (KSM) for mapped memory (OFF)
+[2026.10.27-01.06.20:491][  0]LogInit:  -ksmmergeall - marks all mmap'd memory pages suitable for KSM (OFF)
+[2026.10.27-01.06.20:491][  0]LogInit:  -preloadmodulesymbols - Loads the main module symbols file into memory (OFF)
+[2026.10.27-01.06.20:491][  0]LogInit:  -sigdfl=SIGNAL - Allows a specific signal to be set to its default handler rather then ignoring the signal
+[2026.10.27-01.06.20:491][  0]LogInit:  -crashhandlerstacksize - Allows setting crash handler stack sizes (204800)
+[2026.10.27-01.06.20:491][  0]LogInit:  -noexclusivelockonwrite - disables marking files created by the engine as exclusive locked while the engine has them opened
+[2026.10.27-01.06.20:491][  0]LogInit:  -httpproxy=ADDRESS:PORT - redirects HTTP requests to a proxy (only supported if compiled with libcurl)
+[2026.10.27-01.06.20:491][  0]LogInit:  -reuseconn - allow libcurl to reuse HTTP connections (only matters if compiled with libcurl)
+[2026.10.27-01.06.20:491][  0]LogInit:  -virtmemkb=NUMBER - sets process virtual memory (address space) limit (overrides VirtualMemoryLimitInKB value from .ini)
+[2026.10.27-01.06.20:491][  0]LogInit:  -allowsyscallfilterfile=PATH_TO_FILE - sets up a system call filter allow list. any invalid syscall in this list *will* cause a crash
+[2026.10.27-01.06.20:491][  0]LogInit:  - Physical RAM available (not considering process quota): 8 GB (7849 MB, 8037640 KB, 8230543360 bytes)
+[2026.10.27-01.06.20:491][  0]LogInit:  - VirtualMemoryAllocator pools will grow at scale 1
+[2026.10.27-01.06.20:491][  0]LogInit:  - MemoryRangeDecommit() will will evict the memory from RAM (re-run with -novmapoolevict to change)
+[2026.10.27-01.06.20:491][  0]LogInit:  - PageSize 4096
+[2026.10.27-01.06.20:491][  0]LogInit:  - BinnedPageSize 65536
+[2026.10.27-01.06.20:494][  0]LogInit: Physics initialised using underlying interface: Chaos
+[2026.10.27-01.06.20:494][  0]LogInit: Overriding language with engine language configuration option (autoDetect).
+[2026.10.27-01.06.20:494][  0]LogInit: Overriding language with engine locale configuration option (autoDetect).
+[2026.10.27-01.06.20:494][  0]LogTextLocalizationManager: No specific localization for 'autoDetect' exists, so 'en' will be used for the language.
+[2026.10.27-01.06.20:499][  0]LogObj: Display: Attempting to load config data for Default__SlateThemeManager before the Class has been constructed/registered/linked (likely during module loading or early startup). This will result in the load silently failing and should be fixed.
+[2026.10.27-01.06.20:530][  0]LogInit: Initializing FReadOnlyCVARCache
+[2026.10.27-01.06.20:539][  0]LogRendererCore: Ray tracing is disabled. Reason: disabled through project setting (r.RayTracing=0).
+[2026.10.27-01.06.20:551][  0]LogInit: Overriding language with engine language configuration option (autoDetect).
+[2026.10.27-01.06.20:551][  0]LogInit: Overriding language with engine locale configuration option (autoDetect).
+[2026.10.27-01.06.20:551][  0]LogTextLocalizationManager: No localization for 'autoDetect' exists, so 'en-US' will be used for the language.
+[2026.10.27-01.06.20:551][  0]LogTextLocalizationManager: No localization for 'autoDetect' exists, so 'en-US' will be used for the locale.
+[2026.10.27-01.06.20:555][  0]LogAssetRegistry: FAssetRegistry took 0.0001 seconds to start up
+[2026.10.27-01.06.20:637][  0]LogStreaming: Display: FlushAsyncLoading(1): 1 QueuedPackages, 0 AsyncPackages
+[2026.10.27-01.06.20:640][  0]LogFilePackageStore: Updated: NewPackages=27240, OldPackages=0, TotalPackages=27240
+[2026.10.27-01.06.20:651][  0]LogLinux: Selected Device Profile: [LinuxServer]
+[2026.10.27-01.06.20:651][  0]LogDeviceProfileManager: Active device profile: [0x7fa0e5c60b18][0x7fa0aa71db70 66] LinuxServer
+[2026.10.27-01.06.20:704][  0]LogIris: FNetObjectFactoryRegistry::UnregisterFactory is unregistering factory: NetActorFactory name: NetActorFactory id: 0
+[2026.10.27-01.06.20:704][  0]LogIris: FNetObjectFactoryRegistry::UnregisterFactory is unregistering factory: NetSubObjectFactory name: NetSubObjectFactory id: 1
+[2026.10.27-01.06.20:705][  0]LogPackageLocalizationCache: Processed 78 localized package path(s) for 2 prioritized culture(s) in 0.000296 seconds
+[2026.10.27-01.06.20:812][  0]LogStats: UGameplayTagsManager::InitializeManager -  0.001 s
+[2026.10.27-01.06.20:829][  0]LogGauntlet: Display: Gauntlet Initialized
+[2026.10.27-01.06.20:845][  0]LogRHI: NullRHI preferably does not allocate memory on the server. Try to change the caller to avoid doing allocs in when FApp::ShouldUseNullRHI() is true.
+[2026.10.27-01.06.21:022][  0]LogMetaSound: Display: MetaSound Page Target Initialized to 'Default'
+[2026.10.27-01.06.21:023][  0]LogAudio: Display: Registering Engine Module Parameter Interfaces...
+[2026.10.27-01.06.21:029][  0]LogMetaSound: MetaSound Engine Initialized
+[2026.10.27-01.06.21:110][  0]LogWwiseNiagara: Initializing default Niagara.
+[2026.10.27-01.06.21:205][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Players/Messages/YouGotKicked'. Did you forget to add a string table redirector?
+[2026.10.27-01.06.21:208][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Sessions/JoinSession/Header'. Did you forget to add a string table redirector?
+[2026.10.27-01.06.21:208][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Sessions/JoinSession/Body'. Did you forget to add a string table redirector?
+[2026.10.27-01.06.21:208][  0]LogStringTable: Warning: Failed to find string table entry for 'Messages_UI' 'Warnings/JoinSession/FailedToDestroyOldSession'. Did you forget to add a string table redirector?
+[2026.10.27-01.06.21:208][  0]LogStringTable: Warning: Failed to find string table entry for 'Messages_UI' 'Warnings/JoinSession/FailedToLookupFriendsId'. Did you forget to add a string table redirector?
+[2026.10.27-01.06.21:208][  0]LogStringTable: Warning: Failed to find string table entry for 'Messages_UI' 'Warnings/JoinSession/FailedToLookupHostId'. Did you forget to add a string table redirector?
+[2026.10.27-01.06.21:208][  0]LogStringTable: Warning: Failed to find string table entry for 'Messages_UI' 'Warnings/JoinSession/FailedToJoinSession'. Did you forget to add a string table redirector?
+[2026.10.27-01.06.21:208][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Sessions/SessionExpired/Header'. Did you forget to add a string table redirector?
+[2026.10.27-01.06.21:208][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Session/SessionExpired/Body'. Did you forget to add a string table redirector?
+[2026.10.27-01.06.21:208][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Session/ClientSessionTimeout/Header'. Did you forget to add a string table redirector?
+[2026.10.27-01.06.21:208][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Session/ClientSessionTimeout/Body'. Did you forget to add a string table redirector?
+[2026.10.27-01.06.21:208][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Sessions/Errors/OfflineFallback/aTitle'. Did you forget to add a string table redirector?
+[2026.10.27-01.06.21:208][  0]LogStringTable: Warning: Failed to find string table entry for 'Menus_UI' 'Sessions/Errors/OfflineFallback/Body'. Did you forget to add a string table redirector?
+[2026.10.27-01.06.21:380][  0]LogCSLocTools: Deriving CSV String Table Root by combining Poject Content Dir [../../../FactoryGame/Content/] and Folder Path [Localization/StringTables]
+[2026.10.27-01.06.21:380][  0]LogCSLocTools: Processing CSV String Table root [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:380][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Architecture_Data.csv]
+[2026.10.27-01.06.21:380][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Architecture_Data.csv]
+[2026.10.27-01.06.21:380][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Architecture_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:380][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Architecture_Data.csv]
+[2026.10.27-01.06.21:380][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Architecture_Data]
+[2026.10.27-01.06.21:380][  0]LogCSLocTools: Registering CSV String Table Architecture_Data at Content/Localization/StringTables/Architecture_Data.csv
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/AWESOME_Data.csv]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/AWESOME_Data.csv]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/AWESOME_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [AWESOME_Data.csv]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: Deriving CSV String Table ID: Final [AWESOME_Data]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: Registering CSV String Table AWESOME_Data at Content/Localization/StringTables/AWESOME_Data.csv
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/AWESOME_UI.csv]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/AWESOME_UI.csv]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/AWESOME_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [AWESOME_UI.csv]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: Deriving CSV String Table ID: Final [AWESOME_UI]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: Registering CSV String Table AWESOME_UI at Content/Localization/StringTables/AWESOME_UI.csv
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Buildables_Data.csv]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Buildables_Data.csv]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Buildables_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Buildables_Data.csv]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Buildables_Data]
+[2026.10.27-01.06.21:382][  0]LogCSLocTools: Registering CSV String Table Buildables_Data at Content/Localization/StringTables/Buildables_Data.csv
+[2026.10.27-01.06.21:384][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Buildables_UI.csv]
+[2026.10.27-01.06.21:384][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Buildables_UI.csv]
+[2026.10.27-01.06.21:384][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Buildables_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:384][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Buildables_UI.csv]
+[2026.10.27-01.06.21:384][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Buildables_UI]
+[2026.10.27-01.06.21:384][  0]LogCSLocTools: Registering CSV String Table Buildables_UI at Content/Localization/StringTables/Buildables_UI.csv
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Codex_UI.csv]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Codex_UI.csv]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Codex_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Codex_UI.csv]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Codex_UI]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: Registering CSV String Table Codex_UI at Content/Localization/StringTables/Codex_UI.csv
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Credits_UI.csv]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Credits_UI.csv]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Credits_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Credits_UI.csv]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Credits_UI]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: Registering CSV String Table Credits_UI at Content/Localization/StringTables/Credits_UI.csv
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Customization_Data.csv]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Customization_Data.csv]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Customization_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Customization_Data.csv]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Customization_Data]
+[2026.10.27-01.06.21:386][  0]LogCSLocTools: Registering CSV String Table Customization_Data at Content/Localization/StringTables/Customization_Data.csv
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Customization_UI.csv]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Customization_UI.csv]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Customization_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Customization_UI.csv]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Customization_UI]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: Registering CSV String Table Customization_UI at Content/Localization/StringTables/Customization_UI.csv
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Emotes_Data.csv]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Emotes_Data.csv]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Emotes_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Emotes_Data.csv]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Emotes_Data]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: Registering CSV String Table Emotes_Data at Content/Localization/StringTables/Emotes_Data.csv
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Equipment_Data.csv]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Equipment_Data.csv]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Equipment_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Equipment_Data.csv]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Equipment_Data]
+[2026.10.27-01.06.21:387][  0]LogCSLocTools: Registering CSV String Table Equipment_Data at Content/Localization/StringTables/Equipment_Data.csv
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/FICSMAS_Data.csv]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/FICSMAS_Data.csv]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/FICSMAS_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [FICSMAS_Data.csv]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: Deriving CSV String Table ID: Final [FICSMAS_Data]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: Registering CSV String Table FICSMAS_Data at Content/Localization/StringTables/FICSMAS_Data.csv
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/FICSMAS_UI.csv]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/FICSMAS_UI.csv]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/FICSMAS_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [FICSMAS_UI.csv]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: Deriving CSV String Table ID: Final [FICSMAS_UI]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: Registering CSV String Table FICSMAS_UI at Content/Localization/StringTables/FICSMAS_UI.csv
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Gamepads_UI.csv]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Gamepads_UI.csv]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Gamepads_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Gamepads_UI.csv]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Gamepads_UI]
+[2026.10.27-01.06.21:388][  0]LogCSLocTools: Registering CSV String Table Gamepads_UI at Content/Localization/StringTables/Gamepads_UI.csv
+[2026.10.27-01.06.21:389][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/GamepadsMappings_UI.csv]
+[2026.10.27-01.06.21:389][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/GamepadsMappings_UI.csv]
+[2026.10.27-01.06.21:389][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/GamepadsMappings_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:389][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [GamepadsMappings_UI.csv]
+[2026.10.27-01.06.21:389][  0]LogCSLocTools: Deriving CSV String Table ID: Final [GamepadsMappings_UI]
+[2026.10.27-01.06.21:389][  0]LogCSLocTools: Registering CSV String Table GamepadsMappings_UI at Content/Localization/StringTables/GamepadsMappings_UI.csv
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/General_UI.csv]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/General_UI.csv]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/General_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [General_UI.csv]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: Deriving CSV String Table ID: Final [General_UI]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: Registering CSV String Table General_UI at Content/Localization/StringTables/General_UI.csv
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/HUB_UI.csv]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/HUB_UI.csv]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/HUB_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [HUB_UI.csv]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: Deriving CSV String Table ID: Final [HUB_UI]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: Registering CSV String Table HUB_UI at Content/Localization/StringTables/HUB_UI.csv
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/IconLibrary_Data.csv]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/IconLibrary_Data.csv]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/IconLibrary_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [IconLibrary_Data.csv]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: Deriving CSV String Table ID: Final [IconLibrary_Data]
+[2026.10.27-01.06.21:390][  0]LogCSLocTools: Registering CSV String Table IconLibrary_Data at Content/Localization/StringTables/IconLibrary_Data.csv
+[2026.10.27-01.06.21:391][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Items_Data.csv]
+[2026.10.27-01.06.21:391][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Items_Data.csv]
+[2026.10.27-01.06.21:391][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Items_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:391][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Items_Data.csv]
+[2026.10.27-01.06.21:391][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Items_Data]
+[2026.10.27-01.06.21:391][  0]LogCSLocTools: Registering CSV String Table Items_Data at Content/Localization/StringTables/Items_Data.csv
+[2026.10.27-01.06.21:393][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/MAM_Data.csv]
+[2026.10.27-01.06.21:393][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/MAM_Data.csv]
+[2026.10.27-01.06.21:393][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/MAM_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:393][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [MAM_Data.csv]
+[2026.10.27-01.06.21:393][  0]LogCSLocTools: Deriving CSV String Table ID: Final [MAM_Data]
+[2026.10.27-01.06.21:393][  0]LogCSLocTools: Registering CSV String Table MAM_Data at Content/Localization/StringTables/MAM_Data.csv
+[2026.10.27-01.06.21:393][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/MAM_UI.csv]
+[2026.10.27-01.06.21:393][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/MAM_UI.csv]
+[2026.10.27-01.06.21:393][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/MAM_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:393][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [MAM_UI.csv]
+[2026.10.27-01.06.21:393][  0]LogCSLocTools: Deriving CSV String Table ID: Final [MAM_UI]
+[2026.10.27-01.06.21:393][  0]LogCSLocTools: Registering CSV String Table MAM_UI at Content/Localization/StringTables/MAM_UI.csv
+[2026.10.27-01.06.21:394][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Map_UI.csv]
+[2026.10.27-01.06.21:394][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Map_UI.csv]
+[2026.10.27-01.06.21:394][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Map_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:394][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Map_UI.csv]
+[2026.10.27-01.06.21:394][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Map_UI]
+[2026.10.27-01.06.21:394][  0]LogCSLocTools: Registering CSV String Table Map_UI at Content/Localization/StringTables/Map_UI.csv
+[2026.10.27-01.06.21:394][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Menus_UI.csv]
+[2026.10.27-01.06.21:394][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Menus_UI.csv]
+[2026.10.27-01.06.21:394][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Menus_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:394][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Menus_UI.csv]
+[2026.10.27-01.06.21:394][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Menus_UI]
+[2026.10.27-01.06.21:394][  0]LogCSLocTools: Registering CSV String Table Menus_UI at Content/Localization/StringTables/Menus_UI.csv
+[2026.10.27-01.06.21:396][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Messages_UI.csv]
+[2026.10.27-01.06.21:396][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Messages_UI.csv]
+[2026.10.27-01.06.21:396][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Messages_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:396][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Messages_UI.csv]
+[2026.10.27-01.06.21:396][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Messages_UI]
+[2026.10.27-01.06.21:396][  0]LogCSLocTools: Registering CSV String Table Messages_UI at Content/Localization/StringTables/Messages_UI.csv
+[2026.10.27-01.06.21:400][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Minigame_UI.csv]
+[2026.10.27-01.06.21:400][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Minigame_UI.csv]
+[2026.10.27-01.06.21:400][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Minigame_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:400][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Minigame_UI.csv]
+[2026.10.27-01.06.21:400][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Minigame_UI]
+[2026.10.27-01.06.21:400][  0]LogCSLocTools: Registering CSV String Table Minigame_UI at Content/Localization/StringTables/Minigame_UI.csv
+[2026.10.27-01.06.21:400][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Onboarding.csv]
+[2026.10.27-01.06.21:400][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Onboarding.csv]
+[2026.10.27-01.06.21:400][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Onboarding.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:400][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Onboarding.csv]
+[2026.10.27-01.06.21:400][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Onboarding]
+[2026.10.27-01.06.21:400][  0]LogCSLocTools: Registering CSV String Table Onboarding at Content/Localization/StringTables/Onboarding.csv
+[2026.10.27-01.06.21:401][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Options_Data.csv]
+[2026.10.27-01.06.21:401][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Options_Data.csv]
+[2026.10.27-01.06.21:401][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Options_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:401][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Options_Data.csv]
+[2026.10.27-01.06.21:401][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Options_Data]
+[2026.10.27-01.06.21:401][  0]LogCSLocTools: Registering CSV String Table Options_Data at Content/Localization/StringTables/Options_Data.csv
+[2026.10.27-01.06.21:404][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/OptionsInputs_Data.csv]
+[2026.10.27-01.06.21:404][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/OptionsInputs_Data.csv]
+[2026.10.27-01.06.21:404][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/OptionsInputs_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:404][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [OptionsInputs_Data.csv]
+[2026.10.27-01.06.21:404][  0]LogCSLocTools: Deriving CSV String Table ID: Final [OptionsInputs_Data]
+[2026.10.27-01.06.21:404][  0]LogCSLocTools: Registering CSV String Table OptionsInputs_Data at Content/Localization/StringTables/OptionsInputs_Data.csv
+[2026.10.27-01.06.21:404][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Player_UI.csv]
+[2026.10.27-01.06.21:404][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Player_UI.csv]
+[2026.10.27-01.06.21:404][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Player_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:404][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Player_UI.csv]
+[2026.10.27-01.06.21:404][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Player_UI]
+[2026.10.27-01.06.21:404][  0]LogCSLocTools: Registering CSV String Table Player_UI at Content/Localization/StringTables/Player_UI.csv
+[2026.10.27-01.06.21:406][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Schematics_Data.csv]
+[2026.10.27-01.06.21:406][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Schematics_Data.csv]
+[2026.10.27-01.06.21:406][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Schematics_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:406][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Schematics_Data.csv]
+[2026.10.27-01.06.21:406][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Schematics_Data]
+[2026.10.27-01.06.21:406][  0]LogCSLocTools: Registering CSV String Table Schematics_Data at Content/Localization/StringTables/Schematics_Data.csv
+[2026.10.27-01.06.21:406][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Transportation_UI.csv]
+[2026.10.27-01.06.21:406][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Transportation_UI.csv]
+[2026.10.27-01.06.21:406][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Transportation_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:406][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Transportation_UI.csv]
+[2026.10.27-01.06.21:406][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Transportation_UI]
+[2026.10.27-01.06.21:406][  0]LogCSLocTools: Registering CSV String Table Transportation_UI at Content/Localization/StringTables/Transportation_UI.csv
+[2026.10.27-01.06.21:408][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/Units_UI.csv]
+[2026.10.27-01.06.21:408][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Units_UI.csv]
+[2026.10.27-01.06.21:408][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/Units_UI.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:408][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [Units_UI.csv]
+[2026.10.27-01.06.21:408][  0]LogCSLocTools: Deriving CSV String Table ID: Final [Units_UI]
+[2026.10.27-01.06.21:408][  0]LogCSLocTools: Registering CSV String Table Units_UI at Content/Localization/StringTables/Units_UI.csv
+[2026.10.27-01.06.21:408][  0]LogCSLocTools: IterateDirectoryRecursively reached [../../../FactoryGame/Content/Localization/StringTables/World_Data.csv]
+[2026.10.27-01.06.21:408][  0]LogCSLocTools: IterateDirectoryRecursively reached (FullPath) [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/World_Data.csv]
+[2026.10.27-01.06.21:408][  0]LogCSLocTools: Attempting to register CSV String Table with path [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables/World_Data.csv] and root folder [/var/www/async_SatisDedicated/server/FactoryGame/Content/Localization/StringTables]
+[2026.10.27-01.06.21:408][  0]LogCSLocTools: Deriving CSV String Table ID: After removing root [World_Data.csv]
+[2026.10.27-01.06.21:408][  0]LogCSLocTools: Deriving CSV String Table ID: Final [World_Data]
+[2026.10.27-01.06.21:408][  0]LogCSLocTools: Registering CSV String Table World_Data at Content/Localization/StringTables/World_Data.csv
+[2026.10.27-01.06.21:497][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2026.10.27-01.06.21:497][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2026.10.27-01.06.21:540][  0]LogUObjectArray: 40723 objects as part of root set at end of initial load.
+[2026.10.27-01.06.21:540][  0]LogUObjectArray: 35 objects are not in the root set, but can never be destroyed because they are in the DisregardForGC set.
+[2026.10.27-01.06.21:540][  0]LogUObjectArray: CloseDisregardForGC: 40723/40723 objects in disregard for GC pool
+[2026.10.27-01.06.21:556][  0]LogEngine: Initializing Engine...
+[2026.10.27-01.06.21:557][  0]LogGameFeatures: Initializing game features subsystem
+[2026.10.27-01.06.21:557][  0]LogSentrySdk: Sentry plugin auto initialization: false
+[2026.10.27-01.06.21:558][  0]LogSentrySdk: Sentry transport will use the certificate found at /etc/ssl/certs/ca-certificates.crt for verification.
+[2026.10.27-01.06.21:558][  0]LogSentrySdk: Using current project name and version as Sentry release.
+[2026.10.27-01.06.21:558][  0]LogSentrySdk: Using current build configuration as Sentry environment.
+[2026.10.27-01.06.21:558][  0]LogSentrySdk: using database path "/var/www/async_SatisDedicated/.runtime/bridge-user/.sentry-native"
+[2026.10.27-01.06.21:558][  0]LogSentrySdk: Verbose: starting transport
+[2026.10.27-01.06.21:558][  0]LogSentrySdk: Verbose: starting background worker thread
+[2026.10.27-01.06.21:558][  0]LogSentrySdk: Verbose: background worker thread started
+[2026.10.27-01.06.21:559][  0]LogSentrySdk: Verbose: processing and pruning old runs
+[2026.10.27-01.06.21:559][  0]LogSentrySdk: Sentry initialization completed with result 0 (0 on success).
+[2026.10.27-01.06.21:559][  0]LogSentrySdk: Using current project name and version as Sentry release.
+[2026.10.27-01.06.21:559][  0]LogSentrySdk: Using current build configuration as Sentry environment.
+[2026.10.27-01.06.21:580][  0]LogAssetManager: Display: Ignoring PrimaryAssetType Profiling - Conflicts with Map - Asset: Map_UI-Profile
+[2026.10.27-01.06.21:583][  0]LogGameFeatures: Scanning for built-in game feature plugins
+[2026.10.27-01.06.21:583][  0]LogGameFeatures: Loading 169 builtins. Not Amortized
+[2026.10.27-01.06.21:584][  0]LogStats: BuiltInGameFeaturePlugins loaded. -  0.001 s
+[2026.10.27-01.06.21:584][  0]LogNetVersion: Set ProjectVersion to 0. Version Checksum will be recalculated on next use.
+[2026.10.27-01.06.21:584][  0]LogInit: Texture streaming: Disabled
+[2026.10.27-01.06.21:589][  0]LogUserSetting: Initializing user settings
+[2026.10.27-01.06.21:665][  0]LogLoad: Loading WwiseConcurrency module: WwiseConcurrency
+[2026.10.27-01.06.21:665][  0]LogWwiseConcurrency: Initializing default Concurrency.
+[2026.10.27-01.06.21:665][  0]LogLoad: Loading WwiseFileHandler module: WwiseFileHandler
+[2026.10.27-01.06.21:666][  0]LogLoad: Loading WwiseSoundEngine module: WwiseSoundEngine
+[2026.10.27-01.06.21:666][  0]LogWwiseSoundEngine: Display: Loading Wwise SoundEngine 2025.1.6 (Integration 2025.1)
+[2026.10.27-01.06.21:666][  0]LogAkAudio: FAkAudioModule::InitializeAkAudioDevice: Couldn't initialize FAkAudioDevice. AkAudioModule will not be fully initialized.
+[2026.10.27-01.06.21:702][  0]LogNiagara: UAV Float16 is not supported, compressed GPU emitters will be disabled.
+[2026.10.27-01.06.21:707][  0]LogOnlineSchema: Error: Invalid schema category Lobby: Service descriptor id Lobby not found.
+[2026.10.27-01.06.21:707][  0]LogOnlineSchema: Error: Invalid schema category LobbyMember: Service descriptor id LobbyMember not found.
+[2026.10.27-01.06.21:707][  0]LogOnlineServices: Error: [FLobbiesCommon::Initialize] Failed to initialize schema registry
+[2026.10.27-01.06.21:709][  0]LogOnlineServices: 0x7fa08f01d040 Null online services instance initialize
+[2026.10.27-01.06.21:709][  0]LogOnlineIntegration: Initialized 'NULL' online backend
+[2026.10.27-01.06.21:710][  0]LogCommonUser: Warning: HandleNetworkConnectionStatusChanged(Context:Offline, ServiceName:, OldStatus:Connected, NewStatus:Connected)
+[2026.10.27-01.06.21:712][  0]LogHttpServerModule: Starting all listeners...
+[2026.10.27-01.06.21:712][  0]LogHttpServerModule: All listeners started
+[2026.10.27-01.06.21:712][  0]LogServer: Display: Server API listening on 127.0.0.1:17877
+[2026.10.27-01.06.21:712][  0]LogServer: Warning: ==============================================================
+[2026.10.27-01.06.21:712][  0]LogServer: Warning: Server API is running using a Self-Signed Certificate.
+[2026.10.27-01.06.21:712][  0]LogServer: Warning: To verify the certificate integrity on the Client, make sure the following Fingerprint matches with the Client one: 
+[2026.10.27-01.06.21:712][  0]LogServer: Warning: SHA256:o6iXXdB7C+vKAQM6RR4H+D9vrc929+cWnhoNCfvxVec=
+[2026.10.27-01.06.21:712][  0]LogServer: Warning: ==============================================================
+[2026.10.27-01.06.21:712][  0]LogHttpListener: Warning: HttpListener unable to set desired buffer size (524288): Limited to 425984
+[2026.10.27-01.06.21:713][  0]LogServer: Display: Server API listening on '127.0.0.1:17877' Dedicated Server
+[2026.10.27-01.06.21:713][  0]LogGame: Importing test saves....
+[2026.10.27-01.06.21:713][  0]LogGame: Test saves imported!....
+[2026.10.27-01.06.21:714][  0]LogGame: MaxNumBackupsaves: 25
+[2026.10.27-01.06.21:716][  0]LogInit: Display: Game Engine Initialized.
+[2026.10.27-01.06.21:716][  0]LogNetVersion: Set ProjectVersion to ++FactoryGame+rel-main-anniversary-2026-CL-513885. Version Checksum will be recalculated on next use.
+[2026.10.27-01.06.21:719][  0]LogInit: OnPostEngineInit has been broadcasted successfully.
+[2026.10.27-01.06.21:727][  0]LogInit: Display: Starting Game.
+[2026.10.27-01.06.21:727][  0]LogGlobalStatus: Browse Started Browse: "/Game/FactoryGame/Map/DedicatedserverEntry?Name=Player"
+[2026.10.27-01.06.21:727][  0]LogNet: Browse: /Game/FactoryGame/Map/DedicatedserverEntry?Name=Player
+[2026.10.27-01.06.21:727][  0]LogLoad: Loading WwiseSoundEngine module: WwiseSoundEngine
+[2026.10.27-01.06.21:785][  0]LogLoad: LoadMap: /Game/FactoryGame/Map/DedicatedserverEntry?Name=Player
+[2026.10.27-01.06.21:785][  0]LogWorld: BeginTearingDown for /Temp/Untitled_0
+[2026.10.27-01.06.21:785][  0]LogWorld: UWorld::CleanupWorld for Untitled, bSessionEnded=true, bCleanupResources=true
+[2026.10.27-01.06.21:788][  0]LogGarbage: Warning: 2.315679 ms for acquiring GC lock
+[2026.10.27-01.06.21:793][  0]LogUObjectHash: Compacting FUObjectHashTables data took   1.93ms
+[2026.10.27-01.06.21:814][  0]LogLoad: Game class is 'BP_GameModeMenu_C'
+[2026.10.27-01.06.21:816][  0]LogReplicationGraph: Display: SetActorDiscoveryBudget set to 20 kBps (5333 bits per network tick).
+[2026.10.27-01.06.21:816][  0]LogNetCore: DDoS detection status: detection enabled: 0 analytics enabled: 0
+[2026.10.27-01.06.21:816][  0]LogPushModel: PushModel HandleCreation is now enabled
+[2026.10.27-01.06.21:816][  0]LogNet: InitBase GameNetDriver (NetDriverDefinition GameNetDriver) using replication model FGReplicationGraph
+[2026.10.27-01.06.21:816][  0]LogInit: BSD IPv4/6: Socket queue. Rx: 262144 (config 131072) Tx: 262144 (config 131072)
+[2026.10.27-01.06.21:816][  0]LogNet: Created socket for bind address: 127.0.0.1:17877
+[2026.10.27-01.06.21:816][  0]PacketHandlerLog: Loaded PacketHandler component: DTLSHandlerComponent ()
+[2026.10.27-01.06.21:816][  0]PacketHandlerLog: Loaded PacketHandler component: Engine.EngineHandlerComponentFactory (StatelessConnectHandlerComponent)
+[2026.10.27-01.06.21:816][  0]PacketHandlerLog: Loaded PacketHandler component: FactoryDedicatedServer.DSQueryHandlerComponentFactory (DSQueryHandlerComponent)
+[2026.10.27-01.06.21:816][  0]LogNet: Name:GameNetDriver Def:GameNetDriver FGDSIpNetDriver_2147482171 IpNetDriver listening on port 17877
+[2026.10.27-01.06.21:817][  0]LogWorld: Bringing World /Game/FactoryGame/Map/DedicatedserverEntry.DedicatedserverEntry up for play (max tick rate 30) at 2026.10.27-02.06.21
+[2026.10.27-01.06.21:819][  0]LogGame: Discovered 0 Remote Call Objects on AFGGameMode::InitGame
+[2026.10.27-01.06.21:874][  0]LogWorld: Bringing up level for play took: 0.057117
+[2026.10.27-01.06.21:874][  0]LogReliableMessaging: Server streaming socket bound to port 17888
+[2026.10.27-01.06.21:874][  0]LogReliableMessaging: No port remapping specified. Clients will attempt to connect to the bound port as is.
+[2026.10.27-01.06.21:874][  0]LogGameMode: Display: Match State Changed from EnteringMap to WaitingToStart
+[2026.10.27-01.06.21:874][  0]LogGame: Apply Lightweight Instances from Load took: 0.000004 seconds
+[2026.10.27-01.06.21:874][  0]LogGame: Error: IFGOptionInterfaceImpl::GetOptionValue - Could not find user setting with id 'conveyor.UseExperimental'
+[2026.10.27-01.06.21:875][  0]LogGameState: Match State Changed from EnteringMap to WaitingToStart
+[2026.10.27-01.06.21:875][  0]LogLoad: Took 0.090203 seconds to LoadMap(/Game/FactoryGame/Map/DedicatedserverEntry)
+[2026.10.27-01.06.21:875][  0]LogGlobalStatus: LoadMap Load map complete /Game/FactoryGame/Map/DedicatedserverEntry
+[2026.10.27-01.06.21:908][  0]LogInit: Display: Engine is initialized. Leaving FEngineLoop::Init()
+[2026.10.27-01.06.21:908][  0]LogLoad: (Engine Initialization) Total time: 1.87 seconds
+[2026.10.27-01.06.21:942][  0]LogOnlineVoice: OSS: Voice interface disabled by config [OnlineSubsystem].bHasVoiceEnabled
+[2026.10.27-01.06.51:982][893]LogServer: Display: Server startup time elapsed and saving/level loading is done, auto-pause is allowed to proceed from now on (if enabled in server settings). WorldTimeSeconds = 30.07
+[2026.10.27-01.28.28:830][667]LogServer: Display: Shutting down the server as per Remote Request from Admin at (127.0.0.1)
+[2026.10.27-01.28.28:831][667]LogCore: Engine exit requested (reason: Remote Server Shutdown initiated by Administrator.)
+[2026.10.27-01.28.28:831][667]LogCore: Engine exit requested (reason: EngineExit() was called; note: exit was already requested)
+[2026.10.27-0* Host o4510000618995712.ingest.de.sentry.io:443 was resolved.
+* IPv6: 2600:1901:0:5e8a::
+* IPv4: 34.160.81.0
+*   Trying [2600:1901:0:5e8a::]:443...
+*   Trying 34.160.81.0:443...
+* ALPN: curl offers h2,http/1.1
+*  CAfile: /etc/ssl/certs/ca-certificates.crt
+*  CApath: none
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384 / [blank] / UNDEF
+* ALPN: server accepted h2
+* Server certificate:
+*  subject: C=US; ST=California; L=San Francisco; O=Sentry; CN=ingest.de.sentry.io
+*  start date: Aug  6 00:00:00 2026 GMT
+*  expire date: Feb 20 23:59:59 2027 GMT
+*  subjectAltName: host "o4510000618995712.ingest.de.sentry.io" matched cert's "*.ingest.de.sentry.io"
+*  issuer: C=US; O=DigiCert Inc; CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1
+*  SSL certificate verify ok.
+*   Certificate level 0: Public key type ? (2048/112 Bits/secBits), signed using sha256WithRSAEncryption
+*   Certificate level 1: Public key type ? (2048/112 Bits/secBits), signed using sha256WithRSAEncryption
+*   Certificate level 2: Public key type ? (2048/112 Bits/secBits), signed using sha256WithRSAEncryption
+* Connected to o4510000618995712.ingest.de.sentry.io (34.160.81.0) port 443
+* using HTTP/2
+* [HTTP/2] [1] OPENED stream for https://o4510000618995712.ingest.de.sentry.io:443/api/4510000622141520/envelope/
+* [HTTP/2] [1] [:method: POST]
+* [HTTP/2] [1] [:scheme: https]
+* [HTTP/2] [1] [:authority: o4510000618995712.ingest.de.sentry.io]
+* [HTTP/2] [1] [:path: /api/4510000622141520/envelope/]
+* [HTTP/2] [1] [user-agent: sentry.native.unreal/0.10.1]
+* [HTTP/2] [1] [accept: */*]
+* [HTTP/2] [1] [x-sentry-auth: Sentry sentry_key=ce9e39afc0e16e3b66a9b309fe98f23b, sentry_version=7, sentry_client=sentry.native.unreal/0.10.1]
+* [HTTP/2] [1] [content-type: application/x-sentry-envelope]
+* [HTTP/2] [1] [content-length: 361]
+> POST /api/4510000622141520/envelope/ HTTP/2
+Host: o4510000618995712.ingest.de.sentry.io
+User-Agent: sentry.native.unreal/0.10.1
+Accept: */*
+x-sentry-auth:Sentry sentry_key=ce9e39afc0e16e3b66a9b309fe98f23b, sentry_version=7, sentry_client=sentry.native.unreal/0.10.1
+content-type:application/x-sentry-envelope
+content-length:361
+
+* upload completely sent off: 361 bytes
+< HTTP/2 200 
+< server: nginx
+< date: Tue, 27 Oct 2026 01:28:29 GMT
+< content-type: application/json
+< content-length: 2
+< vary: origin, access-control-request-method, access-control-request-headers
+< access-control-allow-origin: *
+< access-control-expose-headers: x-sentry-error,x-sentry-rate-limits,retry-after
+< cross-origin-resource-policy: cross-origin
+< strict-transport-security: max-age=31536000; includeSubDomains; preload
+< via: 1.1 google
+< alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< 
+{}* Connection #0 to host o4510000618995712.ingest.de.sentry.io left intact
+1.28.28:838][667]LogInit: Display: PreExit Game.
+[2026.10.27-01.28.28:930][667]LogWorld: BeginTearingDown for /Game/FactoryGame/Map/DedicatedserverEntry
+[2026.10.27-01.28.28:953][667]LogNet: World NetDriver shutdown FGDSIpNetDriver_2147482171 [GameNetDriver]
+[2026.10.27-01.28.28:953][667]LogNet: DestroyNamedNetDriver: Name:GameNetDriver Def:GameNetDriver FGDSIpNetDriver_2147482171 
+[2026.10.27-01.28.28:976][667]LogExit: Name:GameNetDriver Def:GameNetDriver FGDSIpNetDriver_2147482171 shut down
+[2026.10.27-01.28.29:117][667]LogHttpServerModule: Stopping all listeners...
+[2026.10.27-01.28.29:118][667]LogHttpListener: HttpListener stopping listening on Port 17877
+[2026.10.27-01.28.29:118][667]LogHttpServerModule: All listeners stopped
+[2026.10.27-01.28.29:121][667]LogWorld: UWorld::CleanupWorld for DedicatedserverEntry, bSessionEnded=true, bCleanupResources=true
+[2026.10.27-01.28.29:353][667]LogPackageLocalizationCache: Processed 78 localized package path(s) for 2 prioritized culture(s) in 0.046770 seconds
+[2026.10.27-01.28.29:400][667]LogGameFeatures: Shutting down game features subsystem
+[2026.10.27-01.28.29:425][667]LogSentrySdk: Verbose: sending envelope
+[2026.10.27-01.28.29:425][667]LogSentrySdk: Verbose: submitting task to background worker thread
+[2026.10.27-01.28.29:425][667]LogSentrySdk: Verbose: shutting down transport
+[2026.10.27-01.28.29:425][667]LogSentrySdk: Verbose: shutting down background worker thread
+[2026.10.27-01.28.29:425][667]LogSentrySdk: Verbose: submitting task to background worker thread
+[2026.10.27-01.28.29:426][667]LogSentrySdk: Verbose: executing task on worker thread
+[2026.10.27-01.28.29:721][667]LogSentrySdk: Verbose: executing task on worker thread
+[2026.10.27-01.28.29:721][667]LogSentrySdk: Verbose: background worker thread shut down
+[2026.10.27-01.28.29:748][667]LogExit: Preparing to exit.
+[2026.10.27-01.28.30:686][667]LogDemo: Cleaned up 0 splitscreen connections, owner deletion: enabled
+[2026.10.27-01.28.30:759][667]LogExit: Game engine shut down
+[2026.10.27-01.28.31:899][667]LogExit: Object subsystem successfully closed.
+[2026.10.27-01.28.31:954][667]LogHttpServerModule: Stopping all listeners...
+[2026.10.27-01.28.31:954][667]LogHttpServerModule: All listeners stopped
+[2026.10.27-01.28.31:955][667]LogWwiseSoundEngine: Display: Unloading WwiseSoundEngine
+[2026.10.27-01.28.31:956][667]LogWwiseConcurrency: Shutting down default Concurrency.
+[2026.10.27-01.28.31:981][667]LogWwiseNiagara: Shutting down default Niagara.
+[2026.10.27-01.28.31:993][667]LogGauntlet: Gauntlet Shutdown
+[2026.10.27-01.28.32:047][667]LogOnlineServices: 0x7fa08f01d040 Null online services instance destroy
+[2026.10.27-01.28.32:182][667]LogEOSShared: Shutdown EOS_Shutdown Result=[EOS_Success]
+[2026.10.27-01.28.32:184][667]LogNFORDenoise: NFORDenoise function shutting down
+[2026.10.27-01.28.32:200][667]LogIris: FNetObjectFactoryRegistry::UnregisterFactory is unregistering factory: None name: NetActorFactory id: 0
+[2026.10.27-01.28.32:200][667]LogIris: FNetObjectFactoryRegistry::UnregisterFactory is unregistering factory: None name: NetSubObjectFactory id: 1
+[2026.10.27-01.28.32:200][667]LogPakFile: Destroying PakPlatformFile
+[2026.10.27-01.28.32:217][667]LogExit: Exiting.
+Shutdown handler: cleanup.

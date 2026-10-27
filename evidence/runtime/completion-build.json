@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-10-27T03:02:00.000000+00:00",
+  "runtime_evidence_id": "ev_c7f36acbf4f32b3d408c4d0d821014d973347744bfc3044c2e6687a8b564ff18",
+  "server_pid": 422374,
+  "steam_build": "25782485",
+  "core_gnu_build_id": "36a6397531db8df2",
+  "sha256": {
+    "src/satis_task_bridge.cpp": "745cc31a13652bf0d69dd782b1d4ad512c1324058def8278538e2a455e82cca6",
+    "include/satis_task_bridge.h": "8eb23275d76d18c8a70d2aca6df80962d1703f2cf23bd1ce0304e739dcb27428",
+    "build/libsatis_task_bridge.so": "87279c750b4443bab9da21dc8dac1fd6b1d91d26afdac4eca268ec04d905f7a6",
+    "instrumentation/completion-probe.js": "638b7b71df2efb17743c7d7687f6ac20d16230ebf5f10629d8a3afae9fb6727d",
+    "server/Engine/Binaries/Linux/libFactoryServer-Core-Linux-Shipping.so": "954e4f4055f1c7775732a8be797ddccc44391453bb6d807103dd1edf37fb34c7"
+  },
+  "limitations": [
+    "Hashes describe local files after completed completion probe; REA Frida reports no independently attested target artifact digest.",
+    "Validates AsyncTask batch dispatch and FBaseGraphTask / FFunctionGraphTask prerequisite graph event completion; factory simulation replacement remains unverified."
+  ]
+}

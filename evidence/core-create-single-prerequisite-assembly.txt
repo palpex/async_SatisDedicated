@@ -1,0 +1,449 @@
+
+server/Engine/Binaries/Linux/libFactoryServer-Core-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000004a38e0 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)>:
+  4a38e0:	55                   	push   %rbp
+  4a38e1:	41 57                	push   %r15
+  4a38e3:	41 56                	push   %r14
+  4a38e5:	41 54                	push   %r12
+  4a38e7:	53                   	push   %rbx
+  4a38e8:	48 83 ec 60          	sub    $0x60,%rsp
+  4a38ec:	49 89 d7             	mov    %rdx,%r15
+  4a38ef:	49 89 f6             	mov    %rsi,%r14
+  4a38f2:	48 89 fb             	mov    %rdi,%rbx
+  4a38f5:	48 c7 44 24 20 00 00 	movq   $0x0,0x20(%rsp)
+  4a38fc:	00 00 
+  4a38fe:	48 b8 00 00 00 00 04 	movabs $0x400000000,%rax
+  4a3905:	00 00 00 
+  4a3908:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+  4a390d:	48 83 3a 00          	cmpq   $0x0,(%rdx)
+  4a3911:	0f 84 05 01 00 00    	je     4a3a1c <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)+0x13c>
+  4a3917:	49 89 e4             	mov    %rsp,%r12
+  4a391a:	4d 39 fc             	cmp    %r15,%r12
+  4a391d:	77 0e                	ja     4a392d <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)+0x4d>
+  4a391f:	48 8d 44 24 20       	lea    0x20(%rsp),%rax
+  4a3924:	4c 39 f8             	cmp    %r15,%rax
+  4a3927:	0f 87 25 01 00 00    	ja     4a3a52 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)+0x172>
+  4a392d:	8b 44 24 28          	mov    0x28(%rsp),%eax
+  4a3931:	3b 44 24 2c          	cmp    0x2c(%rsp),%eax
+  4a3935:	75 16                	jne    4a394d <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)+0x6d>
+  4a3937:	48 8d 54 24 2c       	lea    0x2c(%rsp),%rdx
+  4a393c:	48 89 e6             	mov    %rsp,%rsi
+  4a393f:	bf 08 08 00 00       	mov    $0x808,%edi
+  4a3944:	89 cd                	mov    %ecx,%ebp
+  4a3946:	e8 75 37 00 00       	call   4a70c0 <decltype (((std::declval<TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> >::ForElementType<TRefCountPtr<FBaseGraphTask> >&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> >::ForElementType<TRefCountPtr<FBaseGraphTask> > >(unsigned short, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> >::ForElementType<TRefCountPtr<FBaseGraphTask> >&, decltype (((std::declval<TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> >::ForElementType<TRefCountPtr<FBaseGraphTask> >&>()).GetInitialCapacity)())&)>
+  4a394b:	89 e9                	mov    %ebp,%ecx
+  4a394d:	8d 50 01             	lea    0x1(%rax),%edx
+  4a3950:	89 54 24 28          	mov    %edx,0x28(%rsp)
+  4a3954:	48 8b 54 24 20       	mov    0x20(%rsp),%rdx
+  4a3959:	48 85 d2             	test   %rdx,%rdx
+  4a395c:	4c 0f 45 e2          	cmovne %rdx,%r12
+  4a3960:	48 63 d0             	movslq %eax,%rdx
+  4a3963:	49 c7 04 d4 00 00 00 	movq   $0x0,(%r12,%rdx,8)
+  4a396a:	00 
+  4a396b:	49 8b 07             	mov    (%r15),%rax
+  4a396e:	49 89 04 d4          	mov    %rax,(%r12,%rdx,8)
+  4a3972:	48 85 c0             	test   %rax,%rax
+  4a3975:	74 04                	je     4a397b <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)+0x9b>
+  4a3977:	f0 ff 40 08          	lock incl 0x8(%rax)
+  4a397b:	49 8b 06             	mov    (%r14),%rax
+  4a397e:	48 89 44 24 30       	mov    %rax,0x30(%rsp)
+  4a3983:	49 8b 56 28          	mov    0x28(%r14),%rdx
+  4a3987:	48 89 54 24 58       	mov    %rdx,0x58(%rsp)
+  4a398c:	49 c7 46 28 00 00 00 	movq   $0x0,0x28(%r14)
+  4a3993:	00 
+  4a3994:	49 8b 56 20          	mov    0x20(%r14),%rdx
+  4a3998:	48 89 54 24 50       	mov    %rdx,0x50(%rsp)
+  4a399d:	41 0f 28 46 10       	movaps 0x10(%r14),%xmm0
+  4a39a2:	0f 29 44 24 40       	movaps %xmm0,0x40(%rsp)
+  4a39a7:	48 85 c0             	test   %rax,%rax
+  4a39aa:	74 07                	je     4a39b3 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)+0xd3>
+  4a39ac:	49 c7 06 00 00 00 00 	movq   $0x0,(%r14)
+  4a39b3:	48 8d 74 24 30       	lea    0x30(%rsp),%rsi
+  4a39b8:	49 89 e6             	mov    %rsp,%r14
+  4a39bb:	48 89 df             	mov    %rbx,%rdi
+  4a39be:	4c 89 f2             	mov    %r14,%rdx
+  4a39c1:	e8 ca 95 00 00       	call   4acf90 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4u, 32, TSizedDefaultAllocator<32> > > const*, ENamedThreads::Type)>
+  4a39c6:	48 83 7c 24 30 00    	cmpq   $0x0,0x30(%rsp)
+  4a39cc:	74 17                	je     4a39e5 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)+0x105>
+  4a39ce:	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
+  4a39d3:	48 8b 44 24 58       	mov    0x58(%rsp),%rax
+  4a39d8:	48 85 c0             	test   %rax,%rax
+  4a39db:	48 0f 45 f8          	cmovne %rax,%rdi
+  4a39df:	48 8b 07             	mov    (%rdi),%rax
+  4a39e2:	ff 50 10             	call   *0x10(%rax)
+  4a39e5:	48 8b 44 24 20       	mov    0x20(%rsp),%rax
+  4a39ea:	48 85 c0             	test   %rax,%rax
+  4a39ed:	4c 0f 45 f0          	cmovne %rax,%r14
+  4a39f1:	8b 74 24 28          	mov    0x28(%rsp),%esi
+  4a39f5:	4c 89 f7             	mov    %r14,%rdi
+  4a39f8:	e8 93 8d 00 00       	call   4ac790 <_Z13DestructItemsI12TRefCountPtrI14FBaseGraphTaskEiQaantntaagtstT_Li0Entsr3stdE27is_trivially_destructible_vIS3_Esr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPS3_T0_>
+  4a39fd:	48 8b 7c 24 20       	mov    0x20(%rsp),%rdi
+  4a3a02:	48 85 ff             	test   %rdi,%rdi
+  4a3a05:	74 05                	je     4a3a0c <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)+0x12c>
+  4a3a07:	e8 e4 63 73 00       	call   bd9df0 <FMemory::Free(void*)@plt>
+  4a3a0c:	48 89 d8             	mov    %rbx,%rax
+  4a3a0f:	48 83 c4 60          	add    $0x60,%rsp
+  4a3a13:	5b                   	pop    %rbx
+  4a3a14:	41 5c                	pop    %r12
+  4a3a16:	41 5e                	pop    %r14
+  4a3a18:	41 5f                	pop    %r15
+  4a3a1a:	5d                   	pop    %rbp
+  4a3a1b:	c3                   	ret    
+  4a3a1c:	48 8d 3d 6e a0 dc ff 	lea    -0x235f92(%rip),%rdi        # 26da91 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x5130>
+  4a3a23:	48 8d 35 2d 94 db ff 	lea    -0x246bd3(%rip),%rsi        # 25ce57 <flagLR+0xa827>
+  4a3a2a:	48 8d 05 df f0 e1 ff 	lea    -0x1e0f21(%rip),%rax        # 2c2b10 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x5a1af>
+  4a3a31:	ba 87 04 00 00       	mov    $0x487,%edx
+  4a3a36:	89 cd                	mov    %ecx,%ebp
+  4a3a38:	48 89 c1             	mov    %rax,%rcx
+  4a3a3b:	31 c0                	xor    %eax,%eax
+  4a3a3d:	e8 0e 64 73 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  4a3a42:	89 e9                	mov    %ebp,%ecx
+  4a3a44:	84 c0                	test   %al,%al
+  4a3a46:	0f 84 cb fe ff ff    	je     4a3917 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)+0x37>
+  4a3a4c:	cc                   	int3   
+  4a3a4d:	e9 c5 fe ff ff       	jmp    4a3917 <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)+0x37>
+  4a3a52:	48 83 ec 08          	sub    $0x8,%rsp
+  4a3a56:	48 8d 3d 82 56 dc ff 	lea    -0x23a97e(%rip),%rdi        # 2690df <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x77e>
+  4a3a5d:	48 8d 35 2b 8f db ff 	lea    -0x2470d5(%rip),%rsi        # 25c98f <flagLR+0xa35f>
+  4a3a64:	48 8d 05 01 c7 e1 ff 	lea    -0x1e38ff(%rip),%rax        # 2c016c <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x5780b>
+  4a3a6b:	4c 8d 4c 24 08       	lea    0x8(%rsp),%r9
+  4a3a70:	ba ac 07 00 00       	mov    $0x7ac,%edx
+  4a3a75:	89 cd                	mov    %ecx,%ebp
+  4a3a77:	48 89 c1             	mov    %rax,%rcx
+  4a3a7a:	4d 89 f8             	mov    %r15,%r8
+  4a3a7d:	31 c0                	xor    %eax,%eax
+  4a3a7f:	6a 08                	push   $0x8
+  4a3a81:	6a 00                	push   $0x0
+  4a3a83:	6a 04                	push   $0x4
+  4a3a85:	e8 c6 63 73 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  4a3a8a:	89 e9                	mov    %ebp,%ecx
+  4a3a8c:	48 83 c4 20          	add    $0x20,%rsp
+  4a3a90:	84 c0                	test   %al,%al
+  4a3a92:	0f 84 95 fe ff ff    	je     4a392d <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)+0x4d>
+  4a3a98:	cc                   	int3   
+  4a3a99:	e9 8f fe ff ff       	jmp    4a392d <FFunctionGraphTask::CreateAndDispatchWhenReady(TUniqueFunction<void ()>, TStatId, TRefCountPtr<FBaseGraphTask> const&, ENamedThreads::Type)+0x4d>
+  4a3a9e:	cc                   	int3   
+  4a3a9f:	cc                   	int3   
+
+00000000004a3aa0 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)>:
+  4a3aa0:	48 89 f8             	mov    %rdi,%rax
+  4a3aa3:	83 fe 10             	cmp    $0x10,%esi
+  4a3aa6:	0f 87 fd 00 00 00    	ja     4a3ba9 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x109>
+  4a3aac:	89 f1                	mov    %esi,%ecx
+  4a3aae:	48 8d 35 9b f5 da ff 	lea    -0x250a65(%rip),%rsi        # 253050 <flagLR+0xa20>
+  4a3ab5:	48 63 0c 8e          	movslq (%rsi,%rcx,4),%rcx
+  4a3ab9:	48 01 f1             	add    %rsi,%rcx
+  4a3abc:	ff e1                	jmp    *%rcx
+  4a3abe:	48 c7 40 28 00 00 00 	movq   $0x0,0x28(%rax)
+  4a3ac5:	00 
+  4a3ac6:	48 8b 0d b3 14 79 00 	mov    0x7914b3(%rip),%rcx        # c34f80 <vtable for UE::Core::Private::Function::TFunction_OwnedObject<float (*)(float), false, false>@@Base+0x43778>
+  4a3acd:	48 83 c1 10          	add    $0x10,%rcx
+  4a3ad1:	48 89 48 10          	mov    %rcx,0x10(%rax)
+  4a3ad5:	48 8d 0d 14 0d 00 00 	lea    0xd14(%rip),%rcx        # 4a47f0 <UCNV_TO_U_CALLBACK_STOP_64>
+  4a3adc:	48 89 48 18          	mov    %rcx,0x18(%rax)
+  4a3ae0:	48 8d 0d 39 a2 00 00 	lea    0xa239(%rip),%rcx        # 4add20 <UE::Core::Private::Function::TFunctionRefCaller<float (*)(float), float, float>::Call(void*, float&)>
+  4a3ae7:	48 89 08             	mov    %rcx,(%rax)
+  4a3aea:	c3                   	ret    
+  4a3aeb:	48 8d 0d 7e a1 00 00 	lea    0xa17e(%rip),%rcx        # 4adc70 <UE::Color::EncodePanasonicVLog(float)>
+  4a3af2:	48 8d 35 c7 a1 00 00 	lea    0xa1c7(%rip),%rsi        # 4adcc0 <UE::Color::DecodePanasonicVLog(float)>
+  4a3af9:	e9 62 01 00 00       	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3afe:	48 8d 0d 4b a0 00 00 	lea    0xa04b(%rip),%rcx        # 4adb50 <UE::Color::EncodeCanonLog(float)>
+  4a3b05:	48 8d 35 b4 a0 00 00 	lea    0xa0b4(%rip),%rsi        # 4adbc0 <UE::Color::DecodeCanonLog(float)>
+  4a3b0c:	e9 4f 01 00 00       	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3b11:	48 8d 0d 78 9d 00 00 	lea    0x9d78(%rip),%rcx        # 4ad890 <UE::Color::EncodeSLog2(float)>
+  4a3b18:	48 8d 35 11 9e 00 00 	lea    0x9e11(%rip),%rsi        # 4ad930 <UE::Color::DecodeSLog2(float)>
+  4a3b1f:	e9 3c 01 00 00       	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3b24:	48 8d 0d 55 9a 00 00 	lea    0x9a55(%rip),%rcx        # 4ad580 <UE::Color::EncodeGamma22(float)>
+  4a3b2b:	48 8d 35 5e 9a 00 00 	lea    0x9a5e(%rip),%rsi        # 4ad590 <UE::Color::DecodeGamma22(float)>
+  4a3b32:	e9 29 01 00 00       	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3b37:	48 8d 0d 82 9e 00 00 	lea    0x9e82(%rip),%rcx        # 4ad9c0 <UE::Color::EncodeSLog3(float)>
+  4a3b3e:	48 8d 35 eb 9e 00 00 	lea    0x9eeb(%rip),%rsi        # 4ada30 <UE::Color::DecodeSLog3(float)>
+  4a3b45:	e9 16 01 00 00       	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3b4a:	48 8d 0d 9f 9b 00 00 	lea    0x9b9f(%rip),%rcx        # 4ad6f0 <UE::Color::EncodeREDLog3G10(float)>
+  4a3b51:	48 8d 35 f8 9b 00 00 	lea    0x9bf8(%rip),%rsi        # 4ad750 <UE::Color::DecodeREDLog3G10(float)>
+  4a3b58:	e9 03 01 00 00       	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3b5d:	48 8d 0d fc 98 00 00 	lea    0x98fc(%rip),%rcx        # 4ad460 <UE::Color::EncodeSRGB(float)>
+  4a3b64:	48 8d 35 35 99 00 00 	lea    0x9935(%rip),%rsi        # 4ad4a0 <UE::Color::DecodeSRGB(float)>
+  4a3b6b:	e9 f0 00 00 00       	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3b70:	48 8d 0d a9 a0 00 00 	lea    0xa0a9(%rip),%rcx        # 4adc20 <UE::Color::EncodeGoProProTune(float)>
+  4a3b77:	48 8d 35 c2 a0 00 00 	lea    0xa0c2(%rip),%rsi        # 4adc40 <UE::Color::DecodeGoProProTune(float)>
+  4a3b7e:	e9 dd 00 00 00       	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3b83:	48 8d 0d 56 99 00 00 	lea    0x9956(%rip),%rcx        # 4ad4e0 <UE::Color::EncodeST2084(float)>
+  4a3b8a:	48 8d 35 9f 99 00 00 	lea    0x999f(%rip),%rsi        # 4ad530 <UE::Color::DecodeST2084(float)>
+  4a3b91:	e9 ca 00 00 00       	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3b96:	48 8d 0d 53 9a 00 00 	lea    0x9a53(%rip),%rcx        # 4ad5f0 <UE::Color::EncodeCineon(float)>
+  4a3b9d:	48 8d 35 8c 9a 00 00 	lea    0x9a8c(%rip),%rsi        # 4ad630 <UE::Color::DecodeCineon(float)>
+  4a3ba4:	e9 b7 00 00 00       	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3ba9:	55                   	push   %rbp
+  4a3baa:	53                   	push   %rbx
+  4a3bab:	50                   	push   %rax
+  4a3bac:	89 f5                	mov    %esi,%ebp
+  4a3bae:	48 89 c3             	mov    %rax,%rbx
+  4a3bb1:	48 8d 3d f3 b8 db ff 	lea    -0x24470d(%rip),%rdi        # 25f4ab <flagLR+0xce7b>
+  4a3bb8:	48 8d 35 c7 46 db ff 	lea    -0x24b939(%rip),%rsi        # 258286 <flagLR+0x5c56>
+  4a3bbf:	48 8d 0d 4a ef e1 ff 	lea    -0x1e10b6(%rip),%rcx        # 2c2b10 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x5a1af>
+  4a3bc6:	ba 20 00 00 00       	mov    $0x20,%edx
+  4a3bcb:	31 c0                	xor    %eax,%eax
+  4a3bcd:	e8 7e 62 73 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  4a3bd2:	84 c0                	test   %al,%al
+  4a3bd4:	74 01                	je     4a3bd7 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x137>
+  4a3bd6:	cc                   	int3   
+  4a3bd7:	80 3d 1a 0f 7b 00 03 	cmpb   $0x3,0x7b0f1a(%rip)        # c54af8 <LogTransferFunctions>
+  4a3bde:	72 19                	jb     4a3bf9 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x159>
+  4a3be0:	40 0f b6 d5          	movzbl %bpl,%edx
+  4a3be4:	48 8d 3d 0d 0f 7b 00 	lea    0x7b0f0d(%rip),%rdi        # c54af8 <LogTransferFunctions>
+  4a3beb:	48 8d 35 f6 db 74 00 	lea    0x74dbf6(%rip),%rsi        # bf17e8 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)::LOG_Static>
+  4a3bf2:	31 c0                	xor    %eax,%eax
+  4a3bf4:	e8 c7 62 73 00       	call   bd9ec0 <UE::Logging::Private::BasicLog(FLogCategoryBase const&, UE::Logging::Private::FStaticBasicLogRecord const*, ...)@plt>
+  4a3bf9:	48 89 d8             	mov    %rbx,%rax
+  4a3bfc:	48 c7 03 00 00 00 00 	movq   $0x0,(%rbx)
+  4a3c03:	48 c7 43 28 00 00 00 	movq   $0x0,0x28(%rbx)
+  4a3c0a:	00 
+  4a3c0b:	48 83 c4 08          	add    $0x8,%rsp
+  4a3c0f:	5b                   	pop    %rbx
+  4a3c10:	5d                   	pop    %rbp
+  4a3c11:	c3                   	ret    
+  4a3c12:	48 8d 0d 87 99 00 00 	lea    0x9987(%rip),%rcx        # 4ad5a0 <UE::Color::EncodeBT1886(float)>
+  4a3c19:	48 8d 35 90 99 00 00 	lea    0x9990(%rip),%rsi        # 4ad5b0 <UE::Color::DecodeBT1886(float)>
+  4a3c20:	eb 3e                	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3c22:	48 8d 0d 77 9e 00 00 	lea    0x9e77(%rip),%rcx        # 4adaa0 <UE::Color::EncodeArriAlexaV3LogC(float)>
+  4a3c29:	48 8d 35 c0 9e 00 00 	lea    0x9ec0(%rip),%rsi        # 4adaf0 <UE::Color::DecodeArriAlexaV3LogC(float)>
+  4a3c30:	eb 2e                	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3c32:	48 8d 0d 97 99 00 00 	lea    0x9997(%rip),%rcx        # 4ad5d0 <UE::Color::EncodeGamma26(float)>
+  4a3c39:	48 8d 35 a0 99 00 00 	lea    0x99a0(%rip),%rsi        # 4ad5e0 <UE::Color::DecodeGamma26(float)>
+  4a3c40:	eb 1e                	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3c42:	48 8d 0d 87 9b 00 00 	lea    0x9b87(%rip),%rcx        # 4ad7d0 <UE::Color::EncodeSLog1(float)>
+  4a3c49:	48 8d 35 e0 9b 00 00 	lea    0x9be0(%rip),%rsi        # 4ad830 <UE::Color::DecodeSLog1(float)>
+  4a3c50:	eb 0e                	jmp    4a3c60 <UE::Color::GetTransferFunction(UE::Color::EEncoding, bool)+0x1c0>
+  4a3c52:	48 8d 0d 17 9a 00 00 	lea    0x9a17(%rip),%rcx        # 4ad670 <UE::Color::EncodeREDLog(float)>
+  4a3c59:	48 8d 35 50 9a 00 00 	lea    0x9a50(%rip),%rsi        # 4ad6b0 <UE::Color::DecodeREDLog(float)>
+  4a3c60:	84 d2                	test   %dl,%dl
+  4a3c62:	48 0f 45 f1          	cmovne %rcx,%rsi
+  4a3c66:	48 c7 40 28 00 00 00 	movq   $0x0,0x28(%rax)
+  4a3c6d:	00 
+  4a3c6e:	48 8b 0d 0b 13 79 00 	mov    0x79130b(%rip),%rcx        # c34f80 <vtable for UE::Core::Private::Function::TFunction_OwnedObject<float (*)(float), false, false>@@Base+0x43778>
+  4a3c75:	48 83 c1 10          	add    $0x10,%rcx
+  4a3c79:	48 89 48 10          	mov    %rcx,0x10(%rax)
+  4a3c7d:	48 89 70 18          	mov    %rsi,0x18(%rax)
+  4a3c81:	48 8d 0d 98 a0 00 00 	lea    0xa098(%rip),%rcx        # 4add20 <UE::Core::Private::Function::TFunctionRefCaller<float (*)(float), float, float>::Call(void*, float&)>
+  4a3c88:	48 89 08             	mov    %rcx,(%rax)
+  4a3c8b:	c3                   	ret    
+  4a3c8c:	cc                   	int3   
+  4a3c8d:	cc                   	int3   
+  4a3c8e:	cc                   	int3   
+  4a3c8f:	cc                   	int3   
+
+00000000004a3c90 <TArray<int, TSizedDefaultAllocator<64> >::SetNum(long long, EAllowShrinking)>:
+  4a3c90:	55                   	push   %rbp
+  4a3c91:	41 57                	push   %r15
+  4a3c93:	41 56                	push   %r14
+  4a3c95:	41 55                	push   %r13
+  4a3c97:	41 54                	push   %r12
+  4a3c99:	53                   	push   %rbx
+  4a3c9a:	50                   	push   %rax
+  4a3c9b:	49 89 f6             	mov    %rsi,%r14
+  4a3c9e:	48 89 fb             	mov    %rdi,%rbx
+  4a3ca1:	4c 8d 47 08          	lea    0x8(%rdi),%r8
+  4a3ca5:	48 8b 4f 08          	mov    0x8(%rdi),%rcx
+  4a3ca9:	48 39 f1             	cmp    %rsi,%rcx
+  4a3cac:	7d 43                	jge    4a3cf1 <TArray<int, TSizedDefaultAllocator<64> >::SetNum(long long, EAllowShrinking)+0x61>
+  4a3cae:	49 29 ce             	sub    %rcx,%r14
+  4a3cb1:	4c 8d 4b 10          	lea    0x10(%rbx),%r9
+  4a3cb5:	bf 04 00 00 00       	mov    $0x4,%edi
+  4a3cba:	be 04 00 00 00       	mov    $0x4,%esi
+  4a3cbf:	4c 89 f2             	mov    %r14,%rdx
+  4a3cc2:	48 89 d9             	mov    %rbx,%rcx
+  4a3cc5:	e8 16 eb 00 00       	call   4b27e0 <decltype (((std::declval<TSizedHeapAllocator<64, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<3u, TSizedHeapAllocator<64, FMemory>::ForAnyElementType>(unsigned int, unsigned int, decltype (((std::declval<TSizedHeapAllocator<64, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()), TSizedHeapAllocator<64, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<64, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&, decltype (((std::declval<TSizedHeapAllocator<64, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+  4a3cca:	48 8d 3c 85 00 00 00 	lea    0x0(,%rax,4),%rdi
+  4a3cd1:	00 
+  4a3cd2:	48 03 3b             	add    (%rbx),%rdi
+  4a3cd5:	49 c1 e6 02          	shl    $0x2,%r14
+  4a3cd9:	31 f6                	xor    %esi,%esi
+  4a3cdb:	4c 89 f2             	mov    %r14,%rdx
+  4a3cde:	48 83 c4 08          	add    $0x8,%rsp
+  4a3ce2:	5b                   	pop    %rbx
+  4a3ce3:	41 5c                	pop    %r12
+  4a3ce5:	41 5d                	pop    %r13
+  4a3ce7:	41 5e                	pop    %r14
+  4a3ce9:	41 5f                	pop    %r15
+  4a3ceb:	5d                   	pop    %rbp
+  4a3cec:	e9 df 61 73 00       	jmp    bd9ed0 <memset@plt>
+  4a3cf1:	4d 85 f6             	test   %r14,%r14
+  4a3cf4:	0f 88 c7 00 00 00    	js     4a3dc1 <TArray<int, TSizedDefaultAllocator<64> >::SetNum(long long, EAllowShrinking)+0x131>
+  4a3cfa:	49 89 cf             	mov    %rcx,%r15
+  4a3cfd:	4d 29 f7             	sub    %r14,%r15
+  4a3d00:	7e 64                	jle    4a3d66 <TArray<int, TSizedDefaultAllocator<64> >::SetNum(long long, EAllowShrinking)+0xd6>
+  4a3d02:	4c 89 f8             	mov    %r15,%rax
+  4a3d05:	4c 09 f0             	or     %r14,%rax
+  4a3d08:	78 6b                	js     4a3d75 <TArray<int, TSizedDefaultAllocator<64> >::SetNum(long long, EAllowShrinking)+0xe5>
+  4a3d0a:	49 8b 00             	mov    (%r8),%rax
+  4a3d0d:	48 29 c8             	sub    %rcx,%rax
+  4a3d10:	74 25                	je     4a3d37 <TArray<int, TSizedDefaultAllocator<64> >::SetNum(long long, EAllowShrinking)+0xa7>
+  4a3d12:	48 8b 33             	mov    (%rbx),%rsi
+  4a3d15:	4a 8d 3c b6          	lea    (%rsi,%r14,4),%rdi
+  4a3d19:	48 8d 34 8e          	lea    (%rsi,%rcx,4),%rsi
+  4a3d1d:	48 c1 e0 02          	shl    $0x2,%rax
+  4a3d21:	89 d5                	mov    %edx,%ebp
+  4a3d23:	48 89 c2             	mov    %rax,%rdx
+  4a3d26:	4d 89 c6             	mov    %r8,%r14
+  4a3d29:	e8 d2 61 73 00       	call   bd9f00 <memmove@plt>
+  4a3d2e:	89 ea                	mov    %ebp,%edx
+  4a3d30:	4d 89 f0             	mov    %r14,%r8
+  4a3d33:	48 8b 4b 08          	mov    0x8(%rbx),%rcx
+  4a3d37:	4c 29 f9             	sub    %r15,%rcx
+  4a3d3a:	49 89 08             	mov    %rcx,(%r8)
+  4a3d3d:	80 fa 01             	cmp    $0x1,%dl
+  4a3d40:	75 24                	jne    4a3d66 <TArray<int, TSizedDefaultAllocator<64> >::SetNum(long long, EAllowShrinking)+0xd6>
+  4a3d42:	4c 8d 43 10          	lea    0x10(%rbx),%r8
+  4a3d46:	bf 04 00 00 00       	mov    $0x4,%edi
+  4a3d4b:	be 04 00 00 00       	mov    $0x4,%esi
+  4a3d50:	48 89 da             	mov    %rbx,%rdx
+  4a3d53:	48 83 c4 08          	add    $0x8,%rsp
+  4a3d57:	5b                   	pop    %rbx
+  4a3d58:	41 5c                	pop    %r12
+  4a3d5a:	41 5d                	pop    %r13
+  4a3d5c:	41 5e                	pop    %r14
+  4a3d5e:	41 5f                	pop    %r15
+  4a3d60:	5d                   	pop    %rbp
+  4a3d61:	e9 3a eb 00 00       	jmp    4b28a0 <void UE::Core::Private::ReallocShrink<3u, TSizedHeapAllocator<64, FMemory>::ForAnyElementType>(unsigned int, unsigned int, TSizedHeapAllocator<64, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<64, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()), decltype (((std::declval<TSizedHeapAllocator<64, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+  4a3d66:	48 83 c4 08          	add    $0x8,%rsp
+  4a3d6a:	5b                   	pop    %rbx
+  4a3d6b:	41 5c                	pop    %r12
+  4a3d6d:	41 5d                	pop    %r13
+  4a3d6f:	41 5e                	pop    %r14
+  4a3d71:	41 5f                	pop    %r15
+  4a3d73:	5d                   	pop    %rbp
+  4a3d74:	c3                   	ret    
+  4a3d75:	48 89 0c 24          	mov    %rcx,(%rsp)
+  4a3d79:	48 8d 3d be 5d dc ff 	lea    -0x23a242(%rip),%rdi        # 269b3e <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x11dd>
+  4a3d80:	48 8d 35 08 8c db ff 	lea    -0x2473f8(%rip),%rsi        # 25c98f <flagLR+0xa35f>
+  4a3d87:	48 8d 05 b6 32 df ff 	lea    -0x20cd4a(%rip),%rax        # 297044 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x2e6e3>
+  4a3d8e:	89 d5                	mov    %edx,%ebp
+  4a3d90:	ba 3c 04 00 00       	mov    $0x43c,%edx
+  4a3d95:	49 89 cc             	mov    %rcx,%r12
+  4a3d98:	48 89 c1             	mov    %rax,%rcx
+  4a3d9b:	4d 89 c5             	mov    %r8,%r13
+  4a3d9e:	4d 89 f0             	mov    %r14,%r8
+  4a3da1:	4d 89 f9             	mov    %r15,%r9
+  4a3da4:	31 c0                	xor    %eax,%eax
+  4a3da6:	e8 a5 60 73 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  4a3dab:	4c 89 e1             	mov    %r12,%rcx
+  4a3dae:	89 ea                	mov    %ebp,%edx
+  4a3db0:	4d 89 e8             	mov    %r13,%r8
+  4a3db3:	84 c0                	test   %al,%al
+  4a3db5:	0f 84 4f ff ff ff    	je     4a3d0a <TArray<int, TSizedDefaultAllocator<64> >::SetNum(long long, EAllowShrinking)+0x7a>
+  4a3dbb:	cc                   	int3   
+  4a3dbc:	e9 49 ff ff ff       	jmp    4a3d0a <TArray<int, TSizedDefaultAllocator<64> >::SetNum(long long, EAllowShrinking)+0x7a>
+  4a3dc1:	4c 89 f7             	mov    %r14,%rdi
+  4a3dc4:	e8 a7 61 73 00       	call   bd9f70 <UE::Core::Private::OnInvalidArrayNum(unsigned long long)@plt>
+  4a3dc9:	cc                   	int3   
+  4a3dca:	cc                   	int3   
+  4a3dcb:	cc                   	int3   
+  4a3dcc:	cc                   	int3   
+  4a3dcd:	cc                   	int3   
+  4a3dce:	cc                   	int3   
+  4a3dcf:	cc                   	int3   
+
+00000000004a3dd0 <UE::CompressedBuffer::Private::FHeader::Write(TMemoryView<void>) const>:
+  4a3dd0:	55                   	push   %rbp
+  4a3dd1:	41 57                	push   %r15
+  4a3dd3:	41 56                	push   %r14
+  4a3dd5:	41 55                	push   %r13
+  4a3dd7:	41 54                	push   %r12
+  4a3dd9:	53                   	push   %rbx
+  4a3dda:	48 83 ec 58          	sub    $0x58,%rsp
+  4a3dde:	49 89 d5             	mov    %rdx,%r13
+  4a3de1:	48 89 f3             	mov    %rsi,%rbx
+  4a3de4:	f3 0f 7e 0f          	movq   (%rdi),%xmm1
+  4a3de8:	8b 6f 08             	mov    0x8(%rdi),%ebp
+  4a3deb:	44 8b 77 0c          	mov    0xc(%rdi),%r14d
+  4a3def:	4c 8b 7f 10          	mov    0x10(%rdi),%r15
+  4a3df3:	4c 8b 67 18          	mov    0x18(%rdi),%r12
+  4a3df7:	0f 10 47 30          	movups 0x30(%rdi),%xmm0
+  4a3dfb:	0f 29 44 24 40       	movaps %xmm0,0x40(%rsp)
+  4a3e00:	0f 10 47 20          	movups 0x20(%rdi),%xmm0
+  4a3e04:	0f 29 44 24 30       	movaps %xmm0,0x30(%rsp)
+  4a3e09:	66 0f 38 00 0d 1e d6 	pshufb -0x2529e2(%rip),%xmm1        # 251430 <gPublicTypes+0x890>
+  4a3e10:	da ff 
+  4a3e12:	49 0f cf             	bswap  %r15
+  4a3e15:	41 0f ce             	bswap  %r14d
+  4a3e18:	49 0f cc             	bswap  %r12
+  4a3e1b:	48 83 fa 3f          	cmp    $0x3f,%rdx
+  4a3e1f:	66 0f 7f 4c 24 20    	movdqa %xmm1,0x20(%rsp)
+  4a3e25:	0f 86 f8 00 00 00    	jbe    4a3f23 <UE::CompressedBuffer::Private::FHeader::Write(TMemoryView<void>) const+0x153>
+  4a3e2b:	66 0f d6 0b          	movq   %xmm1,(%rbx)
+  4a3e2f:	89 6c 24 0c          	mov    %ebp,0xc(%rsp)
+  4a3e33:	89 6b 08             	mov    %ebp,0x8(%rbx)
+  4a3e36:	44 89 74 24 08       	mov    %r14d,0x8(%rsp)
+  4a3e3b:	44 89 73 0c          	mov    %r14d,0xc(%rbx)
+  4a3e3f:	4c 89 7c 24 18       	mov    %r15,0x18(%rsp)
+  4a3e44:	4c 89 7b 10          	mov    %r15,0x10(%rbx)
+  4a3e48:	4c 89 64 24 10       	mov    %r12,0x10(%rsp)
+  4a3e4d:	4c 89 63 18          	mov    %r12,0x18(%rbx)
+  4a3e51:	0f 28 44 24 30       	movaps 0x30(%rsp),%xmm0
+  4a3e56:	0f 28 4c 24 40       	movaps 0x40(%rsp),%xmm1
+  4a3e5b:	0f 11 43 20          	movups %xmm0,0x20(%rbx)
+  4a3e5f:	0f 11 4b 30          	movups %xmm1,0x30(%rbx)
+  4a3e63:	49 83 fd 08          	cmp    $0x8,%r13
+  4a3e67:	41 bf 08 00 00 00    	mov    $0x8,%r15d
+  4a3e6d:	4d 0f 42 fd          	cmovb  %r13,%r15
+  4a3e71:	4d 89 ee             	mov    %r13,%r14
+  4a3e74:	4d 29 fe             	sub    %r15,%r14
+  4a3e77:	74 4a                	je     4a3ec3 <UE::CompressedBuffer::Private::FHeader::Write(TMemoryView<void>) const+0xf3>
+  4a3e79:	49 01 df             	add    %rbx,%r15
+  4a3e7c:	31 c0                	xor    %eax,%eax
+  4a3e7e:	48 8b 2d 13 11 79 00 	mov    0x791113(%rip),%rbp        # c34f98 <FCrc::MemCrc32Func@@Base-0x99e8>
+  4a3e85:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  4a3e8c:	00 00 00 00 
+  4a3e90:	49 81 fe ff ff ff 7f 	cmp    $0x7fffffff,%r14
+  4a3e97:	41 bc ff ff ff 7f    	mov    $0x7fffffff,%r12d
+  4a3e9d:	4d 0f 42 e6          	cmovb  %r14,%r12
+  4a3ea1:	4c 89 ff             	mov    %r15,%rdi
+  4a3ea4:	44 89 e6             	mov    %r12d,%esi
+  4a3ea7:	89 c2                	mov    %eax,%edx
+  4a3ea9:	ff 55 00             	call   *0x0(%rbp)
+  4a3eac:	4d 01 e7             	add    %r12,%r15
+  4a3eaf:	4d 29 e6             	sub    %r12,%r14
+  4a3eb2:	75 dc                	jne    4a3e90 <UE::CompressedBuffer::Private::FHeader::Write(TMemoryView<void>) const+0xc0>
+  4a3eb4:	4c 8d 7b 20          	lea    0x20(%rbx),%r15
+  4a3eb8:	49 83 fd 3f          	cmp    $0x3f,%r13
+  4a3ebc:	77 15                	ja     4a3ed3 <UE::CompressedBuffer::Private::FHeader::Write(TMemoryView<void>) const+0x103>
+  4a3ebe:	e9 9e 00 00 00       	jmp    4a3f61 <UE::CompressedBuffer::Private::FHeader::Write(TMemoryView<void>) const+0x191>
+  4a3ec3:	31 c0                	xor    %eax,%eax
+  4a3ec5:	4c 8d 7b 20          	lea    0x20(%rbx),%r15
+  4a3ec9:	49 83 fd 3f          	cmp    $0x3f,%r13
+  4a3ecd:	0f 86 8e 00 00 00    	jbe    4a3f61 <UE::CompressedBuffer::Private::FHeader::Write(TMemoryView<void>) const+0x191>
+  4a3ed3:	0f c8                	bswap  %eax
+  4a3ed5:	0f 28 44 24 20       	movaps 0x20(%rsp),%xmm0
+  4a3eda:	f3 0f 11 03          	movss  %xmm0,(%rbx)
+  4a3ede:	89 43 04             	mov    %eax,0x4(%rbx)
+  4a3ee1:	8b 44 24 0c          	mov    0xc(%rsp),%eax
+  4a3ee5:	89 43 08             	mov    %eax,0x8(%rbx)
+  4a3ee8:	8b 44 24 08          	mov    0x8(%rsp),%eax
+  4a3eec:	89 43 0c             	mov    %eax,0xc(%rbx)
+  4a3eef:	48 8b 44 24 18       	mov    0x18(%rsp),%rax
+  4a3ef4:	48 89 43 10          	mov    %rax,0x10(%rbx)
+  4a3ef8:	48 8b 44 24 10       	mov    0x10(%rsp),%rax
+  4a3efd:	48 89 43 18          	mov    %rax,0x18(%rbx)
+  4a3f01:	0f 28 44 24 30       	movaps 0x30(%rsp),%xmm0
+  4a3f06:	0f 28 4c 24 40       	movaps 0x40(%rsp),%xmm1
+  4a3f0b:	41 0f 11 4f 10       	movups %xmm1,0x10(%r15)
+  4a3f10:	41 0f 11 07          	movups %xmm0,(%r15)
+  4a3f14:	48 83 c4 58          	add    $0x58,%rsp
+  4a3f18:	5b                   	pop    %rbx
+  4a3f19:	41 5c                	pop    %r12
+  4a3f1b:	41 5d                	pop    %r13
+  4a3f1d:	41 5e                	pop    %r14
+  4a3f1f:	41 5f                	pop    %r15
+  4a3f21:	5d                   	pop    %rbp
+  4a3f22:	c3                   	ret    
+  4a3f23:	48 8d 3d f3 ad db ff 	lea    -0x24520d(%rip),%rdi        # 25ed1d <flagLR+0xc6ed>
+  4a3f2a:	48                   	rex.W
+  4a3f2b:	8d                   	.byte 0x8d
+  4a3f2c:	35                   	.byte 0x35
+  4a3f2d:	1e                   	(bad)  
+  4a3f2e:	8b db                	mov    %ebx,%ebx

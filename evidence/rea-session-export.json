@@ -1,0 +1,16 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"/var/www/async_SatisDedicated/evidence/rea-factorygame-session.bundle.json\",\"bytes\":162819854,\"records\":7,\"unknowns\":0}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "/var/www/async_SatisDedicated/evidence/rea-factorygame-session.bundle.json",
+      "bytes": 162819854,
+      "records": 7,
+      "unknowns": 0
+    }
+  }
+}

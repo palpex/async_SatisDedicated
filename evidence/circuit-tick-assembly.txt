@@ -1,0 +1,990 @@
+
+server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000192a120 <AFGCircuitSubsystem::Tick(float)>:
+ 192a120:	55                   	push   %rbp
+ 192a121:	41 57                	push   %r15
+ 192a123:	41 56                	push   %r14
+ 192a125:	41 55                	push   %r13
+ 192a127:	41 54                	push   %r12
+ 192a129:	53                   	push   %rbx
+ 192a12a:	48 83 ec 48          	sub    $0x48,%rsp
+ 192a12e:	48 89 fb             	mov    %rdi,%rbx
+ 192a131:	f3 0f 11 04 24       	movss  %xmm0,(%rsp)
+ 192a136:	e8 25 e3 81 00       	call   2148460 <AActor::Tick(float)@plt>
+ 192a13b:	48 89 df             	mov    %rbx,%rdi
+ 192a13e:	e8 9d d7 81 00       	call   21478e0 <AActor::GetWorld() const@plt>
+ 192a143:	4c 8b b0 e0 01 00 00 	mov    0x1e0(%rax),%r14
+ 192a14a:	4d 85 f6             	test   %r14,%r14
+ 192a14d:	74 2e                	je     192a17d <AFGCircuitSubsystem::Tick(float)+0x5d>
+ 192a14f:	e8 7c 1e 83 00       	call   215bfd0 <Z_Construct_UClass_AFGGameState_NoRegister()@plt>
+ 192a154:	49 8b 4e 10          	mov    0x10(%r14),%rcx
+ 192a158:	48 63 50 38          	movslq 0x38(%rax),%rdx
+ 192a15c:	3b 51 38             	cmp    0x38(%rcx),%edx
+ 192a15f:	7f 1c                	jg     192a17d <AFGCircuitSubsystem::Tick(float)+0x5d>
+ 192a161:	48 83 c0 30          	add    $0x30,%rax
+ 192a165:	48 8b 49 30          	mov    0x30(%rcx),%rcx
+ 192a169:	48 39 04 d1          	cmp    %rax,(%rcx,%rdx,8)
+ 192a16d:	75 0e                	jne    192a17d <AFGCircuitSubsystem::Tick(float)+0x5d>
+ 192a16f:	41 0f b6 86 29 07 00 	movzbl 0x729(%r14),%eax
+ 192a176:	00 
+ 192a177:	88 05 ae 97 d1 00    	mov    %al,0xd197ae(%rip)        # 264392b <GNoPower>
+ 192a17d:	80 bb 70 01 00 00 03 	cmpb   $0x3,0x170(%rbx)
+ 192a184:	0f 85 4f 0c 00 00    	jne    192add9 <AFGCircuitSubsystem::Tick(float)+0xcb9>
+ 192a18a:	48 8d 93 18 03 00 00 	lea    0x318(%rbx),%rdx
+ 192a191:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 192a194:	0f 29 44 24 30       	movaps %xmm0,0x30(%rsp)
+ 192a199:	8b 8b 30 03 00 00    	mov    0x330(%rbx),%ecx
+ 192a19f:	85 c9                	test   %ecx,%ecx
+ 192a1a1:	48 89 54 24 10       	mov    %rdx,0x10(%rsp)
+ 192a1a6:	74 25                	je     192a1cd <AFGCircuitSubsystem::Tick(float)+0xad>
+ 192a1a8:	48 8b 83 28 03 00 00 	mov    0x328(%rbx),%rax
+ 192a1af:	48 85 c0             	test   %rax,%rax
+ 192a1b2:	48 0f 44 c2          	cmove  %rdx,%rax
+ 192a1b6:	8b 38                	mov    (%rax),%edi
+ 192a1b8:	85 ff                	test   %edi,%edi
+ 192a1ba:	74 3f                	je     192a1fb <AFGCircuitSubsystem::Tick(float)+0xdb>
+ 192a1bc:	41 be 3e 00 00 00    	mov    $0x3e,%r14d
+ 192a1c2:	45 31 c0             	xor    %r8d,%r8d
+ 192a1c5:	45 31 e4             	xor    %r12d,%r12d
+ 192a1c8:	e9 7e 00 00 00       	jmp    192a24b <AFGCircuitSubsystem::Tick(float)+0x12b>
+ 192a1cd:	41 bd 01 00 00 00    	mov    $0x1,%r13d
+ 192a1d3:	bd ff ff ff ff       	mov    $0xffffffff,%ebp
+ 192a1d8:	45 31 ff             	xor    %r15d,%r15d
+ 192a1db:	31 ff                	xor    %edi,%edi
+ 192a1dd:	45 31 e4             	xor    %r12d,%r12d
+ 192a1e0:	45 31 f6             	xor    %r14d,%r14d
+ 192a1e3:	45 31 c0             	xor    %r8d,%r8d
+ 192a1e6:	44 8b 93 30 03 00 00 	mov    0x330(%rbx),%r10d
+ 192a1ed:	41 39 ca             	cmp    %ecx,%r10d
+ 192a1f0:	0f 84 9a 00 00 00    	je     192a290 <AFGCircuitSubsystem::Tick(float)+0x170>
+ 192a1f6:	e9 fc 00 00 00       	jmp    192a2f7 <AFGCircuitSubsystem::Tick(float)+0x1d7>
+ 192a1fb:	8d 71 ff             	lea    -0x1(%rcx),%esi
+ 192a1fe:	8d 51 1e             	lea    0x1e(%rcx),%edx
+ 192a201:	85 f6                	test   %esi,%esi
+ 192a203:	0f 49 d6             	cmovns %esi,%edx
+ 192a206:	c1 fa 05             	sar    $0x5,%edx
+ 192a209:	31 f6                	xor    %esi,%esi
+ 192a20b:	85 d2                	test   %edx,%edx
+ 192a20d:	0f 4e d6             	cmovle %esi,%edx
+ 192a210:	44 8d 42 01          	lea    0x1(%rdx),%r8d
+ 192a214:	41 89 d4             	mov    %edx,%r12d
+ 192a217:	41 c1 e4 05          	shl    $0x5,%r12d
+ 192a21b:	41 83 c4 20          	add    $0x20,%r12d
+ 192a21f:	41 be 3e 00 00 00    	mov    $0x3e,%r14d
+ 192a225:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+ 192a22c:	00 00 00 00 
+ 192a230:	48 39 f2             	cmp    %rsi,%rdx
+ 192a233:	74 69                	je     192a29e <AFGCircuitSubsystem::Tick(float)+0x17e>
+ 192a235:	8b 7c b0 04          	mov    0x4(%rax,%rsi,4),%edi
+ 192a239:	48 ff c6             	inc    %rsi
+ 192a23c:	41 83 c6 20          	add    $0x20,%r14d
+ 192a240:	85 ff                	test   %edi,%edi
+ 192a242:	74 ec                	je     192a230 <AFGCircuitSubsystem::Tick(float)+0x110>
+ 192a244:	45 8d 66 c2          	lea    -0x3e(%r14),%r12d
+ 192a248:	41 89 f0             	mov    %esi,%r8d
+ 192a24b:	41 89 fd             	mov    %edi,%r13d
+ 192a24e:	41 f7 dd             	neg    %r13d
+ 192a251:	41 21 fd             	and    %edi,%r13d
+ 192a254:	4a 8d 04 6d 01 00 00 	lea    0x1(,%r13,2),%rax
+ 192a25b:	00 
+ 192a25c:	48 0f bd c0          	bsr    %rax,%rax
+ 192a260:	83 f0 3f             	xor    $0x3f,%eax
+ 192a263:	41 29 c6             	sub    %eax,%r14d
+ 192a266:	41 39 ce             	cmp    %ecx,%r14d
+ 192a269:	44 0f 4d f1          	cmovge %ecx,%r14d
+ 192a26d:	89 cf                	mov    %ecx,%edi
+ 192a26f:	bd ff ff ff ff       	mov    $0xffffffff,%ebp
+ 192a274:	d3 e5                	shl    %cl,%ebp
+ 192a276:	c1 ff 05             	sar    $0x5,%edi
+ 192a279:	41 89 cf             	mov    %ecx,%r15d
+ 192a27c:	41 83 e7 e0          	and    $0xffffffe0,%r15d
+ 192a280:	85 c9                	test   %ecx,%ecx
+ 192a282:	78 25                	js     192a2a9 <AFGCircuitSubsystem::Tick(float)+0x189>
+ 192a284:	44 8b 93 30 03 00 00 	mov    0x330(%rbx),%r10d
+ 192a28b:	41 39 ca             	cmp    %ecx,%r10d
+ 192a28e:	75 67                	jne    192a2f7 <AFGCircuitSubsystem::Tick(float)+0x1d7>
+ 192a290:	41 39 ce             	cmp    %ecx,%r14d
+ 192a293:	0f 85 de 00 00 00    	jne    192a377 <AFGCircuitSubsystem::Tick(float)+0x257>
+ 192a299:	e9 77 03 00 00       	jmp    192a615 <AFGCircuitSubsystem::Tick(float)+0x4f5>
+ 192a29e:	41 bd 01 00 00 00    	mov    $0x1,%r13d
+ 192a2a4:	41 89 ce             	mov    %ecx,%r14d
+ 192a2a7:	eb c4                	jmp    192a26d <AFGCircuitSubsystem::Tick(float)+0x14d>
+ 192a2a9:	89 7c 24 04          	mov    %edi,0x4(%rsp)
+ 192a2ad:	48 89 4c 24 18       	mov    %rcx,0x18(%rsp)
+ 192a2b2:	4c 89 44 24 08       	mov    %r8,0x8(%rsp)
+ 192a2b7:	48 8d 3d 5d c7 5c ff 	lea    -0xa338a3(%rip),%rdi        # ef6a1b <(anonymous namespace)::FGHighlightColor+0x80afb>
+ 192a2be:	48 8d 35 72 62 59 ff 	lea    -0xa69d8e(%rip),%rsi        # ec0537 <(anonymous namespace)::FGHighlightColor+0x4a617>
+ 192a2c5:	48 8d 0d fa f2 65 ff 	lea    -0x9a0d06(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 192a2cc:	ba 93 07 00 00       	mov    $0x793,%edx
+ 192a2d1:	31 c0                	xor    %eax,%eax
+ 192a2d3:	e8 a8 c8 81 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 192a2d8:	84 c0                	test   %al,%al
+ 192a2da:	74 01                	je     192a2dd <AFGCircuitSubsystem::Tick(float)+0x1bd>
+ 192a2dc:	cc                   	int3   
+ 192a2dd:	4c 8b 44 24 08       	mov    0x8(%rsp),%r8
+ 192a2e2:	48 8b 4c 24 18       	mov    0x18(%rsp),%rcx
+ 192a2e7:	8b 7c 24 04          	mov    0x4(%rsp),%edi
+ 192a2eb:	44 8b 93 30 03 00 00 	mov    0x330(%rbx),%r10d
+ 192a2f2:	41 39 ca             	cmp    %ecx,%r10d
+ 192a2f5:	74 99                	je     192a290 <AFGCircuitSubsystem::Tick(float)+0x170>
+ 192a2f7:	48 8b 83 28 03 00 00 	mov    0x328(%rbx),%rax
+ 192a2fe:	48 85 c0             	test   %rax,%rax
+ 192a301:	48 0f 44 44 24 10    	cmove  0x10(%rsp),%rax
+ 192a307:	48 63 cf             	movslq %edi,%rcx
+ 192a30a:	23 2c 88             	and    (%rax,%rcx,4),%ebp
+ 192a30d:	75 39                	jne    192a348 <AFGCircuitSubsystem::Tick(float)+0x228>
+ 192a30f:	41 8d 52 ff          	lea    -0x1(%r10),%edx
+ 192a313:	41 8d 72 1e          	lea    0x1e(%r10),%esi
+ 192a317:	85 d2                	test   %edx,%edx
+ 192a319:	0f 49 f2             	cmovns %edx,%esi
+ 192a31c:	c1 fe 05             	sar    $0x5,%esi
+ 192a31f:	39 f7                	cmp    %esi,%edi
+ 192a321:	0f 4f f7             	cmovg  %edi,%esi
+ 192a324:	48 63 d6             	movslq %esi,%rdx
+ 192a327:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ 192a32e:	00 00 
+ 192a330:	48 39 ca             	cmp    %rcx,%rdx
+ 192a333:	0f 84 f3 03 00 00    	je     192a72c <AFGCircuitSubsystem::Tick(float)+0x60c>
+ 192a339:	41 83 c7 20          	add    $0x20,%r15d
+ 192a33d:	8b 6c 88 04          	mov    0x4(%rax,%rcx,4),%ebp
+ 192a341:	48 ff c1             	inc    %rcx
+ 192a344:	85 ed                	test   %ebp,%ebp
+ 192a346:	74 e8                	je     192a330 <AFGCircuitSubsystem::Tick(float)+0x210>
+ 192a348:	89 e8                	mov    %ebp,%eax
+ 192a34a:	f7 d8                	neg    %eax
+ 192a34c:	21 e8                	and    %ebp,%eax
+ 192a34e:	48 8d 04 45 01 00 00 	lea    0x1(,%rax,2),%rax
+ 192a355:	00 
+ 192a356:	48 0f bd c0          	bsr    %rax,%rax
+ 192a35a:	83 f0 3f             	xor    $0x3f,%eax
+ 192a35d:	41 29 c7             	sub    %eax,%r15d
+ 192a360:	41 83 c7 3e          	add    $0x3e,%r15d
+ 192a364:	45 39 d7             	cmp    %r10d,%r15d
+ 192a367:	45 0f 4d fa          	cmovge %r10d,%r15d
+ 192a36b:	44 89 f9             	mov    %r15d,%ecx
+ 192a36e:	41 39 ce             	cmp    %ecx,%r14d
+ 192a371:	0f 84 9e 02 00 00    	je     192a615 <AFGCircuitSubsystem::Tick(float)+0x4f5>
+ 192a377:	41 bf ff ff ff ff    	mov    $0xffffffff,%r15d
+ 192a37d:	45 31 c9             	xor    %r9d,%r9d
+ 192a380:	48 8b 6c 24 10       	mov    0x10(%rsp),%rbp
+ 192a385:	48 89 4c 24 18       	mov    %rcx,0x18(%rsp)
+ 192a38a:	eb 46                	jmp    192a3d2 <AFGCircuitSubsystem::Tick(float)+0x2b2>
+ 192a38c:	41 01 d0             	add    %edx,%r8d
+ 192a38f:	41 ff c0             	inc    %r8d
+ 192a392:	41 bf ff ff ff ff    	mov    $0xffffffff,%r15d
+ 192a398:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+ 192a39f:	00 
+ 192a3a0:	45 89 dd             	mov    %r11d,%r13d
+ 192a3a3:	41 f7 dd             	neg    %r13d
+ 192a3a6:	45 21 dd             	and    %r11d,%r13d
+ 192a3a9:	4a 8d 04 6d 01 00 00 	lea    0x1(,%r13,2),%rax
+ 192a3b0:	00 
+ 192a3b1:	48 0f bd c0          	bsr    %rax,%rax
+ 192a3b5:	83 f0 3f             	xor    $0x3f,%eax
+ 192a3b8:	45 89 e6             	mov    %r12d,%r14d
+ 192a3bb:	41 29 c6             	sub    %eax,%r14d
+ 192a3be:	41 83 c6 3e          	add    $0x3e,%r14d
+ 192a3c2:	45 39 d6             	cmp    %r10d,%r14d
+ 192a3c5:	45 0f 4d f2          	cmovge %r10d,%r14d
+ 192a3c9:	41 39 ce             	cmp    %ecx,%r14d
+ 192a3cc:	0f 84 7a 01 00 00    	je     192a54c <AFGCircuitSubsystem::Tick(float)+0x42c>
+ 192a3d2:	48 8b 83 08 03 00 00 	mov    0x308(%rbx),%rax
+ 192a3d9:	49 63 d6             	movslq %r14d,%rdx
+ 192a3dc:	48 8d 34 52          	lea    (%rdx,%rdx,2),%rsi
+ 192a3e0:	48 8b 54 f0 08       	mov    0x8(%rax,%rsi,8),%rdx
+ 192a3e5:	f6 42 58 01          	testb  $0x1,0x58(%rdx)
+ 192a3e9:	74 7c                	je     192a467 <AFGCircuitSubsystem::Tick(float)+0x347>
+ 192a3eb:	4c 8d 34 f0          	lea    (%rax,%rsi,8),%r14
+ 192a3ef:	4d 39 f1             	cmp    %r14,%r9
+ 192a3f2:	77 12                	ja     192a406 <AFGCircuitSubsystem::Tick(float)+0x2e6>
+ 192a3f4:	4c 63 54 24 3c       	movslq 0x3c(%rsp),%r10
+ 192a3f9:	4b 8d 04 91          	lea    (%r9,%r10,4),%rax
+ 192a3fd:	4c 39 f0             	cmp    %r14,%rax
+ 192a400:	0f 87 f2 00 00 00    	ja     192a4f8 <AFGCircuitSubsystem::Tick(float)+0x3d8>
+ 192a406:	8b 44 24 38          	mov    0x38(%rsp),%eax
+ 192a40a:	3b 44 24 3c          	cmp    0x3c(%rsp),%eax
+ 192a40e:	75 3b                	jne    192a44b <AFGCircuitSubsystem::Tick(float)+0x32b>
+ 192a410:	bf 04 04 00 00       	mov    $0x404,%edi
+ 192a415:	48 8d 74 24 30       	lea    0x30(%rsp),%rsi
+ 192a41a:	48 8d 54 24 3c       	lea    0x3c(%rsp),%rdx
+ 192a41f:	44 89 7c 24 08       	mov    %r15d,0x8(%rsp)
+ 192a424:	4d 89 ef             	mov    %r13,%r15
+ 192a427:	49 89 dd             	mov    %rbx,%r13
+ 192a42a:	48 89 eb             	mov    %rbp,%rbx
+ 192a42d:	4c 89 c5             	mov    %r8,%rbp
+ 192a430:	e8 5b 99 9f ff       	call   1323d90 <decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned short, TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 192a435:	48 8b 4c 24 18       	mov    0x18(%rsp),%rcx
+ 192a43a:	49 89 e8             	mov    %rbp,%r8
+ 192a43d:	48 89 dd             	mov    %rbx,%rbp
+ 192a440:	4c 89 eb             	mov    %r13,%rbx
+ 192a443:	4d 89 fd             	mov    %r15,%r13
+ 192a446:	44 8b 7c 24 08       	mov    0x8(%rsp),%r15d
+ 192a44b:	8d 50 01             	lea    0x1(%rax),%edx
+ 192a44e:	89 54 24 38          	mov    %edx,0x38(%rsp)
+ 192a452:	4c 8b 4c 24 30       	mov    0x30(%rsp),%r9
+ 192a457:	48 98                	cltq   
+ 192a459:	41 8b 16             	mov    (%r14),%edx
+ 192a45c:	41 89 14 81          	mov    %edx,(%r9,%rax,4)
+ 192a460:	44 8b 93 30 03 00 00 	mov    0x330(%rbx),%r10d
+ 192a467:	44 89 e8             	mov    %r13d,%eax
+ 192a46a:	f7 d0                	not    %eax
+ 192a46c:	41 21 c7             	and    %eax,%r15d
+ 192a46f:	48 8b 93 28 03 00 00 	mov    0x328(%rbx),%rdx
+ 192a476:	48 85 d2             	test   %rdx,%rdx
+ 192a479:	48 0f 44 d5          	cmove  %rbp,%rdx
+ 192a47d:	49 63 f0             	movslq %r8d,%rsi
+ 192a480:	44 8b 1c b2          	mov    (%rdx,%rsi,4),%r11d
+ 192a484:	45 21 fb             	and    %r15d,%r11d
+ 192a487:	0f 85 13 ff ff ff    	jne    192a3a0 <AFGCircuitSubsystem::Tick(float)+0x280>
+ 192a48d:	41 8d 7a ff          	lea    -0x1(%r10),%edi
+ 192a491:	41 8d 42 1e          	lea    0x1e(%r10),%eax
+ 192a495:	85 ff                	test   %edi,%edi
+ 192a497:	0f 49 c7             	cmovns %edi,%eax
+ 192a49a:	c1 f8 05             	sar    $0x5,%eax
+ 192a49d:	41 83 c4 20          	add    $0x20,%r12d
+ 192a4a1:	41 39 c0             	cmp    %eax,%r8d
+ 192a4a4:	41 0f 4f c0          	cmovg  %r8d,%eax
+ 192a4a8:	7d 37                	jge    192a4e1 <AFGCircuitSubsystem::Tick(float)+0x3c1>
+ 192a4aa:	48 63 f8             	movslq %eax,%rdi
+ 192a4ad:	48 8d 47 01          	lea    0x1(%rdi),%rax
+ 192a4b1:	48 29 f7             	sub    %rsi,%rdi
+ 192a4b4:	48 8d 34 b2          	lea    (%rdx,%rsi,4),%rsi
+ 192a4b8:	48 83 c6 04          	add    $0x4,%rsi
+ 192a4bc:	31 d2                	xor    %edx,%edx
+ 192a4be:	66 90                	xchg   %ax,%ax
+ 192a4c0:	44 8b 1c 96          	mov    (%rsi,%rdx,4),%r11d
+ 192a4c4:	45 85 db             	test   %r11d,%r11d
+ 192a4c7:	0f 85 bf fe ff ff    	jne    192a38c <AFGCircuitSubsystem::Tick(float)+0x26c>
+ 192a4cd:	41 83 c4 20          	add    $0x20,%r12d
+ 192a4d1:	48 ff c2             	inc    %rdx
+ 192a4d4:	48 39 d7             	cmp    %rdx,%rdi
+ 192a4d7:	75 e7                	jne    192a4c0 <AFGCircuitSubsystem::Tick(float)+0x3a0>
+ 192a4d9:	41 bf ff ff ff ff    	mov    $0xffffffff,%r15d
+ 192a4df:	eb 06                	jmp    192a4e7 <AFGCircuitSubsystem::Tick(float)+0x3c7>
+ 192a4e1:	48 ff c6             	inc    %rsi
+ 192a4e4:	48 89 f0             	mov    %rsi,%rax
+ 192a4e7:	45 89 d6             	mov    %r10d,%r14d
+ 192a4ea:	41 89 c0             	mov    %eax,%r8d
+ 192a4ed:	41 39 ce             	cmp    %ecx,%r14d
+ 192a4f0:	0f 85 dc fe ff ff    	jne    192a3d2 <AFGCircuitSubsystem::Tick(float)+0x2b2>
+ 192a4f6:	eb 54                	jmp    192a54c <AFGCircuitSubsystem::Tick(float)+0x42c>
+ 192a4f8:	4c 63 5c 24 38       	movslq 0x38(%rsp),%r11
+ 192a4fd:	48 83 ec 08          	sub    $0x8,%rsp
+ 192a501:	48 8d 3d a6 a7 5c ff 	lea    -0xa3585a(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 192a508:	48 8d 35 11 61 59 ff 	lea    -0xa69eef(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 192a50f:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 192a514:	48 8d 0d 2f 96 65 ff 	lea    -0x9a69d1(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 192a51b:	4c 89 44 24 10       	mov    %r8,0x10(%rsp)
+ 192a520:	4d 89 f0             	mov    %r14,%r8
+ 192a523:	31 c0                	xor    %eax,%eax
+ 192a525:	6a 04                	push   $0x4
+ 192a527:	41 53                	push   %r11
+ 192a529:	41 52                	push   %r10
+ 192a52b:	e8 50 c6 81 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 192a530:	48 8b 4c 24 38       	mov    0x38(%rsp),%rcx
+ 192a535:	4c 8b 44 24 28       	mov    0x28(%rsp),%r8
+ 192a53a:	48 83 c4 20          	add    $0x20,%rsp
+ 192a53e:	84 c0                	test   %al,%al
+ 192a540:	0f 84 c0 fe ff ff    	je     192a406 <AFGCircuitSubsystem::Tick(float)+0x2e6>
+ 192a546:	cc                   	int3   
+ 192a547:	e9 ba fe ff ff       	jmp    192a406 <AFGCircuitSubsystem::Tick(float)+0x2e6>
+ 192a54c:	8b 54 24 38          	mov    0x38(%rsp),%edx
+ 192a550:	85 d2                	test   %edx,%edx
+ 192a552:	0f 8e c2 00 00 00    	jle    192a61a <AFGCircuitSubsystem::Tick(float)+0x4fa>
+ 192a558:	48 8b 05 99 b5 cb 00 	mov    0xcbb599(%rip),%rax        # 25e5af8 <LogCircuit@@Base-0x5c2dc>
+ 192a55f:	80 38 05             	cmpb   $0x5,(%rax)
+ 192a562:	72 21                	jb     192a585 <AFGCircuitSubsystem::Tick(float)+0x465>
+ 192a564:	48 8b 3d 8d b5 cb 00 	mov    0xcbb58d(%rip),%rdi        # 25e5af8 <LogCircuit@@Base-0x5c2dc>
+ 192a56b:	48 8d 35 9e 52 c3 00 	lea    0xc3529e(%rip),%rsi        # 255f810 <AFGCircuitSubsystem::Tick(float)::LOG_Static>
+ 192a572:	31 c0                	xor    %eax,%eax
+ 192a574:	e8 e7 dc 81 00       	call   2148260 <UE::Logging::Private::BasicLog(FLogCategoryBase const&, UE::Logging::Private::FStaticBasicLogRecord const*, ...)@plt>
+ 192a579:	8b 54 24 38          	mov    0x38(%rsp),%edx
+ 192a57d:	85 d2                	test   %edx,%edx
+ 192a57f:	0f 8e 7b 00 00 00    	jle    192a600 <AFGCircuitSubsystem::Tick(float)+0x4e0>
+ 192a585:	89 d5                	mov    %edx,%ebp
+ 192a587:	4c 8d 35 19 ac 5c ff 	lea    -0xa353e7(%rip),%r14        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 192a58e:	4c 8d 3d 8b 60 59 ff 	lea    -0xa69f75(%rip),%r15        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 192a595:	4c 8d 25 66 3d 62 ff 	lea    -0x9dc29a(%rip),%r12        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 192a59c:	0f 1f 40 00          	nopl   0x0(%rax)
+ 192a5a0:	4c 8d 6d ff          	lea    -0x1(%rbp),%r13
+ 192a5a4:	4c 63 4c 24 38       	movslq 0x38(%rsp),%r9
+ 192a5a9:	4c 39 cd             	cmp    %r9,%rbp
+ 192a5ac:	7f 27                	jg     192a5d5 <AFGCircuitSubsystem::Tick(float)+0x4b5>
+ 192a5ae:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
+ 192a5b3:	8b 74 a8 fc          	mov    -0x4(%rax,%rbp,4),%esi
+ 192a5b7:	83 fe ff             	cmp    $0xffffffff,%esi
+ 192a5ba:	74 38                	je     192a5f4 <AFGCircuitSubsystem::Tick(float)+0x4d4>
+ 192a5bc:	48 89 df             	mov    %rbx,%rdi
+ 192a5bf:	e8 3c af 84 00       	call   2175500 <AFGCircuitSubsystem::RebuildCircuit(int)@plt>
+ 192a5c4:	4c 89 e8             	mov    %r13,%rax
+ 192a5c7:	48 ff c0             	inc    %rax
+ 192a5ca:	4c 89 ed             	mov    %r13,%rbp
+ 192a5cd:	48 83 f8 01          	cmp    $0x1,%rax
+ 192a5d1:	77 cd                	ja     192a5a0 <AFGCircuitSubsystem::Tick(float)+0x480>
+ 192a5d3:	eb 2b                	jmp    192a600 <AFGCircuitSubsystem::Tick(float)+0x4e0>
+ 192a5d5:	4c 89 f7             	mov    %r14,%rdi
+ 192a5d8:	4c 89 fe             	mov    %r15,%rsi
+ 192a5db:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 192a5e0:	4c 89 e1             	mov    %r12,%rcx
+ 192a5e3:	4d 89 e8             	mov    %r13,%r8
+ 192a5e6:	31 c0                	xor    %eax,%eax
+ 192a5e8:	e8 93 c5 81 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 192a5ed:	84 c0                	test   %al,%al
+ 192a5ef:	74 bd                	je     192a5ae <AFGCircuitSubsystem::Tick(float)+0x48e>
+ 192a5f1:	cc                   	int3   
+ 192a5f2:	eb ba                	jmp    192a5ae <AFGCircuitSubsystem::Tick(float)+0x48e>
+ 192a5f4:	89 f5                	mov    %esi,%ebp
+ 192a5f6:	e8 65 5d 81 00       	call   2140360 <AFGCircuitSubsystem::Tick(float)::Impl::ExecCheckImplInternal()>
+ 192a5fb:	89 ee                	mov    %ebp,%esi
+ 192a5fd:	cc                   	int3   
+ 192a5fe:	eb bc                	jmp    192a5bc <AFGCircuitSubsystem::Tick(float)+0x49c>
+ 192a600:	c6 83 d8 03 00 00 01 	movb   $0x1,0x3d8(%rbx)
+ 192a607:	c6 83 58 03 00 00 01 	movb   $0x1,0x358(%rbx)
+ 192a60e:	44 8b 93 30 03 00 00 	mov    0x330(%rbx),%r10d
+ 192a615:	48 8b 6c 24 10       	mov    0x10(%rsp),%rbp
+ 192a61a:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 192a61d:	0f 29 44 24 20       	movaps %xmm0,0x20(%rsp)
+ 192a622:	45 85 d2             	test   %r10d,%r10d
+ 192a625:	74 25                	je     192a64c <AFGCircuitSubsystem::Tick(float)+0x52c>
+ 192a627:	48 8b 83 28 03 00 00 	mov    0x328(%rbx),%rax
+ 192a62e:	48 85 c0             	test   %rax,%rax
+ 192a631:	48 0f 44 c5          	cmove  %rbp,%rax
+ 192a635:	8b 08                	mov    (%rax),%ecx
+ 192a637:	85 c9                	test   %ecx,%ecx
+ 192a639:	74 3f                	je     192a67a <AFGCircuitSubsystem::Tick(float)+0x55a>
+ 192a63b:	41 be 3e 00 00 00    	mov    $0x3e,%r14d
+ 192a641:	45 31 c9             	xor    %r9d,%r9d
+ 192a644:	45 31 ed             	xor    %r13d,%r13d
+ 192a647:	e9 7f 00 00 00       	jmp    192a6cb <AFGCircuitSubsystem::Tick(float)+0x5ab>
+ 192a64c:	45 31 ff             	xor    %r15d,%r15d
+ 192a64f:	bd 01 00 00 00       	mov    $0x1,%ebp
+ 192a654:	41 bc ff ff ff ff    	mov    $0xffffffff,%r12d
+ 192a65a:	45 31 c0             	xor    %r8d,%r8d
+ 192a65d:	45 31 ed             	xor    %r13d,%r13d
+ 192a660:	45 31 f6             	xor    %r14d,%r14d
+ 192a663:	45 31 c9             	xor    %r9d,%r9d
+ 192a666:	8b 83 30 03 00 00    	mov    0x330(%rbx),%eax
+ 192a66c:	44 39 d0             	cmp    %r10d,%eax
+ 192a66f:	0f 84 9f 00 00 00    	je     192a714 <AFGCircuitSubsystem::Tick(float)+0x5f4>
+ 192a675:	e9 12 01 00 00       	jmp    192a78c <AFGCircuitSubsystem::Tick(float)+0x66c>
+ 192a67a:	41 8d 4a ff          	lea    -0x1(%r10),%ecx
+ 192a67e:	41 8d 52 1e          	lea    0x1e(%r10),%edx
+ 192a682:	85 c9                	test   %ecx,%ecx
+ 192a684:	0f 49 d1             	cmovns %ecx,%edx
+ 192a687:	c1 fa 05             	sar    $0x5,%edx
+ 192a68a:	31 f6                	xor    %esi,%esi
+ 192a68c:	85 d2                	test   %edx,%edx
+ 192a68e:	0f 4e d6             	cmovle %esi,%edx
+ 192a691:	44 8d 4a 01          	lea    0x1(%rdx),%r9d
+ 192a695:	41 89 d5             	mov    %edx,%r13d
+ 192a698:	41 c1 e5 05          	shl    $0x5,%r13d
+ 192a69c:	41 83 c5 20          	add    $0x20,%r13d
+ 192a6a0:	41 be 3e 00 00 00    	mov    $0x3e,%r14d
+ 192a6a6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ 192a6ad:	00 00 00 
+ 192a6b0:	48 39 f2             	cmp    %rsi,%rdx
+ 192a6b3:	74 6d                	je     192a722 <AFGCircuitSubsystem::Tick(float)+0x602>
+ 192a6b5:	8b 4c b0 04          	mov    0x4(%rax,%rsi,4),%ecx
+ 192a6b9:	48 ff c6             	inc    %rsi
+ 192a6bc:	41 83 c6 20          	add    $0x20,%r14d
+ 192a6c0:	85 c9                	test   %ecx,%ecx
+ 192a6c2:	74 ec                	je     192a6b0 <AFGCircuitSubsystem::Tick(float)+0x590>
+ 192a6c4:	45 8d 6e c2          	lea    -0x3e(%r14),%r13d
+ 192a6c8:	41 89 f1             	mov    %esi,%r9d
+ 192a6cb:	89 cd                	mov    %ecx,%ebp
+ 192a6cd:	f7 dd                	neg    %ebp
+ 192a6cf:	21 cd                	and    %ecx,%ebp
+ 192a6d1:	48 8d 04 6d 01 00 00 	lea    0x1(,%rbp,2),%rax
+ 192a6d8:	00 
+ 192a6d9:	48 0f bd c0          	bsr    %rax,%rax
+ 192a6dd:	83 f0 3f             	xor    $0x3f,%eax
+ 192a6e0:	41 29 c6             	sub    %eax,%r14d
+ 192a6e3:	45 39 d6             	cmp    %r10d,%r14d
+ 192a6e6:	45 0f 4d f2          	cmovge %r10d,%r14d
+ 192a6ea:	45 89 d0             	mov    %r10d,%r8d
+ 192a6ed:	41 bc ff ff ff ff    	mov    $0xffffffff,%r12d
+ 192a6f3:	44 89 d1             	mov    %r10d,%ecx
+ 192a6f6:	41 d3 e4             	shl    %cl,%r12d
+ 192a6f9:	41 c1 f8 05          	sar    $0x5,%r8d
+ 192a6fd:	45 89 d7             	mov    %r10d,%r15d
+ 192a700:	41 83 e7 e0          	and    $0xffffffe0,%r15d
+ 192a704:	45 85 d2             	test   %r10d,%r10d
+ 192a707:	78 34                	js     192a73d <AFGCircuitSubsystem::Tick(float)+0x61d>
+ 192a709:	8b 83 30 03 00 00    	mov    0x330(%rbx),%eax
+ 192a70f:	44 39 d0             	cmp    %r10d,%eax
+ 192a712:	75 78                	jne    192a78c <AFGCircuitSubsystem::Tick(float)+0x66c>
+ 192a714:	45 39 d6             	cmp    %r10d,%r14d
+ 192a717:	0f 84 ea 00 00 00    	je     192a807 <AFGCircuitSubsystem::Tick(float)+0x6e7>
+ 192a71d:	e9 44 01 00 00       	jmp    192a866 <AFGCircuitSubsystem::Tick(float)+0x746>
+ 192a722:	bd 01 00 00 00       	mov    $0x1,%ebp
+ 192a727:	45 89 d6             	mov    %r10d,%r14d
+ 192a72a:	eb be                	jmp    192a6ea <AFGCircuitSubsystem::Tick(float)+0x5ca>
+ 192a72c:	44 89 d1             	mov    %r10d,%ecx
+ 192a72f:	41 39 ce             	cmp    %ecx,%r14d
+ 192a732:	0f 85 3f fc ff ff    	jne    192a377 <AFGCircuitSubsystem::Tick(float)+0x257>
+ 192a738:	e9 d8 fe ff ff       	jmp    192a615 <AFGCircuitSubsystem::Tick(float)+0x4f5>
+ 192a73d:	44 89 44 24 04       	mov    %r8d,0x4(%rsp)
+ 192a742:	4c 89 4c 24 18       	mov    %r9,0x18(%rsp)
+ 192a747:	4c 89 54 24 08       	mov    %r10,0x8(%rsp)
+ 192a74c:	48 8d 3d c8 c2 5c ff 	lea    -0xa33d38(%rip),%rdi        # ef6a1b <(anonymous namespace)::FGHighlightColor+0x80afb>
+ 192a753:	48 8d 35 dd 5d 59 ff 	lea    -0xa6a223(%rip),%rsi        # ec0537 <(anonymous namespace)::FGHighlightColor+0x4a617>
+ 192a75a:	48 8d 0d 65 ee 65 ff 	lea    -0x9a119b(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 192a761:	ba 93 07 00 00       	mov    $0x793,%edx
+ 192a766:	31 c0                	xor    %eax,%eax
+ 192a768:	e8 13 c4 81 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 192a76d:	84 c0                	test   %al,%al
+ 192a76f:	74 01                	je     192a772 <AFGCircuitSubsystem::Tick(float)+0x652>
+ 192a771:	cc                   	int3   
+ 192a772:	4c 8b 54 24 08       	mov    0x8(%rsp),%r10
+ 192a777:	4c 8b 4c 24 18       	mov    0x18(%rsp),%r9
+ 192a77c:	44 8b 44 24 04       	mov    0x4(%rsp),%r8d
+ 192a781:	8b 83 30 03 00 00    	mov    0x330(%rbx),%eax
+ 192a787:	44 39 d0             	cmp    %r10d,%eax
+ 192a78a:	74 88                	je     192a714 <AFGCircuitSubsystem::Tick(float)+0x5f4>
+ 192a78c:	48 8b 8b 28 03 00 00 	mov    0x328(%rbx),%rcx
+ 192a793:	48 85 c9             	test   %rcx,%rcx
+ 192a796:	48 0f 44 4c 24 10    	cmove  0x10(%rsp),%rcx
+ 192a79c:	49 63 d0             	movslq %r8d,%rdx
+ 192a79f:	44 23 24 91          	and    (%rcx,%rdx,4),%r12d
+ 192a7a3:	75 35                	jne    192a7da <AFGCircuitSubsystem::Tick(float)+0x6ba>
+ 192a7a5:	8d 70 ff             	lea    -0x1(%rax),%esi
+ 192a7a8:	8d 78 1e             	lea    0x1e(%rax),%edi
+ 192a7ab:	85 f6                	test   %esi,%esi
+ 192a7ad:	0f 49 fe             	cmovns %esi,%edi
+ 192a7b0:	c1 ff 05             	sar    $0x5,%edi
+ 192a7b3:	41 39 f8             	cmp    %edi,%r8d
+ 192a7b6:	41 0f 4f f8          	cmovg  %r8d,%edi
+ 192a7ba:	48 63 f7             	movslq %edi,%rsi
+ 192a7bd:	0f 1f 00             	nopl   (%rax)
+ 192a7c0:	48 39 d6             	cmp    %rdx,%rsi
+ 192a7c3:	0f 84 95 00 00 00    	je     192a85e <AFGCircuitSubsystem::Tick(float)+0x73e>
+ 192a7c9:	41 83 c7 20          	add    $0x20,%r15d
+ 192a7cd:	44 8b 64 91 04       	mov    0x4(%rcx,%rdx,4),%r12d
+ 192a7d2:	48 ff c2             	inc    %rdx
+ 192a7d5:	45 85 e4             	test   %r12d,%r12d
+ 192a7d8:	74 e6                	je     192a7c0 <AFGCircuitSubsystem::Tick(float)+0x6a0>
+ 192a7da:	44 89 e1             	mov    %r12d,%ecx
+ 192a7dd:	f7 d9                	neg    %ecx
+ 192a7df:	44 21 e1             	and    %r12d,%ecx
+ 192a7e2:	48 8d 0c 4d 01 00 00 	lea    0x1(,%rcx,2),%rcx
+ 192a7e9:	00 
+ 192a7ea:	48 0f bd c9          	bsr    %rcx,%rcx
+ 192a7ee:	83 f1 3f             	xor    $0x3f,%ecx
+ 192a7f1:	41 29 cf             	sub    %ecx,%r15d
+ 192a7f4:	41 83 c7 3e          	add    $0x3e,%r15d
+ 192a7f8:	41 39 c7             	cmp    %eax,%r15d
+ 192a7fb:	44 0f 4d f8          	cmovge %eax,%r15d
+ 192a7ff:	45 89 fa             	mov    %r15d,%r10d
+ 192a802:	45 39 d6             	cmp    %r10d,%r14d
+ 192a805:	75 5f                	jne    192a866 <AFGCircuitSubsystem::Tick(float)+0x746>
+ 192a807:	8b 54 24 28          	mov    0x28(%rsp),%edx
+ 192a80b:	85 d2                	test   %edx,%edx
+ 192a80d:	0f 8e 86 02 00 00    	jle    192aa99 <AFGCircuitSubsystem::Tick(float)+0x979>
+ 192a813:	48 8b 05 de b2 cb 00 	mov    0xcbb2de(%rip),%rax        # 25e5af8 <LogCircuit@@Base-0x5c2dc>
+ 192a81a:	80 38 04             	cmpb   $0x4,(%rax)
+ 192a81d:	77 0e                	ja     192a82d <AFGCircuitSubsystem::Tick(float)+0x70d>
+ 192a81f:	4c 8b 74 24 20       	mov    0x20(%rsp),%r14
+ 192a824:	4d 8d 3c 96          	lea    (%r14,%rdx,4),%r15
+ 192a828:	e9 53 02 00 00       	jmp    192aa80 <AFGCircuitSubsystem::Tick(float)+0x960>
+ 192a82d:	48 8b 3d c4 b2 cb 00 	mov    0xcbb2c4(%rip),%rdi        # 25e5af8 <LogCircuit@@Base-0x5c2dc>
+ 192a834:	48 8d 35 15 50 c3 00 	lea    0xc35015(%rip),%rsi        # 255f850 <AFGCircuitSubsystem::Tick(float)::LOG_Static>
+ 192a83b:	31 c0                	xor    %eax,%eax
+ 192a83d:	e8 1e da 81 00       	call   2148260 <UE::Logging::Private::BasicLog(FLogCategoryBase const&, UE::Logging::Private::FStaticBasicLogRecord const*, ...)@plt>
+ 192a842:	48 63 44 24 28       	movslq 0x28(%rsp),%rax
+ 192a847:	48 85 c0             	test   %rax,%rax
+ 192a84a:	0f 84 49 02 00 00    	je     192aa99 <AFGCircuitSubsystem::Tick(float)+0x979>
+ 192a850:	4c 8b 74 24 20       	mov    0x20(%rsp),%r14
+ 192a855:	4d 8d 3c 86          	lea    (%r14,%rax,4),%r15
+ 192a859:	e9 22 02 00 00       	jmp    192aa80 <AFGCircuitSubsystem::Tick(float)+0x960>
+ 192a85e:	41 89 c2             	mov    %eax,%r10d
+ 192a861:	45 39 d6             	cmp    %r10d,%r14d
+ 192a864:	74 a1                	je     192a807 <AFGCircuitSubsystem::Tick(float)+0x6e7>
+ 192a866:	41 bc ff ff ff ff    	mov    $0xffffffff,%r12d
+ 192a86c:	4c 89 54 24 08       	mov    %r10,0x8(%rsp)
+ 192a871:	e9 ee 00 00 00       	jmp    192a964 <AFGCircuitSubsystem::Tick(float)+0x844>
+ 192a876:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ 192a87d:	00 00 00 
+ 192a880:	8d 48 01             	lea    0x1(%rax),%ecx
+ 192a883:	89 4c 24 28          	mov    %ecx,0x28(%rsp)
+ 192a887:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+ 192a88c:	48 98                	cltq   
+ 192a88e:	41 8b 17             	mov    (%r15),%edx
+ 192a891:	89 14 81             	mov    %edx,(%rcx,%rax,4)
+ 192a894:	c6 83 58 03 00 00 01 	movb   $0x1,0x358(%rbx)
+ 192a89b:	8b 83 30 03 00 00    	mov    0x330(%rbx),%eax
+ 192a8a1:	4c 8b 54 24 08       	mov    0x8(%rsp),%r10
+ 192a8a6:	4d 89 f1             	mov    %r14,%r9
+ 192a8a9:	89 e9                	mov    %ebp,%ecx
+ 192a8ab:	f7 d1                	not    %ecx
+ 192a8ad:	41 21 cc             	and    %ecx,%r12d
+ 192a8b0:	48 8b b3 28 03 00 00 	mov    0x328(%rbx),%rsi
+ 192a8b7:	48 85 f6             	test   %rsi,%rsi
+ 192a8ba:	48 0f 44 74 24 10    	cmove  0x10(%rsp),%rsi
+ 192a8c0:	49 63 f9             	movslq %r9d,%rdi
+ 192a8c3:	8b 14 be             	mov    (%rsi,%rdi,4),%edx
+ 192a8c6:	44 21 e2             	and    %r12d,%edx
+ 192a8c9:	74 35                	je     192a900 <AFGCircuitSubsystem::Tick(float)+0x7e0>
+ 192a8cb:	89 d5                	mov    %edx,%ebp
+ 192a8cd:	f7 dd                	neg    %ebp
+ 192a8cf:	21 d5                	and    %edx,%ebp
+ 192a8d1:	48 8d 0c 6d 01 00 00 	lea    0x1(,%rbp,2),%rcx
+ 192a8d8:	00 
+ 192a8d9:	48 0f bd c9          	bsr    %rcx,%rcx
+ 192a8dd:	83 f1 3f             	xor    $0x3f,%ecx
+ 192a8e0:	45 89 ee             	mov    %r13d,%r14d
+ 192a8e3:	41 29 ce             	sub    %ecx,%r14d
+ 192a8e6:	41 83 c6 3e          	add    $0x3e,%r14d
+ 192a8ea:	41 39 c6             	cmp    %eax,%r14d
+ 192a8ed:	44 0f 4d f0          	cmovge %eax,%r14d
+ 192a8f1:	45 39 d6             	cmp    %r10d,%r14d
+ 192a8f4:	75 6e                	jne    192a964 <AFGCircuitSubsystem::Tick(float)+0x844>
+ 192a8f6:	e9 0c ff ff ff       	jmp    192a807 <AFGCircuitSubsystem::Tick(float)+0x6e7>
+ 192a8fb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 192a900:	8d 50 ff             	lea    -0x1(%rax),%edx
+ 192a903:	8d 48 1e             	lea    0x1e(%rax),%ecx
+ 192a906:	85 d2                	test   %edx,%edx
+ 192a908:	0f 49 ca             	cmovns %edx,%ecx
+ 192a90b:	c1 f9 05             	sar    $0x5,%ecx
+ 192a90e:	41 83 c5 20          	add    $0x20,%r13d
+ 192a912:	41 39 c9             	cmp    %ecx,%r9d
+ 192a915:	41 0f 4f c9          	cmovg  %r9d,%ecx
+ 192a919:	7d 34                	jge    192a94f <AFGCircuitSubsystem::Tick(float)+0x82f>
+ 192a91b:	4c 63 c1             	movslq %ecx,%r8
+ 192a91e:	49 8d 48 01          	lea    0x1(%r8),%rcx
+ 192a922:	49 29 f8             	sub    %rdi,%r8
+ 192a925:	48 8d 3c be          	lea    (%rsi,%rdi,4),%rdi
+ 192a929:	48 83 c7 04          	add    $0x4,%rdi
+ 192a92d:	31 f6                	xor    %esi,%esi
+ 192a92f:	90                   	nop
+ 192a930:	8b 14 b7             	mov    (%rdi,%rsi,4),%edx
+ 192a933:	85 d2                	test   %edx,%edx
+ 192a935:	0f 85 dc 00 00 00    	jne    192aa17 <AFGCircuitSubsystem::Tick(float)+0x8f7>
+ 192a93b:	41 83 c5 20          	add    $0x20,%r13d
+ 192a93f:	48 ff c6             	inc    %rsi
+ 192a942:	49 39 f0             	cmp    %rsi,%r8
+ 192a945:	75 e9                	jne    192a930 <AFGCircuitSubsystem::Tick(float)+0x810>
+ 192a947:	41 bc ff ff ff ff    	mov    $0xffffffff,%r12d
+ 192a94d:	eb 06                	jmp    192a955 <AFGCircuitSubsystem::Tick(float)+0x835>
+ 192a94f:	48 ff c7             	inc    %rdi
+ 192a952:	48 89 f9             	mov    %rdi,%rcx
+ 192a955:	41 89 c6             	mov    %eax,%r14d
+ 192a958:	41 89 c9             	mov    %ecx,%r9d
+ 192a95b:	45 39 d6             	cmp    %r10d,%r14d
+ 192a95e:	0f 84 a3 fe ff ff    	je     192a807 <AFGCircuitSubsystem::Tick(float)+0x6e7>
+ 192a964:	48 8b b3 08 03 00 00 	mov    0x308(%rbx),%rsi
+ 192a96b:	49 63 ce             	movslq %r14d,%rcx
+ 192a96e:	48 8d 3c 49          	lea    (%rcx,%rcx,2),%rdi
+ 192a972:	48 8b 4c fe 08       	mov    0x8(%rsi,%rdi,8),%rcx
+ 192a977:	0f b6 51 58          	movzbl 0x58(%rcx),%edx
+ 192a97b:	f6 c2 02             	test   $0x2,%dl
+ 192a97e:	0f 84 25 ff ff ff    	je     192a8a9 <AFGCircuitSubsystem::Tick(float)+0x789>
+ 192a984:	4d 89 ce             	mov    %r9,%r14
+ 192a987:	4c 8d 3c fe          	lea    (%rsi,%rdi,8),%r15
+ 192a98b:	48 8b 3d 66 b1 cb 00 	mov    0xcbb166(%rip),%rdi        # 25e5af8 <LogCircuit@@Base-0x5c2dc>
+ 192a992:	80 3f 05             	cmpb   $0x5,(%rdi)
+ 192a995:	72 19                	jb     192a9b0 <AFGCircuitSubsystem::Tick(float)+0x890>
+ 192a997:	8b 51 40             	mov    0x40(%rcx),%edx
+ 192a99a:	48 8d 35 8f 4e c3 00 	lea    0xc34e8f(%rip),%rsi        # 255f830 <AFGCircuitSubsystem::Tick(float)::LOG_Static>
+ 192a9a1:	31 c0                	xor    %eax,%eax
+ 192a9a3:	e8 b8 d8 81 00       	call   2148260 <UE::Logging::Private::BasicLog(FLogCategoryBase const&, UE::Logging::Private::FStaticBasicLogRecord const*, ...)@plt>
+ 192a9a8:	49 8b 4f 08          	mov    0x8(%r15),%rcx
+ 192a9ac:	0f b6 51 58          	movzbl 0x58(%rcx),%edx
+ 192a9b0:	80 e2 fd             	and    $0xfd,%dl
+ 192a9b3:	88 51 58             	mov    %dl,0x58(%rcx)
+ 192a9b6:	49 8b 7f 08          	mov    0x8(%r15),%rdi
+ 192a9ba:	48 8b 07             	mov    (%rdi),%rax
+ 192a9bd:	ff 90 28 03 00 00    	call   *0x328(%rax)
+ 192a9c3:	49 8b 7f 08          	mov    0x8(%r15),%rdi
+ 192a9c7:	48 8b 07             	mov    (%rdi),%rax
+ 192a9ca:	ff 90 10 03 00 00    	call   *0x310(%rax)
+ 192a9d0:	84 c0                	test   %al,%al
+ 192a9d2:	0f 84 bc fe ff ff    	je     192a894 <AFGCircuitSubsystem::Tick(float)+0x774>
+ 192a9d8:	4c 8b 4c 24 20       	mov    0x20(%rsp),%r9
+ 192a9dd:	4d 39 f9             	cmp    %r15,%r9
+ 192a9e0:	77 0e                	ja     192a9f0 <AFGCircuitSubsystem::Tick(float)+0x8d0>
+ 192a9e2:	4c 63 54 24 2c       	movslq 0x2c(%rsp),%r10
+ 192a9e7:	4b 8d 04 91          	lea    (%r9,%r10,4),%rax
+ 192a9eb:	4c 39 f8             	cmp    %r15,%rax
+ 192a9ee:	77 38                	ja     192aa28 <AFGCircuitSubsystem::Tick(float)+0x908>
+ 192a9f0:	8b 44 24 28          	mov    0x28(%rsp),%eax
+ 192a9f4:	3b 44 24 2c          	cmp    0x2c(%rsp),%eax
+ 192a9f8:	0f 85 82 fe ff ff    	jne    192a880 <AFGCircuitSubsystem::Tick(float)+0x760>
+ 192a9fe:	bf 04 04 00 00       	mov    $0x404,%edi
+ 192aa03:	48 8d 74 24 20       	lea    0x20(%rsp),%rsi
+ 192aa08:	48 8d 54 24 2c       	lea    0x2c(%rsp),%rdx
+ 192aa0d:	e8 7e 93 9f ff       	call   1323d90 <decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<3u, TSizedHeapAllocator<32, FMemory>::ForAnyElementType>(unsigned short, TSizedHeapAllocator<32, FMemory>::ForAnyElementType&, decltype (((std::declval<TSizedHeapAllocator<32, FMemory>::ForAnyElementType&>()).GetInitialCapacity)())&)>
+ 192aa12:	e9 69 fe ff ff       	jmp    192a880 <AFGCircuitSubsystem::Tick(float)+0x760>
+ 192aa17:	41 01 f1             	add    %esi,%r9d
+ 192aa1a:	41 ff c1             	inc    %r9d
+ 192aa1d:	41 bc ff ff ff ff    	mov    $0xffffffff,%r12d
+ 192aa23:	e9 a3 fe ff ff       	jmp    192a8cb <AFGCircuitSubsystem::Tick(float)+0x7ab>
+ 192aa28:	4c 63 5c 24 28       	movslq 0x28(%rsp),%r11
+ 192aa2d:	48 83 ec 08          	sub    $0x8,%rsp
+ 192aa31:	48 8d 3d 76 a2 5c ff 	lea    -0xa35d8a(%rip),%rdi        # ef4cae <(anonymous namespace)::FGHighlightColor+0x7ed8e>
+ 192aa38:	48 8d 35 e1 5b 59 ff 	lea    -0xa6a41f(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 192aa3f:	ba ac 07 00 00       	mov    $0x7ac,%edx
+ 192aa44:	48 8d 0d ff 90 65 ff 	lea    -0x9a6f01(%rip),%rcx        # f83b4a <(anonymous namespace)::FGHighlightColor+0x10dc2a>
+ 192aa4b:	4d 89 f8             	mov    %r15,%r8
+ 192aa4e:	31 c0                	xor    %eax,%eax
+ 192aa50:	6a 04                	push   $0x4
+ 192aa52:	41 53                	push   %r11
+ 192aa54:	41 52                	push   %r10
+ 192aa56:	e8 25 c1 81 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 192aa5b:	48 83 c4 20          	add    $0x20,%rsp
+ 192aa5f:	84 c0                	test   %al,%al
+ 192aa61:	74 8d                	je     192a9f0 <AFGCircuitSubsystem::Tick(float)+0x8d0>
+ 192aa63:	cc                   	int3   
+ 192aa64:	eb 8a                	jmp    192a9f0 <AFGCircuitSubsystem::Tick(float)+0x8d0>
+ 192aa66:	89 f5                	mov    %esi,%ebp
+ 192aa68:	e8 19 59 81 00       	call   2140386 <AFGCircuitSubsystem::Tick(float)::Impl::ExecCheckImplInternal()>
+ 192aa6d:	89 ee                	mov    %ebp,%esi
+ 192aa6f:	cc                   	int3   
+ 192aa70:	eb 16                	jmp    192aa88 <AFGCircuitSubsystem::Tick(float)+0x968>
+ 192aa72:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 192aa79:	1f 84 00 00 00 00 00 
+ 192aa80:	41 8b 36             	mov    (%r14),%esi
+ 192aa83:	83 fe ff             	cmp    $0xffffffff,%esi
+ 192aa86:	74 de                	je     192aa66 <AFGCircuitSubsystem::Tick(float)+0x946>
+ 192aa88:	48 89 df             	mov    %rbx,%rdi
+ 192aa8b:	e8 80 aa 84 00       	call   2175510 <AFGCircuitSubsystem::RemoveCircuit(int)@plt>
+ 192aa90:	49 83 c6 04          	add    $0x4,%r14
+ 192aa94:	4d 39 fe             	cmp    %r15,%r14
+ 192aa97:	75 e7                	jne    192aa80 <AFGCircuitSubsystem::Tick(float)+0x960>
+ 192aa99:	80 bb 58 03 00 00 00 	cmpb   $0x0,0x358(%rbx)
+ 192aaa0:	f3 0f 10 04 24       	movss  (%rsp),%xmm0
+ 192aaa5:	0f 84 f0 01 00 00    	je     192ac9b <AFGCircuitSubsystem::Tick(float)+0xb7b>
+ 192aaab:	48 8d bb 88 03 00 00 	lea    0x388(%rbx),%rdi
+ 192aab2:	44 8b 8b a0 03 00 00 	mov    0x3a0(%rbx),%r9d
+ 192aab9:	45 85 c9             	test   %r9d,%r9d
+ 192aabc:	48 89 7c 24 08       	mov    %rdi,0x8(%rsp)
+ 192aac1:	74 20                	je     192aae3 <AFGCircuitSubsystem::Tick(float)+0x9c3>
+ 192aac3:	48 8b 83 98 03 00 00 	mov    0x398(%rbx),%rax
+ 192aaca:	48 85 c0             	test   %rax,%rax
+ 192aacd:	48 0f 44 c7          	cmove  %rdi,%rax
+ 192aad1:	8b 08                	mov    (%rax),%ecx
+ 192aad3:	85 c9                	test   %ecx,%ecx
+ 192aad5:	74 3e                	je     192ab15 <AFGCircuitSubsystem::Tick(float)+0x9f5>
+ 192aad7:	41 be 3e 00 00 00    	mov    $0x3e,%r14d
+ 192aadd:	31 f6                	xor    %esi,%esi
+ 192aadf:	31 ed                	xor    %ebp,%ebp
+ 192aae1:	eb 75                	jmp    192ab58 <AFGCircuitSubsystem::Tick(float)+0xa38>
+ 192aae3:	41 bf 01 00 00 00    	mov    $0x1,%r15d
+ 192aae9:	41 bd ff ff ff ff    	mov    $0xffffffff,%r13d
+ 192aaef:	45 31 e4             	xor    %r12d,%r12d
+ 192aaf2:	45 31 c0             	xor    %r8d,%r8d
+ 192aaf5:	31 ed                	xor    %ebp,%ebp
+ 192aaf7:	45 31 f6             	xor    %r14d,%r14d
+ 192aafa:	31 c0                	xor    %eax,%eax
+ 192aafc:	48 89 44 24 10       	mov    %rax,0x10(%rsp)
+ 192ab01:	8b 83 a0 03 00 00    	mov    0x3a0(%rbx),%eax
+ 192ab07:	44 39 c8             	cmp    %r9d,%eax
+ 192ab0a:	0f 84 99 00 00 00    	je     192aba9 <AFGCircuitSubsystem::Tick(float)+0xa89>
+ 192ab10:	e9 fc 00 00 00       	jmp    192ac11 <AFGCircuitSubsystem::Tick(float)+0xaf1>
+ 192ab15:	41 8d 49 ff          	lea    -0x1(%r9),%ecx
+ 192ab19:	41 8d 51 1e          	lea    0x1e(%r9),%edx
+ 192ab1d:	85 c9                	test   %ecx,%ecx
+ 192ab1f:	0f 49 d1             	cmovns %ecx,%edx
+ 192ab22:	c1 fa 05             	sar    $0x5,%edx
+ 192ab25:	31 f6                	xor    %esi,%esi
+ 192ab27:	85 d2                	test   %edx,%edx
+ 192ab29:	0f 4e d6             	cmovle %esi,%edx
+ 192ab2c:	44 8d 42 01          	lea    0x1(%rdx),%r8d
+ 192ab30:	89 d5                	mov    %edx,%ebp
+ 192ab32:	c1 e5 05             	shl    $0x5,%ebp
+ 192ab35:	83 c5 20             	add    $0x20,%ebp
+ 192ab38:	41 be 3e 00 00 00    	mov    $0x3e,%r14d
+ 192ab3e:	66 90                	xchg   %ax,%ax
+ 192ab40:	48 39 f2             	cmp    %rsi,%rdx
+ 192ab43:	74 72                	je     192abb7 <AFGCircuitSubsystem::Tick(float)+0xa97>
+ 192ab45:	8b 4c b0 04          	mov    0x4(%rax,%rsi,4),%ecx
+ 192ab49:	48 ff c6             	inc    %rsi
+ 192ab4c:	41 83 c6 20          	add    $0x20,%r14d
+ 192ab50:	85 c9                	test   %ecx,%ecx
+ 192ab52:	74 ec                	je     192ab40 <AFGCircuitSubsystem::Tick(float)+0xa20>
+ 192ab54:	41 8d 6e c2          	lea    -0x3e(%r14),%ebp
+ 192ab58:	48 89 74 24 10       	mov    %rsi,0x10(%rsp)
+ 192ab5d:	41 89 cf             	mov    %ecx,%r15d
+ 192ab60:	41 f7 df             	neg    %r15d
+ 192ab63:	41 21 cf             	and    %ecx,%r15d
+ 192ab66:	4a 8d 04 7d 01 00 00 	lea    0x1(,%r15,2),%rax
+ 192ab6d:	00 
+ 192ab6e:	48 0f bd c0          	bsr    %rax,%rax
+ 192ab72:	83 f0 3f             	xor    $0x3f,%eax
+ 192ab75:	41 29 c6             	sub    %eax,%r14d
+ 192ab78:	45 39 ce             	cmp    %r9d,%r14d
+ 192ab7b:	45 0f 4d f1          	cmovge %r9d,%r14d
+ 192ab7f:	45 89 c8             	mov    %r9d,%r8d
+ 192ab82:	41 bd ff ff ff ff    	mov    $0xffffffff,%r13d
+ 192ab88:	44 89 c9             	mov    %r9d,%ecx
+ 192ab8b:	41 d3 e5             	shl    %cl,%r13d
+ 192ab8e:	41 c1 f8 05          	sar    $0x5,%r8d
+ 192ab92:	45 89 cc             	mov    %r9d,%r12d
+ 192ab95:	41 83 e4 e0          	and    $0xffffffe0,%r12d
+ 192ab99:	45 85 c9             	test   %r9d,%r9d
+ 192ab9c:	78 29                	js     192abc7 <AFGCircuitSubsystem::Tick(float)+0xaa7>
+ 192ab9e:	8b 83 a0 03 00 00    	mov    0x3a0(%rbx),%eax
+ 192aba4:	44 39 c8             	cmp    %r9d,%eax
+ 192aba7:	75 68                	jne    192ac11 <AFGCircuitSubsystem::Tick(float)+0xaf1>
+ 192aba9:	45 39 ce             	cmp    %r9d,%r14d
+ 192abac:	0f 84 e9 00 00 00    	je     192ac9b <AFGCircuitSubsystem::Tick(float)+0xb7b>
+ 192abb2:	e9 78 02 00 00       	jmp    192ae2f <AFGCircuitSubsystem::Tick(float)+0xd0f>
+ 192abb7:	4c 89 44 24 10       	mov    %r8,0x10(%rsp)
+ 192abbc:	41 bf 01 00 00 00    	mov    $0x1,%r15d
+ 192abc2:	45 89 ce             	mov    %r9d,%r14d
+ 192abc5:	eb b8                	jmp    192ab7f <AFGCircuitSubsystem::Tick(float)+0xa5f>
+ 192abc7:	44 89 44 24 04       	mov    %r8d,0x4(%rsp)
+ 192abcc:	4c 89 4c 24 18       	mov    %r9,0x18(%rsp)
+ 192abd1:	48 8d 3d 43 be 5c ff 	lea    -0xa341bd(%rip),%rdi        # ef6a1b <(anonymous namespace)::FGHighlightColor+0x80afb>
+ 192abd8:	48 8d 35 58 59 59 ff 	lea    -0xa6a6a8(%rip),%rsi        # ec0537 <(anonymous namespace)::FGHighlightColor+0x4a617>
+ 192abdf:	48 8d 0d e0 e9 65 ff 	lea    -0x9a1620(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 192abe6:	ba 93 07 00 00       	mov    $0x793,%edx
+ 192abeb:	31 c0                	xor    %eax,%eax
+ 192abed:	e8 8e bf 81 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 192abf2:	84 c0                	test   %al,%al
+ 192abf4:	74 01                	je     192abf7 <AFGCircuitSubsystem::Tick(float)+0xad7>
+ 192abf6:	cc                   	int3   
+ 192abf7:	f3 0f 10 04 24       	movss  (%rsp),%xmm0
+ 192abfc:	4c 8b 4c 24 18       	mov    0x18(%rsp),%r9
+ 192ac01:	44 8b 44 24 04       	mov    0x4(%rsp),%r8d
+ 192ac06:	8b 83 a0 03 00 00    	mov    0x3a0(%rbx),%eax
+ 192ac0c:	44 39 c8             	cmp    %r9d,%eax
+ 192ac0f:	74 98                	je     192aba9 <AFGCircuitSubsystem::Tick(float)+0xa89>
+ 192ac11:	48 8b 8b 98 03 00 00 	mov    0x398(%rbx),%rcx
+ 192ac18:	48 85 c9             	test   %rcx,%rcx
+ 192ac1b:	48 0f 44 4c 24 08    	cmove  0x8(%rsp),%rcx
+ 192ac21:	49 63 d0             	movslq %r8d,%rdx
+ 192ac24:	44 23 2c 91          	and    (%rcx,%rdx,4),%r13d
+ 192ac28:	75 40                	jne    192ac6a <AFGCircuitSubsystem::Tick(float)+0xb4a>
+ 192ac2a:	8d 70 ff             	lea    -0x1(%rax),%esi
+ 192ac2d:	8d 78 1e             	lea    0x1e(%rax),%edi
+ 192ac30:	85 f6                	test   %esi,%esi
+ 192ac32:	0f 49 fe             	cmovns %esi,%edi
+ 192ac35:	c1 ff 05             	sar    $0x5,%edi
+ 192ac38:	41 39 f8             	cmp    %edi,%r8d
+ 192ac3b:	41 0f 4f f8          	cmovg  %r8d,%edi
+ 192ac3f:	48 63 f7             	movslq %edi,%rsi
+ 192ac42:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 192ac49:	1f 84 00 00 00 00 00 
+ 192ac50:	48 39 d6             	cmp    %rdx,%rsi
+ 192ac53:	0f 84 ca 01 00 00    	je     192ae23 <AFGCircuitSubsystem::Tick(float)+0xd03>
+ 192ac59:	41 83 c4 20          	add    $0x20,%r12d
+ 192ac5d:	44 8b 6c 91 04       	mov    0x4(%rcx,%rdx,4),%r13d
+ 192ac62:	48 ff c2             	inc    %rdx
+ 192ac65:	45 85 ed             	test   %r13d,%r13d
+ 192ac68:	74 e6                	je     192ac50 <AFGCircuitSubsystem::Tick(float)+0xb30>
+ 192ac6a:	44 89 e9             	mov    %r13d,%ecx
+ 192ac6d:	f7 d9                	neg    %ecx
+ 192ac6f:	44 21 e9             	and    %r13d,%ecx
+ 192ac72:	48 8d 0c 4d 01 00 00 	lea    0x1(,%rcx,2),%rcx
+ 192ac79:	00 
+ 192ac7a:	48 0f bd c9          	bsr    %rcx,%rcx
+ 192ac7e:	83 f1 3f             	xor    $0x3f,%ecx
+ 192ac81:	41 29 cc             	sub    %ecx,%r12d
+ 192ac84:	41 83 c4 3e          	add    $0x3e,%r12d
+ 192ac88:	41 39 c4             	cmp    %eax,%r12d
+ 192ac8b:	44 0f 4d e0          	cmovge %eax,%r12d
+ 192ac8f:	45 89 e1             	mov    %r12d,%r9d
+ 192ac92:	45 39 ce             	cmp    %r9d,%r14d
+ 192ac95:	0f 85 94 01 00 00    	jne    192ae2f <AFGCircuitSubsystem::Tick(float)+0xd0f>
+ 192ac9b:	80 bb d8 03 00 00 00 	cmpb   $0x0,0x3d8(%rbx)
+ 192aca2:	0f 94 c0             	sete   %al
+ 192aca5:	31 d2                	xor    %edx,%edx
+ 192aca7:	eb 1c                	jmp    192acc5 <AFGCircuitSubsystem::Tick(float)+0xba5>
+ 192aca9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ 192acb0:	0f b6 8b d8 03 00 00 	movzbl 0x3d8(%rbx),%ecx
+ 192acb7:	41 8d 56 01          	lea    0x1(%r14),%edx
+ 192acbb:	31 c0                	xor    %eax,%eax
+ 192acbd:	84 c9                	test   %cl,%cl
+ 192acbf:	0f 84 97 00 00 00    	je     192ad5c <AFGCircuitSubsystem::Tick(float)+0xc3c>
+ 192acc5:	41 89 d6             	mov    %edx,%r14d
+ 192acc8:	a8 01                	test   $0x1,%al
+ 192acca:	75 1b                	jne    192ace7 <AFGCircuitSubsystem::Tick(float)+0xbc7>
+ 192accc:	c6 83 d8 03 00 00 00 	movb   $0x0,0x3d8(%rbx)
+ 192acd3:	48 89 df             	mov    %rbx,%rdi
+ 192acd6:	e8 45 a8 84 00       	call   2175520 <AFGCircuitSubsystem::RebuildCircuitGroups()@plt>
+ 192acdb:	f3 0f 10 04 24       	movss  (%rsp),%xmm0
+ 192ace0:	c6 83 d9 03 00 00 01 	movb   $0x1,0x3d9(%rbx)
+ 192ace7:	4c 63 bb d0 03 00 00 	movslq 0x3d0(%rbx),%r15
+ 192acee:	4d 85 ff             	test   %r15,%r15
+ 192acf1:	74 bd                	je     192acb0 <AFGCircuitSubsystem::Tick(float)+0xb90>
+ 192acf3:	4c 8b a3 c8 03 00 00 	mov    0x3c8(%rbx),%r12
+ 192acfa:	49 c1 e7 03          	shl    $0x3,%r15
+ 192acfe:	45 31 ed             	xor    %r13d,%r13d
+ 192ad01:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 192ad08:	0f 1f 84 00 00 00 00 
+ 192ad0f:	00 
+ 192ad10:	4b 8b 3c 2c          	mov    (%r12,%r13,1),%rdi
+ 192ad14:	48 8b 07             	mov    (%rdi),%rax
+ 192ad17:	ff 90 d0 02 00 00    	call   *0x2d0(%rax)
+ 192ad1d:	84 c0                	test   %al,%al
+ 192ad1f:	75 1f                	jne    192ad40 <AFGCircuitSubsystem::Tick(float)+0xc20>
+ 192ad21:	49 83 c5 08          	add    $0x8,%r13
+ 192ad25:	4d 39 ef             	cmp    %r13,%r15
+ 192ad28:	f3 0f 10 04 24       	movss  (%rsp),%xmm0
+ 192ad2d:	75 e1                	jne    192ad10 <AFGCircuitSubsystem::Tick(float)+0xbf0>
+ 192ad2f:	e9 7c ff ff ff       	jmp    192acb0 <AFGCircuitSubsystem::Tick(float)+0xb90>
+ 192ad34:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 192ad3b:	00 00 00 00 00 
+ 192ad40:	c6 83 d8 03 00 00 01 	movb   $0x1,0x3d8(%rbx)
+ 192ad47:	b1 01                	mov    $0x1,%cl
+ 192ad49:	f3 0f 10 04 24       	movss  (%rsp),%xmm0
+ 192ad4e:	41 8d 56 01          	lea    0x1(%r14),%edx
+ 192ad52:	31 c0                	xor    %eax,%eax
+ 192ad54:	84 c9                	test   %cl,%cl
+ 192ad56:	0f 85 69 ff ff ff    	jne    192acc5 <AFGCircuitSubsystem::Tick(float)+0xba5>
+ 192ad5c:	45 85 f6             	test   %r14d,%r14d
+ 192ad5f:	74 21                	je     192ad82 <AFGCircuitSubsystem::Tick(float)+0xc62>
+ 192ad61:	48 8b 05 90 ad cb 00 	mov    0xcbad90(%rip),%rax        # 25e5af8 <LogCircuit@@Base-0x5c2dc>
+ 192ad68:	80 38 05             	cmpb   $0x5,(%rax)
+ 192ad6b:	72 15                	jb     192ad82 <AFGCircuitSubsystem::Tick(float)+0xc62>
+ 192ad6d:	48 8b 3d 84 ad cb 00 	mov    0xcbad84(%rip),%rdi        # 25e5af8 <LogCircuit@@Base-0x5c2dc>
+ 192ad74:	48 8d 35 f5 4a c3 00 	lea    0xc34af5(%rip),%rsi        # 255f870 <AFGCircuitSubsystem::Tick(float)::LOG_Static>
+ 192ad7b:	31 c0                	xor    %eax,%eax
+ 192ad7d:	e8 de d4 81 00       	call   2148260 <UE::Logging::Private::BasicLog(FLogCategoryBase const&, UE::Logging::Private::FStaticBasicLogRecord const*, ...)@plt>
+ 192ad82:	4c 63 b3 d0 03 00 00 	movslq 0x3d0(%rbx),%r14
+ 192ad89:	4d 85 f6             	test   %r14,%r14
+ 192ad8c:	74 2d                	je     192adbb <AFGCircuitSubsystem::Tick(float)+0xc9b>
+ 192ad8e:	4c 8b bb c8 03 00 00 	mov    0x3c8(%rbx),%r15
+ 192ad95:	49 c1 e6 03          	shl    $0x3,%r14
+ 192ad99:	45 31 e4             	xor    %r12d,%r12d
+ 192ad9c:	0f 1f 40 00          	nopl   0x0(%rax)
+ 192ada0:	4b 8b 3c 27          	mov    (%r15,%r12,1),%rdi
+ 192ada4:	48 8b 07             	mov    (%rdi),%rax
+ 192ada7:	f3 0f 10 04 24       	movss  (%rsp),%xmm0
+ 192adac:	ff 90 d8 02 00 00    	call   *0x2d8(%rax)
+ 192adb2:	49 83 c4 08          	add    $0x8,%r12
+ 192adb6:	4d 39 e6             	cmp    %r12,%r14
+ 192adb9:	75 e5                	jne    192ada0 <AFGCircuitSubsystem::Tick(float)+0xc80>
+ 192adbb:	48 8b 7c 24 20       	mov    0x20(%rsp),%rdi
+ 192adc0:	48 85 ff             	test   %rdi,%rdi
+ 192adc3:	74 05                	je     192adca <AFGCircuitSubsystem::Tick(float)+0xcaa>
+ 192adc5:	e8 c6 bd 81 00       	call   2146b90 <FMemory::Free(void*)@plt>
+ 192adca:	48 8b 7c 24 30       	mov    0x30(%rsp),%rdi
+ 192adcf:	48 85 ff             	test   %rdi,%rdi
+ 192add2:	74 05                	je     192add9 <AFGCircuitSubsystem::Tick(float)+0xcb9>
+ 192add4:	e8 b7 bd 81 00       	call   2146b90 <FMemory::Free(void*)@plt>
+ 192add9:	80 bb 58 03 00 00 00 	cmpb   $0x0,0x358(%rbx)
+ 192ade0:	74 13                	je     192adf5 <AFGCircuitSubsystem::Tick(float)+0xcd5>
+ 192ade2:	c6 83 58 03 00 00 00 	movb   $0x0,0x358(%rbx)
+ 192ade9:	48 8d bb d8 02 00 00 	lea    0x2d8(%rbx),%rdi
+ 192adf0:	e8 3b 6e 82 00       	call   2151c30 <AFGCircuitSubsystem::FOnStructuralChange_DelegateWrapper(TMulticastScriptDelegate<FNotThreadSafeDelegateMode> const&)@plt>
+ 192adf5:	80 bb d9 03 00 00 00 	cmpb   $0x0,0x3d9(%rbx)
+ 192adfc:	74 16                	je     192ae14 <AFGCircuitSubsystem::Tick(float)+0xcf4>
+ 192adfe:	c6 83 d9 03 00 00 00 	movb   $0x0,0x3d9(%rbx)
+ 192ae05:	48 81 c3 f0 02 00 00 	add    $0x2f0,%rbx
+ 192ae0c:	48 89 df             	mov    %rbx,%rdi
+ 192ae0f:	e8 1c 6e 82 00       	call   2151c30 <AFGCircuitSubsystem::FOnStructuralChange_DelegateWrapper(TMulticastScriptDelegate<FNotThreadSafeDelegateMode> const&)@plt>
+ 192ae14:	48 83 c4 48          	add    $0x48,%rsp
+ 192ae18:	5b                   	pop    %rbx
+ 192ae19:	41 5c                	pop    %r12
+ 192ae1b:	41 5d                	pop    %r13
+ 192ae1d:	41 5e                	pop    %r14
+ 192ae1f:	41 5f                	pop    %r15
+ 192ae21:	5d                   	pop    %rbp
+ 192ae22:	c3                   	ret    
+ 192ae23:	41 89 c1             	mov    %eax,%r9d
+ 192ae26:	45 39 ce             	cmp    %r9d,%r14d
+ 192ae29:	0f 84 6c fe ff ff    	je     192ac9b <AFGCircuitSubsystem::Tick(float)+0xb7b>
+ 192ae2f:	41 bc ff ff ff ff    	mov    $0xffffffff,%r12d
+ 192ae35:	eb 46                	jmp    192ae7d <AFGCircuitSubsystem::Tick(float)+0xd5d>
+ 192ae37:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ 192ae3e:	00 00 
+ 192ae40:	f3 0f 10 04 24       	movss  (%rsp),%xmm0
+ 192ae45:	4d 89 e9             	mov    %r13,%r9
+ 192ae48:	41 89 d7             	mov    %edx,%r15d
+ 192ae4b:	41 f7 df             	neg    %r15d
+ 192ae4e:	41 21 d7             	and    %edx,%r15d
+ 192ae51:	4a 8d 0c 7d 01 00 00 	lea    0x1(,%r15,2),%rcx
+ 192ae58:	00 
+ 192ae59:	48 0f bd c9          	bsr    %rcx,%rcx
+ 192ae5d:	83 f1 3f             	xor    $0x3f,%ecx
+ 192ae60:	89 ea                	mov    %ebp,%edx
+ 192ae62:	29 ca                	sub    %ecx,%edx
+ 192ae64:	83 c2 3e             	add    $0x3e,%edx
+ 192ae67:	44 39 f2             	cmp    %r14d,%edx
+ 192ae6a:	41 0f 4d d6          	cmovge %r14d,%edx
+ 192ae6e:	41 89 d6             	mov    %edx,%r14d
+ 192ae71:	41 89 c4             	mov    %eax,%r12d
+ 192ae74:	45 39 ce             	cmp    %r9d,%r14d
+ 192ae77:	0f 84 1e fe ff ff    	je     192ac9b <AFGCircuitSubsystem::Tick(float)+0xb7b>
+ 192ae7d:	4d 89 cd             	mov    %r9,%r13
+ 192ae80:	48 8b 83 78 03 00 00 	mov    0x378(%rbx),%rax
+ 192ae87:	49 63 ce             	movslq %r14d,%rcx
+ 192ae8a:	48 c1 e1 04          	shl    $0x4,%rcx
+ 192ae8e:	48 8b 04 08          	mov    (%rax,%rcx,1),%rax
+ 192ae92:	48 89 44 24 40       	mov    %rax,0x40(%rsp)
+ 192ae97:	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
+ 192ae9c:	e8 9f bc 81 00       	call   2146b40 <FWeakObjectPtr::Get() const@plt>
+ 192aea1:	48 8b 08             	mov    (%rax),%rcx
+ 192aea4:	48 89 c7             	mov    %rax,%rdi
+ 192aea7:	ff 91 d8 0a 00 00    	call   *0xad8(%rcx)
+ 192aead:	44 89 f8             	mov    %r15d,%eax
+ 192aeb0:	f7 d0                	not    %eax
+ 192aeb2:	44 21 e0             	and    %r12d,%eax
+ 192aeb5:	48 8b b3 98 03 00 00 	mov    0x398(%rbx),%rsi
+ 192aebc:	48 85 f6             	test   %rsi,%rsi
+ 192aebf:	48 0f 44 74 24 08    	cmove  0x8(%rsp),%rsi
+ 192aec5:	44 8b b3 a0 03 00 00 	mov    0x3a0(%rbx),%r14d
+ 192aecc:	4c 8b 44 24 10       	mov    0x10(%rsp),%r8
+ 192aed1:	49 63 f8             	movslq %r8d,%rdi
+ 192aed4:	8b 14 be             	mov    (%rsi,%rdi,4),%edx
+ 192aed7:	21 c2                	and    %eax,%edx
+ 192aed9:	0f 85 61 ff ff ff    	jne    192ae40 <AFGCircuitSubsystem::Tick(float)+0xd20>
+ 192aedf:	41 8d 56 ff          	lea    -0x1(%r14),%edx
+ 192aee3:	41 8d 4e 1e          	lea    0x1e(%r14),%ecx
+ 192aee7:	85 d2                	test   %edx,%edx
+ 192aee9:	0f 49 ca             	cmovns %edx,%ecx
+ 192aeec:	c1 f9 05             	sar    $0x5,%ecx
+ 192aeef:	83 c5 20             	add    $0x20,%ebp
+ 192aef2:	41 39 c8             	cmp    %ecx,%r8d
+ 192aef5:	41 0f 4f c8          	cmovg  %r8d,%ecx
+ 192aef9:	f3 0f 10 04 24       	movss  (%rsp),%xmm0
+ 192aefe:	4d 89 e9             	mov    %r13,%r9
+ 192af01:	7d 36                	jge    192af39 <AFGCircuitSubsystem::Tick(float)+0xe19>
+ 192af03:	48 63 c1             	movslq %ecx,%rax
+ 192af06:	48 8d 48 01          	lea    0x1(%rax),%rcx
+ 192af0a:	48 29 f8             	sub    %rdi,%rax
+ 192af0d:	48 8d 3c be          	lea    (%rsi,%rdi,4),%rdi
+ 192af11:	48 83 c7 04          	add    $0x4,%rdi
+ 192af15:	31 f6                	xor    %esi,%esi
+ 192af17:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ 192af1e:	00 00 
+ 192af20:	8b 14 b7             	mov    (%rdi,%rsi,4),%edx
+ 192af23:	85 d2                	test   %edx,%edx
+ 192af25:	75 2e                	jne    192af55 <AFGCircuitSubsystem::Tick(float)+0xe35>
+ 192af27:	83 c5 20             	add    $0x20,%ebp
+ 192af2a:	48 ff c6             	inc    %rsi
+ 192af2d:	48 39 f0             	cmp    %rsi,%rax
+ 192af30:	75 ee                	jne    192af20 <AFGCircuitSubsystem::Tick(float)+0xe00>
+ 192af32:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 192af37:	eb 06                	jmp    192af3f <AFGCircuitSubsystem::Tick(float)+0xe1f>
+ 192af39:	48 ff c7             	inc    %rdi
+ 192af3c:	48 89 f9             	mov    %rdi,%rcx
+ 192af3f:	41 89 c4             	mov    %eax,%r12d
+ 192af42:	48 89 4c 24 10       	mov    %rcx,0x10(%rsp)
+ 192af47:	45 39 ce             	cmp    %r9d,%r14d
+ 192af4a:	0f 85 2d ff ff ff    	jne    192ae7d <AFGCircuitSubsystem::Tick(float)+0xd5d>
+ 192af50:	e9 46 fd ff ff       	jmp    192ac9b <AFGCircuitSubsystem::Tick(float)+0xb7b>
+ 192af55:	41 01 f0             	add    %esi,%r8d
+ 192af58:	41 ff c0             	inc    %r8d
+ 192af5b:	4c 89 44 24 10       	mov    %r8,0x10(%rsp)
+ 192af60:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ 192af65:	e9 de fe ff ff       	jmp    192ae48 <AFGCircuitSubsystem::Tick(float)+0xd28>
+ 192af6a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+000000000192af70 <AFGCircuitSubsystem::RebuildCircuit(int)>:
+ 192af70:	55                   	push   %rbp
+ 192af71:	41 57                	push   %r15
+ 192af73:	41 56                	push   %r14
+ 192af75:	41 55                	push   %r13
+ 192af77:	41 54                	push   %r12
+ 192af79:	53                   	push   %rbx
+ 192af7a:	48                   	rex.W
+ 192af7b:	81                   	.byte 0x81
+ 192af7c:	ec                   	in     (%dx),%al
+ 192af7d:	d8 00                	fadds  (%rax)
+	...

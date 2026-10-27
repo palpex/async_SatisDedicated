@@ -1,0 +1,69 @@
+{
+  "source_evidence_id": "ev_3ff97fcc728da347fd3fa4ef323f4073dfe2a9ba9d8b2e040deed1c209575071",
+  "source_path": "evidence/runtime/baseline-tick-profile.json",
+  "buildid": "25782485",
+  "source_kind": "REA Frida instrumentation",
+  "scene": "Fresh world without player-built production factories",
+  "probe_overhead": "Both entry/exit instrumentation and clock_gettime overhead included; no speedup claim",
+  "ticks": {
+    "factory": {
+      "calls": 298,
+      "totalUs": 50391.882000000034,
+      "maxUs": 4330.996,
+      "threads": {
+        "172161": 298
+      },
+      "meanUs": 169.10027516778536
+    },
+    "factoryActors": {
+      "calls": 596,
+      "totalUs": 33984.15200000001,
+      "maxUs": 1650.4,
+      "threads": {
+        "172161": 596
+      },
+      "meanUs": 57.02038926174498
+    },
+    "pipes": {
+      "calls": 298,
+      "totalUs": 3565.93,
+      "maxUs": 111.477,
+      "threads": {
+        "172161": 298
+      },
+      "meanUs": 11.966208053691275
+    },
+    "circuits": {
+      "calls": 298,
+      "totalUs": 7278.551999999995,
+      "maxUs": 105.919,
+      "threads": {
+        "172161": 298
+      },
+      "meanUs": 24.42467114093958
+    },
+    "railroad": {
+      "calls": 298,
+      "totalUs": 4489.093000000004,
+      "maxUs": 66.661,
+      "threads": {
+        "172161": 298
+      },
+      "meanUs": 15.064070469798672
+    },
+    "vehicles": {
+      "calls": 298,
+      "totalUs": 3727.2180000000003,
+      "maxUs": 129.387,
+      "threads": {
+        "172161": 298
+      },
+      "meanUs": 12.507442953020135
+    }
+  },
+  "save": {
+    "path": ".runtime/baseline-home/.config/Epic/FactoryGame/Saved/SaveGames/server/AsyncRewriteBaseline.sav",
+    "sha256": "23b20f723fe210249ebe4e37b21763cf29196170526577985b7c9ce3a36e8ff6",
+    "bytes": 833461
+  }
+}

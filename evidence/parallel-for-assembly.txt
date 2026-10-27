@@ -1,0 +1,1206 @@
+
+server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000184eea0 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)>:
+ 184eea0:	55                   	push   %rbp
+ 184eea1:	41 57                	push   %r15
+ 184eea3:	41 56                	push   %r14
+ 184eea5:	41 55                	push   %r13
+ 184eea7:	41 54                	push   %r12
+ 184eea9:	53                   	push   %rbx
+ 184eeaa:	48 83 ec 48          	sub    $0x48,%rsp
+ 184eeae:	85 f6                	test   %esi,%esi
+ 184eeb0:	0f 84 85 05 00 00    	je     184f43b <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x59b>
+ 184eeb6:	4d 89 cd             	mov    %r9,%r13
+ 184eeb9:	45 89 c4             	mov    %r8d,%r12d
+ 184eebc:	49 89 ce             	mov    %rcx,%r14
+ 184eebf:	89 d3                	mov    %edx,%ebx
+ 184eec1:	41 89 f7             	mov    %esi,%r15d
+ 184eec4:	48 89 7c 24 40       	mov    %rdi,0x40(%rsp)
+ 184eec9:	0f 88 0d 02 00 00    	js     184f0dc <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x23c>
+ 184eecf:	31 ed                	xor    %ebp,%ebp
+ 184eed1:	e8 6a 39 92 00       	call   2172840 <FApp::ShouldUseThreadingForPerformance()@plt>
+ 184eed6:	89 c1                	mov    %eax,%ecx
+ 184eed8:	b8 00 00 00 00       	mov    $0x0,%eax
+ 184eedd:	84 c9                	test   %cl,%cl
+ 184eedf:	75 07                	jne    184eee8 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x48>
+ 184eee1:	e8 1a 1c 92 00       	call   2170b00 <FForkProcessHelper::IsForkedMultithreadInstance()@plt>
+ 184eee6:	34 01                	xor    $0x1,%al
+ 184eee8:	41 83 ff 02          	cmp    $0x2,%r15d
+ 184eeec:	7c 2a                	jl     184ef18 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x78>
+ 184eeee:	44 08 e0             	or     %r12b,%al
+ 184eef1:	a8 01                	test   $0x1,%al
+ 184eef3:	75 23                	jne    184ef18 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x78>
+ 184eef5:	48 8b 05 44 75 d9 00 	mov    0xd97544(%rip),%rax        # 25e6440 <LowLevelTasks::FScheduler::Singleton@Base>
+ 184eefc:	8b 88 08 7c 00 00    	mov    0x7c08(%rax),%ecx
+ 184ef02:	89 d8                	mov    %ebx,%eax
+ 184ef04:	c1 e8 1f             	shr    $0x1f,%eax
+ 184ef07:	01 d8                	add    %ebx,%eax
+ 184ef09:	d1 f8                	sar    %eax
+ 184ef0b:	44 01 f8             	add    %r15d,%eax
+ 184ef0e:	99                   	cltd   
+ 184ef0f:	f7 fb                	idiv   %ebx
+ 184ef11:	89 c5                	mov    %eax,%ebp
+ 184ef13:	39 c1                	cmp    %eax,%ecx
+ 184ef15:	0f 4c e9             	cmovl  %ecx,%ebp
+ 184ef18:	48 8b 3d 21 75 d9 00 	mov    0xd97521(%rip),%rdi        # 25e6440 <LowLevelTasks::FScheduler::Singleton@Base>
+ 184ef1f:	e8 2c 39 92 00       	call   2172850 <LowLevelTasks::FSchedulerTls::IsWorkerThread() const@plt>
+ 184ef24:	34 01                	xor    $0x1,%al
+ 184ef26:	0f b6 d8             	movzbl %al,%ebx
+ 184ef29:	01 eb                	add    %ebp,%ebx
+ 184ef2b:	e8 30 39 92 00       	call   2172860 <FUnixPlatformMisc::NumberOfCoresIncludingHyperthreads()@plt>
+ 184ef30:	39 c3                	cmp    %eax,%ebx
+ 184ef32:	0f 4d d8             	cmovge %eax,%ebx
+ 184ef35:	83 fb 02             	cmp    $0x2,%ebx
+ 184ef38:	b8 01 00 00 00       	mov    $0x1,%eax
+ 184ef3d:	0f 4c d8             	cmovl  %eax,%ebx
+ 184ef40:	41 8b 45 08          	mov    0x8(%r13),%eax
+ 184ef44:	39 c3                	cmp    %eax,%ebx
+ 184ef46:	89 c5                	mov    %eax,%ebp
+ 184ef48:	0f 4c eb             	cmovl  %ebx,%ebp
+ 184ef4b:	85 c0                	test   %eax,%eax
+ 184ef4d:	0f 44 eb             	cmove  %ebx,%ebp
+ 184ef50:	83 fd 01             	cmp    $0x1,%ebp
+ 184ef53:	7f 35                	jg     184ef8a <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0xea>
+ 184ef55:	45 85 ff             	test   %r15d,%r15d
+ 184ef58:	0f 8e dd 04 00 00    	jle    184f43b <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x59b>
+ 184ef5e:	31 ed                	xor    %ebp,%ebp
+ 184ef60:	48 8d 5c 24 10       	lea    0x10(%rsp),%rbx
+ 184ef65:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+ 184ef6c:	00 00 00 00 
+ 184ef70:	89 6c 24 10          	mov    %ebp,0x10(%rsp)
+ 184ef74:	49 8b 7e 08          	mov    0x8(%r14),%rdi
+ 184ef78:	48 89 de             	mov    %rbx,%rsi
+ 184ef7b:	41 ff 16             	call   *(%r14)
+ 184ef7e:	ff c5                	inc    %ebp
+ 184ef80:	41 39 ef             	cmp    %ebp,%r15d
+ 184ef83:	75 eb                	jne    184ef70 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0xd0>
+ 184ef85:	e9 b1 04 00 00       	jmp    184f43b <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x59b>
+ 184ef8a:	b8 01 00 00 00       	mov    $0x1,%eax
+ 184ef8f:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ 184ef94:	4c 89 6c 24 38       	mov    %r13,0x38(%rsp)
+ 184ef99:	44 89 f8             	mov    %r15d,%eax
+ 184ef9c:	41 f6 c4 02          	test   $0x2,%r12b
+ 184efa0:	0f 85 d3 00 00 00    	jne    184f079 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x1d9>
+ 184efa6:	41 8d 4f ff          	lea    -0x1(%r15),%ecx
+ 184efaa:	8d 34 6d 00 00 00 00 	lea    0x0(,%rbp,2),%esi
+ 184efb1:	8d 3c 76             	lea    (%rsi,%rsi,2),%edi
+ 184efb4:	b8 01 00 00 00       	mov    $0x1,%eax
+ 184efb9:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ 184efbe:	44 89 f8             	mov    %r15d,%eax
+ 184efc1:	44 39 ff             	cmp    %r15d,%edi
+ 184efc4:	7f 1b                	jg     184efe1 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x141>
+ 184efc6:	8d 04 39             	lea    (%rcx,%rdi,1),%eax
+ 184efc9:	99                   	cltd   
+ 184efca:	f7 ff                	idiv   %edi
+ 184efcc:	89 c7                	mov    %eax,%edi
+ 184efce:	8d 04 39             	lea    (%rcx,%rdi,1),%eax
+ 184efd1:	99                   	cltd   
+ 184efd2:	48 89 7c 24 08       	mov    %rdi,0x8(%rsp)
+ 184efd7:	f7 ff                	idiv   %edi
+ 184efd9:	39 e8                	cmp    %ebp,%eax
+ 184efdb:	0f 8d 98 00 00 00    	jge    184f079 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x1d9>
+ 184efe1:	8d 7c ad 00          	lea    0x0(%rbp,%rbp,4),%edi
+ 184efe5:	44 39 ff             	cmp    %r15d,%edi
+ 184efe8:	7f 17                	jg     184f001 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x161>
+ 184efea:	8d 04 39             	lea    (%rcx,%rdi,1),%eax
+ 184efed:	99                   	cltd   
+ 184efee:	f7 ff                	idiv   %edi
+ 184eff0:	89 c7                	mov    %eax,%edi
+ 184eff2:	8d 04 39             	lea    (%rcx,%rdi,1),%eax
+ 184eff5:	99                   	cltd   
+ 184eff6:	48 89 7c 24 08       	mov    %rdi,0x8(%rsp)
+ 184effb:	f7 ff                	idiv   %edi
+ 184effd:	39 e8                	cmp    %ebp,%eax
+ 184efff:	7d 78                	jge    184f079 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x1d9>
+ 184f001:	8d 3c ad 00 00 00 00 	lea    0x0(,%rbp,4),%edi
+ 184f008:	44 39 ff             	cmp    %r15d,%edi
+ 184f00b:	7f 17                	jg     184f024 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x184>
+ 184f00d:	8d 04 39             	lea    (%rcx,%rdi,1),%eax
+ 184f010:	99                   	cltd   
+ 184f011:	f7 ff                	idiv   %edi
+ 184f013:	89 c7                	mov    %eax,%edi
+ 184f015:	8d 04 39             	lea    (%rcx,%rdi,1),%eax
+ 184f018:	99                   	cltd   
+ 184f019:	48 89 7c 24 08       	mov    %rdi,0x8(%rsp)
+ 184f01e:	f7 ff                	idiv   %edi
+ 184f020:	39 e8                	cmp    %ebp,%eax
+ 184f022:	7d 55                	jge    184f079 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x1d9>
+ 184f024:	8d 7c 6d 00          	lea    0x0(%rbp,%rbp,2),%edi
+ 184f028:	44 39 ff             	cmp    %r15d,%edi
+ 184f02b:	7f 17                	jg     184f044 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x1a4>
+ 184f02d:	8d 04 39             	lea    (%rcx,%rdi,1),%eax
+ 184f030:	99                   	cltd   
+ 184f031:	f7 ff                	idiv   %edi
+ 184f033:	89 c7                	mov    %eax,%edi
+ 184f035:	8d 04 39             	lea    (%rcx,%rdi,1),%eax
+ 184f038:	99                   	cltd   
+ 184f039:	48 89 7c 24 08       	mov    %rdi,0x8(%rsp)
+ 184f03e:	f7 ff                	idiv   %edi
+ 184f040:	39 e8                	cmp    %ebp,%eax
+ 184f042:	7d 35                	jge    184f079 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x1d9>
+ 184f044:	44 39 fe             	cmp    %r15d,%esi
+ 184f047:	7f 17                	jg     184f060 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x1c0>
+ 184f049:	8d 04 31             	lea    (%rcx,%rsi,1),%eax
+ 184f04c:	99                   	cltd   
+ 184f04d:	f7 fe                	idiv   %esi
+ 184f04f:	89 c6                	mov    %eax,%esi
+ 184f051:	8d 04 31             	lea    (%rcx,%rsi,1),%eax
+ 184f054:	99                   	cltd   
+ 184f055:	48 89 74 24 08       	mov    %rsi,0x8(%rsp)
+ 184f05a:	f7 fe                	idiv   %esi
+ 184f05c:	39 e8                	cmp    %ebp,%eax
+ 184f05e:	7d 19                	jge    184f079 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x1d9>
+ 184f060:	44 39 fd             	cmp    %r15d,%ebp
+ 184f063:	7f 14                	jg     184f079 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x1d9>
+ 184f065:	8d 04 29             	lea    (%rcx,%rbp,1),%eax
+ 184f068:	99                   	cltd   
+ 184f069:	f7 fd                	idiv   %ebp
+ 184f06b:	89 c6                	mov    %eax,%esi
+ 184f06d:	01 c1                	add    %eax,%ecx
+ 184f06f:	89 c8                	mov    %ecx,%eax
+ 184f071:	99                   	cltd   
+ 184f072:	48 89 74 24 08       	mov    %rsi,0x8(%rsp)
+ 184f077:	f7 fe                	idiv   %esi
+ 184f079:	89 44 24 34          	mov    %eax,0x34(%rsp)
+ 184f07d:	ff cd                	dec    %ebp
+ 184f07f:	e8 ec 37 92 00       	call   2172870 <FTaskTagScope::GetCurrentTag()@plt>
+ 184f084:	31 c9                	xor    %ecx,%ecx
+ 184f086:	a8 37                	test   $0x37,%al
+ 184f088:	b8 06 00 00 00       	mov    $0x6,%eax
+ 184f08d:	0f 45 c1             	cmovne %ecx,%eax
+ 184f090:	44 89 64 24 2c       	mov    %r12d,0x2c(%rsp)
+ 184f095:	41 f6 c4 08          	test   $0x8,%r12b
+ 184f099:	b9 03 00 00 00       	mov    $0x3,%ecx
+ 184f09e:	0f 44 c8             	cmove  %eax,%ecx
+ 184f0a1:	89 4c 24 30          	mov    %ecx,0x30(%rsp)
+ 184f0a5:	48 8d 7c 24 20       	lea    0x20(%rsp),%rdi
+ 184f0aa:	be 01 00 00 00       	mov    $0x1,%esi
+ 184f0af:	e8 cc 37 92 00       	call   2172880 <FEventRef::FEventRef(EEventMode)@plt>
+ 184f0b4:	48 8d 3d bd e9 d8 00 	lea    0xd8e9bd(%rip),%rdi        # 25dda78 <_DYNAMIC+0x560>
+ 184f0bb:	e8 c0 c8 91 00       	call   216b980 <__tls_get_addr@plt>
+ 184f0c0:	49 89 c4             	mov    %rax,%r12
+ 184f0c3:	48 8d 98 58 01 00 00 	lea    0x158(%rax),%rbx
+ 184f0ca:	48 8b 80 58 01 00 00 	mov    0x158(%rax),%rax
+ 184f0d1:	48 85 c0             	test   %rax,%rax
+ 184f0d4:	0f 85 92 00 00 00    	jne    184f16c <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x2cc>
+ 184f0da:	eb 2f                	jmp    184f10b <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x26b>
+ 184f0dc:	48 8d 3d a7 4d 6a ff 	lea    -0x95b259(%rip),%rdi        # ef3e8a <(anonymous namespace)::FGHighlightColor+0x7df6a>
+ 184f0e3:	48 8d 35 41 1d 67 ff 	lea    -0x98e2bf(%rip),%rsi        # ec0e2b <(anonymous namespace)::FGHighlightColor+0x4af0b>
+ 184f0ea:	48 8d 0d d5 a4 73 ff 	lea    -0x8c5b2b(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 184f0f1:	ba 80 00 00 00       	mov    $0x80,%edx
+ 184f0f6:	31 c0                	xor    %eax,%eax
+ 184f0f8:	e8 83 7a 8f 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 184f0fd:	84 c0                	test   %al,%al
+ 184f0ff:	0f 84 ca fd ff ff    	je     184eecf <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x2f>
+ 184f105:	cc                   	int3   
+ 184f106:	e9 c4 fd ff ff       	jmp    184eecf <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x2f>
+ 184f10b:	4c 89 e0             	mov    %r12,%rax
+ 184f10e:	41 80 bc 24 68 01 00 	cmpb   $0x0,0x168(%r12)
+ 184f115:	00 00 
+ 184f117:	0f 84 52 03 00 00    	je     184f46f <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x5cf>
+ 184f11d:	4c 89 e0             	mov    %r12,%rax
+ 184f120:	48 89 c1             	mov    %rax,%rcx
+ 184f123:	48 8b 80 60 01 00 00 	mov    0x160(%rax),%rax
+ 184f12a:	48 c7 81 60 01 00 00 	movq   $0x0,0x160(%rcx)
+ 184f131:	00 00 00 00 
+ 184f135:	48 85 c0             	test   %rax,%rax
+ 184f138:	75 0f                	jne    184f149 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x2a9>
+ 184f13a:	bf 00 00 01 00       	mov    $0x10000,%edi
+ 184f13f:	be 08 00 00 00       	mov    $0x8,%esi
+ 184f144:	e8 77 7c 91 00       	call   2166dc0 <FMemory::Malloc(unsigned long, unsigned int)@plt>
+ 184f149:	c7 00 ff ff ff ff    	movl   $0xffffffff,(%rax)
+ 184f14f:	48 8d 48 58          	lea    0x58(%rax),%rcx
+ 184f153:	48 89 48 40          	mov    %rcx,0x40(%rax)
+ 184f157:	c7 40 48 00 00 00 00 	movl   $0x0,0x48(%rax)
+ 184f15e:	48 89 03             	mov    %rax,(%rbx)
+ 184f161:	48 89 df             	mov    %rbx,%rdi
+ 184f164:	e8 f7 2f e9 ff       	call   16e2160 <TLinearAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::AllocateBlock(TLinearAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::FBlockHeader*&)>
+ 184f169:	48 8b 03             	mov    (%rbx),%rax
+ 184f16c:	4c 8b 68 40          	mov    0x40(%rax),%r13
+ 184f170:	49 83 c5 3f          	add    $0x3f,%r13
+ 184f174:	49 83 e5 c0          	and    $0xffffffffffffffc0,%r13
+ 184f178:	49 8d b5 80 00 00 00 	lea    0x80(%r13),%rsi
+ 184f17f:	48 8d 90 00 00 01 00 	lea    0x10000(%rax),%rdx
+ 184f186:	8b 48 48             	mov    0x48(%rax),%ecx
+ 184f189:	48 39 d6             	cmp    %rdx,%rsi
+ 184f18c:	0f 86 d6 02 00 00    	jbe    184f468 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x5c8>
+ 184f192:	48 89 50 40          	mov    %rdx,0x40(%rax)
+ 184f196:	f7 d1                	not    %ecx
+ 184f198:	f0 29 08             	lock sub %ecx,(%rax)
+ 184f19b:	0f 85 6a ff ff ff    	jne    184f10b <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x26b>
+ 184f1a1:	48 8b 03             	mov    (%rbx),%rax
+ 184f1a4:	c7 00 ff ff ff ff    	movl   $0xffffffff,(%rax)
+ 184f1aa:	48 8d 48 58          	lea    0x58(%rax),%rcx
+ 184f1ae:	48 89 48 40          	mov    %rcx,0x40(%rax)
+ 184f1b2:	c7 40 48 00 00 00 00 	movl   $0x0,0x48(%rax)
+ 184f1b9:	4c 8d a8 97 00 00 00 	lea    0x97(%rax),%r13
+ 184f1c0:	49 83 e5 c0          	and    $0xffffffffffffffc0,%r13
+ 184f1c4:	49 8d b5 80 00 00 00 	lea    0x80(%r13),%rsi
+ 184f1cb:	48 8d 90 00 00 01 00 	lea    0x10000(%rax),%rdx
+ 184f1d2:	b9 01 00 00 00       	mov    $0x1,%ecx
+ 184f1d7:	48 39 d6             	cmp    %rdx,%rsi
+ 184f1da:	76 47                	jbe    184f223 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x383>
+ 184f1dc:	0f 1f 40 00          	nopl   0x0(%rax)
+ 184f1e0:	48 89 50 40          	mov    %rdx,0x40(%rax)
+ 184f1e4:	f0 ff 00             	lock incl (%rax)
+ 184f1e7:	0f 85 1e ff ff ff    	jne    184f10b <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x26b>
+ 184f1ed:	48 8b 03             	mov    (%rbx),%rax
+ 184f1f0:	c7 00 ff ff ff ff    	movl   $0xffffffff,(%rax)
+ 184f1f6:	48 8d 50 58          	lea    0x58(%rax),%rdx
+ 184f1fa:	48 89 50 40          	mov    %rdx,0x40(%rax)
+ 184f1fe:	c7 40 48 00 00 00 00 	movl   $0x0,0x48(%rax)
+ 184f205:	4c 8d a8 97 00 00 00 	lea    0x97(%rax),%r13
+ 184f20c:	49 83 e5 c0          	and    $0xffffffffffffffc0,%r13
+ 184f210:	49 8d b5 80 00 00 00 	lea    0x80(%r13),%rsi
+ 184f217:	48 8d 90 00 00 01 00 	lea    0x10000(%rax),%rdx
+ 184f21e:	48 39 d6             	cmp    %rdx,%rsi
+ 184f221:	77 bd                	ja     184f1e0 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x340>
+ 184f223:	49 8d 95 88 00 00 00 	lea    0x88(%r13),%rdx
+ 184f22a:	48 89 50 40          	mov    %rdx,0x40(%rax)
+ 184f22e:	89 48 48             	mov    %ecx,0x48(%rax)
+ 184f231:	49 8d 4d f8          	lea    -0x8(%r13),%rcx
+ 184f235:	29 c1                	sub    %eax,%ecx
+ 184f237:	41 89 4d f8          	mov    %ecx,-0x8(%r13)
+ 184f23b:	41 c7 45 fc 80 00 00 	movl   $0x80,-0x4(%r13)
+ 184f242:	00 
+ 184f243:	41 c7 45 08 00 00 00 	movl   $0x0,0x8(%r13)
+ 184f24a:	00 
+ 184f24b:	48 8d 05 e6 58 d0 00 	lea    0xd058e6(%rip),%rax        # 2554b38 <vtable for ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData+0x10>
+ 184f252:	49 89 45 00          	mov    %rax,0x0(%r13)
+ 184f256:	48 8b 44 24 40       	mov    0x40(%rsp),%rax
+ 184f25b:	49 89 45 10          	mov    %rax,0x10(%r13)
+ 184f25f:	41 c7 45 18 00 00 00 	movl   $0x0,0x18(%r13)
+ 184f266:	00 
+ 184f267:	41 c7 45 20 00 00 00 	movl   $0x0,0x20(%r13)
+ 184f26e:	00 
+ 184f26f:	45 89 7d 24          	mov    %r15d,0x24(%r13)
+ 184f273:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+ 184f278:	41 89 45 28          	mov    %eax,0x28(%r13)
+ 184f27c:	8b 54 24 34          	mov    0x34(%rsp),%edx
+ 184f280:	41 89 55 2c          	mov    %edx,0x2c(%r13)
+ 184f284:	48 8b 44 24 38       	mov    0x38(%rsp),%rax
+ 184f289:	49 89 45 30          	mov    %rax,0x30(%r13)
+ 184f28d:	4d 89 75 38          	mov    %r14,0x38(%r13)
+ 184f291:	48 8d 44 24 20       	lea    0x20(%rsp),%rax
+ 184f296:	49 89 45 40          	mov    %rax,0x40(%r13)
+ 184f29a:	8b 44 24 30          	mov    0x30(%rsp),%eax
+ 184f29e:	41 88 45 48          	mov    %al,0x48(%r13)
+ 184f2a2:	49 8d 4d 50          	lea    0x50(%r13),%rcx
+ 184f2a6:	4d 8d 45 58          	lea    0x58(%r13),%r8
+ 184f2aa:	4d 8d 4d 5c          	lea    0x5c(%r13),%r9
+ 184f2ae:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 184f2b1:	41 0f 29 45 50       	movaps %xmm0,0x50(%r13)
+ 184f2b6:	41 89 55 1c          	mov    %edx,0x1c(%r13)
+ 184f2ba:	bf 48 00 00 00       	mov    $0x48,%edi
+ 184f2bf:	be 08 00 00 00       	mov    $0x8,%esi
+ 184f2c4:	89 ea                	mov    %ebp,%edx
+ 184f2c6:	e8 95 0b 00 00       	call   184fe60 <decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<0u, TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask> >(unsigned int, unsigned int, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)()), TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)())&, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)())&)>
+ 184f2cb:	48 98                	cltq   
+ 184f2cd:	48 8d 3c c0          	lea    (%rax,%rax,8),%rdi
+ 184f2d1:	48 c1 e7 03          	shl    $0x3,%rdi
+ 184f2d5:	49 03 7d 50          	add    0x50(%r13),%rdi
+ 184f2d9:	89 ee                	mov    %ebp,%esi
+ 184f2db:	e8 70 0a 00 00       	call   184fd50 <_Z21DefaultConstructItemsIZN15ParallelForImpl19ParallelForInternalI12TFunctionRefIFviEEZ11ParallelForPKDsiiS4_17EParallelForFlagsEUlvE_DnEEvS6_iiT_T0_S7_RK10TArrayViewIT1_iEE11FTracedTaskiQaantntaagtstS9_Li0Entsr20TIsZeroConstructTypeIS9_EE5Valuesr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPvSA_>
+ 184f2e0:	4d 85 ed             	test   %r13,%r13
+ 184f2e3:	74 27                	je     184f30c <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x46c>
+ 184f2e5:	f0 41 ff 45 08       	lock incl 0x8(%r13)
+ 184f2ea:	be 01 00 00 00       	mov    $0x1,%esi
+ 184f2ef:	f0 41 0f c1 75 20    	lock xadd %esi,0x20(%r13)
+ 184f2f5:	83 fe ff             	cmp    $0xffffffff,%esi
+ 184f2f8:	74 52                	je     184f34c <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x4ac>
+ 184f2fa:	41 3b 75 58          	cmp    0x58(%r13),%esi
+ 184f2fe:	7d 4c                	jge    184f34c <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x4ac>
+ 184f300:	4c 89 6c 24 10       	mov    %r13,0x10(%rsp)
+ 184f305:	f0 41 ff 45 08       	lock incl 0x8(%r13)
+ 184f30a:	eb 1b                	jmp    184f327 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x487>
+ 184f30c:	be 01 00 00 00       	mov    $0x1,%esi
+ 184f311:	f0 41 0f c1 75 20    	lock xadd %esi,0x20(%r13)
+ 184f317:	83 fe ff             	cmp    $0xffffffff,%esi
+ 184f31a:	74 30                	je     184f34c <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x4ac>
+ 184f31c:	41 3b 75 58          	cmp    0x58(%r13),%esi
+ 184f320:	7d 2a                	jge    184f34c <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x4ac>
+ 184f322:	4c 89 6c 24 10       	mov    %r13,0x10(%rsp)
+ 184f327:	48 8d 7c 24 10       	lea    0x10(%rsp),%rdi
+ 184f32c:	ba 01 00 00 00       	mov    $0x1,%edx
+ 184f331:	e8 4a 0f 00 00       	call   1850280 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::LaunchTask(TRefCountPtr<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData>&&, int, bool)>
+ 184f336:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 184f33b:	48 85 ff             	test   %rdi,%rdi
+ 184f33e:	74 0c                	je     184f34c <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x4ac>
+ 184f340:	f0 ff 4f 08          	lock decl 0x8(%rdi)
+ 184f344:	75 06                	jne    184f34c <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x4ac>
+ 184f346:	48 8b 07             	mov    (%rdi),%rax
+ 184f349:	ff 50 08             	call   *0x8(%rax)
+ 184f34c:	4c 89 6c 24 10       	mov    %r13,0x10(%rsp)
+ 184f351:	89 6c 24 18          	mov    %ebp,0x18(%rsp)
+ 184f355:	c6 44 24 1c 00       	movb   $0x0,0x1c(%rsp)
+ 184f35a:	48 8d 7c 24 10       	lea    0x10(%rsp),%rdi
+ 184f35f:	be 01 00 00 00       	mov    $0x1,%esi
+ 184f364:	e8 37 01 00 00       	call   184f4a0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const>
+ 184f369:	84 c0                	test   %al,%al
+ 184f36b:	0f 85 86 00 00 00    	jne    184f3f7 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x557>
+ 184f371:	f6 44 24 2c 04       	testb  $0x4,0x2c(%rsp)
+ 184f376:	74 50                	je     184f3c8 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x528>
+ 184f378:	e8 13 35 92 00       	call   2172890 <IsInActualRenderingThread()@plt>
+ 184f37d:	84 c0                	test   %al,%al
+ 184f37f:	74 47                	je     184f3c8 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x528>
+ 184f381:	48 8b 7c 24 20       	mov    0x20(%rsp),%rdi
+ 184f386:	48 8b 07             	mov    (%rdi),%rax
+ 184f389:	be 01 00 00 00       	mov    $0x1,%esi
+ 184f38e:	31 d2                	xor    %edx,%edx
+ 184f390:	ff 50 20             	call   *0x20(%rax)
+ 184f393:	84 c0                	test   %al,%al
+ 184f395:	75 60                	jne    184f3f7 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x557>
+ 184f397:	48 8b 1d aa 70 d9 00 	mov    0xd970aa(%rip),%rbx        # 25e6448 <ENamedThreads::FRenderThreadStatics::RenderThread_Local@Base>
+ 184f39e:	66 90                	xchg   %ax,%ax
+ 184f3a0:	e8 fb 34 92 00       	call   21728a0 <FTaskGraphInterface::Get()@plt>
+ 184f3a5:	8b 33                	mov    (%rbx),%esi
+ 184f3a7:	48 8b 08             	mov    (%rax),%rcx
+ 184f3aa:	48 89 c7             	mov    %rax,%rdi
+ 184f3ad:	ff 51 50             	call   *0x50(%rcx)
+ 184f3b0:	48 8b 7c 24 20       	mov    0x20(%rsp),%rdi
+ 184f3b5:	48 8b 07             	mov    (%rdi),%rax
+ 184f3b8:	be 01 00 00 00       	mov    $0x1,%esi
+ 184f3bd:	31 d2                	xor    %edx,%edx
+ 184f3bf:	ff 50 20             	call   *0x20(%rax)
+ 184f3c2:	84 c0                	test   %al,%al
+ 184f3c4:	74 da                	je     184f3a0 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x500>
+ 184f3c6:	eb 2f                	jmp    184f3f7 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x557>
+ 184f3c8:	48 8b 05 81 70 d9 00 	mov    0xd97081(%rip),%rax        # 25e6450 <GParallelForDisableOversubscription@Base>
+ 184f3cf:	80 38 00             	cmpb   $0x0,(%rax)
+ 184f3d2:	74 76                	je     184f44a <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x5aa>
+ 184f3d4:	e8 d7 34 92 00       	call   21728b0 <LowLevelTasks::Private::FOversubscriptionTls::GetIsOversubscriptionAllowedRef()@plt>
+ 184f3d9:	48 89 c3             	mov    %rax,%rbx
+ 184f3dc:	0f b6 28             	movzbl (%rax),%ebp
+ 184f3df:	c6 00 00             	movb   $0x0,(%rax)
+ 184f3e2:	48 8b 7c 24 20       	mov    0x20(%rsp),%rdi
+ 184f3e7:	48 8b 07             	mov    (%rdi),%rax
+ 184f3ea:	be ff ff ff ff       	mov    $0xffffffff,%esi
+ 184f3ef:	31 d2                	xor    %edx,%edx
+ 184f3f1:	ff 50 20             	call   *0x20(%rax)
+ 184f3f4:	40 88 2b             	mov    %bpl,(%rbx)
+ 184f3f7:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 184f3fc:	48 85 ff             	test   %rdi,%rdi
+ 184f3ff:	74 30                	je     184f431 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x591>
+ 184f401:	80 7c 24 1c 00       	cmpb   $0x0,0x1c(%rsp)
+ 184f406:	74 1d                	je     184f425 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x585>
+ 184f408:	8b 74 24 18          	mov    0x18(%rsp),%esi
+ 184f40c:	48 8d 7c 24 10       	lea    0x10(%rsp),%rdi
+ 184f411:	ba 01 00 00 00       	mov    $0x1,%edx
+ 184f416:	e8 65 0e 00 00       	call   1850280 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::LaunchTask(TRefCountPtr<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData>&&, int, bool)>
+ 184f41b:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 184f420:	48 85 ff             	test   %rdi,%rdi
+ 184f423:	74 0c                	je     184f431 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x591>
+ 184f425:	f0 ff 4f 08          	lock decl 0x8(%rdi)
+ 184f429:	75 06                	jne    184f431 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x591>
+ 184f42b:	48 8b 07             	mov    (%rdi),%rax
+ 184f42e:	ff 50 08             	call   *0x8(%rax)
+ 184f431:	48 8d 7c 24 20       	lea    0x20(%rsp),%rdi
+ 184f436:	e8 85 34 92 00       	call   21728c0 <FEventRef::~FEventRef()@plt>
+ 184f43b:	48 83 c4 48          	add    $0x48,%rsp
+ 184f43f:	5b                   	pop    %rbx
+ 184f440:	41 5c                	pop    %r12
+ 184f442:	41 5d                	pop    %r13
+ 184f444:	41 5e                	pop    %r14
+ 184f446:	41 5f                	pop    %r15
+ 184f448:	5d                   	pop    %rbp
+ 184f449:	c3                   	ret    
+ 184f44a:	48 8b 7c 24 20       	mov    0x20(%rsp),%rdi
+ 184f44f:	48 8b 07             	mov    (%rdi),%rax
+ 184f452:	be ff ff ff ff       	mov    $0xffffffff,%esi
+ 184f457:	31 d2                	xor    %edx,%edx
+ 184f459:	ff 50 20             	call   *0x20(%rax)
+ 184f45c:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 184f461:	48 85 ff             	test   %rdi,%rdi
+ 184f464:	75 9b                	jne    184f401 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x561>
+ 184f466:	eb c9                	jmp    184f431 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x591>
+ 184f468:	ff c1                	inc    %ecx
+ 184f46a:	e9 b4 fd ff ff       	jmp    184f223 <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x383>
+ 184f46f:	49 8d b4 24 60 01 00 	lea    0x160(%r12),%rsi
+ 184f476:	00 
+ 184f477:	48 8d 3d 42 46 aa ff 	lea    -0x55b9be(%rip),%rdi        # 12f3ac0 <FInterpCurve<UE::Math::TQuat<double> >::~FInterpCurve()>
+ 184f47e:	48 8d 15 5b b4 d9 00 	lea    0xd9b45b(%rip),%rdx        # 25ea8e0 <__dso_handle>
+ 184f485:	e8 16 c5 91 00       	call   216b9a0 <__cxa_thread_atexit@plt>
+ 184f48a:	4c 89 e0             	mov    %r12,%rax
+ 184f48d:	41 c6 84 24 68 01 00 	movb   $0x1,0x168(%r12)
+ 184f494:	00 01 
+ 184f496:	e9 82 fc ff ff       	jmp    184f11d <void ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)+0x27d>
+ 184f49b:	cc                   	int3   
+ 184f49c:	cc                   	int3   
+ 184f49d:	cc                   	int3   
+ 184f49e:	cc                   	int3   
+ 184f49f:	cc                   	int3   
+
+000000000184f4a0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const>:
+ 184f4a0:	55                   	push   %rbp
+ 184f4a1:	41 57                	push   %r15
+ 184f4a3:	41 56                	push   %r14
+ 184f4a5:	41 55                	push   %r13
+ 184f4a7:	41 54                	push   %r12
+ 184f4a9:	53                   	push   %rbx
+ 184f4aa:	48 83 ec 78          	sub    $0x78,%rsp
+ 184f4ae:	89 f5                	mov    %esi,%ebp
+ 184f4b0:	49 89 fe             	mov    %rdi,%r14
+ 184f4b3:	48 8b 37             	mov    (%rdi),%rsi
+ 184f4b6:	48 8d 7c 24 27       	lea    0x27(%rsp),%rdi
+ 184f4bb:	e8 70 e9 91 00       	call   216de30 <UE::FInheritedContextBase::RestoreInheritedContext()@plt>
+ 184f4c0:	48 8d 44 24 10       	lea    0x10(%rsp),%rax
+ 184f4c5:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+ 184f4ca:	48 8d 05 1f 14 00 00 	lea    0x141f(%rip),%rax        # 18508f0 <UE::Core::Private::Function::TFunctionRefCaller<TThreadSingleton<FMemStack>::Get()::{lambda()#1}, FTlsAutoCleanup*>::Call(void*)>
+ 184f4d1:	48 89 44 24 40       	mov    %rax,0x40(%rsp)
+ 184f4d6:	e8 f5 33 92 00       	call   21728d0 <TThreadSingleton<FMemStack>::GetTlsSlot()@plt>
+ 184f4db:	48 8d 5c 24 40       	lea    0x40(%rsp),%rbx
+ 184f4e0:	48 89 df             	mov    %rbx,%rdi
+ 184f4e3:	48 89 c6             	mov    %rax,%rsi
+ 184f4e6:	e8 f5 33 92 00       	call   21728e0 <FThreadSingletonInitializer::Get(TFunctionRef<FTlsAutoCleanup* ()>, unsigned int&)@plt>
+ 184f4eb:	48 8d 48 10          	lea    0x10(%rax),%rcx
+ 184f4ef:	48 89 4c 24 40       	mov    %rcx,0x40(%rsp)
+ 184f4f4:	48 8b 48 10          	mov    0x10(%rax),%rcx
+ 184f4f8:	48 89 4c 24 48       	mov    %rcx,0x48(%rsp)
+ 184f4fd:	48 8b 48 20          	mov    0x20(%rax),%rcx
+ 184f501:	48 89 4c 24 50       	mov    %rcx,0x50(%rsp)
+ 184f506:	c6 44 24 58 00       	movb   $0x0,0x58(%rsp)
+ 184f50b:	48 8b 48 28          	mov    0x28(%rax),%rcx
+ 184f50f:	48 89 4c 24 60       	mov    %rcx,0x60(%rsp)
+ 184f514:	48 89 58 28          	mov    %rbx,0x28(%rax)
+ 184f518:	4c 89 f3             	mov    %r14,%rbx
+ 184f51b:	ff 40 30             	incl   0x30(%rax)
+ 184f51e:	4d 8b 3e             	mov    (%r14),%r15
+ 184f521:	89 6c 24 04          	mov    %ebp,0x4(%rsp)
+ 184f525:	85 ed                	test   %ebp,%ebp
+ 184f527:	4c 89 74 24 08       	mov    %r14,0x8(%rsp)
+ 184f52c:	74 09                	je     184f537 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x97>
+ 184f52e:	45 8b 77 2c          	mov    0x2c(%r15),%r14d
+ 184f532:	e9 9f 02 00 00       	jmp    184f7d6 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x336>
+ 184f537:	8b 5b 08             	mov    0x8(%rbx),%ebx
+ 184f53a:	41 8b 47 58          	mov    0x58(%r15),%eax
+ 184f53e:	85 db                	test   %ebx,%ebx
+ 184f540:	0f 88 e4 04 00 00    	js     184fa2a <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x58a>
+ 184f546:	39 d8                	cmp    %ebx,%eax
+ 184f548:	0f 8e dc 04 00 00    	jle    184fa2a <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x58a>
+ 184f54e:	49 8b 47 50          	mov    0x50(%r15),%rax
+ 184f552:	48 8d 0c db          	lea    (%rbx,%rbx,8),%rcx
+ 184f556:	48 8b 44 c8 40       	mov    0x40(%rax,%rcx,8),%rax
+ 184f55b:	48 8b 5c 24 08       	mov    0x8(%rsp),%rbx
+ 184f560:	4c 8b 3b             	mov    (%rbx),%r15
+ 184f563:	45 8b 77 2c          	mov    0x2c(%r15),%r14d
+ 184f567:	41 8b 47 18          	mov    0x18(%r15),%eax
+ 184f56b:	83 c0 02             	add    $0x2,%eax
+ 184f56e:	44 39 f0             	cmp    %r14d,%eax
+ 184f571:	7f 62                	jg     184f5d5 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x135>
+ 184f573:	be 01 00 00 00       	mov    $0x1,%esi
+ 184f578:	f0 41 0f c1 77 20    	lock xadd %esi,0x20(%r15)
+ 184f57e:	48 8b 03             	mov    (%rbx),%rax
+ 184f581:	83 fe ff             	cmp    $0xffffffff,%esi
+ 184f584:	0f 84 3e 02 00 00    	je     184f7c8 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x328>
+ 184f58a:	41 3b 77 58          	cmp    0x58(%r15),%esi
+ 184f58e:	7d 42                	jge    184f5d2 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x132>
+ 184f590:	48 89 44 24 10       	mov    %rax,0x10(%rsp)
+ 184f595:	48 85 c0             	test   %rax,%rax
+ 184f598:	74 04                	je     184f59e <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0xfe>
+ 184f59a:	f0 ff 40 08          	lock incl 0x8(%rax)
+ 184f59e:	48 8d 7c 24 10       	lea    0x10(%rsp),%rdi
+ 184f5a3:	ba 01 00 00 00       	mov    $0x1,%edx
+ 184f5a8:	e8 d3 0c 00 00       	call   1850280 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::LaunchTask(TRefCountPtr<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData>&&, int, bool)>
+ 184f5ad:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ 184f5b2:	48 85 ff             	test   %rdi,%rdi
+ 184f5b5:	74 0c                	je     184f5c3 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x123>
+ 184f5b7:	f0 ff 4f 08          	lock decl 0x8(%rdi)
+ 184f5bb:	75 06                	jne    184f5c3 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x123>
+ 184f5bd:	48 8b 07             	mov    (%rdi),%rax
+ 184f5c0:	ff 50 08             	call   *0x8(%rax)
+ 184f5c3:	4c 8b 3b             	mov    (%rbx),%r15
+ 184f5c6:	41 80 7f 48 03       	cmpb   $0x3,0x48(%r15)
+ 184f5cb:	7d 13                	jge    184f5e0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x140>
+ 184f5cd:	e9 04 02 00 00       	jmp    184f7d6 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x336>
+ 184f5d2:	49 89 c7             	mov    %rax,%r15
+ 184f5d5:	41 80 7f 48 03       	cmpb   $0x3,0x48(%r15)
+ 184f5da:	0f 8c f6 01 00 00    	jl     184f7d6 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x336>
+ 184f5e0:	48 8b 05 21 63 d9 00 	mov    0xd96321(%rip),%rax        # 25e5908 <FUnixTime::ClockSource@Base>
+ 184f5e7:	8b 38                	mov    (%rax),%edi
+ 184f5e9:	85 ff                	test   %edi,%edi
+ 184f5eb:	0f 88 a0 04 00 00    	js     184fa91 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x5f1>
+ 184f5f1:	4c 8d 7c 24 10       	lea    0x10(%rsp),%r15
+ 184f5f6:	4c 89 fe             	mov    %r15,%rsi
+ 184f5f9:	e8 b2 96 90 00       	call   2158cb0 <clock_gettime@plt>
+ 184f5fe:	f2 48 0f 2a 44 24 10 	cvtsi2sdq 0x10(%rsp),%xmm0
+ 184f605:	f2 48 0f 2a 4c 24 18 	cvtsi2sdq 0x18(%rsp),%xmm1
+ 184f60c:	f2 0f 5e 0d 7c a0 73 	divsd  -0x8c5f84(%rip),%xmm1        # f89690 <Z_Construct_UClass_AFGAdminInterface_Statics::StaticCppClassTypeInfo+0x47>
+ 184f613:	ff 
+ 184f614:	f2 0f 58 c8          	addsd  %xmm0,%xmm1
+ 184f618:	f2 0f 59 0d e8 a6 73 	mulsd  -0x8c5918(%rip),%xmm1        # f89d08 <Z_Construct_UClass_AFGAdminInterface_Statics::StaticCppClassTypeInfo+0x6bf>
+ 184f61f:	ff 
+ 184f620:	f2 0f 10 15 30 a3 73 	movsd  -0x8c5cd0(%rip),%xmm2        # f89958 <Z_Construct_UClass_AFGAdminInterface_Statics::StaticCppClassTypeInfo+0x30f>
+ 184f627:	ff 
+ 184f628:	f2 0f 58 ca          	addsd  %xmm2,%xmm1
+ 184f62c:	f3 0f 7e c1          	movq   %xmm1,%xmm0
+ 184f630:	66 0f 3a 09 c0 01    	roundpd $0x1,%xmm0,%xmm0
+ 184f636:	f2 48 0f 2c c0       	cvttsd2si %xmm0,%rax
+ 184f63b:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+ 184f640:	48 8b 05 11 6e d9 00 	mov    0xd96e11(%rip),%rax        # 25e6458 <GParallelForBackgroundYieldingTimeoutMs@Base>
+ 184f647:	8b 00                	mov    (%rax),%eax
+ 184f649:	31 c9                	xor    %ecx,%ecx
+ 184f64b:	85 c0                	test   %eax,%eax
+ 184f64d:	0f 4f c8             	cmovg  %eax,%ecx
+ 184f650:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 184f653:	f2 0f 2a c1          	cvtsi2sd %ecx,%xmm0
+ 184f657:	f2 0f 59 05 89 a2 73 	mulsd  -0x8c5d77(%rip),%xmm0        # f898e8 <Z_Construct_UClass_AFGAdminInterface_Statics::StaticCppClassTypeInfo+0x29f>
+ 184f65e:	ff 
+ 184f65f:	f2 0f 58 c2          	addsd  %xmm2,%xmm0
+ 184f663:	f3 0f 7e c0          	movq   %xmm0,%xmm0
+ 184f667:	66 0f 3a 09 c0 01    	roundpd $0x1,%xmm0,%xmm0
+ 184f66d:	f2 48 0f 2c c0       	cvttsd2si %xmm0,%rax
+ 184f672:	48 89 44 24 68       	mov    %rax,0x68(%rsp)
+ 184f677:	48 8b 03             	mov    (%rbx),%rax
+ 184f67a:	44 8b 68 24          	mov    0x24(%rax),%r13d
+ 184f67e:	8b 48 28             	mov    0x28(%rax),%ecx
+ 184f681:	48 89 4c 24 28       	mov    %rcx,0x28(%rsp)
+ 184f686:	48 8b 68 38          	mov    0x38(%rax),%rbp
+ 184f68a:	41 8d 4e ff          	lea    -0x1(%r14),%ecx
+ 184f68e:	89 4c 24 3c          	mov    %ecx,0x3c(%rsp)
+ 184f692:	4c 89 74 24 30       	mov    %r14,0x30(%rsp)
+ 184f697:	44 89 2c 24          	mov    %r13d,(%rsp)
+ 184f69b:	41 bc 01 00 00 00    	mov    $0x1,%r12d
+ 184f6a1:	f0 44 0f c1 60 18    	lock xadd %r12d,0x18(%rax)
+ 184f6a7:	45 39 f5             	cmp    %r14d,%r13d
+ 184f6aa:	7e 1c                	jle    184f6c8 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x228>
+ 184f6ac:	0f 1f 40 00          	nopl   0x0(%rax)
+ 184f6b0:	8b 44 24 3c          	mov    0x3c(%rsp),%eax
+ 184f6b4:	41 39 c4             	cmp    %eax,%r12d
+ 184f6b7:	44 0f 4d e0          	cmovge %eax,%r12d
+ 184f6bb:	7c 0b                	jl     184f6c8 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x228>
+ 184f6bd:	80 7c 24 04 00       	cmpb   $0x0,0x4(%rsp)
+ 184f6c2:	0f 84 4f 01 00 00    	je     184f817 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x377>
+ 184f6c8:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+ 184f6cd:	44 0f af e0          	imul   %eax,%r12d
+ 184f6d1:	45 8d 34 04          	lea    (%r12,%rax,1),%r14d
+ 184f6d5:	45 39 ee             	cmp    %r13d,%r14d
+ 184f6d8:	44 89 eb             	mov    %r13d,%ebx
+ 184f6db:	41 0f 4c de          	cmovl  %r14d,%ebx
+ 184f6df:	45 89 e5             	mov    %r12d,%r13d
+ 184f6e2:	41 39 dc             	cmp    %ebx,%r12d
+ 184f6e5:	7d 20                	jge    184f707 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x267>
+ 184f6e7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ 184f6ee:	00 00 
+ 184f6f0:	44 89 6c 24 10       	mov    %r13d,0x10(%rsp)
+ 184f6f5:	48 8b 7d 08          	mov    0x8(%rbp),%rdi
+ 184f6f9:	4c 89 fe             	mov    %r15,%rsi
+ 184f6fc:	ff 55 00             	call   *0x0(%rbp)
+ 184f6ff:	41 ff c5             	inc    %r13d
+ 184f702:	44 39 eb             	cmp    %r13d,%ebx
+ 184f705:	75 e9                	jne    184f6f0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x250>
+ 184f707:	44 8b 2c 24          	mov    (%rsp),%r13d
+ 184f70b:	45 39 ec             	cmp    %r13d,%r12d
+ 184f70e:	48 8b 5c 24 08       	mov    0x8(%rsp),%rbx
+ 184f713:	7d 0d                	jge    184f722 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x282>
+ 184f715:	48 8b 03             	mov    (%rbx),%rax
+ 184f718:	f0 ff 48 1c          	lock decl 0x1c(%rax)
+ 184f71c:	0f 84 ca 01 00 00    	je     184f8ec <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x44c>
+ 184f722:	45 39 ee             	cmp    %r13d,%r14d
+ 184f725:	0f 8d ec 00 00 00    	jge    184f817 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x377>
+ 184f72b:	48 8b 05 d6 61 d9 00 	mov    0xd961d6(%rip),%rax        # 25e5908 <FUnixTime::ClockSource@Base>
+ 184f732:	8b 38                	mov    (%rax),%edi
+ 184f734:	85 ff                	test   %edi,%edi
+ 184f736:	78 75                	js     184f7ad <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x30d>
+ 184f738:	4c 89 fe             	mov    %r15,%rsi
+ 184f73b:	e8 70 95 90 00       	call   2158cb0 <clock_gettime@plt>
+ 184f740:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 184f743:	f2 48 0f 2a 44 24 10 	cvtsi2sdq 0x10(%rsp),%xmm0
+ 184f74a:	0f 57 c9             	xorps  %xmm1,%xmm1
+ 184f74d:	f2 48 0f 2a 4c 24 18 	cvtsi2sdq 0x18(%rsp),%xmm1
+ 184f754:	f2 0f 5e 0d 34 9f 73 	divsd  -0x8c60cc(%rip),%xmm1        # f89690 <Z_Construct_UClass_AFGAdminInterface_Statics::StaticCppClassTypeInfo+0x47>
+ 184f75b:	ff 
+ 184f75c:	f2 0f 58 c8          	addsd  %xmm0,%xmm1
+ 184f760:	f2 0f 59 0d a0 a5 73 	mulsd  -0x8c5a60(%rip),%xmm1        # f89d08 <Z_Construct_UClass_AFGAdminInterface_Statics::StaticCppClassTypeInfo+0x6bf>
+ 184f767:	ff 
+ 184f768:	f2 0f 58 0d e8 a1 73 	addsd  -0x8c5e18(%rip),%xmm1        # f89958 <Z_Construct_UClass_AFGAdminInterface_Statics::StaticCppClassTypeInfo+0x30f>
+ 184f76f:	ff 
+ 184f770:	f3 0f 7e c1          	movq   %xmm1,%xmm0
+ 184f774:	66 0f 3a 09 c0 01    	roundpd $0x1,%xmm0,%xmm0
+ 184f77a:	f2 48 0f 2c c0       	cvttsd2si %xmm0,%rax
+ 184f77f:	48 2b 44 24 70       	sub    0x70(%rsp),%rax
+ 184f784:	48 3b 44 24 68       	cmp    0x68(%rsp),%rax
+ 184f789:	4c 8b 74 24 30       	mov    0x30(%rsp),%r14
+ 184f78e:	7f 32                	jg     184f7c2 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x322>
+ 184f790:	48 8b 03             	mov    (%rbx),%rax
+ 184f793:	41 bc 01 00 00 00    	mov    $0x1,%r12d
+ 184f799:	f0 44 0f c1 60 18    	lock xadd %r12d,0x18(%rax)
+ 184f79f:	45 39 f5             	cmp    %r14d,%r13d
+ 184f7a2:	0f 8f 08 ff ff ff    	jg     184f6b0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x210>
+ 184f7a8:	e9 1b ff ff ff       	jmp    184f6c8 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x228>
+ 184f7ad:	e8 ce c0 91 00       	call   216b880 <FUnixTime::CalibrateAndSelectClock()@plt>
+ 184f7b2:	89 c7                	mov    %eax,%edi
+ 184f7b4:	48 8b 05 4d 61 d9 00 	mov    0xd9614d(%rip),%rax        # 25e5908 <FUnixTime::ClockSource@Base>
+ 184f7bb:	89 38                	mov    %edi,(%rax)
+ 184f7bd:	e9 76 ff ff ff       	jmp    184f738 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x298>
+ 184f7c2:	c6 43 0c 01          	movb   $0x1,0xc(%rbx)
+ 184f7c6:	eb 4f                	jmp    184f817 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x377>
+ 184f7c8:	49 89 c7             	mov    %rax,%r15
+ 184f7cb:	41 80 7f 48 03       	cmpb   $0x3,0x48(%r15)
+ 184f7d0:	0f 8d 0a fe ff ff    	jge    184f5e0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x140>
+ 184f7d6:	45 8b 6f 24          	mov    0x24(%r15),%r13d
+ 184f7da:	41 8b 47 28          	mov    0x28(%r15),%eax
+ 184f7de:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+ 184f7e3:	49 8b 6f 38          	mov    0x38(%r15),%rbp
+ 184f7e7:	45 39 f5             	cmp    %r14d,%r13d
+ 184f7ea:	44 89 2c 24          	mov    %r13d,(%rsp)
+ 184f7ee:	0f 8e 86 00 00 00    	jle    184f87a <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x3da>
+ 184f7f4:	41 ff ce             	dec    %r14d
+ 184f7f7:	41 bc 01 00 00 00    	mov    $0x1,%r12d
+ 184f7fd:	f0 45 0f c1 67 18    	lock xadd %r12d,0x18(%r15)
+ 184f803:	45 39 f4             	cmp    %r14d,%r12d
+ 184f806:	0f 8c 03 01 00 00    	jl     184f90f <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x46f>
+ 184f80c:	80 7c 24 04 00       	cmpb   $0x0,0x4(%rsp)
+ 184f811:	0f 85 f8 00 00 00    	jne    184f90f <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x46f>
+ 184f817:	45 31 ff             	xor    %r15d,%r15d
+ 184f81a:	80 7c 24 58 00       	cmpb   $0x0,0x58(%rsp)
+ 184f81f:	75 47                	jne    184f868 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x3c8>
+ 184f821:	48 8b 44 24 40       	mov    0x40(%rsp),%rax
+ 184f826:	48 8d 4c 24 40       	lea    0x40(%rsp),%rcx
+ 184f82b:	48 39 48 18          	cmp    %rcx,0x18(%rax)
+ 184f82f:	0f 85 2d 02 00 00    	jne    184fa62 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x5c2>
+ 184f835:	c6 44 24 58 01       	movb   $0x1,0x58(%rsp)
+ 184f83a:	48 8b 7c 24 40       	mov    0x40(%rsp),%rdi
+ 184f83f:	ff 4f 20             	decl   0x20(%rdi)
+ 184f842:	48 8b 74 24 50       	mov    0x50(%rsp),%rsi
+ 184f847:	48 3b 77 10          	cmp    0x10(%rdi),%rsi
+ 184f84b:	74 0a                	je     184f857 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x3b7>
+ 184f84d:	e8 9e 30 92 00       	call   21728f0 <FMemStackBase::FreeChunks(FMemStackBase::FTaggedMemory*)@plt>
+ 184f852:	48 8b 7c 24 40       	mov    0x40(%rsp),%rdi
+ 184f857:	48 8b 44 24 48       	mov    0x48(%rsp),%rax
+ 184f85c:	48 89 07             	mov    %rax,(%rdi)
+ 184f85f:	48 8b 44 24 60       	mov    0x60(%rsp),%rax
+ 184f864:	48 89 47 18          	mov    %rax,0x18(%rdi)
+ 184f868:	44 89 f8             	mov    %r15d,%eax
+ 184f86b:	48 83 c4 78          	add    $0x78,%rsp
+ 184f86f:	5b                   	pop    %rbx
+ 184f870:	41 5c                	pop    %r12
+ 184f872:	41 5d                	pop    %r13
+ 184f874:	41 5e                	pop    %r14
+ 184f876:	41 5f                	pop    %r15
+ 184f878:	5d                   	pop    %rbp
+ 184f879:	c3                   	ret    
+ 184f87a:	4c 8d 7c 24 10       	lea    0x10(%rsp),%r15
+ 184f87f:	eb 14                	jmp    184f895 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x3f5>
+ 184f881:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 184f888:	0f 1f 84 00 00 00 00 
+ 184f88f:	00 
+ 184f890:	45 39 ee             	cmp    %r13d,%r14d
+ 184f893:	7d 82                	jge    184f817 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x377>
+ 184f895:	48 8b 03             	mov    (%rbx),%rax
+ 184f898:	41 bc 01 00 00 00    	mov    $0x1,%r12d
+ 184f89e:	f0 44 0f c1 60 18    	lock xadd %r12d,0x18(%rax)
+ 184f8a4:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+ 184f8a9:	44 0f af e0          	imul   %eax,%r12d
+ 184f8ad:	45 8d 34 04          	lea    (%r12,%rax,1),%r14d
+ 184f8b1:	45 39 ee             	cmp    %r13d,%r14d
+ 184f8b4:	45 0f 4c ee          	cmovl  %r14d,%r13d
+ 184f8b8:	44 89 e3             	mov    %r12d,%ebx
+ 184f8bb:	45 39 ec             	cmp    %r13d,%r12d
+ 184f8be:	7d 15                	jge    184f8d5 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x435>
+ 184f8c0:	89 5c 24 10          	mov    %ebx,0x10(%rsp)
+ 184f8c4:	48 8b 7d 08          	mov    0x8(%rbp),%rdi
+ 184f8c8:	4c 89 fe             	mov    %r15,%rsi
+ 184f8cb:	ff 55 00             	call   *0x0(%rbp)
+ 184f8ce:	ff c3                	inc    %ebx
+ 184f8d0:	41 39 dd             	cmp    %ebx,%r13d
+ 184f8d3:	75 eb                	jne    184f8c0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x420>
+ 184f8d5:	44 8b 2c 24          	mov    (%rsp),%r13d
+ 184f8d9:	45 39 ec             	cmp    %r13d,%r12d
+ 184f8dc:	48 8b 5c 24 08       	mov    0x8(%rsp),%rbx
+ 184f8e1:	7d ad                	jge    184f890 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x3f0>
+ 184f8e3:	48 8b 03             	mov    (%rbx),%rax
+ 184f8e6:	f0 ff 48 1c          	lock decl 0x1c(%rax)
+ 184f8ea:	75 a4                	jne    184f890 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x3f0>
+ 184f8ec:	41 b7 01             	mov    $0x1,%r15b
+ 184f8ef:	80 7c 24 04 00       	cmpb   $0x0,0x4(%rsp)
+ 184f8f4:	0f 85 20 ff ff ff    	jne    184f81a <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x37a>
+ 184f8fa:	48 8b 03             	mov    (%rbx),%rax
+ 184f8fd:	48 8b 40 40          	mov    0x40(%rax),%rax
+ 184f901:	48 8b 38             	mov    (%rax),%rdi
+ 184f904:	48 8b 07             	mov    (%rdi),%rax
+ 184f907:	ff 50 10             	call   *0x10(%rax)
+ 184f90a:	e9 0b ff ff ff       	jmp    184f81a <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x37a>
+ 184f90f:	45 39 f4             	cmp    %r14d,%r12d
+ 184f912:	45 0f 4d e6          	cmovge %r14d,%r12d
+ 184f916:	80 7c 24 04 00       	cmpb   $0x0,0x4(%rsp)
+ 184f91b:	4c 89 74 24 30       	mov    %r14,0x30(%rsp)
+ 184f920:	4c 8d 7c 24 10       	lea    0x10(%rsp),%r15
+ 184f925:	0f 84 85 00 00 00    	je     184f9b0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x510>
+ 184f92b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 184f930:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+ 184f935:	44 0f af e0          	imul   %eax,%r12d
+ 184f939:	44 01 e0             	add    %r12d,%eax
+ 184f93c:	44 39 e8             	cmp    %r13d,%eax
+ 184f93f:	89 44 24 08          	mov    %eax,0x8(%rsp)
+ 184f943:	44 0f 4c e8          	cmovl  %eax,%r13d
+ 184f947:	45 89 e6             	mov    %r12d,%r14d
+ 184f94a:	45 39 ec             	cmp    %r13d,%r12d
+ 184f94d:	7d 18                	jge    184f967 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x4c7>
+ 184f94f:	90                   	nop
+ 184f950:	44 89 74 24 10       	mov    %r14d,0x10(%rsp)
+ 184f955:	48 8b 7d 08          	mov    0x8(%rbp),%rdi
+ 184f959:	4c 89 fe             	mov    %r15,%rsi
+ 184f95c:	ff 55 00             	call   *0x0(%rbp)
+ 184f95f:	41 ff c6             	inc    %r14d
+ 184f962:	45 39 f5             	cmp    %r14d,%r13d
+ 184f965:	75 e9                	jne    184f950 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x4b0>
+ 184f967:	44 8b 2c 24          	mov    (%rsp),%r13d
+ 184f96b:	45 39 ec             	cmp    %r13d,%r12d
+ 184f96e:	7d 0d                	jge    184f97d <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x4dd>
+ 184f970:	48 8b 03             	mov    (%rbx),%rax
+ 184f973:	f0 ff 48 1c          	lock decl 0x1c(%rax)
+ 184f977:	0f 84 6f ff ff ff    	je     184f8ec <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x44c>
+ 184f97d:	44 39 6c 24 08       	cmp    %r13d,0x8(%rsp)
+ 184f982:	0f 8d 8f fe ff ff    	jge    184f817 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x377>
+ 184f988:	48 8b 03             	mov    (%rbx),%rax
+ 184f98b:	41 bc 01 00 00 00    	mov    $0x1,%r12d
+ 184f991:	f0 44 0f c1 60 18    	lock xadd %r12d,0x18(%rax)
+ 184f997:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
+ 184f99c:	41 39 c4             	cmp    %eax,%r12d
+ 184f99f:	44 0f 4d e0          	cmovge %eax,%r12d
+ 184f9a3:	eb 8b                	jmp    184f930 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x490>
+ 184f9a5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+ 184f9ac:	00 00 00 00 
+ 184f9b0:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+ 184f9b5:	44 0f af e0          	imul   %eax,%r12d
+ 184f9b9:	44 01 e0             	add    %r12d,%eax
+ 184f9bc:	44 39 e8             	cmp    %r13d,%eax
+ 184f9bf:	89 44 24 08          	mov    %eax,0x8(%rsp)
+ 184f9c3:	44 0f 4c e8          	cmovl  %eax,%r13d
+ 184f9c7:	45 89 e6             	mov    %r12d,%r14d
+ 184f9ca:	45 39 ec             	cmp    %r13d,%r12d
+ 184f9cd:	7d 18                	jge    184f9e7 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x547>
+ 184f9cf:	90                   	nop
+ 184f9d0:	44 89 74 24 10       	mov    %r14d,0x10(%rsp)
+ 184f9d5:	48 8b 7d 08          	mov    0x8(%rbp),%rdi
+ 184f9d9:	4c 89 fe             	mov    %r15,%rsi
+ 184f9dc:	ff 55 00             	call   *0x0(%rbp)
+ 184f9df:	41 ff c6             	inc    %r14d
+ 184f9e2:	45 39 f5             	cmp    %r14d,%r13d
+ 184f9e5:	75 e9                	jne    184f9d0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x530>
+ 184f9e7:	44 8b 2c 24          	mov    (%rsp),%r13d
+ 184f9eb:	45 39 ec             	cmp    %r13d,%r12d
+ 184f9ee:	7d 0d                	jge    184f9fd <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x55d>
+ 184f9f0:	48 8b 03             	mov    (%rbx),%rax
+ 184f9f3:	f0 ff 48 1c          	lock decl 0x1c(%rax)
+ 184f9f7:	0f 84 ef fe ff ff    	je     184f8ec <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x44c>
+ 184f9fd:	44 39 6c 24 08       	cmp    %r13d,0x8(%rsp)
+ 184fa02:	0f 8d 0f fe ff ff    	jge    184f817 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x377>
+ 184fa08:	48 8b 03             	mov    (%rbx),%rax
+ 184fa0b:	41 bc 01 00 00 00    	mov    $0x1,%r12d
+ 184fa11:	f0 44 0f c1 60 18    	lock xadd %r12d,0x18(%rax)
+ 184fa17:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
+ 184fa1c:	41 39 c4             	cmp    %eax,%r12d
+ 184fa1f:	44 0f 4d e0          	cmovge %eax,%r12d
+ 184fa23:	7c 8b                	jl     184f9b0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x510>
+ 184fa25:	e9 ed fd ff ff       	jmp    184f817 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x377>
+ 184fa2a:	4c 63 c8             	movslq %eax,%r9
+ 184fa2d:	48 63 db             	movslq %ebx,%rbx
+ 184fa30:	48 8d 3d 70 57 6a ff 	lea    -0x95a890(%rip),%rdi        # ef51a7 <(anonymous namespace)::FGHighlightColor+0x7f287>
+ 184fa37:	48 8d 35 e2 0b 67 ff 	lea    -0x98f41e(%rip),%rsi        # ec0620 <(anonymous namespace)::FGHighlightColor+0x4a700>
+ 184fa3e:	48 8d 0d bd e8 6f ff 	lea    -0x901743(%rip),%rcx        # f4e302 <(anonymous namespace)::FGHighlightColor+0xd83e2>
+ 184fa45:	ba 2b 04 00 00       	mov    $0x42b,%edx
+ 184fa4a:	49 89 d8             	mov    %rbx,%r8
+ 184fa4d:	31 c0                	xor    %eax,%eax
+ 184fa4f:	e8 2c 71 8f 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 184fa54:	84 c0                	test   %al,%al
+ 184fa56:	0f 84 f2 fa ff ff    	je     184f54e <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0xae>
+ 184fa5c:	cc                   	int3   
+ 184fa5d:	e9 ec fa ff ff       	jmp    184f54e <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0xae>
+ 184fa62:	48 8d 3d 5f 3b 64 ff 	lea    -0x9bc4a1(%rip),%rdi        # e935c8 <(anonymous namespace)::FGHighlightColor+0x1d6a8>
+ 184fa69:	48 8d 35 bc 1c 67 ff 	lea    -0x98e344(%rip),%rsi        # ec172c <(anonymous namespace)::FGHighlightColor+0x4b80c>
+ 184fa70:	48 8d 0d 4f 9b 73 ff 	lea    -0x8c64b1(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 184fa77:	ba 15 02 00 00       	mov    $0x215,%edx
+ 184fa7c:	31 c0                	xor    %eax,%eax
+ 184fa7e:	e8 fd 70 8f 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 184fa83:	84 c0                	test   %al,%al
+ 184fa85:	0f 84 aa fd ff ff    	je     184f835 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x395>
+ 184fa8b:	cc                   	int3   
+ 184fa8c:	e9 a4 fd ff ff       	jmp    184f835 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x395>
+ 184fa91:	e8 ea bd 91 00       	call   216b880 <FUnixTime::CalibrateAndSelectClock()@plt>
+ 184fa96:	89 c7                	mov    %eax,%edi
+ 184fa98:	48 8b 05 69 5e d9 00 	mov    0xd95e69(%rip),%rax        # 25e5908 <FUnixTime::ClockSource@Base>
+ 184fa9f:	89 38                	mov    %edi,(%rax)
+ 184faa1:	e9 4b fb ff ff       	jmp    184f5f1 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelExecutor::operator()(bool) const+0x151>
+ 184faa6:	cc                   	int3   
+ 184faa7:	cc                   	int3   
+ 184faa8:	cc                   	int3   
+ 184faa9:	cc                   	int3   
+ 184faaa:	cc                   	int3   
+ 184faab:	cc                   	int3   
+ 184faac:	cc                   	int3   
+ 184faad:	cc                   	int3   
+ 184faae:	cc                   	int3   
+ 184faaf:	cc                   	int3   
+
+000000000184fab0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()>:
+ 184fab0:	41 57                	push   %r15
+ 184fab2:	41 56                	push   %r14
+ 184fab4:	53                   	push   %rbx
+ 184fab5:	48 89 fb             	mov    %rdi,%rbx
+ 184fab8:	48 8d 05 79 50 d0 00 	lea    0xd05079(%rip),%rax        # 2554b38 <vtable for ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData+0x10>
+ 184fabf:	48 89 07             	mov    %rax,(%rdi)
+ 184fac2:	48 8b 7f 50          	mov    0x50(%rdi),%rdi
+ 184fac6:	48 63 43 58          	movslq 0x58(%rbx),%rax
+ 184faca:	48 85 c0             	test   %rax,%rax
+ 184facd:	74 43                	je     184fb12 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0x62>
+ 184facf:	48 c1 e0 03          	shl    $0x3,%rax
+ 184fad3:	48 8d 04 c0          	lea    (%rax,%rax,8),%rax
+ 184fad7:	31 c9                	xor    %ecx,%ecx
+ 184fad9:	eb 0e                	jmp    184fae9 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0x39>
+ 184fadb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ 184fae0:	48 83 c1 48          	add    $0x48,%rcx
+ 184fae4:	48 39 c8             	cmp    %rcx,%rax
+ 184fae7:	74 12                	je     184fafb <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0x4b>
+ 184fae9:	48 8b 54 0f 40       	mov    0x40(%rdi,%rcx,1),%rdx
+ 184faee:	48 83 fa ff          	cmp    $0xffffffffffffffff,%rdx
+ 184faf2:	74 ec                	je     184fae0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0x30>
+ 184faf4:	48 8b 54 0f 40       	mov    0x40(%rdi,%rcx,1),%rdx
+ 184faf9:	eb e5                	jmp    184fae0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0x30>
+ 184fafb:	48 8b 7b 50          	mov    0x50(%rbx),%rdi
+ 184faff:	8b 73 58             	mov    0x58(%rbx),%esi
+ 184fb02:	e8 f9 06 00 00       	call   1850200 <_Z13DestructItemsIZN15ParallelForImpl19ParallelForInternalI12TFunctionRefIFviEEZ11ParallelForPKDsiiS4_17EParallelForFlagsEUlvE_DnEEvS6_iiT_T0_S7_RK10TArrayViewIT1_iEE11FTracedTaskiQaantntaagtstS9_Li0Entsr3stdE27is_trivially_destructible_vIS9_Esr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPS9_SA_>
+ 184fb07:	4c 8b 73 50          	mov    0x50(%rbx),%r14
+ 184fb0b:	4d 85 f6             	test   %r14,%r14
+ 184fb0e:	75 12                	jne    184fb22 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0x72>
+ 184fb10:	eb 68                	jmp    184fb7a <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0xca>
+ 184fb12:	31 f6                	xor    %esi,%esi
+ 184fb14:	e8 e7 06 00 00       	call   1850200 <_Z13DestructItemsIZN15ParallelForImpl19ParallelForInternalI12TFunctionRefIFviEEZ11ParallelForPKDsiiS4_17EParallelForFlagsEUlvE_DnEEvS6_iiT_T0_S7_RK10TArrayViewIT1_iEE11FTracedTaskiQaantntaagtstS9_Li0Entsr3stdE27is_trivially_destructible_vIS9_Esr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPS9_SA_>
+ 184fb19:	4c 8b 73 50          	mov    0x50(%rbx),%r14
+ 184fb1d:	4d 85 f6             	test   %r14,%r14
+ 184fb20:	74 58                	je     184fb7a <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0xca>
+ 184fb22:	41 8b 46 f8          	mov    -0x8(%r14),%eax
+ 184fb26:	49 83 c6 f8          	add    $0xfffffffffffffff8,%r14
+ 184fb2a:	49 29 c6             	sub    %rax,%r14
+ 184fb2d:	f0 41 ff 0e          	lock decl (%r14)
+ 184fb31:	75 47                	jne    184fb7a <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0xca>
+ 184fb33:	49 8b 46 40          	mov    0x40(%r14),%rax
+ 184fb37:	4c 29 f0             	sub    %r14,%rax
+ 184fb3a:	48 3d 00 00 01 00    	cmp    $0x10000,%rax
+ 184fb40:	75 30                	jne    184fb72 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0xc2>
+ 184fb42:	48 8d 3d 2f df d8 00 	lea    0xd8df2f(%rip),%rdi        # 25dda78 <_DYNAMIC+0x560>
+ 184fb49:	e8 32 be 91 00       	call   216b980 <__tls_get_addr@plt>
+ 184fb4e:	49 89 c7             	mov    %rax,%r15
+ 184fb51:	80 b8 68 01 00 00 00 	cmpb   $0x0,0x168(%rax)
+ 184fb58:	74 67                	je     184fbc1 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0x111>
+ 184fb5a:	4c 89 f8             	mov    %r15,%rax
+ 184fb5d:	49 8b bf 60 01 00 00 	mov    0x160(%r15),%rdi
+ 184fb64:	4d 89 b7 60 01 00 00 	mov    %r14,0x160(%r15)
+ 184fb6b:	48 85 ff             	test   %rdi,%rdi
+ 184fb6e:	75 05                	jne    184fb75 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0xc5>
+ 184fb70:	eb 08                	jmp    184fb7a <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0xca>
+ 184fb72:	4c 89 f7             	mov    %r14,%rdi
+ 184fb75:	e8 16 70 8f 00       	call   2146b90 <FMemory::Free(void*)@plt>
+ 184fb7a:	48 8b 05 df 68 d9 00 	mov    0xd968df(%rip),%rax        # 25e6460 <vtable for FThreadSafeRefCountedObject@@Base+0x91918>
+ 184fb81:	48 83 c0 10          	add    $0x10,%rax
+ 184fb85:	48 89 03             	mov    %rax,(%rbx)
+ 184fb88:	8b 43 08             	mov    0x8(%rbx),%eax
+ 184fb8b:	85 c0                	test   %eax,%eax
+ 184fb8d:	75 06                	jne    184fb95 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0xe5>
+ 184fb8f:	5b                   	pop    %rbx
+ 184fb90:	41 5e                	pop    %r14
+ 184fb92:	41 5f                	pop    %r15
+ 184fb94:	c3                   	ret    
+ 184fb95:	48 8d 3d b3 43 6a ff 	lea    -0x95bc4d(%rip),%rdi        # ef3f4f <(anonymous namespace)::FGHighlightColor+0x7e02f>
+ 184fb9c:	48 8d 35 1f 1c 67 ff 	lea    -0x98e3e1(%rip),%rsi        # ec17c2 <(anonymous namespace)::FGHighlightColor+0x4b8a2>
+ 184fba3:	48 8d 0d 1c 9a 73 ff 	lea    -0x8c65e4(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 184fbaa:	ba 24 01 00 00       	mov    $0x124,%edx
+ 184fbaf:	31 c0                	xor    %eax,%eax
+ 184fbb1:	e8 ca 6f 8f 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 184fbb6:	84 c0                	test   %al,%al
+ 184fbb8:	74 d5                	je     184fb8f <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0xdf>
+ 184fbba:	cc                   	int3   
+ 184fbbb:	5b                   	pop    %rbx
+ 184fbbc:	41 5e                	pop    %r14
+ 184fbbe:	41 5f                	pop    %r15
+ 184fbc0:	c3                   	ret    
+ 184fbc1:	49 8d b7 60 01 00 00 	lea    0x160(%r15),%rsi
+ 184fbc8:	48 8d 3d f1 3e aa ff 	lea    -0x55c10f(%rip),%rdi        # 12f3ac0 <FInterpCurve<UE::Math::TQuat<double> >::~FInterpCurve()>
+ 184fbcf:	48 8d 15 0a ad d9 00 	lea    0xd9ad0a(%rip),%rdx        # 25ea8e0 <__dso_handle>
+ 184fbd6:	e8 c5 bd 91 00       	call   216b9a0 <__cxa_thread_atexit@plt>
+ 184fbdb:	4c 89 f8             	mov    %r15,%rax
+ 184fbde:	41 c6 87 68 01 00 00 	movb   $0x1,0x168(%r15)
+ 184fbe5:	01 
+ 184fbe6:	e9 6f ff ff ff       	jmp    184fb5a <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0xaa>
+ 184fbeb:	cc                   	int3   
+ 184fbec:	cc                   	int3   
+ 184fbed:	cc                   	int3   
+ 184fbee:	cc                   	int3   
+ 184fbef:	cc                   	int3   
+
+000000000184fbf0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()>:
+ 184fbf0:	41 56                	push   %r14
+ 184fbf2:	53                   	push   %rbx
+ 184fbf3:	50                   	push   %rax
+ 184fbf4:	48 89 fb             	mov    %rdi,%rbx
+ 184fbf7:	e8 b4 fe ff ff       	call   184fab0 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()>
+ 184fbfc:	48 85 db             	test   %rbx,%rbx
+ 184fbff:	74 58                	je     184fc59 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0x69>
+ 184fc01:	8b 43 f8             	mov    -0x8(%rbx),%eax
+ 184fc04:	48 83 c3 f8          	add    $0xfffffffffffffff8,%rbx
+ 184fc08:	48 29 c3             	sub    %rax,%rbx
+ 184fc0b:	f0 ff 0b             	lock decl (%rbx)
+ 184fc0e:	75 49                	jne    184fc59 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0x69>
+ 184fc10:	48 8b 43 40          	mov    0x40(%rbx),%rax
+ 184fc14:	48 29 d8             	sub    %rbx,%rax
+ 184fc17:	48 3d 00 00 01 00    	cmp    $0x10000,%rax
+ 184fc1d:	75 42                	jne    184fc61 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0x71>
+ 184fc1f:	48 8d 3d 52 de d8 00 	lea    0xd8de52(%rip),%rdi        # 25dda78 <_DYNAMIC+0x560>
+ 184fc26:	e8 55 bd 91 00       	call   216b980 <__tls_get_addr@plt>
+ 184fc2b:	49 89 c6             	mov    %rax,%r14
+ 184fc2e:	80 b8 68 01 00 00 00 	cmpb   $0x0,0x168(%rax)
+ 184fc35:	74 39                	je     184fc70 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0x80>
+ 184fc37:	4c 89 f0             	mov    %r14,%rax
+ 184fc3a:	49 8b be 60 01 00 00 	mov    0x160(%r14),%rdi
+ 184fc41:	49 89 9e 60 01 00 00 	mov    %rbx,0x160(%r14)
+ 184fc48:	48 85 ff             	test   %rdi,%rdi
+ 184fc4b:	74 0c                	je     184fc59 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0x69>
+ 184fc4d:	48 83 c4 08          	add    $0x8,%rsp
+ 184fc51:	5b                   	pop    %rbx
+ 184fc52:	41 5e                	pop    %r14
+ 184fc54:	e9 37 6f 8f 00       	jmp    2146b90 <FMemory::Free(void*)@plt>
+ 184fc59:	48 83 c4 08          	add    $0x8,%rsp
+ 184fc5d:	5b                   	pop    %rbx
+ 184fc5e:	41 5e                	pop    %r14
+ 184fc60:	c3                   	ret    
+ 184fc61:	48 89 df             	mov    %rbx,%rdi
+ 184fc64:	48 83 c4 08          	add    $0x8,%rsp
+ 184fc68:	5b                   	pop    %rbx
+ 184fc69:	41 5e                	pop    %r14
+ 184fc6b:	e9 20 6f 8f 00       	jmp    2146b90 <FMemory::Free(void*)@plt>
+ 184fc70:	49 8d b6 60 01 00 00 	lea    0x160(%r14),%rsi
+ 184fc77:	48 8d 3d 42 3e aa ff 	lea    -0x55c1be(%rip),%rdi        # 12f3ac0 <FInterpCurve<UE::Math::TQuat<double> >::~FInterpCurve()>
+ 184fc7e:	48 8d 15 5b ac d9 00 	lea    0xd9ac5b(%rip),%rdx        # 25ea8e0 <__dso_handle>
+ 184fc85:	e8 16 bd 91 00       	call   216b9a0 <__cxa_thread_atexit@plt>
+ 184fc8a:	4c 89 f0             	mov    %r14,%rax
+ 184fc8d:	41 c6 86 68 01 00 00 	movb   $0x1,0x168(%r14)
+ 184fc94:	01 
+ 184fc95:	eb a0                	jmp    184fc37 <ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FParallelForData::~FParallelForData()+0x47>
+ 184fc97:	cc                   	int3   
+ 184fc98:	cc                   	int3   
+ 184fc99:	cc                   	int3   
+ 184fc9a:	cc                   	int3   
+ 184fc9b:	cc                   	int3   
+ 184fc9c:	cc                   	int3   
+ 184fc9d:	cc                   	int3   
+ 184fc9e:	cc                   	int3   
+ 184fc9f:	cc                   	int3   
+
+000000000184fca0 <FThreadSafeRefCountedObject::~FThreadSafeRefCountedObject()>:
+ 184fca0:	48 8b 05 b9 67 d9 00 	mov    0xd967b9(%rip),%rax        # 25e6460 <vtable for FThreadSafeRefCountedObject@@Base+0x91918>
+ 184fca7:	48 83 c0 10          	add    $0x10,%rax
+ 184fcab:	48 89 07             	mov    %rax,(%rdi)
+ 184fcae:	8b 47 08             	mov    0x8(%rdi),%eax
+ 184fcb1:	85 c0                	test   %eax,%eax
+ 184fcb3:	75 01                	jne    184fcb6 <FThreadSafeRefCountedObject::~FThreadSafeRefCountedObject()+0x16>
+ 184fcb5:	c3                   	ret    
+ 184fcb6:	50                   	push   %rax
+ 184fcb7:	48 8d 3d 91 42 6a ff 	lea    -0x95bd6f(%rip),%rdi        # ef3f4f <(anonymous namespace)::FGHighlightColor+0x7e02f>
+ 184fcbe:	48 8d 35 fd 1a 67 ff 	lea    -0x98e503(%rip),%rsi        # ec17c2 <(anonymous namespace)::FGHighlightColor+0x4b8a2>
+ 184fcc5:	48 8d 0d fa 98 73 ff 	lea    -0x8c6706(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 184fccc:	ba 24 01 00 00       	mov    $0x124,%edx
+ 184fcd1:	31 c0                	xor    %eax,%eax
+ 184fcd3:	e8 a8 6e 8f 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 184fcd8:	84 c0                	test   %al,%al
+ 184fcda:	48 8d 64 24 08       	lea    0x8(%rsp),%rsp
+ 184fcdf:	74 d4                	je     184fcb5 <FThreadSafeRefCountedObject::~FThreadSafeRefCountedObject()+0x15>
+ 184fce1:	cc                   	int3   
+ 184fce2:	c3                   	ret    
+ 184fce3:	cc                   	int3   
+ 184fce4:	cc                   	int3   
+ 184fce5:	cc                   	int3   
+ 184fce6:	cc                   	int3   
+ 184fce7:	cc                   	int3   
+ 184fce8:	cc                   	int3   
+ 184fce9:	cc                   	int3   
+ 184fcea:	cc                   	int3   
+ 184fceb:	cc                   	int3   
+ 184fcec:	cc                   	int3   
+ 184fced:	cc                   	int3   
+ 184fcee:	cc                   	int3   
+ 184fcef:	cc                   	int3   
+
+000000000184fcf0 <FThreadSafeRefCountedObject::~FThreadSafeRefCountedObject()>:
+ 184fcf0:	48 8b 05 69 67 d9 00 	mov    0xd96769(%rip),%rax        # 25e6460 <vtable for FThreadSafeRefCountedObject@@Base+0x91918>
+ 184fcf7:	48 83 c0 10          	add    $0x10,%rax
+ 184fcfb:	48 89 07             	mov    %rax,(%rdi)
+ 184fcfe:	8b 47 08             	mov    0x8(%rdi),%eax
+ 184fd01:	85 c0                	test   %eax,%eax
+ 184fd03:	0f 84 67 6d 8f 00    	je     2146a70 <operator delete(void*)@plt>
+ 184fd09:	53                   	push   %rbx
+ 184fd0a:	48 8d 05 3e 42 6a ff 	lea    -0x95bdc2(%rip),%rax        # ef3f4f <(anonymous namespace)::FGHighlightColor+0x7e02f>
+ 184fd11:	48 8d 35 aa 1a 67 ff 	lea    -0x98e556(%rip),%rsi        # ec17c2 <(anonymous namespace)::FGHighlightColor+0x4b8a2>
+ 184fd18:	48 8d 0d a7 98 73 ff 	lea    -0x8c6759(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 184fd1f:	48 89 fb             	mov    %rdi,%rbx
+ 184fd22:	48 89 c7             	mov    %rax,%rdi
+ 184fd25:	ba 24 01 00 00       	mov    $0x124,%edx
+ 184fd2a:	31 c0                	xor    %eax,%eax
+ 184fd2c:	e8 4f 6e 8f 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 184fd31:	48 89 df             	mov    %rbx,%rdi
+ 184fd34:	84 c0                	test   %al,%al
+ 184fd36:	5b                   	pop    %rbx
+ 184fd37:	0f 84 33 6d 8f 00    	je     2146a70 <operator delete(void*)@plt>
+ 184fd3d:	cc                   	int3   
+ 184fd3e:	e9 2d 6d 8f 00       	jmp    2146a70 <operator delete(void*)@plt>
+ 184fd43:	cc                   	int3   
+ 184fd44:	cc                   	int3   
+ 184fd45:	cc                   	int3   
+ 184fd46:	cc                   	int3   
+ 184fd47:	cc                   	int3   
+ 184fd48:	cc                   	int3   
+ 184fd49:	cc                   	int3   
+ 184fd4a:	cc                   	int3   
+ 184fd4b:	cc                   	int3   
+ 184fd4c:	cc                   	int3   
+ 184fd4d:	cc                   	int3   
+ 184fd4e:	cc                   	int3   
+ 184fd4f:	cc                   	int3   
+
+000000000184fd50 <_Z21DefaultConstructItemsIZN15ParallelForImpl19ParallelForInternalI12TFunctionRefIFviEEZ11ParallelForPKDsiiS4_17EParallelForFlagsEUlvE_DnEEvS6_iiT_T0_S7_RK10TArrayViewIT1_iEE11FTracedTaskiQaantntaagtstS9_Li0Entsr20TIsZeroConstructTypeIS9_EE5Valuesr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPvSA_>:
+ 184fd50:	85 f6                	test   %esi,%esi
+ 184fd52:	0f 84 ff 00 00 00    	je     184fe57 <_Z21DefaultConstructItemsIZN15ParallelForImpl19ParallelForInternalI12TFunctionRefIFviEEZ11ParallelForPKDsiiS4_17EParallelForFlagsEUlvE_DnEEvS6_iiT_T0_S7_RK10TArrayViewIT1_iEE11FTracedTaskiQaantntaagtstS9_Li0Entsr20TIsZeroConstructTypeIS9_EE5Valuesr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPvSA_+0x107>
+ 184fd58:	48 b8 20 00 00 00 00 	movabs $0xe800000000000020,%rax
+ 184fd5f:	00 00 e8 
+ 184fd62:	89 f1                	mov    %esi,%ecx
+ 184fd64:	83 e1 03             	and    $0x3,%ecx
+ 184fd67:	74 47                	je     184fdb0 <_Z21DefaultConstructItemsIZN15ParallelForImpl19ParallelForInternalI12TFunctionRefIFviEEZ11ParallelForPKDsiiS4_17EParallelForFlagsEUlvE_DnEEvS6_iiT_T0_S7_RK10TArrayViewIT1_iEE11FTracedTaskiQaantntaagtstS9_Li0Entsr20TIsZeroConstructTypeIS9_EE5Valuesr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPvSA_+0x60>
+ 184fd69:	31 d2                	xor    %edx,%edx
+ 184fd6b:	4c 8b 05 de 5d d9 00 	mov    0xd95dde(%rip),%r8        # 25e5b50 <vtable for LowLevelTasks::TTaskDelegate<LowLevelTasks::FTask* (bool), 48u>::TTaskDelegateDummy@@Base+0xb27e0>
+ 184fd72:	49 83 c0 10          	add    $0x10,%r8
+ 184fd76:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ 184fd7d:	00 00 00 
+ 184fd80:	4c 89 47 28          	mov    %r8,0x28(%rdi)
+ 184fd84:	48 c7 47 30 00 00 00 	movq   $0x0,0x30(%rdi)
+ 184fd8b:	00 
+ 184fd8c:	48 89 47 38          	mov    %rax,0x38(%rdi)
+ 184fd90:	48 c7 47 40 ff ff ff 	movq   $0xffffffffffffffff,0x40(%rdi)
+ 184fd97:	ff 
+ 184fd98:	48 83 c7 48          	add    $0x48,%rdi
+ 184fd9c:	ff c2                	inc    %edx
+ 184fd9e:	39 d1                	cmp    %edx,%ecx
+ 184fda0:	75 de                	jne    184fd80 <_Z21DefaultConstructItemsIZN15ParallelForImpl19ParallelForInternalI12TFunctionRefIFviEEZ11ParallelForPKDsiiS4_17EParallelForFlagsEUlvE_DnEEvS6_iiT_T0_S7_RK10TArrayViewIT1_iEE11FTracedTaskiQaantntaagtstS9_Li0Entsr20TIsZeroConstructTypeIS9_EE5Valuesr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPvSA_+0x30>
+ 184fda2:	89 f1                	mov    %esi,%ecx
+ 184fda4:	29 d1                	sub    %edx,%ecx
+ 184fda6:	83 fe 04             	cmp    $0x4,%esi
+ 184fda9:	73 10                	jae    184fdbb <_Z21DefaultConstructItemsIZN15ParallelForImpl19ParallelForInternalI12TFunctionRefIFviEEZ11ParallelForPKDsiiS4_17EParallelForFlagsEUlvE_DnEEvS6_iiT_T0_S7_RK10TArrayViewIT1_iEE11FTracedTaskiQaantntaagtstS9_Li0Entsr20TIsZeroConstructTypeIS9_EE5Valuesr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPvSA_+0x6b>
+ 184fdab:	e9 a7 00 00 00       	jmp    184fe57 <_Z21DefaultConstructItemsIZN15ParallelForImpl19ParallelForInternalI12TFunctionRefIFviEEZ11ParallelForPKDsiiS4_17EParallelForFlagsEUlvE_DnEEvS6_iiT_T0_S7_RK10TArrayViewIT1_iEE11FTracedTaskiQaantntaagtstS9_Li0Entsr20TIsZeroConstructTypeIS9_EE5Valuesr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPvSA_+0x107>
+ 184fdb0:	89 f1                	mov    %esi,%ecx
+ 184fdb2:	83 fe 04             	cmp    $0x4,%esi
+ 184fdb5:	0f 82 9c 00 00 00    	jb     184fe57 <_Z21DefaultConstructItemsIZN15ParallelForImpl19ParallelForInternalI12TFunctionRefIFviEEZ11ParallelForPKDsiiS4_17EParallelForFlagsEUlvE_DnEEvS6_iiT_T0_S7_RK10TArrayViewIT1_iEE11FTracedTaskiQaantntaagtstS9_Li0Entsr20TIsZeroConstructTypeIS9_EE5Valuesr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPvSA_+0x107>
+ 184fdbb:	48 81 c7 18 01 00 00 	add    $0x118,%rdi
+ 184fdc2:	48 8b 15 87 5d d9 00 	mov    0xd95d87(%rip),%rdx        # 25e5b50 <vtable for LowLevelTasks::TTaskDelegate<LowLevelTasks::FTask* (bool), 48u>::TTaskDelegateDummy@@Base+0xb27e0>
+ 184fdc9:	48 83 c2 10          	add    $0x10,%rdx
+ 184fdcd:	0f 1f 00             	nopl   (%rax)
+ 184fdd0:	48 89 97 10 ff ff ff 	mov    %rdx,-0xf0(%rdi)
+ 184fdd7:	48 c7 87 18 ff ff ff 	movq   $0x0,-0xe8(%rdi)
+ 184fdde:	00 00 00 00 
+ 184fde2:	48 89 87 20 ff ff ff 	mov    %rax,-0xe0(%rdi)
+ 184fde9:	48 c7 87 28 ff ff ff 	movq   $0xffffffffffffffff,-0xd8(%rdi)
+ 184fdf0:	ff ff ff ff 
+ 184fdf4:	48 89 97 58 ff ff ff 	mov    %rdx,-0xa8(%rdi)
+ 184fdfb:	48 c7 87 60 ff ff ff 	movq   $0x0,-0xa0(%rdi)
+ 184fe02:	00 00 00 00 
+ 184fe06:	48 89 87 68 ff ff ff 	mov    %rax,-0x98(%rdi)
+ 184fe0d:	48 c7 87 70 ff ff ff 	movq   $0xffffffffffffffff,-0x90(%rdi)
+ 184fe14:	ff ff ff ff 
+ 184fe18:	48 89 57 a0          	mov    %rdx,-0x60(%rdi)
+ 184fe1c:	48 c7 47 a8 00 00 00 	movq   $0x0,-0x58(%rdi)
+ 184fe23:	00 
+ 184fe24:	48 89 47 b0          	mov    %rax,-0x50(%rdi)
+ 184fe28:	48 c7 47 b8 ff ff ff 	movq   $0xffffffffffffffff,-0x48(%rdi)
+ 184fe2f:	ff 
+ 184fe30:	48 89 57 e8          	mov    %rdx,-0x18(%rdi)
+ 184fe34:	48 c7 47 f0 00 00 00 	movq   $0x0,-0x10(%rdi)
+ 184fe3b:	00 
+ 184fe3c:	48 89 47 f8          	mov    %rax,-0x8(%rdi)
+ 184fe40:	48 c7 07 ff ff ff ff 	movq   $0xffffffffffffffff,(%rdi)
+ 184fe47:	48 81 c7 20 01 00 00 	add    $0x120,%rdi
+ 184fe4e:	83 c1 fc             	add    $0xfffffffc,%ecx
+ 184fe51:	0f 85 79 ff ff ff    	jne    184fdd0 <_Z21DefaultConstructItemsIZN15ParallelForImpl19ParallelForInternalI12TFunctionRefIFviEEZ11ParallelForPKDsiiS4_17EParallelForFlagsEUlvE_DnEEvS6_iiT_T0_S7_RK10TArrayViewIT1_iEE11FTracedTaskiQaantntaagtstS9_Li0Entsr20TIsZeroConstructTypeIS9_EE5Valuesr2UE4Core7PrivateE19BoolIdentityConceptILb1EEEvPvSA_+0x80>
+ 184fe57:	c3                   	ret    
+ 184fe58:	cc                   	int3   
+ 184fe59:	cc                   	int3   
+ 184fe5a:	cc                   	int3   
+ 184fe5b:	cc                   	int3   
+ 184fe5c:	cc                   	int3   
+ 184fe5d:	cc                   	int3   
+ 184fe5e:	cc                   	int3   
+ 184fe5f:	cc                   	int3   
+
+000000000184fe60 <decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<0u, TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask> >(unsigned int, unsigned int, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)()), TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)())&, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)())&)>:
+ 184fe60:	55                   	push   %rbp
+ 184fe61:	41 56                	push   %r14
+ 184fe63:	53                   	push   %rbx
+ 184fe64:	4c 89 cb             	mov    %r9,%rbx
+ 184fe67:	45 8b 30             	mov    (%r8),%r14d
+ 184fe6a:	45 8b 09             	mov    (%r9),%r9d
+ 184fe6d:	41 8d 34 16          	lea    (%r14,%rdx,1),%esi
+ 184fe71:	41 89 30             	mov    %esi,(%r8)
+ 184fe74:	44 89 c8             	mov    %r9d,%eax
+ 184fe77:	44 29 f0             	sub    %r14d,%eax
+ 184fe7a:	39 d0                	cmp    %edx,%eax
+ 184fe7c:	73 45                	jae    184fec3 <decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<0u, TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask> >(unsigned int, unsigned int, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)()), TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)())&, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)())&)+0x63>
+ 184fe7e:	44 39 f6             	cmp    %r14d,%esi
+ 184fe81:	7c 48                	jl     184fecb <decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<0u, TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask> >(unsigned int, unsigned int, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)()), TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)())&, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)())&)+0x6b>
+ 184fe83:	89 f8                	mov    %edi,%eax
+ 184fe85:	45 85 c9             	test   %r9d,%r9d
+ 184fe88:	74 12                	je     184fe9c <decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<0u, TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask> >(unsigned int, unsigned int, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)()), TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)())&, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)())&)+0x3c>
+ 184fe8a:	48 63 d6             	movslq %esi,%rdx
+ 184fe8d:	48 8d 14 52          	lea    (%rdx,%rdx,2),%rdx
+ 184fe91:	48 c1 ea 03          	shr    $0x3,%rdx
+ 184fe95:	01 f2                	add    %esi,%edx
+ 184fe97:	83 c2 10             	add    $0x10,%edx
+ 184fe9a:	eb 0b                	jmp    184fea7 <decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow<0u, TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask> >(unsigned int, unsigned int, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)()), TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)())&, decltype (((std::declval<TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>&>()).GetInitialCapacity)())&)+0x47>
+ 184fe9c:	83 fe 05             	cmp    $0x5,%esi
+ 184fe9f:	ba 04 00 00 00       	mov    $0x4,%edx
+ 184fea4:	0f 43 d6             	cmovae %esi,%edx
+ 184fea7:	39 f2                	cmp    %esi,%edx
+ 184fea9:	bd ff ff ff 7f       	mov    $0x7fffffff,%ebp
+ 184feae:	0f 4d ea             	cmovge %edx,%ebp
+ 184feb1:	48 89 cf             	mov    %rcx,%rdi
+ 184feb4:	44 89 f6             	mov    %r14d,%esi
+ 184feb7:	89 ea                	mov    %ebp,%edx
+ 184feb9:	48 89 c1             	mov    %rax,%rcx
+ 184febc:	e8 1f 00 00 00       	call   184fee0 <TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>::ResizeAllocation(int, int, unsigned long)>
+ 184fec1:	89 2b                	mov    %ebp,(%rbx)
+ 184fec3:	44 89 f0             	mov    %r14d,%eax
+ 184fec6:	5b                   	pop    %rbx
+ 184fec7:	41 5e                	pop    %r14
+ 184fec9:	5d                   	pop    %rbp
+ 184feca:	c3                   	ret    
+ 184fecb:	89 f7                	mov    %esi,%edi
+ 184fecd:	e8 ae 70 8f 00       	call   2146f80 <UE::Core::Private::OnInvalidArrayNum(unsigned long long)@plt>
+ 184fed2:	cc                   	int3   
+ 184fed3:	cc                   	int3   
+ 184fed4:	cc                   	int3   
+ 184fed5:	cc                   	int3   
+ 184fed6:	cc                   	int3   
+ 184fed7:	cc                   	int3   
+ 184fed8:	cc                   	int3   
+ 184fed9:	cc                   	int3   
+ 184feda:	cc                   	int3   
+ 184fedb:	cc                   	int3   
+ 184fedc:	cc                   	int3   
+ 184fedd:	cc                   	int3   
+ 184fede:	cc                   	int3   
+ 184fedf:	cc                   	int3   
+
+000000000184fee0 <TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>::ResizeAllocation(int, int, unsigned long)>:
+ 184fee0:	55                   	push   %rbp
+ 184fee1:	41 57                	push   %r15
+ 184fee3:	41 56                	push   %r14
+ 184fee5:	41 55                	push   %r13
+ 184fee7:	41 54                	push   %r12
+ 184fee9:	53                   	push   %rbx
+ 184feea:	50                   	push   %rax
+ 184feeb:	85 d2                	test   %edx,%edx
+ 184feed:	78 56                	js     184ff45 <TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>::ResizeAllocation(int, int, unsigned long)+0x65>
+ 184feef:	48 8d 81 00 00 00 80 	lea    -0x80000000(%rcx),%rax
+ 184fef6:	48 3d 00 00 00 80    	cmp    $0xffffffff80000000,%rax
+ 184fefc:	76 47                	jbe    184ff45 <TLinearArrayAllocatorBase<FTaskGraphBlockAllocationTag, (ELinearAllocatorThreadPolicy)0>::ForElementType<ParallelForImpl::ParallelForInternal<TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, decltype(nullptr)>(char16_t const*, int, int, TFunctionRef<void (int)>, ParallelFor(char16_t const*, int, int, TFunctionRef<void (int)>, EParallelForFlags)::{lambda()#1}, EParallelForFlags, TArrayView<decltype(nullptr), int> const&)::FTracedTask>::ResizeAllocation(int, int, unsigned long)+0x65>
+ 184fefe:	48                   	rex.W
+ 184feff:	89                   	.byte 0x89

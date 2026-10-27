@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"/var/www/async_SatisDedicated/server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so\",\"format\":\"elf\",\"kind\":\"executable\",\"sha256\":\"637c2c70e65f6386697a6a5f5746f64b187d2fcfeee56df1aeef3f172268c0c1\",\"architecture\":\"x86_64\"}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "/var/www/async_SatisDedicated/server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so",
+      "format": "elf",
+      "kind": "executable",
+      "sha256": "637c2c70e65f6386697a6a5f5746f64b187d2fcfeee56df1aeef3f172268c0c1",
+      "architecture": "x86_64"
+    }
+  }
+}

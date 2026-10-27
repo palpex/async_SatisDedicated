@@ -1,0 +1,1 @@
+{"devices":[{"device_id":"local","name":"Local System","type":"local"},{"device_id":"socket","name":"Local Socket","type":"remote"},{"device_id":"barebone","name":"GDB Remote Stub","type":"remote"}],"cleanup_error":null}

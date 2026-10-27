@@ -1,0 +1,275 @@
+
+server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000180cba0 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)>:
+ 180cba0:	48 8b 47 28          	mov    0x28(%rdi),%rax
+ 180cba4:	48 85 c0             	test   %rax,%rax
+ 180cba7:	0f 84 96 01 00 00    	je     180cd43 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x1a3>
+ 180cbad:	55                   	push   %rbp
+ 180cbae:	41 57                	push   %r15
+ 180cbb0:	41 56                	push   %r14
+ 180cbb2:	41 54                	push   %r12
+ 180cbb4:	53                   	push   %rbx
+ 180cbb5:	48 83 ec 20          	sub    $0x20,%rsp
+ 180cbb9:	8b 48 08             	mov    0x8(%rax),%ecx
+ 180cbbc:	f7 c1 00 00 00 40    	test   $0x40000000,%ecx
+ 180cbc2:	0f 85 6f 01 00 00    	jne    180cd37 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x197>
+ 180cbc8:	8b 58 0c             	mov    0xc(%rax),%ebx
+ 180cbcb:	85 db                	test   %ebx,%ebx
+ 180cbcd:	0f 88 71 01 00 00    	js     180cd44 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x1a4>
+ 180cbd3:	4c 8b 3d 86 18 dd 00 	mov    0xdd1886(%rip),%r15        # 25de460 <GUObjectArray@Base>
+ 180cbda:	41 39 5f 24          	cmp    %ebx,0x24(%r15)
+ 180cbde:	0f 8e 8d 00 00 00    	jle    180cc71 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0xd1>
+ 180cbe4:	41 89 de             	mov    %ebx,%r14d
+ 180cbe7:	41 c1 ee 10          	shr    $0x10,%r14d
+ 180cbeb:	85 db                	test   %ebx,%ebx
+ 180cbed:	0f 88 9c 01 00 00    	js     180cd8f <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x1ef>
+ 180cbf3:	45 8b 4f 2c          	mov    0x2c(%r15),%r9d
+ 180cbf7:	45 39 ce             	cmp    %r9d,%r14d
+ 180cbfa:	0f 83 dd 01 00 00    	jae    180cddd <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x23d>
+ 180cc00:	45 8b 4f 20          	mov    0x20(%r15),%r9d
+ 180cc04:	41 39 d9             	cmp    %ebx,%r9d
+ 180cc07:	0f 8e 1e 02 00 00    	jle    180ce2b <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x28b>
+ 180cc0d:	49 8b 47 10          	mov    0x10(%r15),%rax
+ 180cc11:	4e 8b 34 f0          	mov    (%rax,%r14,8),%r14
+ 180cc15:	4d 85 f6             	test   %r14,%r14
+ 180cc18:	0f 84 5b 02 00 00    	je     180ce79 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x2d9>
+ 180cc1e:	0f b7 c3             	movzwl %bx,%eax
+ 180cc21:	48 8d 04 40          	lea    (%rax,%rax,2),%rax
+ 180cc25:	c1 e0 03             	shl    $0x3,%eax
+ 180cc28:	49 01 c6             	add    %rax,%r14
+ 180cc2b:	75 47                	jne    180cc74 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0xd4>
+ 180cc2d:	f3 0f 11 44 24 04    	movss  %xmm0,0x4(%rsp)
+ 180cc33:	48 89 fb             	mov    %rdi,%rbx
+ 180cc36:	89 f5                	mov    %esi,%ebp
+ 180cc38:	48 8d 3d 4a bc 68 ff 	lea    -0x9743b6(%rip),%rdi        # e98889 <(anonymous namespace)::FGHighlightColor+0x22969>
+ 180cc3f:	48 8d 35 1b 39 6b ff 	lea    -0x94c6e5(%rip),%rsi        # ec0561 <(anonymous namespace)::FGHighlightColor+0x4a641>
+ 180cc46:	48 8d 0d 79 c9 77 ff 	lea    -0x883687(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 180cc4d:	45 31 f6             	xor    %r14d,%r14d
+ 180cc50:	ba 4b 03 00 00       	mov    $0x34b,%edx
+ 180cc55:	31 c0                	xor    %eax,%eax
+ 180cc57:	e8 24 9f 93 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 180cc5c:	84 c0                	test   %al,%al
+ 180cc5e:	74 04                	je     180cc64 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0xc4>
+ 180cc60:	cc                   	int3   
+ 180cc61:	45 31 f6             	xor    %r14d,%r14d
+ 180cc64:	89 ee                	mov    %ebp,%esi
+ 180cc66:	48 89 df             	mov    %rbx,%rdi
+ 180cc69:	f3 0f 10 44 24 04    	movss  0x4(%rsp),%xmm0
+ 180cc6f:	eb 03                	jmp    180cc74 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0xd4>
+ 180cc71:	45 31 f6             	xor    %r14d,%r14d
+ 180cc74:	41 8b 46 08          	mov    0x8(%r14),%eax
+ 180cc78:	a9 00 00 00 10       	test   $0x10000000,%eax
+ 180cc7d:	0f 85 b4 00 00 00    	jne    180cd37 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x197>
+ 180cc83:	f3 0f 11 44 24 04    	movss  %xmm0,0x4(%rsp)
+ 180cc89:	49 89 fc             	mov    %rdi,%r12
+ 180cc8c:	89 f3                	mov    %esi,%ebx
+ 180cc8e:	4c 8b 35 83 96 dd 00 	mov    0xdd9683(%rip),%r14        # 25e6318 <GTickFactoryTime@Base>
+ 180cc95:	49 c7 06 00 00 00 00 	movq   $0x0,(%r14)
+ 180cc9c:	4c 8b 3d 65 8c dd 00 	mov    0xdd8c65(%rip),%r15        # 25e5908 <FUnixTime::ClockSource@Base>
+ 180cca3:	41 8b 3f             	mov    (%r15),%edi
+ 180cca6:	85 ff                	test   %edi,%edi
+ 180cca8:	0f 88 16 02 00 00    	js     180cec4 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x324>
+ 180ccae:	48 8d 74 24 08       	lea    0x8(%rsp),%rsi
+ 180ccb3:	e8 f8 bf 94 00       	call   2158cb0 <clock_gettime@plt>
+ 180ccb8:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 180ccbb:	f2 48 0f 2a 44 24 08 	cvtsi2sdq 0x8(%rsp),%xmm0
+ 180ccc2:	f2 48 0f 2a 4c 24 10 	cvtsi2sdq 0x10(%rsp),%xmm1
+ 180ccc9:	f2 0f 5e 0d bf c9 77 	divsd  -0x883641(%rip),%xmm1        # f89690 <Z_Construct_UClass_AFGAdminInterface_Statics::StaticCppClassTypeInfo+0x47>
+ 180ccd0:	ff 
+ 180ccd1:	f2 0f 58 c8          	addsd  %xmm0,%xmm1
+ 180ccd5:	f2 0f 11 4c 24 18    	movsd  %xmm1,0x18(%rsp)
+ 180ccdb:	49 8b 7c 24 28       	mov    0x28(%r12),%rdi
+ 180cce0:	f3 0f 10 44 24 04    	movss  0x4(%rsp),%xmm0
+ 180cce6:	f3 0f 59 47 70       	mulss  0x70(%rdi),%xmm0
+ 180cceb:	89 de                	mov    %ebx,%esi
+ 180cced:	e8 2e 4b 96 00       	call   2171820 <AFGBuildableSubsystem::TickFactory(float, ELevelTick)@plt>
+ 180ccf2:	41 8b 3f             	mov    (%r15),%edi
+ 180ccf5:	85 ff                	test   %edi,%edi
+ 180ccf7:	0f 88 d6 01 00 00    	js     180ced3 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x333>
+ 180ccfd:	48 8d 74 24 08       	lea    0x8(%rsp),%rsi
+ 180cd02:	e8 a9 bf 94 00       	call   2158cb0 <clock_gettime@plt>
+ 180cd07:	0f 57 c0             	xorps  %xmm0,%xmm0
+ 180cd0a:	f2 48 0f 2a 44 24 08 	cvtsi2sdq 0x8(%rsp),%xmm0
+ 180cd11:	0f 57 c9             	xorps  %xmm1,%xmm1
+ 180cd14:	f2 48 0f 2a 4c 24 10 	cvtsi2sdq 0x10(%rsp),%xmm1
+ 180cd1b:	f2 0f 5e 0d 6d c9 77 	divsd  -0x883693(%rip),%xmm1        # f89690 <Z_Construct_UClass_AFGAdminInterface_Statics::StaticCppClassTypeInfo+0x47>
+ 180cd22:	ff 
+ 180cd23:	f2 0f 58 c8          	addsd  %xmm0,%xmm1
+ 180cd27:	f2 0f 5c 4c 24 18    	subsd  0x18(%rsp),%xmm1
+ 180cd2d:	f2 41 0f 58 0e       	addsd  (%r14),%xmm1
+ 180cd32:	f2 41 0f 11 0e       	movsd  %xmm1,(%r14)
+ 180cd37:	48 83 c4 20          	add    $0x20,%rsp
+ 180cd3b:	5b                   	pop    %rbx
+ 180cd3c:	41 5c                	pop    %r12
+ 180cd3e:	41 5e                	pop    %r14
+ 180cd40:	41 5f                	pop    %r15
+ 180cd42:	5d                   	pop    %rbp
+ 180cd43:	c3                   	ret    
+ 180cd44:	48 8d 05 93 70 6e ff 	lea    -0x918f6d(%rip),%rax        # ef3dde <(anonymous namespace)::FGHighlightColor+0x7debe>
+ 180cd4b:	48 8d 15 0f 38 6b ff 	lea    -0x94c7f1(%rip),%rdx        # ec0561 <(anonymous namespace)::FGHighlightColor+0x4a641>
+ 180cd52:	48 8d 0d 6d c8 77 ff 	lea    -0x883793(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 180cd59:	49 89 fe             	mov    %rdi,%r14
+ 180cd5c:	48 89 c7             	mov    %rax,%rdi
+ 180cd5f:	89 f5                	mov    %esi,%ebp
+ 180cd61:	48 89 d6             	mov    %rdx,%rsi
+ 180cd64:	ba 0d 04 00 00       	mov    $0x40d,%edx
+ 180cd69:	31 c0                	xor    %eax,%eax
+ 180cd6b:	f3 0f 11 44 24 04    	movss  %xmm0,0x4(%rsp)
+ 180cd71:	e8 0a 9e 93 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 180cd76:	f3 0f 10 44 24 04    	movss  0x4(%rsp),%xmm0
+ 180cd7c:	4c 89 f7             	mov    %r14,%rdi
+ 180cd7f:	89 ee                	mov    %ebp,%esi
+ 180cd81:	84 c0                	test   %al,%al
+ 180cd83:	0f 84 4a fe ff ff    	je     180cbd3 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x33>
+ 180cd89:	cc                   	int3   
+ 180cd8a:	e9 44 fe ff ff       	jmp    180cbd3 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x33>
+ 180cd8f:	48 8d 05 04 7f 6e ff 	lea    -0x9180fc(%rip),%rax        # ef4c9a <(anonymous namespace)::FGHighlightColor+0x7ed7a>
+ 180cd96:	48 8d 15 c4 37 6b ff 	lea    -0x94c83c(%rip),%rdx        # ec0561 <(anonymous namespace)::FGHighlightColor+0x4a641>
+ 180cd9d:	48 8d 0d c2 00 77 ff 	lea    -0x88ff3e(%rip),%rcx        # f7ce66 <(anonymous namespace)::FGHighlightColor+0x106f46>
+ 180cda4:	49 89 fc             	mov    %rdi,%r12
+ 180cda7:	48 89 c7             	mov    %rax,%rdi
+ 180cdaa:	89 f5                	mov    %esi,%ebp
+ 180cdac:	48 89 d6             	mov    %rdx,%rsi
+ 180cdaf:	ba 2c 03 00 00       	mov    $0x32c,%edx
+ 180cdb4:	41 89 d8             	mov    %ebx,%r8d
+ 180cdb7:	31 c0                	xor    %eax,%eax
+ 180cdb9:	f3 0f 11 44 24 04    	movss  %xmm0,0x4(%rsp)
+ 180cdbf:	e8 bc 9d 93 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 180cdc4:	f3 0f 10 44 24 04    	movss  0x4(%rsp),%xmm0
+ 180cdca:	4c 89 e7             	mov    %r12,%rdi
+ 180cdcd:	89 ee                	mov    %ebp,%esi
+ 180cdcf:	84 c0                	test   %al,%al
+ 180cdd1:	0f 84 1c fe ff ff    	je     180cbf3 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x53>
+ 180cdd7:	cc                   	int3   
+ 180cdd8:	e9 16 fe ff ff       	jmp    180cbf3 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x53>
+ 180cddd:	48 8d 05 ff 61 68 ff 	lea    -0x979e01(%rip),%rax        # e92fe3 <(anonymous namespace)::FGHighlightColor+0x1d0c3>
+ 180cde4:	48 8d 15 76 37 6b ff 	lea    -0x94c88a(%rip),%rdx        # ec0561 <(anonymous namespace)::FGHighlightColor+0x4a641>
+ 180cdeb:	48 8d 0d 90 01 77 ff 	lea    -0x88fe70(%rip),%rcx        # f7cf82 <(anonymous namespace)::FGHighlightColor+0x107062>
+ 180cdf2:	49 89 fc             	mov    %rdi,%r12
+ 180cdf5:	48 89 c7             	mov    %rax,%rdi
+ 180cdf8:	89 f5                	mov    %esi,%ebp
+ 180cdfa:	48 89 d6             	mov    %rdx,%rsi
+ 180cdfd:	ba 2d 03 00 00       	mov    $0x32d,%edx
+ 180ce02:	45 89 f0             	mov    %r14d,%r8d
+ 180ce05:	31 c0                	xor    %eax,%eax
+ 180ce07:	f3 0f 11 44 24 04    	movss  %xmm0,0x4(%rsp)
+ 180ce0d:	e8 6e 9d 93 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 180ce12:	f3 0f 10 44 24 04    	movss  0x4(%rsp),%xmm0
+ 180ce18:	4c 89 e7             	mov    %r12,%rdi
+ 180ce1b:	89 ee                	mov    %ebp,%esi
+ 180ce1d:	84 c0                	test   %al,%al
+ 180ce1f:	0f 84 db fd ff ff    	je     180cc00 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x60>
+ 180ce25:	cc                   	int3   
+ 180ce26:	e9 d5 fd ff ff       	jmp    180cc00 <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x60>
+ 180ce2b:	48 8d 05 a1 fc 67 ff 	lea    -0x98035f(%rip),%rax        # e8cad3 <(anonymous namespace)::FGHighlightColor+0x16bb3>
+ 180ce32:	48 8d 15 28 37 6b ff 	lea    -0x94c8d8(%rip),%rdx        # ec0561 <(anonymous namespace)::FGHighlightColor+0x4a641>
+ 180ce39:	48 8d 0d 82 00 77 ff 	lea    -0x88ff7e(%rip),%rcx        # f7cec2 <(anonymous namespace)::FGHighlightColor+0x106fa2>
+ 180ce40:	49 89 fc             	mov    %rdi,%r12
+ 180ce43:	48 89 c7             	mov    %rax,%rdi
+ 180ce46:	89 f5                	mov    %esi,%ebp
+ 180ce48:	48 89 d6             	mov    %rdx,%rsi
+ 180ce4b:	ba 2e 03 00 00       	mov    $0x32e,%edx
+ 180ce50:	41 89 d8             	mov    %ebx,%r8d
+ 180ce53:	31 c0                	xor    %eax,%eax
+ 180ce55:	f3 0f 11 44 24 04    	movss  %xmm0,0x4(%rsp)
+ 180ce5b:	e8 20 9d 93 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 180ce60:	f3 0f 10 44 24 04    	movss  0x4(%rsp),%xmm0
+ 180ce66:	4c 89 e7             	mov    %r12,%rdi
+ 180ce69:	89 ee                	mov    %ebp,%esi
+ 180ce6b:	84 c0                	test   %al,%al
+ 180ce6d:	0f 84 9a fd ff ff    	je     180cc0d <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x6d>
+ 180ce73:	cc                   	int3   
+ 180ce74:	e9 94 fd ff ff       	jmp    180cc0d <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x6d>
+ 180ce79:	48 8d 05 0e 02 6b ff 	lea    -0x94fdf2(%rip),%rax        # ebd08e <(anonymous namespace)::FGHighlightColor+0x4716e>
+ 180ce80:	48 8d 15 da 36 6b ff 	lea    -0x94c926(%rip),%rdx        # ec0561 <(anonymous namespace)::FGHighlightColor+0x4a641>
+ 180ce87:	48 8d 0d 38 c7 77 ff 	lea    -0x8838c8(%rip),%rcx        # f895c6 <(anonymous namespace)::FGHighlightColor+0x1136a6>
+ 180ce8e:	49 89 ff             	mov    %rdi,%r15
+ 180ce91:	48 89 c7             	mov    %rax,%rdi
+ 180ce94:	89 f5                	mov    %esi,%ebp
+ 180ce96:	48 89 d6             	mov    %rdx,%rsi
+ 180ce99:	ba 30 03 00 00       	mov    $0x330,%edx
+ 180ce9e:	31 c0                	xor    %eax,%eax
+ 180cea0:	f3 0f 11 44 24 04    	movss  %xmm0,0x4(%rsp)
+ 180cea6:	e8 d5 9c 93 00       	call   2146b80 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+ 180ceab:	f3 0f 10 44 24 04    	movss  0x4(%rsp),%xmm0
+ 180ceb1:	4c 89 ff             	mov    %r15,%rdi
+ 180ceb4:	89 ee                	mov    %ebp,%esi
+ 180ceb6:	84 c0                	test   %al,%al
+ 180ceb8:	0f 84 60 fd ff ff    	je     180cc1e <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x7e>
+ 180cebe:	cc                   	int3   
+ 180cebf:	e9 5a fd ff ff       	jmp    180cc1e <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x7e>
+ 180cec4:	e8 b7 e9 95 00       	call   216b880 <FUnixTime::CalibrateAndSelectClock()@plt>
+ 180cec9:	89 c7                	mov    %eax,%edi
+ 180cecb:	41 89 07             	mov    %eax,(%r15)
+ 180cece:	e9 db fd ff ff       	jmp    180ccae <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x10e>
+ 180ced3:	e8 a8 e9 95 00       	call   216b880 <FUnixTime::CalibrateAndSelectClock()@plt>
+ 180ced8:	89 c7                	mov    %eax,%edi
+ 180ceda:	41 89 07             	mov    %eax,(%r15)
+ 180cedd:	e9 1b fe ff ff       	jmp    180ccfd <FFactoryTickFunction::ExecuteTick(float, ELevelTick, ENamedThreads::Type, TRefCountPtr<FBaseGraphTask> const&)+0x15d>
+
+server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000187f690 <AFGBuildableSubsystem::RegisterFactoryTickFunction(bool)>:
+ 187f690:	55                   	push   %rbp
+ 187f691:	41 56                	push   %r14
+ 187f693:	53                   	push   %rbx
+ 187f694:	89 f5                	mov    %esi,%ebp
+ 187f696:	48 89 fb             	mov    %rdi,%rbx
+ 187f699:	be 30 00 00 00       	mov    $0x30,%esi
+ 187f69e:	e8 6d 17 8d 00       	call   2150e10 <UObjectBaseUtility::IsTemplate(EObjectFlags) const@plt>
+ 187f6a3:	84 c0                	test   %al,%al
+ 187f6a5:	75 48                	jne    187f6ef <AFGBuildableSubsystem::RegisterFactoryTickFunction(bool)+0x5f>
+ 187f6a7:	4c 8d b3 d8 06 00 00 	lea    0x6d8(%rbx),%r14
+ 187f6ae:	40 84 ed             	test   %bpl,%bpl
+ 187f6b1:	74 4e                	je     187f701 <AFGBuildableSubsystem::RegisterFactoryTickFunction(bool)+0x71>
+ 187f6b3:	0f b7 83 e2 06 00 00 	movzwl 0x6e2(%rbx),%eax
+ 187f6ba:	a8 02                	test   $0x2,%al
+ 187f6bc:	74 54                	je     187f712 <AFGBuildableSubsystem::RegisterFactoryTickFunction(bool)+0x82>
+ 187f6be:	48 89 9b 00 07 00 00 	mov    %rbx,0x700(%rbx)
+ 187f6c5:	31 f6                	xor    %esi,%esi
+ 187f6c7:	a9 04 0c 00 00       	test   $0xc04,%eax
+ 187f6cc:	40 0f 95 c6          	setne  %sil
+ 187f6d0:	4c 89 f7             	mov    %r14,%rdi
+ 187f6d3:	e8 38 ce 8e 00       	call   216c510 <FTickFunction::SetTickFunctionEnable(bool)@plt>
+ 187f6d8:	48 89 df             	mov    %rbx,%rdi
+ 187f6db:	e8 f0 ee 8e 00       	call   216e5d0 <AActor::GetLevel() const@plt>
+ 187f6e0:	4c 89 f7             	mov    %r14,%rdi
+ 187f6e3:	48 89 c6             	mov    %rax,%rsi
+ 187f6e6:	5b                   	pop    %rbx
+ 187f6e7:	41 5e                	pop    %r14
+ 187f6e9:	5d                   	pop    %rbp
+ 187f6ea:	e9 31 0c 8f 00       	jmp    2170320 <FTickFunction::RegisterTickFunction(ULevel*)@plt>
+ 187f6ef:	e8 aa 01 8c 00       	call   213f89e <AFGBuildableSubsystem::RegisterFactoryTickFunction(bool)::Impl::ExecCheckImplInternal()>
+ 187f6f4:	cc                   	int3   
+ 187f6f5:	4c 8d b3 d8 06 00 00 	lea    0x6d8(%rbx),%r14
+ 187f6fc:	40 84 ed             	test   %bpl,%bpl
+ 187f6ff:	75 b2                	jne    187f6b3 <AFGBuildableSubsystem::RegisterFactoryTickFunction(bool)+0x23>
+ 187f701:	48 8b 83 f8 06 00 00 	mov    0x6f8(%rbx),%rax
+ 187f708:	48 85 c0             	test   %rax,%rax
+ 187f70b:	74 05                	je     187f712 <AFGBuildableSubsystem::RegisterFactoryTickFunction(bool)+0x82>
+ 187f70d:	f6 00 01             	testb  $0x1,(%rax)
+ 187f710:	75 05                	jne    187f717 <AFGBuildableSubsystem::RegisterFactoryTickFunction(bool)+0x87>
+ 187f712:	5b                   	pop    %rbx
+ 187f713:	41 5e                	pop    %r14
+ 187f715:	5d                   	pop    %rbp
+ 187f716:	c3                   	ret    
+ 187f717:	4c 89 f7             	mov    %r14,%rdi
+ 187f71a:	5b                   	pop    %rbx
+ 187f71b:	41 5e                	pop    %r14
+ 187f71d:	5d                   	pop    %rbp
+ 187f71e:	e9 dd 0b 8f 00       	jmp    2170300 <FTickFunction::UnRegisterTickFunction()@plt>
+ 187f723:	66                   	data16
+ 187f724:	66                   	data16
+ 187f725:	66                   	data16
+ 187f726:	66                   	data16
+ 187f727:	2e                   	cs
+ 187f728:	0f                   	.byte 0xf
+ 187f729:	1f                   	(bad)  
+ 187f72a:	84 00                	test   %al,(%rax)

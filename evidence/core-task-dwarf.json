@@ -1,0 +1,4495 @@
+[
+  {
+    "cu": "0x22",
+    "offset": "0x9cbb",
+    "name": "FTaskBase",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 35290,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "_vptr$FTaskBase",
+          "DW_AT_type": 108084,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutionFlag",
+          "DW_AT_type": 107509
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "RefCount",
+          "DW_AT_type": 122394,
+          "DW_AT_data_member_location": 8
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumInitialLocks",
+          "DW_AT_type": 107509
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumLocks",
+          "DW_AT_type": 122394,
+          "DW_AT_data_member_location": 12
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Pipe",
+          "DW_AT_type": 301682,
+          "DW_AT_data_member_location": 16
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "StateChangeEvent",
+          "DW_AT_type": 46371,
+          "DW_AT_data_member_location": 24
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExtendedPriority",
+          "DW_AT_type": 43137,
+          "DW_AT_data_member_location": 28
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutingThreadId",
+          "DW_AT_type": 122394,
+          "DW_AT_data_member_location": 32
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Prerequisites",
+          "DW_AT_type": 40237,
+          "DW_AT_data_member_location": 40
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "LowLevelTask",
+          "DW_AT_type": 257824,
+          "DW_AT_data_member_location": 72
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Subsequents",
+          "DW_AT_type": 40443,
+          "DW_AT_data_member_location": 136
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 304359
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 304359
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddRef"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Release"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetRefCount",
+          "DW_AT_type": 107514
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Init"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ExecuteTask",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            2
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsAwaitable",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsNamedThreadTask",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPriority",
+          "DW_AT_type": 261815
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetExtendedPriority",
+          "DW_AT_type": 43137
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddSubsequent",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "SetPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPipe",
+          "DW_AT_type": 301682
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryLaunch",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsCompleted",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryRetractAndExecute",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleaseInternalReference"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddNested"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitWithNamedThreadsSupport"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "BusyWait",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetTraceId",
+          "DW_AT_type": 305912
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryExecuteTask",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Close"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ClearPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryUnlock",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Schedule"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryPushIntoPipe",
+          "DW_AT_type": 303839
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TrySetExecutionFlag",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleasePrerequisites"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "StartPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FinishPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitImpl",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "UnlockPrerequisites"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites<TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4U, 32, TSizedDefaultAllocator<32> > >, nullptr>"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites<TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4U, 32, TSizedDefaultAllocator<32> > >, nullptr>"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites<TRefCountPtr<FBaseGraphTask>, nullptr>",
+          "DW_AT_type": 108113
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x22",
+    "offset": "0x3f2c0",
+    "name": "FTaskBase",
+    "size": 64,
+    "children": [
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Runnable",
+          "DW_AT_type": 258742,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "UserData",
+          "DW_AT_type": 109517,
+          "DW_AT_data_member_location": 48
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "PackedData",
+          "DW_AT_type": 258780,
+          "DW_AT_data_member_location": 56
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 267771
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 267771
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x22",
+    "offset": "0x49538",
+    "name": "FTaskGraphInterface",
+    "size": 8,
+    "children": [
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "_vptr$FTaskGraphInterface",
+          "DW_AT_type": 108084,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "QueueTask",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskGraphInterface",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Startup"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Shutdown"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsRunning",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Get",
+          "DW_AT_type": 311311
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsMultithread",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetCurrentThreadIfKnown",
+          "DW_AT_type": 293513,
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            3
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsCurrentThreadKnown",
+          "DW_AT_type": 108113,
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            4
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetNumWorkerThreads",
+          "DW_AT_type": 160980,
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            5
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetNumForegroundThreads",
+          "DW_AT_type": 160980,
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            6
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetNumBackgroundThreads",
+          "DW_AT_type": 160980,
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            7
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsThreadProcessingTasks",
+          "DW_AT_type": 108113,
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            8
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AttachToThread",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            9
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ProcessThreadUntilIdle",
+          "DW_AT_type": 108655,
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            10
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ProcessThreadUntilRequestReturn",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            11
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "RequestReturn",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            12
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitUntilTasksComplete",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            13
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ProcessUntilTasksComplete",
+          "DW_AT_type": 108113,
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            14
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TriggerEventWhenTasksComplete",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            15
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitUntilTaskCompletes"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitUntilTaskCompletes"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TriggerEventWhenTaskCompletes"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FindWork",
+          "DW_AT_type": 301279,
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            16
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "StallForTuning",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            17
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddShutdownCallback",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            18
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WakeNamedThread",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            19
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "BroadcastSlow_OnlyUseForSpecialPurposes"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x22",
+    "offset": "0x49907",
+    "name": "FBaseGraphTask",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 40089,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FBaseGraphTask"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Init"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Execute"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetCompletionEvent",
+          "DW_AT_type": 311289
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DontCompleteUntil"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsComplete",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "CreateGraphEvent",
+          "DW_AT_type": 311289
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsTaskEvent",
+          "DW_AT_type": 108113
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Unlock"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DispatchSubsequents"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DispatchSubsequents"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "SetDebugName"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetThreadToExecuteOn",
+          "DW_AT_type": 293513
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FBaseGraphTask",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x22",
+    "offset": "0xb1867",
+    "name": "FGraphEventImpl",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 301285,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FGraphEventImpl"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator new",
+          "DW_AT_type": 109517
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator delete"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ExecuteTask",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            2
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FGraphEventImpl",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0xf7a28",
+    "offset": "0x10e5f6",
+    "name": "FTaskBase",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 94833,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "_vptr$FTaskBase",
+          "DW_AT_type": 147875,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutionFlag",
+          "DW_AT_type": 193902
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumInitialLocks",
+          "DW_AT_type": 193902
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "RefCount",
+          "DW_AT_type": 166848,
+          "DW_AT_data_member_location": 8
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumLocks",
+          "DW_AT_type": 166848,
+          "DW_AT_data_member_location": 12
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Pipe",
+          "DW_AT_type": 354162,
+          "DW_AT_data_member_location": 16
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "StateChangeEvent",
+          "DW_AT_type": 94890,
+          "DW_AT_data_member_location": 24
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExtendedPriority",
+          "DW_AT_type": 94698,
+          "DW_AT_data_member_location": 28
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutingThreadId",
+          "DW_AT_type": 166848,
+          "DW_AT_data_member_location": 32
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Prerequisites",
+          "DW_AT_type": 93282,
+          "DW_AT_data_member_location": 40
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "LowLevelTask",
+          "DW_AT_type": 318436,
+          "DW_AT_data_member_location": 72
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Subsequents",
+          "DW_AT_type": 93487,
+          "DW_AT_data_member_location": 136
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 356997
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 356997
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddRef"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Release"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetRefCount",
+          "DW_AT_type": 148083
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Init"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ExecuteTask",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            2
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsAwaitable",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsNamedThreadTask",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPriority",
+          "DW_AT_type": 322420
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetExtendedPriority",
+          "DW_AT_type": 94698
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddSubsequent",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "SetPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPipe",
+          "DW_AT_type": 354162
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryLaunch",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsCompleted",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryRetractAndExecute",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleaseInternalReference"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddNested"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitWithNamedThreadsSupport"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "BusyWait",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetTraceId",
+          "DW_AT_type": 357020
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryExecuteTask",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Close"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ClearPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryUnlock",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Schedule"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryPushIntoPipe",
+          "DW_AT_type": 356313
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TrySetExecutionFlag",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleasePrerequisites"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "StartPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FinishPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitImpl",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "UnlockPrerequisites"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites<TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4U, 32, TSizedDefaultAllocator<32> > >, nullptr>"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0xf7a28",
+    "offset": "0x145987",
+    "name": "FTaskBase",
+    "size": 64,
+    "children": [
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Runnable",
+          "DW_AT_type": 319351,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "UserData",
+          "DW_AT_type": 164426,
+          "DW_AT_data_member_location": 48
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "PackedData",
+          "DW_AT_type": 319389,
+          "DW_AT_data_member_location": 56
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 323422
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 323422
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0xf7a28",
+    "offset": "0x14e00a",
+    "name": "FBaseGraphTask",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 93134,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FBaseGraphTask"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Init"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Execute"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetCompletionEvent",
+          "DW_AT_type": 357385
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DontCompleteUntil"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsComplete",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "CreateGraphEvent",
+          "DW_AT_type": 357385
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsTaskEvent",
+          "DW_AT_type": 151655
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Unlock"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DispatchSubsequents"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DispatchSubsequents"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "SetDebugName"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetThreadToExecuteOn",
+          "DW_AT_type": 357157
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FBaseGraphTask",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0xf7a28",
+    "offset": "0x20ea13",
+    "name": "FGraphEventImpl",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 353762,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FGraphEventImpl"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator new",
+          "DW_AT_type": 164426
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator delete"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ExecuteTask",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            2
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FGraphEventImpl",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x23d779",
+    "offset": "0x2c414a",
+    "name": "FTaskBase",
+    "size": 64,
+    "children": [
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Runnable",
+          "DW_AT_type": 551401,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "UserData",
+          "DW_AT_type": 102046,
+          "DW_AT_data_member_location": 48
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "PackedData",
+          "DW_AT_type": 551439,
+          "DW_AT_data_member_location": 56
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 649757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 649757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x433ed3",
+    "offset": "0x4b2cdb",
+    "name": "FTaskBase",
+    "size": 64,
+    "children": [
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Runnable",
+          "DW_AT_type": 519712,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "UserData",
+          "DW_AT_type": 68479,
+          "DW_AT_data_member_location": 48
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "PackedData",
+          "DW_AT_type": 519750,
+          "DW_AT_data_member_location": 56
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 582390
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 582390
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x5c36c8",
+    "offset": "0x5d017f",
+    "name": "FTaskBase",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 53589,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "_vptr$FTaskBase",
+          "DW_AT_type": 166496,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutionFlag",
+          "DW_AT_type": 83306
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumInitialLocks",
+          "DW_AT_type": 83306
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "RefCount",
+          "DW_AT_type": 114123,
+          "DW_AT_data_member_location": 8
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumLocks",
+          "DW_AT_type": 114123,
+          "DW_AT_data_member_location": 12
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Pipe",
+          "DW_AT_type": 585572,
+          "DW_AT_data_member_location": 16
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "StateChangeEvent",
+          "DW_AT_type": 53644,
+          "DW_AT_data_member_location": 24
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExtendedPriority",
+          "DW_AT_type": 53454,
+          "DW_AT_data_member_location": 28
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutingThreadId",
+          "DW_AT_type": 114123,
+          "DW_AT_data_member_location": 32
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Prerequisites",
+          "DW_AT_type": 52043,
+          "DW_AT_data_member_location": 40
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "LowLevelTask",
+          "DW_AT_type": 588220,
+          "DW_AT_data_member_location": 72
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Subsequents",
+          "DW_AT_type": 52248,
+          "DW_AT_data_member_location": 136
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 593286
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 593286
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddRef"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Release"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetRefCount",
+          "DW_AT_type": 83311
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Init"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ExecuteTask",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            2
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsAwaitable",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsNamedThreadTask",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPriority",
+          "DW_AT_type": 592203
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetExtendedPriority",
+          "DW_AT_type": 53454
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddSubsequent",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "SetPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPipe",
+          "DW_AT_type": 585572
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryLaunch",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsCompleted",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryRetractAndExecute",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleaseInternalReference"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddNested"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitWithNamedThreadsSupport"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "BusyWait",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetTraceId",
+          "DW_AT_type": 593309
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryExecuteTask",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Close"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ClearPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryUnlock",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Schedule"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryPushIntoPipe",
+          "DW_AT_type": 587723
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TrySetExecutionFlag",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleasePrerequisites"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "StartPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FinishPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitImpl",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "UnlockPrerequisites"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites<TArray<TRefCountPtr<FBaseGraphTask>, TSizedInlineAllocator<4U, 32, TSizedDefaultAllocator<32> > >, nullptr>"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x5c36c8",
+    "offset": "0x652499",
+    "name": "FBaseGraphTask",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 51895,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FBaseGraphTask"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Init"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Execute"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetCompletionEvent",
+          "DW_AT_type": 584673
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DontCompleteUntil"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsComplete",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "CreateGraphEvent",
+          "DW_AT_type": 584673
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsTaskEvent",
+          "DW_AT_type": 108757
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Unlock"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DispatchSubsequents"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DispatchSubsequents"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "SetDebugName"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetThreadToExecuteOn",
+          "DW_AT_type": 596027
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FBaseGraphTask",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x5c36c8",
+    "offset": "0x653400",
+    "name": "FTaskBase",
+    "size": 64,
+    "children": [
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Runnable",
+          "DW_AT_type": 589136,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "UserData",
+          "DW_AT_type": 113579,
+          "DW_AT_data_member_location": 48
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "PackedData",
+          "DW_AT_type": 589174,
+          "DW_AT_data_member_location": 56
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 593187
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 593187
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x7d63cb",
+    "offset": "0x7e5601",
+    "name": "FTaskBase",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 60482,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "_vptr$FTaskBase",
+          "DW_AT_type": 246681,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutionFlag",
+          "DW_AT_type": 178835
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumInitialLocks",
+          "DW_AT_type": 178835
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "RefCount",
+          "DW_AT_type": 201994,
+          "DW_AT_data_member_location": 8
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumLocks",
+          "DW_AT_type": 201994,
+          "DW_AT_data_member_location": 12
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Pipe",
+          "DW_AT_type": 325182,
+          "DW_AT_data_member_location": 16
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "StateChangeEvent",
+          "DW_AT_type": 67491,
+          "DW_AT_data_member_location": 24
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExtendedPriority",
+          "DW_AT_type": 66491,
+          "DW_AT_data_member_location": 28
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutingThreadId",
+          "DW_AT_type": 201994,
+          "DW_AT_data_member_location": 32
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Prerequisites",
+          "DW_AT_type": 62155,
+          "DW_AT_data_member_location": 40
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "LowLevelTask",
+          "DW_AT_type": 327997,
+          "DW_AT_data_member_location": 72
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Subsequents",
+          "DW_AT_type": 62364,
+          "DW_AT_data_member_location": 136
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 331995
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 331995
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddRef"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Release"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetRefCount",
+          "DW_AT_type": 178840
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Init"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ExecuteTask",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            2
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsAwaitable",
+          "DW_AT_type": 179916
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsNamedThreadTask",
+          "DW_AT_type": 179916
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPriority",
+          "DW_AT_type": 331232
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetExtendedPriority",
+          "DW_AT_type": 66491
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites",
+          "DW_AT_type": 179916
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddSubsequent",
+          "DW_AT_type": 179916
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "SetPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPipe",
+          "DW_AT_type": 325182
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryLaunch",
+          "DW_AT_type": 179916
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsCompleted",
+          "DW_AT_type": 179916
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryRetractAndExecute",
+          "DW_AT_type": 179916
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleaseInternalReference"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddNested"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait",
+          "DW_AT_type": 179916
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitWithNamedThreadsSupport"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "BusyWait",
+          "DW_AT_type": 179916
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetTraceId",
+          "DW_AT_type": 332041
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryExecuteTask",
+          "DW_AT_type": 179916
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Close"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ClearPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryUnlock",
+          "DW_AT_type": 179916
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Schedule"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryPushIntoPipe",
+          "DW_AT_type": 327360
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TrySetExecutionFlag",
+          "DW_AT_type": 179916
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleasePrerequisites"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "StartPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FinishPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitImpl",
+          "DW_AT_type": 179916
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "UnlockPrerequisites"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites<TStaticArray<UE::Tasks::Private::FTaskBase *, 1U, 8U>, nullptr>"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites<TStaticArray<UE::Tasks::Private::FTaskBase *, 1U, 8U>, nullptr>"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites<UE::Tasks::Private::FTaskHandle, nullptr>",
+          "DW_AT_type": 179916
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x7d63cb",
+    "offset": "0x7e653b",
+    "name": "FTaskEventBase",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 62006,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Create",
+          "DW_AT_type": 2087272
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator new",
+          "DW_AT_type": 197546
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator delete"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskEventBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ExecuteTask",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            2
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskEventBase",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x7d63cb",
+    "offset": "0x826855",
+    "name": "FTaskBase",
+    "size": 64,
+    "children": [
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Runnable",
+          "DW_AT_type": 328866,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "UserData",
+          "DW_AT_type": 197546,
+          "DW_AT_data_member_location": 48
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "PackedData",
+          "DW_AT_type": 328904,
+          "DW_AT_data_member_location": 56
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 331896
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 331896
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0xe2b405",
+    "offset": "0xe39a22",
+    "name": "FTaskBase",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 58116,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "_vptr$FTaskBase",
+          "DW_AT_type": 168381,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutionFlag",
+          "DW_AT_type": 92043
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "RefCount",
+          "DW_AT_type": 119404,
+          "DW_AT_data_member_location": 8
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumInitialLocks",
+          "DW_AT_type": 92043
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumLocks",
+          "DW_AT_type": 119404,
+          "DW_AT_data_member_location": 12
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Pipe",
+          "DW_AT_type": 644652,
+          "DW_AT_data_member_location": 16
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "StateChangeEvent",
+          "DW_AT_type": 60482,
+          "DW_AT_data_member_location": 24
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExtendedPriority",
+          "DW_AT_type": 58770,
+          "DW_AT_data_member_location": 28
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutingThreadId",
+          "DW_AT_type": 119404,
+          "DW_AT_data_member_location": 32
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Prerequisites",
+          "DW_AT_type": 59057,
+          "DW_AT_data_member_location": 40
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "LowLevelTask",
+          "DW_AT_type": 530582,
+          "DW_AT_data_member_location": 72
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Subsequents",
+          "DW_AT_type": 59266,
+          "DW_AT_data_member_location": 136
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 647817
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 647817
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddRef"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Release"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetRefCount",
+          "DW_AT_type": 92048
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Init"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ExecuteTask",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            2
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsAwaitable",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsNamedThreadTask",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPriority",
+          "DW_AT_type": 530308
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetExtendedPriority",
+          "DW_AT_type": 58770
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddSubsequent",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "SetPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPipe",
+          "DW_AT_type": 644652
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryLaunch",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsCompleted",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryRetractAndExecute",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleaseInternalReference"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddNested"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitWithNamedThreadsSupport"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "BusyWait",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetTraceId",
+          "DW_AT_type": 529472
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryExecuteTask",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Close"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ClearPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryUnlock",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Schedule"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryPushIntoPipe",
+          "DW_AT_type": 646830
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TrySetExecutionFlag",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleasePrerequisites"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "StartPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FinishPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitImpl",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "UnlockPrerequisites"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0xe2b405",
+    "offset": "0xeacfe9",
+    "name": "FTaskBase",
+    "size": 64,
+    "children": [
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Runnable",
+          "DW_AT_type": 531452,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "UserData",
+          "DW_AT_type": 110581,
+          "DW_AT_data_member_location": 48
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "PackedData",
+          "DW_AT_type": 531490,
+          "DW_AT_data_member_location": 56
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 647718
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 647718
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0xe2b405",
+    "offset": "0xec889b",
+    "name": "FBaseGraphTask",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 58909,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FBaseGraphTask"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Init"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Execute"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetCompletionEvent",
+          "DW_AT_type": 643747
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DontCompleteUntil"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsComplete",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "CreateGraphEvent",
+          "DW_AT_type": 643747
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsTaskEvent",
+          "DW_AT_type": 95640
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Unlock"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DispatchSubsequents"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DispatchSubsequents"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "SetDebugName"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetThreadToExecuteOn",
+          "DW_AT_type": 565845
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FBaseGraphTask",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x10466ff",
+    "offset": "0x1086c4c",
+    "name": "FTaskBase",
+    "size": 64,
+    "children": [
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Runnable",
+          "DW_AT_type": 263525,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "UserData",
+          "DW_AT_type": 90717,
+          "DW_AT_data_member_location": 48
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "PackedData",
+          "DW_AT_type": 263563,
+          "DW_AT_data_member_location": 56
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 292875
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 292875
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x1108fda",
+    "offset": "0x1109338",
+    "name": "FTaskBase",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 9460,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "_vptr$FTaskBase",
+          "DW_AT_type": 224523,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutionFlag",
+          "DW_AT_type": 142507
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumInitialLocks",
+          "DW_AT_type": 142507
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "RefCount",
+          "DW_AT_type": 146689,
+          "DW_AT_data_member_location": 8
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumLocks",
+          "DW_AT_type": 146689,
+          "DW_AT_data_member_location": 12
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Pipe",
+          "DW_AT_type": 227816,
+          "DW_AT_data_member_location": 16
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "StateChangeEvent",
+          "DW_AT_type": 9515,
+          "DW_AT_data_member_location": 24
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExtendedPriority",
+          "DW_AT_type": 8222,
+          "DW_AT_data_member_location": 28
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutingThreadId",
+          "DW_AT_type": 146689,
+          "DW_AT_data_member_location": 32
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Prerequisites",
+          "DW_AT_type": 1010,
+          "DW_AT_data_member_location": 40
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "LowLevelTask",
+          "DW_AT_type": 231937,
+          "DW_AT_data_member_location": 72
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Subsequents",
+          "DW_AT_type": 1215,
+          "DW_AT_data_member_location": 136
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 236249
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 236249
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddRef"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Release"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetRefCount",
+          "DW_AT_type": 142512
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Init"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ExecuteTask",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            2
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsAwaitable",
+          "DW_AT_type": 200940
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsNamedThreadTask",
+          "DW_AT_type": 200940
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPriority",
+          "DW_AT_type": 235168
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetExtendedPriority",
+          "DW_AT_type": 8222
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites",
+          "DW_AT_type": 200940
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddSubsequent",
+          "DW_AT_type": 200940
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "SetPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPipe",
+          "DW_AT_type": 227816
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryLaunch",
+          "DW_AT_type": 200940
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsCompleted",
+          "DW_AT_type": 200940
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryRetractAndExecute",
+          "DW_AT_type": 200940
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleaseInternalReference"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddNested"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait",
+          "DW_AT_type": 200940
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitWithNamedThreadsSupport"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "BusyWait",
+          "DW_AT_type": 200940
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetTraceId",
+          "DW_AT_type": 238108
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryExecuteTask",
+          "DW_AT_type": 200940
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Close"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ClearPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryUnlock",
+          "DW_AT_type": 200940
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Schedule"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryPushIntoPipe",
+          "DW_AT_type": 231288
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TrySetExecutionFlag",
+          "DW_AT_type": 200940
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleasePrerequisites"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "StartPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FinishPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitImpl",
+          "DW_AT_type": 200940
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "UnlockPrerequisites"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x1108fda",
+    "offset": "0x1141d26",
+    "name": "FTaskBase",
+    "size": 64,
+    "children": [
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Runnable",
+          "DW_AT_type": 232804,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "UserData",
+          "DW_AT_type": 205340,
+          "DW_AT_data_member_location": 48
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "PackedData",
+          "DW_AT_type": 232842,
+          "DW_AT_data_member_location": 56
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 236057
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 236057
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x11ec583",
+    "offset": "0x11f37f9",
+    "name": "FTaskBase",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 30878,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "_vptr$FTaskBase",
+          "DW_AT_type": 62391,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutionFlag",
+          "DW_AT_type": 59951
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "RefCount",
+          "DW_AT_type": 69048,
+          "DW_AT_data_member_location": 8
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumInitialLocks",
+          "DW_AT_type": 59951
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "NumLocks",
+          "DW_AT_type": 69048,
+          "DW_AT_data_member_location": 12
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Pipe",
+          "DW_AT_type": 413699,
+          "DW_AT_data_member_location": 16
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "StateChangeEvent",
+          "DW_AT_type": 30933,
+          "DW_AT_data_member_location": 24
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExtendedPriority",
+          "DW_AT_type": 29163,
+          "DW_AT_data_member_location": 28
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "ExecutingThreadId",
+          "DW_AT_type": 69048,
+          "DW_AT_data_member_location": 32
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Prerequisites",
+          "DW_AT_type": 29451,
+          "DW_AT_data_member_location": 40
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "LowLevelTask",
+          "DW_AT_type": 321288,
+          "DW_AT_data_member_location": 72
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Subsequents",
+          "DW_AT_type": 29661,
+          "DW_AT_data_member_location": 136
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 416861
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 416861
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddRef"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Release"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetRefCount",
+          "DW_AT_type": 59956
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Init"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ExecuteTask",
+          "DW_AT_virtuality": 2,
+          "DW_AT_vtable_elem_location": [
+            16,
+            2
+          ]
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsAwaitable",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsNamedThreadTask",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPriority",
+          "DW_AT_type": 321014
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetExtendedPriority",
+          "DW_AT_type": 29163
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddPrerequisites",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddSubsequent",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "SetPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetPipe",
+          "DW_AT_type": 413699
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryLaunch",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsCompleted",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryRetractAndExecute",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleaseInternalReference"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "AddNested"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitWithNamedThreadsSupport"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "BusyWait",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetTraceId",
+          "DW_AT_type": 320200
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryExecuteTask",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Close"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ClearPipe"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryUnlock",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Schedule"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TryPushIntoPipe",
+          "DW_AT_type": 415874
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "TrySetExecutionFlag",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "ReleasePrerequisites"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "StartPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FinishPipeExecution"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "WaitImpl",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "UnlockPrerequisites"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x11ec583",
+    "offset": "0x123afd9",
+    "name": "FTaskBase",
+    "size": 64,
+    "children": [
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "Runnable",
+          "DW_AT_type": 322158,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "UserData",
+          "DW_AT_type": 62115,
+          "DW_AT_data_member_location": 48
+        }
+      },
+      {
+        "tag": "DW_TAG_member",
+        "attributes": {
+          "DW_AT_name": "PackedData",
+          "DW_AT_type": 322196,
+          "DW_AT_data_member_location": 56
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 416762
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "operator=",
+          "DW_AT_type": 416762
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FTaskBase"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FTaskBase"
+        }
+      }
+    ]
+  },
+  {
+    "cu": "0x11ec583",
+    "offset": "0x12513ec",
+    "name": "FBaseGraphTask",
+    "size": 168,
+    "children": [
+      {
+        "tag": "DW_TAG_inheritance",
+        "attributes": {
+          "DW_AT_type": 29302,
+          "DW_AT_data_member_location": 0
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "FBaseGraphTask"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Init"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Execute"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetCompletionEvent",
+          "DW_AT_type": 412789
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DontCompleteUntil"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsComplete",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "CreateGraphEvent",
+          "DW_AT_type": 412789
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "IsTaskEvent",
+          "DW_AT_type": 61927
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Unlock"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DispatchSubsequents"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "DispatchSubsequents"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "SetDebugName"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "Wait"
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "GetThreadToExecuteOn",
+          "DW_AT_type": 339666
+        }
+      },
+      {
+        "tag": "DW_TAG_subprogram",
+        "attributes": {
+          "DW_AT_name": "~FBaseGraphTask",
+          "DW_AT_virtuality": 1,
+          "DW_AT_vtable_elem_location": [
+            16,
+            0
+          ]
+        }
+      }
+    ]
+  }
+]

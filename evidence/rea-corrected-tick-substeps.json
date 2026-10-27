@@ -1,0 +1,94 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"evidence_id\":\"ev_6eb823912cf018cd8b958b2c07ac6243db293d53d5d266190516cd038ac7c9e7\",\"subject\":{\"name\":\"libFactoryServer-FactoryGame-Linux-Shipping.so\",\"digest\":{\"sha256\":\"637c2c70e65f6386697a6a5f5746f64b187d2fcfeee56df1aeef3f172268c0c1\"},\"local_path\":\"/var/www/async_SatisDedicated/server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so\",\"format\":\"elf\",\"architecture\":\"x86_64\"},\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"analysis_profile\":{\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"parameters\":{\"target_kind\":\"executable\",\"target_format\":\"elf\",\"architecture\":\"x86_64\",\"available_architectures\":[\"x86_64\"],\"import_mode\":\"ephemeral-source-immutable\",\"annotation_policy\":\"atomic-function-entry-metadata-v1\",\"load_image_observations\":\"source-mappings-entry-context-v2\",\"function_body_evidence\":\"complete-inclusive-ranges-v1\",\"function_references\":\"complete-body-and-entry-reference-manager-v2\",\"call_relationship_coverage\":\"function-body-call-coverage-v5\",\"function_dossier_coverage\":\"observed-facets-and-call-relationships-v1\",\"string_inventory_evidence\":\"defined-data-coverage-v1\",\"location_resolution\":\"explicit-address-exact-entry-symbol-first-v3\",\"procedure_file_offset_resolution\":\"address-first-unique-target-source-mapping-v2\",\"instruction_flow_evidence\":\"decoded-return-pcode-v1\",\"instruction_references\":\"exact-address-incoming-without-synthetic-entry-v2\",\"function_boundary_observations\":\"ghidra-function-boundary-limitations-v4\",\"no_return_repair\":\"returning-imports-decoded-return-v2\",\"process_launch\":\"inspected-jvm-launch-support-v1\",\"jump_table_evidence\":\"typed-case-default-blocks-v1\",\"decompiler_jump_loads\":true,\"loader\":\"auto-from-header\",\"language_id\":\"auto-from-header\",\"compiler_spec_id\":\"auto-default\",\"analyzer_preset\":\"ghidra-default\",\"function_coordinate_context\":{\"kind\":\"native-function-coordinate-context-v1\",\"selected_image\":null,\"mapping_sha256\":\"55a7964dc0bcdf067484a281c658e6ca8457a49405e0ea9dbd080366ee4c3198\"}},\"digest\":\"ae80ece8c83379eddabbdf379bbffca5da84c7df7fa7c159f45fa810468f85d9\"},\"predicate_type\":\"rea.analysis\",\"operation\":\"procedure_pseudo_code\",\"parameters\":{\"procedure\":\"_ZN21AFGBuildableSubsystem11TickFactoryEf10ELevelTick\"},\"raw_result\":null,\"normalized_result\":\"\\n/* AFGBuildableSubsystem::TickFactory(float, ELevelTick) */\\n\\nvoid __thiscall\\nAFGBuildableSubsystem::TickFactory(float param_1,AFGBuildableSubsystem *this,int param_3)\\n\\n{\\n  long lVar1;\\n  long lVar2;\\n  int iVar3;\\n  int iVar4;\\n  float fVar5;\\n  float fVar6;\\n  \\n  if ((((this != (AFGBuildableSubsystem *)0x0) && (param_3 != 1)) &&\\n      ((*(uint *)(this + 8) & 0x40000000) == 0)) && (lVar1 = AActor::GetWorld(), lVar1 != 0)) {\\n    lVar2 = Z_Construct_UClass_UFGFactoryTickSettings_NoRegister();\\n    lVar1 = *(long *)(lVar2 + 0x110);\\n    if (lVar1 == 0) {\\n      UClass::InternalCreateDefaultObjectWrapper();\\n      lVar1 = *(long *)(lVar2 + 0x110);\\n    }\\n    fVar5 = *(float *)(lVar1 + 0x38);\\n    lVar2 = Z_Construct_UClass_UFGFactoryTickSettings_NoRegister();\\n    lVar1 = *(long *)(lVar2 + 0x110);\\n    if (lVar1 == 0) {\\n      UClass::InternalCreateDefaultObjectWrapper();\\n      lVar1 = *(long *)(lVar2 + 0x110);\\n    }\\n    iVar4 = *(int *)(lVar1 + 0x3c);\\n    fVar6 = (float)iVar4 * fVar5;\\n    if (param_1 <= fVar6) {\\n      fVar6 = param_1;\\n    }\\n    fVar5 = (1.0 / fVar5) * fVar6;\\n    iVar3 = -((int)ROUND(-0.5 - (fVar5 + fVar5)) >> 1);\\n    if (iVar4 <= iVar3) {\\n      iVar3 = iVar4;\\n    }\\n    iVar4 = 1;\\n    if (1 < iVar3) {\\n      iVar4 = iVar3;\\n    }\\n    *(float *)(this + 0x7c8) = fVar6 + *(float *)(this + 0x7c8);\\n    mCurrentSubStepMax = (char)iVar4 + -1;\\n    iVar3 = 0;\\n    do {\\n      mCurrentSubStep = (undefined1)iVar3;\\n      TickFactoryActors(this,fVar6 / (float)iVar4);\\n      iVar3 = iVar3 + 1;\\n    } while (iVar4 != iVar3);\\n  }\\n  return;\\n}\\n\\n\",\"confidence\":\"observed\",\"authority\":\"shipped-artifact\",\"environment\":null,\"limitations\":[\"The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.\",\"The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.\",\"Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.\",\"Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.\",\"Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.\",\"External functions and functions without an analyzable body return null; other decompiler failures remain explicit.\"],\"relationship_coverage\":null,\"locations\":[],\"evidence_links\":[]}"
+    }
+  ],
+  "structuredContent": {
+    "evidence_id": "ev_6eb823912cf018cd8b958b2c07ac6243db293d53d5d266190516cd038ac7c9e7",
+    "subject": {
+      "name": "libFactoryServer-FactoryGame-Linux-Shipping.so",
+      "digest": {
+        "sha256": "637c2c70e65f6386697a6a5f5746f64b187d2fcfeee56df1aeef3f172268c0c1"
+      },
+      "local_path": "/var/www/async_SatisDedicated/server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so",
+      "format": "elf",
+      "architecture": "x86_64"
+    },
+    "provider": {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "version": "12.1.4"
+    },
+    "analysis_profile": {
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "parameters": {
+        "target_kind": "executable",
+        "target_format": "elf",
+        "architecture": "x86_64",
+        "available_architectures": [
+          "x86_64"
+        ],
+        "import_mode": "ephemeral-source-immutable",
+        "annotation_policy": "atomic-function-entry-metadata-v1",
+        "load_image_observations": "source-mappings-entry-context-v2",
+        "function_body_evidence": "complete-inclusive-ranges-v1",
+        "function_references": "complete-body-and-entry-reference-manager-v2",
+        "call_relationship_coverage": "function-body-call-coverage-v5",
+        "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+        "string_inventory_evidence": "defined-data-coverage-v1",
+        "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+        "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+        "instruction_flow_evidence": "decoded-return-pcode-v1",
+        "instruction_references": "exact-address-incoming-without-synthetic-entry-v2",
+        "function_boundary_observations": "ghidra-function-boundary-limitations-v4",
+        "no_return_repair": "returning-imports-decoded-return-v2",
+        "process_launch": "inspected-jvm-launch-support-v1",
+        "jump_table_evidence": "typed-case-default-blocks-v1",
+        "decompiler_jump_loads": true,
+        "loader": "auto-from-header",
+        "language_id": "auto-from-header",
+        "compiler_spec_id": "auto-default",
+        "analyzer_preset": "ghidra-default",
+        "function_coordinate_context": {
+          "kind": "native-function-coordinate-context-v1",
+          "selected_image": null,
+          "mapping_sha256": "55a7964dc0bcdf067484a281c658e6ca8457a49405e0ea9dbd080366ee4c3198"
+        }
+      },
+      "digest": "ae80ece8c83379eddabbdf379bbffca5da84c7df7fa7c159f45fa810468f85d9"
+    },
+    "predicate_type": "rea.analysis",
+    "operation": "procedure_pseudo_code",
+    "parameters": {
+      "procedure": "_ZN21AFGBuildableSubsystem11TickFactoryEf10ELevelTick"
+    },
+    "raw_result": null,
+    "normalized_result": "\n/* AFGBuildableSubsystem::TickFactory(float, ELevelTick) */\n\nvoid __thiscall\nAFGBuildableSubsystem::TickFactory(float param_1,AFGBuildableSubsystem *this,int param_3)\n\n{\n  long lVar1;\n  long lVar2;\n  int iVar3;\n  int iVar4;\n  float fVar5;\n  float fVar6;\n  \n  if ((((this != (AFGBuildableSubsystem *)0x0) && (param_3 != 1)) &&\n      ((*(uint *)(this + 8) & 0x40000000) == 0)) && (lVar1 = AActor::GetWorld(), lVar1 != 0)) {\n    lVar2 = Z_Construct_UClass_UFGFactoryTickSettings_NoRegister();\n    lVar1 = *(long *)(lVar2 + 0x110);\n    if (lVar1 == 0) {\n      UClass::InternalCreateDefaultObjectWrapper();\n      lVar1 = *(long *)(lVar2 + 0x110);\n    }\n    fVar5 = *(float *)(lVar1 + 0x38);\n    lVar2 = Z_Construct_UClass_UFGFactoryTickSettings_NoRegister();\n    lVar1 = *(long *)(lVar2 + 0x110);\n    if (lVar1 == 0) {\n      UClass::InternalCreateDefaultObjectWrapper();\n      lVar1 = *(long *)(lVar2 + 0x110);\n    }\n    iVar4 = *(int *)(lVar1 + 0x3c);\n    fVar6 = (float)iVar4 * fVar5;\n    if (param_1 <= fVar6) {\n      fVar6 = param_1;\n    }\n    fVar5 = (1.0 / fVar5) * fVar6;\n    iVar3 = -((int)ROUND(-0.5 - (fVar5 + fVar5)) >> 1);\n    if (iVar4 <= iVar3) {\n      iVar3 = iVar4;\n    }\n    iVar4 = 1;\n    if (1 < iVar3) {\n      iVar4 = iVar3;\n    }\n    *(float *)(this + 0x7c8) = fVar6 + *(float *)(this + 0x7c8);\n    mCurrentSubStepMax = (char)iVar4 + -1;\n    iVar3 = 0;\n    do {\n      mCurrentSubStep = (undefined1)iVar3;\n      TickFactoryActors(this,fVar6 / (float)iVar4);\n      iVar3 = iVar3 + 1;\n    } while (iVar4 != iVar3);\n  }\n  return;\n}\n\n",
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+      "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+      "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+      "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+      "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+      "External functions and functions without an analyzable body return null; other decompiler failures remain explicit."
+    ],
+    "relationship_coverage": null,
+    "locations": [],
+    "evidence_links": []
+  }
+}

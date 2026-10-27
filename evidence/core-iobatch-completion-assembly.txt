@@ -1,0 +1,157 @@
+
+server/Engine/Binaries/Linux/libFactoryServer-Core-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000641c50 <FIoBatch::IssueAndDispatchSubsequents(TRefCountPtr<FBaseGraphTask>)>:
+  641c50:	41 57                	push   %r15
+  641c52:	41 56                	push   %r14
+  641c54:	41 55                	push   %r13
+  641c56:	41 54                	push   %r12
+  641c58:	53                   	push   %rbx
+  641c59:	48 89 fb             	mov    %rdi,%rbx
+  641c5c:	4c 8b 37             	mov    (%rdi),%r14
+  641c5f:	4c 8b 2e             	mov    (%rsi),%r13
+  641c62:	48 c7 06 00 00 00 00 	movq   $0x0,(%rsi)
+  641c69:	4d 8d a6 88 00 00 00 	lea    0x88(%r14),%r12
+  641c70:	4c 89 e7             	mov    %r12,%rdi
+  641c73:	e8 78 84 59 00       	call   bda0f0 <pthread_mutex_lock@plt>
+  641c78:	4d 8b 7e 78          	mov    0x78(%r14),%r15
+  641c7c:	4d 85 ff             	test   %r15,%r15
+  641c7f:	0f 85 7f 00 00 00    	jne    641d04 <FIoBatch::IssueAndDispatchSubsequents(TRefCountPtr<FBaseGraphTask>)+0xb4>
+  641c85:	bf 10 00 06 00       	mov    $0x60010,%edi
+  641c8a:	e8 11 81 59 00       	call   bd9da0 <operator new(unsigned long)@plt>
+  641c8f:	49 89 c7             	mov    %rax,%r15
+  641c92:	b8 60 00 00 00       	mov    $0x60,%eax
+  641c97:	31 c9                	xor    %ecx,%ecx
+  641c99:	31 d2                	xor    %edx,%edx
+  641c9b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  641ca0:	49 8d 34 0f          	lea    (%r15,%rcx,1),%rsi
+  641ca4:	49 89 54 0f 50       	mov    %rdx,0x50(%r15,%rcx,1)
+  641ca9:	49 8d 14 0f          	lea    (%r15,%rcx,1),%rdx
+  641cad:	48 83 c2 60          	add    $0x60,%rdx
+  641cb1:	49 89 b4 0f b0 00 00 	mov    %rsi,0xb0(%r15,%rcx,1)
+  641cb8:	00 
+  641cb9:	49 8d b4 0f c0 00 00 	lea    0xc0(%r15,%rcx,1),%rsi
+  641cc0:	00 
+  641cc1:	49 89 94 0f 10 01 00 	mov    %rdx,0x110(%r15,%rcx,1)
+  641cc8:	00 
+  641cc9:	49 8d 14 0f          	lea    (%r15,%rcx,1),%rdx
+  641ccd:	48 81 c2 20 01 00 00 	add    $0x120,%rdx
+  641cd4:	49 89 b4 0f 70 01 00 	mov    %rsi,0x170(%r15,%rcx,1)
+  641cdb:	00 
+  641cdc:	48 05 80 fe ff ff    	add    $0xfffffffffffffe80,%rax
+  641ce2:	48 81 c1 80 01 00 00 	add    $0x180,%rcx
+  641ce9:	48 81 f9 00 00 06 00 	cmp    $0x60000,%rcx
+  641cf0:	75 ae                	jne    641ca0 <FIoBatch::IssueAndDispatchSubsequents(TRefCountPtr<FBaseGraphTask>)+0x50>
+  641cf2:	49 8b 4e 70          	mov    0x70(%r14),%rcx
+  641cf6:	49 89 8f 00 00 06 00 	mov    %rcx,0x60000(%r15)
+  641cfd:	4d 89 7e 70          	mov    %r15,0x70(%r14)
+  641d01:	49 29 c7             	sub    %rax,%r15
+  641d04:	49 8b 47 50          	mov    0x50(%r15),%rax
+  641d08:	49 89 46 78          	mov    %rax,0x78(%r14)
+  641d0c:	41 ff 86 80 00 00 00 	incl   0x80(%r14)
+  641d13:	4c 89 e7             	mov    %r12,%rdi
+  641d16:	e8 e5 83 59 00       	call   bda100 <pthread_mutex_unlock@plt>
+  641d1b:	0f 57 c0             	xorps  %xmm0,%xmm0
+  641d1e:	41 0f 29 47 30       	movaps %xmm0,0x30(%r15)
+  641d23:	41 0f 29 07          	movaps %xmm0,(%r15)
+  641d27:	41 0f 29 47 10       	movaps %xmm0,0x10(%r15)
+  641d2c:	41 0f 29 47 20       	movaps %xmm0,0x20(%r15)
+  641d31:	41 0f 29 47 40       	movaps %xmm0,0x40(%r15)
+  641d36:	4d 89 6f 38          	mov    %r13,0x38(%r15)
+  641d3a:	4c 89 f7             	mov    %r14,%rdi
+  641d3d:	48 89 de             	mov    %rbx,%rsi
+  641d40:	4c 89 fa             	mov    %r15,%rdx
+  641d43:	5b                   	pop    %rbx
+  641d44:	41 5c                	pop    %r12
+  641d46:	41 5d                	pop    %r13
+  641d48:	41 5e                	pop    %r14
+  641d4a:	41 5f                	pop    %r15
+  641d4c:	e9 4f 43 06 00       	jmp    6a60a0 <FIoDispatcherImpl::IssueBatchInternal(FIoBatch&, FIoBatchImpl*)>
+  641d51:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+  641d58:	0f 1f 84 00 00 00 00 
+  641d5f:	00 
+
+0000000000641d60 <FIoRequestImpl::CreateBuffer(unsigned long long)>:
+  641d60:	41 57                	push   %r15
+  641d62:	41 56                	push   %r14
+  641d64:	41 55                	push   %r13
+  641d66:	41 54                	push   %r12
+  641d68:	53                   	push   %rbx
+  641d69:	48 83 ec 10          	sub    $0x10,%rsp
+  641d6d:	49 89 f6             	mov    %rsi,%r14
+  641d70:	48 89 fb             	mov    %rdi,%rbx
+  641d73:	4c 8b 7f 30          	mov    0x30(%rdi),%r15
+  641d77:	4d 85 ff             	test   %r15,%r15
+  641d7a:	74 44                	je     641dc0 <FIoRequestImpl::CreateBuffer(unsigned long long)+0x60>
+  641d7c:	4c 8d 63 60          	lea    0x60(%rbx),%r12
+  641d80:	80 7b 68 00          	cmpb   $0x0,0x68(%rbx)
+  641d84:	74 28                	je     641dae <FIoRequestImpl::CreateBuffer(unsigned long long)+0x4e>
+  641d86:	4d 8b 2c 24          	mov    (%r12),%r13
+  641d8a:	4d 85 ed             	test   %r13,%r13
+  641d8d:	74 1f                	je     641dae <FIoRequestImpl::CreateBuffer(unsigned long long)+0x4e>
+  641d8f:	4c 89 ef             	mov    %r13,%rdi
+  641d92:	e8 19 82 59 00       	call   bd9fb0 <FIoBuffer::BufCore::CheckRefCount() const@plt>
+  641d97:	f0 41 ff 4d 0c       	lock decl 0xc(%r13)
+  641d9c:	75 10                	jne    641dae <FIoRequestImpl::CreateBuffer(unsigned long long)+0x4e>
+  641d9e:	4c 89 ef             	mov    %r13,%rdi
+  641da1:	e8 1a 82 59 00       	call   bd9fc0 <FIoBuffer::BufCore::~BufCore()@plt>
+  641da6:	4c 89 ef             	mov    %r13,%rdi
+  641da9:	e8 32 80 59 00       	call   bd9de0 <operator delete(void*)@plt>
+  641dae:	4c 89 e7             	mov    %r12,%rdi
+  641db1:	31 f6                	xor    %esi,%esi
+  641db3:	4c 89 fa             	mov    %r15,%rdx
+  641db6:	4c 89 f1             	mov    %r14,%rcx
+  641db9:	e8 52 d4 59 00       	call   bdf210 <FIoBuffer::FIoBuffer(FIoBuffer::EWrapTag, void const*, unsigned long long)@plt>
+  641dbe:	eb 4a                	jmp    641e0a <FIoRequestImpl::CreateBuffer(unsigned long long)+0xaa>
+  641dc0:	48 8d 7c 24 0f       	lea    0xf(%rsp),%rdi
+  641dc5:	48 89 de             	mov    %rbx,%rsi
+  641dc8:	e8 13 82 59 00       	call   bd9fe0 <UE::FInheritedContextBase::RestoreInheritedContext()@plt>
+  641dcd:	4c 8d 7b 60          	lea    0x60(%rbx),%r15
+  641dd1:	80 7b 68 00          	cmpb   $0x0,0x68(%rbx)
+  641dd5:	74 28                	je     641dff <FIoRequestImpl::CreateBuffer(unsigned long long)+0x9f>
+  641dd7:	4d 8b 27             	mov    (%r15),%r12
+  641dda:	4d 85 e4             	test   %r12,%r12
+  641ddd:	74 20                	je     641dff <FIoRequestImpl::CreateBuffer(unsigned long long)+0x9f>
+  641ddf:	4c 89 e7             	mov    %r12,%rdi
+  641de2:	e8 c9 81 59 00       	call   bd9fb0 <FIoBuffer::BufCore::CheckRefCount() const@plt>
+  641de7:	f0 41 ff 4c 24 0c    	lock decl 0xc(%r12)
+  641ded:	75 10                	jne    641dff <FIoRequestImpl::CreateBuffer(unsigned long long)+0x9f>
+  641def:	4c 89 e7             	mov    %r12,%rdi
+  641df2:	e8 c9 81 59 00       	call   bd9fc0 <FIoBuffer::BufCore::~BufCore()@plt>
+  641df7:	4c 89 e7             	mov    %r12,%rdi
+  641dfa:	e8 e1 7f 59 00       	call   bd9de0 <operator delete(void*)@plt>
+  641dff:	4c 89 ff             	mov    %r15,%rdi
+  641e02:	4c 89 f6             	mov    %r14,%rsi
+  641e05:	e8 96 81 59 00       	call   bd9fa0 <FIoBuffer::FIoBuffer(unsigned long long)@plt>
+  641e0a:	c6 43 68 01          	movb   $0x1,0x68(%rbx)
+  641e0e:	48 83 c4 10          	add    $0x10,%rsp
+  641e12:	5b                   	pop    %rbx
+  641e13:	41 5c                	pop    %r12
+  641e15:	41 5d                	pop    %r13
+  641e17:	41 5e                	pop    %r14
+  641e19:	41 5f                	pop    %r15
+  641e1b:	c3                   	ret    
+  641e1c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000641e20 <FIoRequestImpl::FreeRequest()>:
+  641e20:	41 57                	push   %r15
+  641e22:	41 56                	push   %r14
+  641e24:	53                   	push   %rbx
+  641e25:	48 89 fe             	mov    %rdi,%rsi
+  641e28:	48 8b 5f 48          	mov    0x48(%rdi),%rbx
+  641e2c:	4c 8d 73 08          	lea    0x8(%rbx),%r14
+  641e30:	4c 89 f7             	mov    %r14,%rdi
+  641e33:	e8 28 45 06 00       	call   6a6360 <TBlockAllocator<FIoRequestImpl, 4096u>::Destroy(FIoRequestImpl*)>
+  641e38:	f0 ff 0b             	lock decl (%rbx)
+  641e3b:	0f 95 c0             	setne  %al
+  641e3e:	48 85 db             	test   %rbx,%rbx
+  641e41:	74 46                	je     641e89 <FIoRequestImpl::FreeRequest()+0x69>
+  641e43:	84 c0                	test   %al,%al
+  641e45:	75 42                	jne    641e89 <FIoRequestImpl::FreeRequest()+0x69>
+  641e47:	49 8b 3e             	mov    (%r14),%rdi
+  641e4a:	48 85 ff             	test   %rdi,%rdi
+  641e4d:	74 15                	je     641e64 <FIoRequestImpl::FreeRequest()+0x44>
+  641e4f:	90                   	nop

@@ -1,0 +1,345 @@
+{
+  "_meta": {
+    "provenance": {
+      "untrusted_content": true,
+      "source": "analysis_target"
+    }
+  },
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"evidence_id\":\"ev_876e5fafa10ace8cde75adb6f256f953906fe659a41888c12a8ed7ea316b8991\",\"subject\":{\"name\":\"libFactoryServer-FactoryGame-Linux-Shipping.so\",\"digest\":{\"sha256\":\"637c2c70e65f6386697a6a5f5746f64b187d2fcfeee56df1aeef3f172268c0c1\"},\"local_path\":\"/var/www/async_SatisDedicated/server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so\",\"format\":\"elf\",\"architecture\":\"x86_64\"},\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"analysis_profile\":{\"provider\":{\"id\":\"ghidra\",\"name\":\"Ghidra\",\"version\":\"12.1.4\"},\"parameters\":{\"target_kind\":\"executable\",\"target_format\":\"elf\",\"architecture\":\"x86_64\",\"available_architectures\":[\"x86_64\"],\"import_mode\":\"ephemeral-source-immutable\",\"annotation_policy\":\"atomic-function-entry-metadata-v1\",\"load_image_observations\":\"source-mappings-entry-context-v2\",\"function_body_evidence\":\"complete-inclusive-ranges-v1\",\"function_references\":\"complete-body-and-entry-reference-manager-v2\",\"call_relationship_coverage\":\"function-body-call-coverage-v5\",\"function_dossier_coverage\":\"observed-facets-and-call-relationships-v1\",\"string_inventory_evidence\":\"defined-data-coverage-v1\",\"location_resolution\":\"explicit-address-exact-entry-symbol-first-v3\",\"procedure_file_offset_resolution\":\"address-first-unique-target-source-mapping-v2\",\"instruction_flow_evidence\":\"decoded-return-pcode-v1\",\"instruction_references\":\"exact-address-incoming-without-synthetic-entry-v2\",\"function_boundary_observations\":\"ghidra-function-boundary-limitations-v4\",\"no_return_repair\":\"returning-imports-decoded-return-v2\",\"process_launch\":\"inspected-jvm-launch-support-v1\",\"jump_table_evidence\":\"typed-case-default-blocks-v1\",\"decompiler_jump_loads\":true,\"loader\":\"auto-from-header\",\"language_id\":\"auto-from-header\",\"compiler_spec_id\":\"auto-default\",\"analyzer_preset\":\"ghidra-default\",\"function_coordinate_context\":{\"kind\":\"native-function-coordinate-context-v1\",\"selected_image\":null,\"mapping_sha256\":\"55a7964dc0bcdf067484a281c658e6ca8457a49405e0ea9dbd080366ee4c3198\"}},\"digest\":\"ae80ece8c83379eddabbdf379bbffca5da84c7df7fa7c159f45fa810468f85d9\"},\"predicate_type\":\"rea.analysis\",\"operation\":\"procedure_info\",\"parameters\":{\"procedure\":\"_ZN21AFGBuildableSubsystem17TickFactoryActorsEf\"},\"raw_result\":null,\"normalized_result\":{\"name\":\"AFGBuildableSubsystem::TickFactoryActors\",\"symbol\":{\"primary\":true,\"dynamic\":false,\"external\":false,\"type\":\"function\",\"source\":\"analysis\"},\"entrypoint\":\"0x197fc40\",\"basicblock_count\":210,\"length\":4850,\"signature\":\"undefined __thiscall TickFactoryActors(AFGBuildableSubsystem * this, float param_1)\",\"locals\":[{\"description\":\"undefined4 local_34 @ Stack[-0x34]:4\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined8 local_40 @ Stack[-0x40]:8\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined4 local_48 @ Stack[-0x48]:4\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined8 local_50 @ Stack[-0x50]:8\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined8 local_58 @ Stack[-0x58]:8\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined4 local_5c @ Stack[-0x5c]:4\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined8 local_68 @ Stack[-0x68]:8\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined8 local_70 @ Stack[-0x70]:8\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined8 local_78 @ Stack[-0x78]:8\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined8 local_80 @ Stack[-0x80]:8\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined8 local_88 @ Stack[-0x88]:8\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined1[16] local_98 @ Stack[-0x98]:16\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined4 local_9c @ Stack[-0x9c]:4\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined4 local_a0 @ Stack[-0xa0]:4\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined8 local_a8 @ Stack[-0xa8]:8\",\"provenance\":\"ghidra-function-database\"},{\"description\":\"undefined1 local_a9 @ Stack[-0xa9]:1\",\"provenance\":\"ghidra-function-database\"}],\"classification\":{\"external\":false,\"thunk\":false,\"thunk_target\":null,\"provenance\":\"ghidra-function-manager\"},\"body\":{\"available\":true,\"provenance\":\"ghidra-function-body-address-set\",\"ranges\":[{\"start\":\"0x197fc40\",\"end\":\"0x197fc7c\"},{\"start\":\"0x197fc80\",\"end\":\"0x197ff97\"},{\"start\":\"0x197ffa0\",\"end\":\"0x198008d\"},{\"start\":\"0x1980093\",\"end\":\"0x19800bf\"},{\"start\":\"0x19800c5\",\"end\":\"0x1980101\"},{\"start\":\"0x1980107\",\"end\":\"0x1980483\"},{\"start\":\"0x1980490\",\"end\":\"0x198050a\"},{\"start\":\"0x1980510\",\"end\":\"0x198052e\"},{\"start\":\"0x1980530\",\"end\":\"0x1980582\"},{\"start\":\"0x1980590\",\"end\":\"0x198068d\"},{\"start\":\"0x19806a0\",\"end\":\"0x1980800\"},{\"start\":\"0x1980810\",\"end\":\"0x19808e2\"},{\"start\":\"0x19808e8\",\"end\":\"0x1980921\"},{\"start\":\"0x1980927\",\"end\":\"0x1980960\"},{\"start\":\"0x1980966\",\"end\":\"0x19809d9\"},{\"start\":\"0x19809df\",\"end\":\"0x1980a29\"},{\"start\":\"0x1980a2f\",\"end\":\"0x1980a60\"},{\"start\":\"0x1980a66\",\"end\":\"0x1980a99\"},{\"start\":\"0x1980a9f\",\"end\":\"0x1980ad2\"},{\"start\":\"0x1980ad8\",\"end\":\"0x1980b0b\"},{\"start\":\"0x1980b11\",\"end\":\"0x1980b7e\"},{\"start\":\"0x1980b84\",\"end\":\"0x1980bc8\"},{\"start\":\"0x1980bce\",\"end\":\"0x1980c00\"},{\"start\":\"0x1980c10\",\"end\":\"0x1980cc0\"},{\"start\":\"0x1980cd0\",\"end\":\"0x1980d85\"},{\"start\":\"0x1980d8b\",\"end\":\"0x1980db7\"},{\"start\":\"0x1980dbd\",\"end\":\"0x1980de9\"},{\"start\":\"0x1980def\",\"end\":\"0x1980e21\"},{\"start\":\"0x1980e27\",\"end\":\"0x1980e65\"},{\"start\":\"0x1980e6b\",\"end\":\"0x1980ead\"},{\"start\":\"0x1980eb3\",\"end\":\"0x1980f4d\"},{\"start\":\"0x1980f50\",\"end\":\"0x1980fc3\"},{\"start\":\"0x1980fd0\",\"end\":\"0x198100c\"}],\"total_bytes\":4850,\"span_bytes\":5069,\"non_contiguous\":true,\"contains_entry\":true}},\"confidence\":\"observed\",\"authority\":\"shipped-artifact\",\"environment\":null,\"limitations\":[\"The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.\",\"The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.\",\"Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.\",\"Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.\",\"Ghidra Listing reports a terminal call at 0x198008d with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x19800bf with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980101 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980464 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x198050a with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980582 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x198068d with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x19808e2 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980921 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980960 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980994 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x19809d9 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980a29 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980a60 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980a99 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980ad2 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980b0b with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980b3f with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980b7e with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980bc8 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980d85 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980db7 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980de9 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980e21 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980e65 with no resolved callee; its no-return basis is unknown.\",\"Ghidra Listing reports a terminal call at 0x1980ead with no resolved callee; its no-return basis is unknown.\"],\"relationship_coverage\":null,\"locations\":[],\"evidence_links\":[]}"
+    }
+  ],
+  "structuredContent": {
+    "evidence_id": "ev_876e5fafa10ace8cde75adb6f256f953906fe659a41888c12a8ed7ea316b8991",
+    "subject": {
+      "name": "libFactoryServer-FactoryGame-Linux-Shipping.so",
+      "digest": {
+        "sha256": "637c2c70e65f6386697a6a5f5746f64b187d2fcfeee56df1aeef3f172268c0c1"
+      },
+      "local_path": "/var/www/async_SatisDedicated/server/FactoryGame/Binaries/Linux/libFactoryServer-FactoryGame-Linux-Shipping.so",
+      "format": "elf",
+      "architecture": "x86_64"
+    },
+    "provider": {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "version": "12.1.4"
+    },
+    "analysis_profile": {
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "parameters": {
+        "target_kind": "executable",
+        "target_format": "elf",
+        "architecture": "x86_64",
+        "available_architectures": [
+          "x86_64"
+        ],
+        "import_mode": "ephemeral-source-immutable",
+        "annotation_policy": "atomic-function-entry-metadata-v1",
+        "load_image_observations": "source-mappings-entry-context-v2",
+        "function_body_evidence": "complete-inclusive-ranges-v1",
+        "function_references": "complete-body-and-entry-reference-manager-v2",
+        "call_relationship_coverage": "function-body-call-coverage-v5",
+        "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+        "string_inventory_evidence": "defined-data-coverage-v1",
+        "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+        "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+        "instruction_flow_evidence": "decoded-return-pcode-v1",
+        "instruction_references": "exact-address-incoming-without-synthetic-entry-v2",
+        "function_boundary_observations": "ghidra-function-boundary-limitations-v4",
+        "no_return_repair": "returning-imports-decoded-return-v2",
+        "process_launch": "inspected-jvm-launch-support-v1",
+        "jump_table_evidence": "typed-case-default-blocks-v1",
+        "decompiler_jump_loads": true,
+        "loader": "auto-from-header",
+        "language_id": "auto-from-header",
+        "compiler_spec_id": "auto-default",
+        "analyzer_preset": "ghidra-default",
+        "function_coordinate_context": {
+          "kind": "native-function-coordinate-context-v1",
+          "selected_image": null,
+          "mapping_sha256": "55a7964dc0bcdf067484a281c658e6ca8457a49405e0ea9dbd080366ee4c3198"
+        }
+      },
+      "digest": "ae80ece8c83379eddabbdf379bbffca5da84c7df7fa7c159f45fa810468f85d9"
+    },
+    "predicate_type": "rea.analysis",
+    "operation": "procedure_info",
+    "parameters": {
+      "procedure": "_ZN21AFGBuildableSubsystem17TickFactoryActorsEf"
+    },
+    "raw_result": null,
+    "normalized_result": {
+      "name": "AFGBuildableSubsystem::TickFactoryActors",
+      "symbol": {
+        "primary": true,
+        "dynamic": false,
+        "external": false,
+        "type": "function",
+        "source": "analysis"
+      },
+      "entrypoint": "0x197fc40",
+      "basicblock_count": 210,
+      "length": 4850,
+      "signature": "undefined __thiscall TickFactoryActors(AFGBuildableSubsystem * this, float param_1)",
+      "locals": [
+        {
+          "description": "undefined4 local_34 @ Stack[-0x34]:4",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined8 local_40 @ Stack[-0x40]:8",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined4 local_48 @ Stack[-0x48]:4",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined8 local_50 @ Stack[-0x50]:8",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined8 local_58 @ Stack[-0x58]:8",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined4 local_5c @ Stack[-0x5c]:4",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined8 local_68 @ Stack[-0x68]:8",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined8 local_70 @ Stack[-0x70]:8",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined8 local_78 @ Stack[-0x78]:8",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined8 local_80 @ Stack[-0x80]:8",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined8 local_88 @ Stack[-0x88]:8",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined1[16] local_98 @ Stack[-0x98]:16",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined4 local_9c @ Stack[-0x9c]:4",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined4 local_a0 @ Stack[-0xa0]:4",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined8 local_a8 @ Stack[-0xa8]:8",
+          "provenance": "ghidra-function-database"
+        },
+        {
+          "description": "undefined1 local_a9 @ Stack[-0xa9]:1",
+          "provenance": "ghidra-function-database"
+        }
+      ],
+      "classification": {
+        "external": false,
+        "thunk": false,
+        "thunk_target": null,
+        "provenance": "ghidra-function-manager"
+      },
+      "body": {
+        "available": true,
+        "provenance": "ghidra-function-body-address-set",
+        "ranges": [
+          {
+            "start": "0x197fc40",
+            "end": "0x197fc7c"
+          },
+          {
+            "start": "0x197fc80",
+            "end": "0x197ff97"
+          },
+          {
+            "start": "0x197ffa0",
+            "end": "0x198008d"
+          },
+          {
+            "start": "0x1980093",
+            "end": "0x19800bf"
+          },
+          {
+            "start": "0x19800c5",
+            "end": "0x1980101"
+          },
+          {
+            "start": "0x1980107",
+            "end": "0x1980483"
+          },
+          {
+            "start": "0x1980490",
+            "end": "0x198050a"
+          },
+          {
+            "start": "0x1980510",
+            "end": "0x198052e"
+          },
+          {
+            "start": "0x1980530",
+            "end": "0x1980582"
+          },
+          {
+            "start": "0x1980590",
+            "end": "0x198068d"
+          },
+          {
+            "start": "0x19806a0",
+            "end": "0x1980800"
+          },
+          {
+            "start": "0x1980810",
+            "end": "0x19808e2"
+          },
+          {
+            "start": "0x19808e8",
+            "end": "0x1980921"
+          },
+          {
+            "start": "0x1980927",
+            "end": "0x1980960"
+          },
+          {
+            "start": "0x1980966",
+            "end": "0x19809d9"
+          },
+          {
+            "start": "0x19809df",
+            "end": "0x1980a29"
+          },
+          {
+            "start": "0x1980a2f",
+            "end": "0x1980a60"
+          },
+          {
+            "start": "0x1980a66",
+            "end": "0x1980a99"
+          },
+          {
+            "start": "0x1980a9f",
+            "end": "0x1980ad2"
+          },
+          {
+            "start": "0x1980ad8",
+            "end": "0x1980b0b"
+          },
+          {
+            "start": "0x1980b11",
+            "end": "0x1980b7e"
+          },
+          {
+            "start": "0x1980b84",
+            "end": "0x1980bc8"
+          },
+          {
+            "start": "0x1980bce",
+            "end": "0x1980c00"
+          },
+          {
+            "start": "0x1980c10",
+            "end": "0x1980cc0"
+          },
+          {
+            "start": "0x1980cd0",
+            "end": "0x1980d85"
+          },
+          {
+            "start": "0x1980d8b",
+            "end": "0x1980db7"
+          },
+          {
+            "start": "0x1980dbd",
+            "end": "0x1980de9"
+          },
+          {
+            "start": "0x1980def",
+            "end": "0x1980e21"
+          },
+          {
+            "start": "0x1980e27",
+            "end": "0x1980e65"
+          },
+          {
+            "start": "0x1980e6b",
+            "end": "0x1980ead"
+          },
+          {
+            "start": "0x1980eb3",
+            "end": "0x1980f4d"
+          },
+          {
+            "start": "0x1980f50",
+            "end": "0x1980fc3"
+          },
+          {
+            "start": "0x1980fd0",
+            "end": "0x198100c"
+          }
+        ],
+        "total_bytes": 4850,
+        "span_bytes": 5069,
+        "non_contiguous": true,
+        "contains_entry": true
+      }
+    },
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+      "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+      "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+      "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+      "Ghidra Listing reports a terminal call at 0x198008d with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x19800bf with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980101 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980464 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x198050a with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980582 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x198068d with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x19808e2 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980921 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980960 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980994 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x19809d9 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980a29 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980a60 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980a99 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980ad2 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980b0b with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980b3f with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980b7e with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980bc8 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980d85 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980db7 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980de9 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980e21 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980e65 with no resolved callee; its no-return basis is unknown.",
+      "Ghidra Listing reports a terminal call at 0x1980ead with no resolved callee; its no-return basis is unknown."
+    ],
+    "relationship_coverage": null,
+    "locations": [],
+    "evidence_links": []
+  }
+}

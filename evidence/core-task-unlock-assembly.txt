@@ -1,0 +1,276 @@
+
+server/Engine/Binaries/Linux/libFactoryServer-Core-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000004aa520 <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)>:
+  4aa520:	41 57                	push   %r15
+  4aa522:	41 56                	push   %r14
+  4aa524:	41 54                	push   %r12
+  4aa526:	53                   	push   %rbx
+  4aa527:	50                   	push   %rax
+  4aa528:	4c 8b 77 10          	mov    0x10(%rdi),%r14
+  4aa52c:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+  4aa531:	f0 0f c1 47 0c       	lock xadd %eax,0xc(%rdi)
+  4aa536:	8d 58 ff             	lea    -0x1(%rax),%ebx
+  4aa539:	85 c0                	test   %eax,%eax
+  4aa53b:	0f 88 b4 00 00 00    	js     4aa5f5 <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0xd5>
+  4aa541:	0f 84 58 01 00 00    	je     4aa69f <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x17f>
+  4aa547:	31 c0                	xor    %eax,%eax
+  4aa549:	85 db                	test   %ebx,%ebx
+  4aa54b:	0f 94 c0             	sete   %al
+  4aa54e:	31 c9                	xor    %ecx,%ecx
+  4aa550:	83 fb 02             	cmp    $0x2,%ebx
+  4aa553:	0f 92 c1             	setb   %cl
+  4aa556:	4d 85 f6             	test   %r14,%r14
+  4aa559:	0f 44 c8             	cmove  %eax,%ecx
+  4aa55c:	80 f9 01             	cmp    $0x1,%cl
+  4aa55f:	0f 85 c8 00 00 00    	jne    4aa62d <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x10d>
+  4aa565:	4d 85 f6             	test   %r14,%r14
+  4aa568:	0f 84 de 00 00 00    	je     4aa64c <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x12c>
+  4aa56e:	83 fb 01             	cmp    $0x1,%ebx
+  4aa571:	0f 85 d5 00 00 00    	jne    4aa64c <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x12c>
+  4aa577:	48 89 f3             	mov    %rsi,%rbx
+  4aa57a:	49 89 fc             	mov    %rdi,%r12
+  4aa57d:	e8 5e 04 73 00       	call   bda9e0 <UE::Tasks::Private::FTaskBase::TryPushIntoPipe()@plt>
+  4aa582:	48 85 c0             	test   %rax,%rax
+  4aa585:	0f 84 b2 00 00 00    	je     4aa63d <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x11d>
+  4aa58b:	49 89 c6             	mov    %rax,%r14
+  4aa58e:	4c 89 e1             	mov    %r12,%rcx
+  4aa591:	49 8d 5c 24 40       	lea    0x40(%r12),%rbx
+  4aa596:	b2 01                	mov    $0x1,%dl
+  4aa598:	31 c0                	xor    %eax,%eax
+  4aa59a:	f0 41 0f b0 54 24 40 	lock cmpxchg %dl,0x40(%r12)
+  4aa5a1:	0f 85 6c 01 00 00    	jne    4aa713 <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x1f3>
+  4aa5a7:	4c 8d 79 28          	lea    0x28(%rcx),%r15
+  4aa5ab:	8b 41 38             	mov    0x38(%rcx),%eax
+  4aa5ae:	3b 41 3c             	cmp    0x3c(%rcx),%eax
+  4aa5b1:	75 14                	jne    4aa5c7 <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0xa7>
+  4aa5b3:	48 8d 51 3c          	lea    0x3c(%rcx),%rdx
+  4aa5b7:	bf 08 08 00 00       	mov    $0x808,%edi
+  4aa5bc:	4c 89 fe             	mov    %r15,%rsi
+  4aa5bf:	e8 7c 01 00 00       	call   4aa740 <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)>
+  4aa5c4:	4c 89 e1             	mov    %r12,%rcx
+  4aa5c7:	8d 50 01             	lea    0x1(%rax),%edx
+  4aa5ca:	89 51 38             	mov    %edx,0x38(%rcx)
+  4aa5cd:	48 8b 51 30          	mov    0x30(%rcx),%rdx
+  4aa5d1:	48 85 d2             	test   %rdx,%rdx
+  4aa5d4:	4c 0f 45 fa          	cmovne %rdx,%r15
+  4aa5d8:	48 98                	cltq   
+  4aa5da:	4d 89 34 c7          	mov    %r14,(%r15,%rax,8)
+  4aa5de:	b0 ff                	mov    $0xff,%al
+  4aa5e0:	f0 0f c0 41 40       	lock xadd %al,0x40(%rcx)
+  4aa5e5:	a8 02                	test   $0x2,%al
+  4aa5e7:	74 44                	je     4aa62d <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x10d>
+  4aa5e9:	48 89 df             	mov    %rbx,%rdi
+  4aa5ec:	e8 ef f8 72 00       	call   bd9ee0 <UE::FMutex::WakeWaitingThread()@plt>
+  4aa5f1:	31 db                	xor    %ebx,%ebx
+  4aa5f3:	eb 3a                	jmp    4aa62f <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x10f>
+  4aa5f5:	3d 00 00 00 80       	cmp    $0x80000000,%eax
+  4aa5fa:	0f 84 e0 00 00 00    	je     4aa6e0 <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x1c0>
+  4aa600:	81 fb 00 00 00 80    	cmp    $0x80000000,%ebx
+  4aa606:	75 25                	jne    4aa62d <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x10d>
+  4aa608:	48 89 fb             	mov    %rdi,%rbx
+  4aa60b:	e8 b0 fd ff ff       	call   4aa3c0 <UE::Tasks::Private::FTaskBase::Close()>
+  4aa610:	48 89 df             	mov    %rbx,%rdi
+  4aa613:	f0 ff 4b 08          	lock decl 0x8(%rbx)
+  4aa617:	0f 95 c0             	setne  %al
+  4aa61a:	b3 01                	mov    $0x1,%bl
+  4aa61c:	48 85 ff             	test   %rdi,%rdi
+  4aa61f:	74 0e                	je     4aa62f <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x10f>
+  4aa621:	84 c0                	test   %al,%al
+  4aa623:	75 0a                	jne    4aa62f <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x10f>
+  4aa625:	48 8b 07             	mov    (%rdi),%rax
+  4aa628:	ff 50 08             	call   *0x8(%rax)
+  4aa62b:	eb 02                	jmp    4aa62f <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x10f>
+  4aa62d:	31 db                	xor    %ebx,%ebx
+  4aa62f:	89 d8                	mov    %ebx,%eax
+  4aa631:	48 83 c4 08          	add    $0x8,%rsp
+  4aa635:	5b                   	pop    %rbx
+  4aa636:	41 5c                	pop    %r12
+  4aa638:	41 5e                	pop    %r14
+  4aa63a:	41 5f                	pop    %r15
+  4aa63c:	c3                   	ret    
+  4aa63d:	4c 89 e7             	mov    %r12,%rdi
+  4aa640:	41 c7 44 24 0c 00 00 	movl   $0x0,0xc(%r12)
+  4aa647:	00 00 
+  4aa649:	48 89 de             	mov    %rbx,%rsi
+  4aa64c:	0f b6 47 1c          	movzbl 0x1c(%rdi),%eax
+  4aa650:	83 f8 02             	cmp    $0x2,%eax
+  4aa653:	74 17                	je     4aa66c <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x14c>
+  4aa655:	83 f8 01             	cmp    $0x1,%eax
+  4aa658:	75 3c                	jne    4aa696 <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x176>
+  4aa65a:	48 89 fb             	mov    %rdi,%rbx
+  4aa65d:	e8 ee f9 ff ff       	call   4aa050 <UE::Tasks::Private::FTaskBase::TryExecuteTask()>
+  4aa662:	48 89 df             	mov    %rbx,%rdi
+  4aa665:	e8 16 fb ff ff       	call   4aa180 <UE::Tasks::Private::FTaskBase::ReleaseInternalReference()>
+  4aa66a:	eb 2f                	jmp    4aa69b <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x17b>
+  4aa66c:	b9 01 00 00 80       	mov    $0x80000001,%ecx
+  4aa671:	31 c0                	xor    %eax,%eax
+  4aa673:	f0 0f b1 4f 0c       	lock cmpxchg %ecx,0xc(%rdi)
+  4aa678:	b3 01                	mov    $0x1,%bl
+  4aa67a:	75 b3                	jne    4aa62f <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x10f>
+  4aa67c:	49 89 fe             	mov    %rdi,%r14
+  4aa67f:	e8 3c fc ff ff       	call   4aa2c0 <UE::Tasks::Private::FTaskBase::ReleasePrerequisites()>
+  4aa684:	4c 89 f7             	mov    %r14,%rdi
+  4aa687:	e8 34 fd ff ff       	call   4aa3c0 <UE::Tasks::Private::FTaskBase::Close()>
+  4aa68c:	4c 89 f7             	mov    %r14,%rdi
+  4aa68f:	e8 ec fa ff ff       	call   4aa180 <UE::Tasks::Private::FTaskBase::ReleaseInternalReference()>
+  4aa694:	eb 99                	jmp    4aa62f <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x10f>
+  4aa696:	e8 55 03 73 00       	call   bda9f0 <UE::Tasks::Private::FTaskBase::Schedule(bool&)@plt>
+  4aa69b:	b3 01                	mov    $0x1,%bl
+  4aa69d:	eb 90                	jmp    4aa62f <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x10f>
+  4aa69f:	48 8d 05 52 e1 db ff 	lea    -0x241eae(%rip),%rax        # 2687f8 <flagLR+0x161c8>
+  4aa6a6:	48 8d 15 aa 31 db ff 	lea    -0x24ce56(%rip),%rdx        # 25d857 <flagLR+0xb227>
+  4aa6ad:	48 8d 0d dc e6 de ff 	lea    -0x211924(%rip),%rcx        # 298d90 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x3042f>
+  4aa6b4:	49 89 ff             	mov    %rdi,%r15
+  4aa6b7:	48 89 c7             	mov    %rax,%rdi
+  4aa6ba:	49 89 f4             	mov    %rsi,%r12
+  4aa6bd:	48 89 d6             	mov    %rdx,%rsi
+  4aa6c0:	ba 60 02 00 00       	mov    $0x260,%edx
+  4aa6c5:	31 c0                	xor    %eax,%eax
+  4aa6c7:	e8 84 f7 72 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  4aa6cc:	4c 89 e6             	mov    %r12,%rsi
+  4aa6cf:	4c 89 ff             	mov    %r15,%rdi
+  4aa6d2:	84 c0                	test   %al,%al
+  4aa6d4:	0f 84 6d fe ff ff    	je     4aa547 <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x27>
+  4aa6da:	cc                   	int3   
+  4aa6db:	e9 67 fe ff ff       	jmp    4aa547 <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x27>
+  4aa6e0:	48 8d 3d 8b 3c db ff 	lea    -0x24c375(%rip),%rdi        # 25e372 <flagLR+0xbd42>
+  4aa6e7:	48 8d 35 69 31 db ff 	lea    -0x24ce97(%rip),%rsi        # 25d857 <flagLR+0xb227>
+  4aa6ee:	48 8d 0d 9b e6 de ff 	lea    -0x211965(%rip),%rcx        # 298d90 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x3042f>
+  4aa6f5:	31 db                	xor    %ebx,%ebx
+  4aa6f7:	ba 9e 02 00 00       	mov    $0x29e,%edx
+  4aa6fc:	31 c0                	xor    %eax,%eax
+  4aa6fe:	e8 4d f7 72 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  4aa703:	84 c0                	test   %al,%al
+  4aa705:	0f 84 24 ff ff ff    	je     4aa62f <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x10f>
+  4aa70b:	cc                   	int3   
+  4aa70c:	31 db                	xor    %ebx,%ebx
+  4aa70e:	e9 1c ff ff ff       	jmp    4aa62f <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x10f>
+  4aa713:	48 89 df             	mov    %rbx,%rdi
+  4aa716:	e8 d5 f7 72 00       	call   bd9ef0 <UE::FMutex::LockSlow()@plt>
+  4aa71b:	4c 89 e1             	mov    %r12,%rcx
+  4aa71e:	4c 8d 79 28          	lea    0x28(%rcx),%r15
+  4aa722:	8b 41 38             	mov    0x38(%rcx),%eax
+  4aa725:	3b 41 3c             	cmp    0x3c(%rcx),%eax
+  4aa728:	0f 84 85 fe ff ff    	je     4aa5b3 <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0x93>
+  4aa72e:	e9 94 fe ff ff       	jmp    4aa5c7 <UE::Tasks::Private::FTaskBase::TryUnlock(bool&)+0xa7>
+  4aa733:	cc                   	int3   
+  4aa734:	cc                   	int3   
+  4aa735:	cc                   	int3   
+  4aa736:	cc                   	int3   
+  4aa737:	cc                   	int3   
+  4aa738:	cc                   	int3   
+  4aa739:	cc                   	int3   
+  4aa73a:	cc                   	int3   
+  4aa73b:	cc                   	int3   
+  4aa73c:	cc                   	int3   
+  4aa73d:	cc                   	int3   
+  4aa73e:	cc                   	int3   
+  4aa73f:	cc                   	int3   
+
+00000000004aa740 <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)>:
+  4aa740:	55                   	push   %rbp
+  4aa741:	41 57                	push   %r15
+  4aa743:	41 56                	push   %r14
+  4aa745:	41 55                	push   %r13
+  4aa747:	41 54                	push   %r12
+  4aa749:	53                   	push   %rbx
+  4aa74a:	50                   	push   %rax
+  4aa74b:	4c 63 32             	movslq (%rdx),%r14
+  4aa74e:	41 8d 6e 01          	lea    0x1(%r14),%ebp
+  4aa752:	49 81 fe ff ff ff 7f 	cmp    $0x7fffffff,%r14
+  4aa759:	0f 84 02 01 00 00    	je     4aa861 <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0x121>
+  4aa75f:	48 89 d3             	mov    %rdx,%rbx
+  4aa762:	49 89 f7             	mov    %rsi,%r15
+  4aa765:	44 0f b6 e7          	movzbl %dil,%r12d
+  4aa769:	83 fd 01             	cmp    $0x1,%ebp
+  4aa76c:	77 2c                	ja     4aa79a <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0x5a>
+  4aa76e:	49 8b 77 08          	mov    0x8(%r15),%rsi
+  4aa772:	41 bd 01 00 00 00    	mov    $0x1,%r13d
+  4aa778:	48 85 f6             	test   %rsi,%rsi
+  4aa77b:	74 7e                	je     4aa7fb <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0xbb>
+  4aa77d:	49 8d 6f 08          	lea    0x8(%r15),%rbp
+  4aa781:	4a 8d 14 f5 00 00 00 	lea    0x0(,%r14,8),%rdx
+  4aa788:	00 
+  4aa789:	4c 89 ff             	mov    %r15,%rdi
+  4aa78c:	e8 6f f7 72 00       	call   bd9f00 <memmove@plt>
+  4aa791:	48 89 ef             	mov    %rbp,%rdi
+  4aa794:	31 f6                	xor    %esi,%esi
+  4aa796:	31 d2                	xor    %edx,%edx
+  4aa798:	eb 59                	jmp    4aa7f3 <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0xb3>
+  4aa79a:	bf 04 00 00 00       	mov    $0x4,%edi
+  4aa79f:	41 83 fe 02          	cmp    $0x2,%r14d
+  4aa7a3:	72 13                	jb     4aa7b8 <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0x78>
+  4aa7a5:	48 63 c5             	movslq %ebp,%rax
+  4aa7a8:	48 8d 0c 40          	lea    (%rax,%rax,2),%rcx
+  4aa7ac:	48 c1 e9 03          	shr    $0x3,%rcx
+  4aa7b0:	48 8d 3c 08          	lea    (%rax,%rcx,1),%rdi
+  4aa7b4:	48 83 c7 10          	add    $0x10,%rdi
+  4aa7b8:	49 0f af fc          	imul   %r12,%rdi
+  4aa7bc:	31 f6                	xor    %esi,%esi
+  4aa7be:	e8 fd 00 73 00       	call   bda8c0 <FMemory::QuantizeSize(unsigned long, unsigned int)@plt>
+  4aa7c3:	48 89 c1             	mov    %rax,%rcx
+  4aa7c6:	48 c1 e9 20          	shr    $0x20,%rcx
+  4aa7ca:	74 44                	je     4aa810 <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0xd0>
+  4aa7cc:	31 d2                	xor    %edx,%edx
+  4aa7ce:	49 f7 f4             	div    %r12
+  4aa7d1:	49 89 c5             	mov    %rax,%r13
+  4aa7d4:	44 39 ed             	cmp    %r13d,%ebp
+  4aa7d7:	7e 44                	jle    4aa81d <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0xdd>
+  4aa7d9:	49 8d 6f 08          	lea    0x8(%r15),%rbp
+  4aa7dd:	41 bd ff ff ff 7f    	mov    $0x7fffffff,%r13d
+  4aa7e3:	49 83 7f 08 00       	cmpq   $0x0,0x8(%r15)
+  4aa7e8:	74 51                	je     4aa83b <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0xfb>
+  4aa7ea:	48 89 ef             	mov    %rbp,%rdi
+  4aa7ed:	44 89 f6             	mov    %r14d,%esi
+  4aa7f0:	44 89 ea             	mov    %r13d,%edx
+  4aa7f3:	4c 89 e1             	mov    %r12,%rcx
+  4aa7f6:	e8 e5 00 73 00       	call   bda8e0 <TSizedHeapAllocator<32, FMemory>::ForAnyElementType::ResizeAllocation(int, int, unsigned long)@plt>
+  4aa7fb:	44 89 2b             	mov    %r13d,(%rbx)
+  4aa7fe:	44 89 f0             	mov    %r14d,%eax
+  4aa801:	48 83 c4 08          	add    $0x8,%rsp
+  4aa805:	5b                   	pop    %rbx
+  4aa806:	41 5c                	pop    %r12
+  4aa808:	41 5d                	pop    %r13
+  4aa80a:	41 5e                	pop    %r14
+  4aa80c:	41 5f                	pop    %r15
+  4aa80e:	5d                   	pop    %rbp
+  4aa80f:	c3                   	ret    
+  4aa810:	31 d2                	xor    %edx,%edx
+  4aa812:	41 f7 f4             	div    %r12d
+  4aa815:	41 89 c5             	mov    %eax,%r13d
+  4aa818:	44 39 ed             	cmp    %r13d,%ebp
+  4aa81b:	7f bc                	jg     4aa7d9 <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0x99>
+  4aa81d:	49 8d 6f 08          	lea    0x8(%r15),%rbp
+  4aa821:	49 8b 77 08          	mov    0x8(%r15),%rsi
+  4aa825:	41 83 fd 01          	cmp    $0x1,%r13d
+  4aa829:	77 0b                	ja     4aa836 <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0xf6>
+  4aa82b:	48 85 f6             	test   %rsi,%rsi
+  4aa82e:	0f 85 4d ff ff ff    	jne    4aa781 <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0x41>
+  4aa834:	eb c5                	jmp    4aa7fb <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0xbb>
+  4aa836:	48 85 f6             	test   %rsi,%rsi
+  4aa839:	75 af                	jne    4aa7ea <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0xaa>
+  4aa83b:	48 89 ef             	mov    %rbp,%rdi
+  4aa83e:	31 f6                	xor    %esi,%esi
+  4aa840:	44 89 ea             	mov    %r13d,%edx
+  4aa843:	4c 89 e1             	mov    %r12,%rcx
+  4aa846:	e8 95 00 73 00       	call   bda8e0 <TSizedHeapAllocator<32, FMemory>::ForAnyElementType::ResizeAllocation(int, int, unsigned long)@plt>
+  4aa84b:	49 8b 7f 08          	mov    0x8(%r15),%rdi
+  4aa84f:	4a 8d 14 f5 00 00 00 	lea    0x0(,%r14,8),%rdx
+  4aa856:	00 
+  4aa857:	4c 89 fe             	mov    %r15,%rsi
+  4aa85a:	e8 a1 f6 72 00       	call   bd9f00 <memmove@plt>
+  4aa85f:	eb 9a                	jmp    4aa7fb <decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)()) UE::Core::Private::ReallocGrow1_DoAlloc_Tiny<2u, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer> >(unsigned short, TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&, decltype (((std::declval<TSizedInlineAllocator<1u, 32, TSizedDefaultAllocator<32> >::ForElementType<FSharedBuffer>&>()).GetInitialCapacity)())&)+0xbb>
+  4aa861:	89 ef                	mov    %ebp,%edi
+  4aa863:	e8 08 f7 72 00       	call   bd9f70 <UE::Core::Private::OnInvalidArrayNum(unsigned long long)@plt>
+  4aa868:	cc                   	int3   
+  4aa869:	cc                   	int3   
+  4aa86a:	cc                   	int3   
+  4aa86b:	cc                   	int3   
+  4aa86c:	cc                   	int3   
+  4aa86d:	cc                   	int3   
+  4aa86e:	cc                   	int3   
+  4aa86f:	cc                   	int3   

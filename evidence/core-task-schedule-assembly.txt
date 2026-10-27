@@ -1,0 +1,179 @@
+
+server/Engine/Binaries/Linux/libFactoryServer-Core-Linux-Shipping.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000817770 <UE::Tasks::Private::FTaskBase::Schedule(bool&)>:
+  817770:	41 57                	push   %r15
+  817772:	41 56                	push   %r14
+  817774:	53                   	push   %rbx
+  817775:	48 89 fb             	mov    %rdi,%rbx
+  817778:	80 7f 1c 03          	cmpb   $0x3,0x1c(%rdi)
+  81777c:	7c 2f                	jl     8177ad <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x3d>
+  81777e:	e8 2d 2d 3c 00       	call   bda4b0 <FTaskGraphInterface::Get()@plt>
+  817783:	0f b6 4b 1c          	movzbl 0x1c(%rbx),%ecx
+  817787:	8d 51 fd             	lea    -0x3(%rcx),%edx
+  81778a:	83 fa 0b             	cmp    $0xb,%edx
+  81778d:	0f 87 fb 00 00 00    	ja     81788e <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x11e>
+  817793:	48 8d 0d 9a 82 ab ff 	lea    -0x547d66(%rip),%rcx        # 2cfa34 <FTypeLayoutDesc::GetInvalidTypeLayout()::InvalidTypeDesc+0x37c>
+  81779a:	48 63 14 91          	movslq (%rcx,%rdx,4),%rdx
+  81779e:	48 01 ca             	add    %rcx,%rdx
+  8177a1:	ff e2                	jmp    *%rdx
+  8177a3:	b9 01 00 00 00       	mov    $0x1,%ecx
+  8177a8:	e9 16 01 00 00       	jmp    8178c3 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x153>
+  8177ad:	8b 43 18             	mov    0x18(%rbx),%eax
+  8177b0:	a8 01                	test   $0x1,%al
+  8177b2:	74 18                	je     8177cc <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x5c>
+  8177b4:	48 8d 7b 18          	lea    0x18(%rbx),%rdi
+  8177b8:	8d 48 01             	lea    0x1(%rax),%ecx
+  8177bb:	f0 0f b1 0f          	lock cmpxchg %ecx,(%rdi)
+  8177bf:	75 0b                	jne    8177cc <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x5c>
+  8177c1:	49 89 f6             	mov    %rsi,%r14
+  8177c4:	e8 47 2c 3c 00       	call   bda410 <UE::ParkingLot::WakeAll(void const*)@plt>
+  8177c9:	4c 89 f6             	mov    %r14,%rsi
+  8177cc:	0f b6 06             	movzbl (%rsi),%eax
+  8177cf:	45 31 f6             	xor    %r14d,%r14d
+  8177d2:	f0 48 0f ba ab 80 00 	lock btsq $0x1,0x80(%rbx)
+  8177d9:	00 00 01 
+  8177dc:	41 0f 92 c6          	setb   %r14b
+  8177e0:	45 01 f6             	add    %r14d,%r14d
+  8177e3:	75 23                	jne    817808 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x98>
+  8177e5:	48 83 c3 48          	add    $0x48,%rbx
+  8177e9:	31 d2                	xor    %edx,%edx
+  8177eb:	84 c0                	test   %al,%al
+  8177ed:	0f 94 c2             	sete   %dl
+  8177f0:	0f b6 c8             	movzbl %al,%ecx
+  8177f3:	48 8b 3d a6 d6 41 00 	mov    0x41d6a6(%rip),%rdi        # c34ea0 <LowLevelTasks::FScheduler::Singleton@@Base-0x179e0>
+  8177fa:	49 89 f7             	mov    %rsi,%r15
+  8177fd:	48 89 de             	mov    %rbx,%rsi
+  817800:	e8 4b 2a 3c 00       	call   bda250 <LowLevelTasks::FScheduler::LaunchInternal(LowLevelTasks::FTask&, LowLevelTasks::EQueuePreference, bool)@plt>
+  817805:	4c 89 fe             	mov    %r15,%rsi
+  817808:	4d 85 f6             	test   %r14,%r14
+  81780b:	0f 94 c0             	sete   %al
+  81780e:	08 06                	or     %al,(%rsi)
+  817810:	5b                   	pop    %rbx
+  817811:	41 5e                	pop    %r14
+  817813:	41 5f                	pop    %r15
+  817815:	c3                   	ret    
+  817816:	b9 00 03 00 00       	mov    $0x300,%ecx
+  81781b:	e9 a3 00 00 00       	jmp    8178c3 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x153>
+  817820:	48 8b 0d 19 d7 41 00 	mov    0x41d719(%rip),%rcx        # c34f40 <ENamedThreads::FRenderThreadStatics::RenderThread@@Base-0x493c>
+  817827:	8b 09                	mov    (%rcx),%ecx
+  817829:	e9 95 00 00 00       	jmp    8178c3 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x153>
+  81782e:	b9 00 02 00 00       	mov    $0x200,%ecx
+  817833:	e9 8b 00 00 00       	jmp    8178c3 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x153>
+  817838:	b9 01 01 00 00       	mov    $0x101,%ecx
+  81783d:	e9 81 00 00 00       	jmp    8178c3 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x153>
+  817842:	b9 01 03 00 00       	mov    $0x301,%ecx
+  817847:	eb 7a                	jmp    8178c3 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x153>
+  817849:	48 8b 0d f0 d6 41 00 	mov    0x41d6f0(%rip),%rcx        # c34f40 <ENamedThreads::FRenderThreadStatics::RenderThread@@Base-0x493c>
+  817850:	8b 09                	mov    (%rcx),%ecx
+  817852:	81 c9 00 03 00 00    	or     $0x300,%ecx
+  817858:	eb 69                	jmp    8178c3 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x153>
+  81785a:	b9 01 02 00 00       	mov    $0x201,%ecx
+  81785f:	eb 62                	jmp    8178c3 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x153>
+  817861:	48 8b 0d d8 d6 41 00 	mov    0x41d6d8(%rip),%rcx        # c34f40 <ENamedThreads::FRenderThreadStatics::RenderThread@@Base-0x493c>
+  817868:	8b 09                	mov    (%rcx),%ecx
+  81786a:	81 c9 00 02 00 00    	or     $0x200,%ecx
+  817870:	eb 51                	jmp    8178c3 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x153>
+  817872:	48 8b 0d c7 d6 41 00 	mov    0x41d6c7(%rip),%rcx        # c34f40 <ENamedThreads::FRenderThreadStatics::RenderThread@@Base-0x493c>
+  817879:	8b 09                	mov    (%rcx),%ecx
+  81787b:	81 c9 00 01 00 00    	or     $0x100,%ecx
+  817881:	eb 40                	jmp    8178c3 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x153>
+  817883:	b9 00 01 00 00       	mov    $0x100,%ecx
+  817888:	eb 39                	jmp    8178c3 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x153>
+  81788a:	31 c9                	xor    %ecx,%ecx
+  81788c:	eb 35                	jmp    8178c3 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x153>
+  81788e:	49 89 c6             	mov    %rax,%r14
+  817891:	44 0f be c1          	movsbl %cl,%r8d
+  817895:	48 8d 3d 26 d0 a3 ff 	lea    -0x5c2fda(%rip),%rdi        # 2548c2 <flagLR+0x2292>
+  81789c:	48 8d 35 9b 21 a4 ff 	lea    -0x5bde65(%rip),%rsi        # 259a3e <flagLR+0x740e>
+  8178a3:	48 8d 0d 1e 41 a8 ff 	lea    -0x57bee2(%rip),%rcx        # 29b9c8 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x33067>
+  8178aa:	ba 0e 02 00 00       	mov    $0x20e,%edx
+  8178af:	31 c0                	xor    %eax,%eax
+  8178b1:	e8 9a 25 3c 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  8178b6:	b9 ff 00 00 00       	mov    $0xff,%ecx
+  8178bb:	84 c0                	test   %al,%al
+  8178bd:	74 01                	je     8178c0 <UE::Tasks::Private::FTaskBase::Schedule(bool&)+0x150>
+  8178bf:	cc                   	int3   
+  8178c0:	4c 89 f0             	mov    %r14,%rax
+  8178c3:	48 8b 10             	mov    (%rax),%rdx
+  8178c6:	4c 8b 0a             	mov    (%rdx),%r9
+  8178c9:	48 89 c7             	mov    %rax,%rdi
+  8178cc:	48 89 de             	mov    %rbx,%rsi
+  8178cf:	ba 01 00 00 00       	mov    $0x1,%edx
+  8178d4:	41 b8 ff 00 00 00    	mov    $0xff,%r8d
+  8178da:	5b                   	pop    %rbx
+  8178db:	41 5e                	pop    %r14
+  8178dd:	41 5f                	pop    %r15
+  8178df:	41 ff e1             	jmp    *%r9
+  8178e2:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+  8178e9:	1f 84 00 00 00 00 00 
+
+00000000008178f0 <UE::Tasks::Private::TranslatePriority(UE::Tasks::EExtendedTaskPriority)>:
+  8178f0:	8d 47 fd             	lea    -0x3(%rdi),%eax
+  8178f3:	83 f8 0b             	cmp    $0xb,%eax
+  8178f6:	77 74                	ja     81796c <UE::Tasks::Private::TranslatePriority(UE::Tasks::EExtendedTaskPriority)+0x7c>
+  8178f8:	48 8d 0d 65 81 ab ff 	lea    -0x547e9b(%rip),%rcx        # 2cfa64 <FTypeLayoutDesc::GetInvalidTypeLayout()::InvalidTypeDesc+0x3ac>
+  8178ff:	48 63 04 81          	movslq (%rcx,%rax,4),%rax
+  817903:	48 01 c8             	add    %rcx,%rax
+  817906:	ff e0                	jmp    *%rax
+  817908:	b8 01 00 00 00       	mov    $0x1,%eax
+  81790d:	c3                   	ret    
+  81790e:	b8 00 03 00 00       	mov    $0x300,%eax
+  817913:	c3                   	ret    
+  817914:	48 8b 05 25 d6 41 00 	mov    0x41d625(%rip),%rax        # c34f40 <ENamedThreads::FRenderThreadStatics::RenderThread@@Base-0x493c>
+  81791b:	8b 00                	mov    (%rax),%eax
+  81791d:	c3                   	ret    
+  81791e:	b8 00 02 00 00       	mov    $0x200,%eax
+  817923:	c3                   	ret    
+  817924:	b8 01 01 00 00       	mov    $0x101,%eax
+  817929:	c3                   	ret    
+  81792a:	b8 01 03 00 00       	mov    $0x301,%eax
+  81792f:	c3                   	ret    
+  817930:	48 8b 05 09 d6 41 00 	mov    0x41d609(%rip),%rax        # c34f40 <ENamedThreads::FRenderThreadStatics::RenderThread@@Base-0x493c>
+  817937:	8b 00                	mov    (%rax),%eax
+  817939:	0d 00 03 00 00       	or     $0x300,%eax
+  81793e:	c3                   	ret    
+  81793f:	b8 01 02 00 00       	mov    $0x201,%eax
+  817944:	c3                   	ret    
+  817945:	48 8b 05 f4 d5 41 00 	mov    0x41d5f4(%rip),%rax        # c34f40 <ENamedThreads::FRenderThreadStatics::RenderThread@@Base-0x493c>
+  81794c:	8b 00                	mov    (%rax),%eax
+  81794e:	0d 00 02 00 00       	or     $0x200,%eax
+  817953:	c3                   	ret    
+  817954:	48 8b 05 e5 d5 41 00 	mov    0x41d5e5(%rip),%rax        # c34f40 <ENamedThreads::FRenderThreadStatics::RenderThread@@Base-0x493c>
+  81795b:	8b 00                	mov    (%rax),%eax
+  81795d:	0d 00 01 00 00       	or     $0x100,%eax
+  817962:	c3                   	ret    
+  817963:	b8 00 01 00 00       	mov    $0x100,%eax
+  817968:	c3                   	ret    
+  817969:	31 c0                	xor    %eax,%eax
+  81796b:	c3                   	ret    
+  81796c:	50                   	push   %rax
+  81796d:	44 0f be c7          	movsbl %dil,%r8d
+  817971:	48 8d 3d 4a cf a3 ff 	lea    -0x5c30b6(%rip),%rdi        # 2548c2 <flagLR+0x2292>
+  817978:	48 8d 35 bf 20 a4 ff 	lea    -0x5bdf41(%rip),%rsi        # 259a3e <flagLR+0x740e>
+  81797f:	48 8d 0d 42 40 a8 ff 	lea    -0x57bfbe(%rip),%rcx        # 29b9c8 <crashpad::PtraceBroker::PtraceBroker(int, int, bool)::kProc+0x33067>
+  817986:	ba 0e 02 00 00       	mov    $0x20e,%edx
+  81798b:	31 c0                	xor    %eax,%eax
+  81798d:	e8 be 24 3c 00       	call   bd9e50 <FDebug::CheckVerifyFailedImpl2(char const*, char const*, int, char16_t const*, ...)@plt>
+  817992:	89 c1                	mov    %eax,%ecx
+  817994:	b8 ff 00 00 00       	mov    $0xff,%eax
+  817999:	84 c9                	test   %cl,%cl
+  81799b:	48 8d 64 24 08       	lea    0x8(%rsp),%rsp
+  8179a0:	74 01                	je     8179a3 <UE::Tasks::Private::TranslatePriority(UE::Tasks::EExtendedTaskPriority)+0xb3>
+  8179a2:	cc                   	int3   
+  8179a3:	c3                   	ret    
+  8179a4:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+  8179ab:	00 00 00 00 00 
+
+00000000008179b0 <UE::Tasks::Private::IsThreadRetractingTask()>:
+  8179b0:	50                   	push   %rax
+  8179b1:	48 8d 3d 18 d4 41 00 	lea    0x41d418(%rip),%rdi        # c34dd0 <_DYNAMIC+0x1f0>
+  8179b8:	e8 43 26 3c 00       	call   bda000 <__tls_get_addr@plt>
+  8179bd:	83 b8 40 0b 00 00 00 	cmpl   $0x0,0xb40(%rax)
+  8179c4:	0f 95 c0             	setne  %al
+  8179c7:	59                   	pop    %rcx
+  8179c8:	c3                   	ret    
+  8179c9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
