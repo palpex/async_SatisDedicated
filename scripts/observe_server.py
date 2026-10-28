@@ -20,6 +20,9 @@ COUNTERS = {"ticks": "_ZN12_GLOBAL__N_117intercepted_ticksE",
             "dispatched": "_ZN12_GLOBAL__N_116async_dispatchesE",
             "completed": "_ZN12_GLOBAL__N_121completed_async_ticksE",
             "fallbacks": "_ZN12_GLOBAL__N_114sync_fallbacksE",
+            "pool_hits": "_ZN12_GLOBAL__N_19pool_hitsE",
+            "active_mutations": "_ZN12_GLOBAL__N_125active_buildable_mutationsE",
+            "mutation_waits": "_ZN12_GLOBAL__N_114mutation_waitsE",
             "enabled": "_ZN12_GLOBAL__N_118async_tick_enabledE"}
 
 def call(url, function, data=None, token=None):
