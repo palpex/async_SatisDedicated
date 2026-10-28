@@ -84,6 +84,18 @@ When enabled via `satis_async_set_enabled(1)` or `SATIS_ASYNC_TICK=1`:
 - `satis_async_tick_count` / `satis_async_dispatch_count`: Performance metrics for intercepted ticks.
 - `satis_async_sync_fallback_count`: Counts ticks kept on the Game Thread because the subsystem reported pending conveyor-group migration or actor-spawn work.
 - `satis_async_pool_hit_count`: Measures simulation tick contexts and completion handles serviced by the preallocated zero-allocation pool.
+- `satis_async_mutation_wait_count`: Measures Game Thread wait events where a player building, dismantling, or inventory transfer paused briefly for an in-flight worker tick to finish.
+- `satis_async_active_mutations`: Reports the number of currently active building or inventory mutations on the Game Thread.
+
+## Building & Inventory Mutation Synchronization (Interaction Guard)
+
+In Satisfactory, player building placement, building dismantling (`BP_MaterialEffect_Dismantle_C`), conveyor connection/removal, and inventory item transfers (`UFGInventoryLibrary::MoveInventoryItem`) modify the central `mBuildables` array and building inventory components on the Game Thread.
+
+To prevent data races where background TaskGraph workers iterate through building or inventory arrays while the Game Thread is deleting or modifying them:
+1. **Reentrant Mutation Guard:** The bridge interposes `AddBuildable`, `RemoveBuildable`, `AddConveyor`, `RemoveConveyor`, `AddToTickGroup`, `RemoveFromTickGroup`, `MoveInventoryItem`, and `GrabAllItemsFromInventory`.
+2. **In-flight Tick Drain:** When entering any mutation on the Game Thread, `wait_for_inflight_ticks()` checks if an asynchronous factory tick is currently in flight on a background worker. If so, the Game Thread pauses (average wait < 2 ms) until the worker completes its iteration.
+3. **Synchronous Fallback During Active Mutations:** While a building mutation or inventory transfer is in progress (`active_buildable_mutations > 0`), any arriving `ExecuteTick` automatically falls back to synchronous Game Thread execution, guaranteeing that workers and Game Thread never access building containers simultaneously.
+4. **Reentrancy Protection:** A thread-local `buildable_mutation_depth` counter ensures that nested engine calls (e.g. `RemoveBuildable` invoking `RemoveFromTickGroup` which invokes `RemoveConveyor`) do not re-trigger waits or cause self-deadlock.
 
 ## Zero-allocation Hot-path Pool
 

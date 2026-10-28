@@ -10,6 +10,8 @@
 #include <new>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <chrono>
+#include <thread>
 
 struct satis_completion {
     void* event{};
@@ -118,6 +120,63 @@ std::atomic<std::uint64_t> inflight_async_ticks{0};
 std::atomic<std::uint64_t> sync_fallbacks{0};
 std::atomic<std::uint64_t> completed_async_ticks{0};
 std::atomic<std::uint64_t> pool_hits{0};
+std::atomic<std::uint32_t> active_buildable_mutations{0};
+std::atomic<std::uint64_t> mutation_waits{0};
+thread_local std::uint32_t buildable_mutation_depth{0};
+std::uint32_t* game_thread_id{};
+std::uint32_t tid() { return static_cast<std::uint32_t>(syscall(SYS_gettid)); }
+
+void wait_for_inflight_ticks() {
+    if (!game_thread_id || tid() != *game_thread_id) {
+        return;
+    }
+    if (inflight_async_ticks.load(std::memory_order_acquire) == 0) {
+        return;
+    }
+    mutation_waits.fetch_add(1, std::memory_order_relaxed);
+    auto start = std::chrono::steady_clock::now();
+    while (inflight_async_ticks.load(std::memory_order_acquire) > 0) {
+#if defined(__x86_64__) || defined(_M_X64)
+        __builtin_ia32_pause();
+#endif
+        std::this_thread::yield();
+        if (std::chrono::steady_clock::now() - start > std::chrono::milliseconds(50)) {
+            break;
+        }
+    }
+}
+
+struct ScopedBuildableMutation {
+    ScopedBuildableMutation() {
+        if (buildable_mutation_depth == 0) {
+            wait_for_inflight_ticks();
+            active_buildable_mutations.fetch_add(1, std::memory_order_release);
+        }
+        ++buildable_mutation_depth;
+    }
+    ~ScopedBuildableMutation() {
+        --buildable_mutation_depth;
+        if (buildable_mutation_depth == 0) {
+            active_buildable_mutations.fetch_sub(1, std::memory_order_release);
+        }
+    }
+};
+
+template<typename Sig>
+Sig resolve_factory_symbol(const char* name, std::atomic<Sig>& cache) {
+    Sig fn = cache.load(std::memory_order_acquire);
+    if (!fn) {
+        fn = reinterpret_cast<Sig>(dlsym(RTLD_NEXT, name));
+        if (!fn) {
+            void* fg = dlopen("libFactoryServer-FactoryGame-Linux-Shipping.so", RTLD_NOW | RTLD_NOLOAD);
+            if (fg) {
+                fn = reinterpret_cast<Sig>(dlsym(fg, name));
+            }
+        }
+        cache.store(fn, std::memory_order_release);
+    }
+    return fn;
+}
 bool factory_layout_supported{};
 // Published on the Game Thread during initialization; sampled only at tick entry.
 const bool* gc_active{};
@@ -139,7 +198,6 @@ void task_release(void* task) {
 std::atomic<bool> initialized{false};
 std::mutex init_mutex;
 std::atomic<const char*> failure{"Bridge not initialized"};
-std::uint32_t* game_thread_id{};
 void* core_handle{}; // Retained for the lifetime of this bridge.
 struct BuildCheck { std::uintptr_t base; bool matched{}; const unsigned char* expected_id{}; };
 int check_core_build(dl_phdr_info* info, std::size_t, void* opaque) {
@@ -235,7 +293,6 @@ void batch_dispose(void* opaque) {
     }
 }
 
-std::uint32_t tid() { return static_cast<std::uint32_t>(syscall(SYS_gettid)); }
 std::uint64_t work(std::uint32_t index, std::uint32_t iterations) {
     std::uint64_t x = 0x9e3779b97f4a7c15ULL ^ index;
     for (std::uint32_t i=0; i<iterations; ++i) {
@@ -539,6 +596,12 @@ extern "C" std::uint64_t satis_async_completed_count() {
 extern "C" std::uint64_t satis_async_pool_hit_count() {
     return pool_hits.load(std::memory_order_acquire);
 }
+extern "C" std::uint64_t satis_async_mutation_wait_count() {
+    return mutation_waits.load(std::memory_order_acquire);
+}
+extern "C" std::uint32_t satis_async_active_mutations() {
+    return active_buildable_mutations.load(std::memory_order_acquire);
+}
 
 namespace {
 struct AsyncTickContext {
@@ -656,7 +719,8 @@ extern "C" void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThr
     // GC/save flags are an entry guard, not a cross-frame lifetime lock.
     if(!factory_layout_supported || !gc_active || !saving_package ||
        !incremental_reachability_pending || tid()!=*game_thread_id ||
-       *gc_active || *saving_package || *incremental_reachability_pending) {
+       *gc_active || *saving_package || *incremental_reachability_pending ||
+       active_buildable_mutations.load(std::memory_order_acquire) > 0) {
         run_synchronously();
         return;
     }
@@ -726,6 +790,69 @@ extern "C" void _ZN20FFactoryTickFunction11ExecuteTickEf10ELevelTickN13ENamedThr
         satis_completion_release(comp);
         sync_fallbacks.fetch_add(1,std::memory_order_relaxed);
     }
+}
+
+
+// Interposition hooks for building, conveyor, and inventory mutations:
+// Ensures background worker ParallelFor loops cannot race with Game Thread modifications.
+using BuildableSubsystemMethod = void (*)(void*, void*);
+
+std::atomic<BuildableSubsystemMethod> orig_add_buildable{nullptr};
+extern "C" void _ZN21AFGBuildableSubsystem12AddBuildableEP12AFGBuildable(void* sub, void* b) {
+    ScopedBuildableMutation guard;
+    auto orig = resolve_factory_symbol("_ZN21AFGBuildableSubsystem12AddBuildableEP12AFGBuildable", orig_add_buildable);
+    if (orig) orig(sub, b);
+}
+
+std::atomic<BuildableSubsystemMethod> orig_remove_buildable{nullptr};
+extern "C" void _ZN21AFGBuildableSubsystem15RemoveBuildableEP12AFGBuildable(void* sub, void* b) {
+    ScopedBuildableMutation guard;
+    auto orig = resolve_factory_symbol("_ZN21AFGBuildableSubsystem15RemoveBuildableEP12AFGBuildable", orig_remove_buildable);
+    if (orig) orig(sub, b);
+}
+
+std::atomic<BuildableSubsystemMethod> orig_add_conveyor{nullptr};
+extern "C" void _ZN21AFGBuildableSubsystem11AddConveyorEP24AFGBuildableConveyorBase(void* sub, void* c) {
+    ScopedBuildableMutation guard;
+    auto orig = resolve_factory_symbol("_ZN21AFGBuildableSubsystem11AddConveyorEP24AFGBuildableConveyorBase", orig_add_conveyor);
+    if (orig) orig(sub, c);
+}
+
+std::atomic<BuildableSubsystemMethod> orig_remove_conveyor{nullptr};
+extern "C" void _ZN21AFGBuildableSubsystem14RemoveConveyorEP24AFGBuildableConveyorBase(void* sub, void* c) {
+    ScopedBuildableMutation guard;
+    auto orig = resolve_factory_symbol("_ZN21AFGBuildableSubsystem14RemoveConveyorEP24AFGBuildableConveyorBase", orig_remove_conveyor);
+    if (orig) orig(sub, c);
+}
+
+std::atomic<BuildableSubsystemMethod> orig_add_to_tick_group{nullptr};
+extern "C" void _ZN21AFGBuildableSubsystem14AddToTickGroupEP12AFGBuildable(void* sub, void* b) {
+    ScopedBuildableMutation guard;
+    auto orig = resolve_factory_symbol("_ZN21AFGBuildableSubsystem14AddToTickGroupEP12AFGBuildable", orig_add_to_tick_group);
+    if (orig) orig(sub, b);
+}
+
+std::atomic<BuildableSubsystemMethod> orig_remove_from_tick_group{nullptr};
+extern "C" void _ZN21AFGBuildableSubsystem19RemoveFromTickGroupEP12AFGBuildable(void* sub, void* b) {
+    ScopedBuildableMutation guard;
+    auto orig = resolve_factory_symbol("_ZN21AFGBuildableSubsystem19RemoveFromTickGroupEP12AFGBuildable", orig_remove_from_tick_group);
+    if (orig) orig(sub, b);
+}
+
+using MoveInventoryItemSig = bool (*)(void*, int, void*, int);
+std::atomic<MoveInventoryItemSig> orig_move_inventory_item{nullptr};
+extern "C" bool _ZN19UFGInventoryLibrary17MoveInventoryItemEP21UFGInventoryComponentiS1_i(void* src, int srcIdx, void* dst, int dstIdx) {
+    ScopedBuildableMutation guard;
+    auto orig = resolve_factory_symbol("_ZN19UFGInventoryLibrary17MoveInventoryItemEP21UFGInventoryComponentiS1_i", orig_move_inventory_item);
+    return orig ? orig(src, srcIdx, dst, dstIdx) : false;
+}
+
+using GrabAllItemsSig = bool (*)(void*, void*, void*);
+std::atomic<GrabAllItemsSig> orig_grab_all_items{nullptr};
+extern "C" bool _ZN19UFGInventoryLibrary25GrabAllItemsFromInventoryEP21UFGInventoryComponentS1_11TSubclassOfI17UFGItemDescriptorE(void* src, void* dst, void* desc) {
+    ScopedBuildableMutation guard;
+    auto orig = resolve_factory_symbol("_ZN19UFGInventoryLibrary25GrabAllItemsFromInventoryEP21UFGInventoryComponentS1_11TSubclassOfI17UFGItemDescriptorE", orig_grab_all_items);
+    return orig ? orig(src, dst, desc) : false;
 }
 
 namespace {

@@ -117,5 +117,31 @@ int main() {
     assert(original_calls==9 && observed_lane==255u && signals==3);
     assert(satis_async_completed_count()==1 && satis_task_outstanding()==0);
     assert(satis_async_sync_fallback_count()==8);
+
+    // Verify buildable mutation guard and synchronization
+    assert(satis_async_active_mutations() == 0);
+    assert(satis_async_mutation_wait_count() == 0);
+
+    // When an active mutation is in progress, ExecuteTick must fall back synchronously.
+    {
+        ScopedBuildableMutation mutation;
+        assert(satis_async_active_mutations() == 1);
+        hook(tick, 0.03f, 0, 1, &completion);
+        assert(original_calls == 10 && !queued_function.heap && observed_lane == 1);
+        assert(satis_async_sync_fallback_count() == 9);
+    }
+    assert(satis_async_active_mutations() == 0);
+
+    // Verify calling all hooks directly
+    _ZN21AFGBuildableSubsystem12AddBuildableEP12AFGBuildable(subsystem, nullptr);
+    _ZN21AFGBuildableSubsystem15RemoveBuildableEP12AFGBuildable(subsystem, nullptr);
+    _ZN21AFGBuildableSubsystem11AddConveyorEP24AFGBuildableConveyorBase(subsystem, nullptr);
+    _ZN21AFGBuildableSubsystem14RemoveConveyorEP24AFGBuildableConveyorBase(subsystem, nullptr);
+    _ZN21AFGBuildableSubsystem14AddToTickGroupEP12AFGBuildable(subsystem, nullptr);
+    _ZN21AFGBuildableSubsystem19RemoveFromTickGroupEP12AFGBuildable(subsystem, nullptr);
+    _ZN19UFGInventoryLibrary17MoveInventoryItemEP21UFGInventoryComponentiS1_i(nullptr, 0, nullptr, 0);
+    _ZN19UFGInventoryLibrary25GrabAllItemsFromInventoryEP21UFGInventoryComponentS1_11TSubclassOfI17UFGItemDescriptorE(nullptr, nullptr, nullptr);
+    assert(satis_async_active_mutations() == 0);
+
     for(void* event:allocated_events) delete[] static_cast<unsigned char*>(event);
 }

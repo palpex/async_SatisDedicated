@@ -83,6 +83,9 @@ uint64_t satis_async_sync_fallback_count(void);
 uint64_t satis_async_completed_count(void);
 // Zero-allocation pool hits for simulation tick context and completion objects.
 uint64_t satis_async_pool_hit_count(void);
+// Mutation synchronization metrics: waits during active ticks and current active mutations.
+uint64_t satis_async_mutation_wait_count(void);
+uint32_t satis_async_active_mutations(void);
 
 #ifdef __cplusplus
 }
