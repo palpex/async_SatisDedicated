@@ -3,7 +3,7 @@
 set -euo pipefail
 project_root=$(cd -- "$(dirname -- "$0")/.." && pwd)
 cd "$project_root"
-version=v0.1.0-alpha.1
+version=v0.1.0-alpha.3
 if [[ $# -gt 0 ]]; then version=$1; fi
 [[ $version =~ ^v[0-9]+[.][0-9]+[.][0-9]+(-[a-zA-Z0-9.]+)?$ ]] || exit 2
 [[ -f build/libsatis_task_bridge.so ]] || { echo "Build the library first" >&2; exit 2; }

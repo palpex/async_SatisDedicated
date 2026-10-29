@@ -1,6 +1,6 @@
 # async_SatisDedicated
 
-Installation and rollback: [`docs/installation.md`](docs/installation.md) · Latest release notes: [`v0.1.0-alpha.2`](docs/releases/v0.1.0-alpha.2.md)
+Installation and rollback: [`docs/installation.md`](docs/installation.md) · Latest release notes: [`v0.1.0-alpha.3`](docs/releases/v0.1.0-alpha.3.md)
 
 **Asynchronous and Multithreaded Engine Architecture Bridge for the Official Satisfactory Dedicated Server (Unreal Engine 5).**
 
@@ -14,7 +14,7 @@ Even though certain internal sub-phases utilize `ParallelFor` calls, these are i
 
 This repository documents the reverse-engineering of the official Linux Dedicated Server and provides **`satis_task_bridge`**: a native C/C++ engine bridge that hooks directly into Unreal Engine 5's internal TaskGraph ABI (`AsyncTask`, `FBaseGraphTask`, `FFunctionGraphTask`) to experiment with asynchronous factory tick dispatch and Game Thread continuations. The official server already parallelizes some factory and pipe computation; this project changes tick scheduling, not the entire engine.
 
-> **Experimental alpha:** This bridge targets one validated Steam build (`25782485`). It keeps detected conveyor-migration ticks on the Game Thread and offloads eligible factory simulation ticks; other lifecycle paths remain under investigation. Review [the installation guide](docs/installation.md) and [the latest release notes](docs/releases/v0.1.0-alpha.2.md) before using it on a production server.
+> **Experimental alpha:** This bridge targets one validated Steam build (`25782485`). It keeps detected conveyor-migration ticks on the Game Thread and offloads eligible factory simulation ticks; other lifecycle paths remain under investigation. Review [the installation guide](docs/installation.md) and [the latest release notes](docs/releases/v0.1.0-alpha.3.md) before using it on a production server.
 
 ---
 
