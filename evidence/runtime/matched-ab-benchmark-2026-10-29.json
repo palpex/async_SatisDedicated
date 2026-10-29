@@ -108,5 +108,12 @@
         "n": 19
       }
     }
-  ]
+  ],
+  "analysis": {
+    "game_thread_cpu_reduction_pct": 16.6,
+    "worker_cpu_increase_pct": 4.24,
+    "total_cpu_reduction_pct": 1.36,
+    "tps_delta": 0.01,
+    "jitter_delta_pct": -18.52
+  }
 }

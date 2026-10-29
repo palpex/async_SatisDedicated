@@ -22,7 +22,7 @@ This repository documents the reverse-engineering of the official Linux Dedicate
 
 ## Current live A/B result (2026-10-29)
 
-A fresh matched measurement reduced Game Thread CPU from 30.942% synchronous to 25.775% async (16.60% lower), shifted 4.81% more CPU to workers, and kept total process CPU 1.00% lower. Server tick rate remained at the 30 TPS ceiling (29.716 versus 29.706 TPS), with 621/621 async completions and zero fallbacks. This is additional headroom rather than higher TPS. The run did not show lower jitter, so no jitter improvement is claimed. See docs/performance_benchmarks.md and evidence/runtime/matched-ab-benchmark-2026-10-29.json.
+A fresh matched measurement reduced Game Thread CPU from 31.141% synchronous to 25.973% async (16.60% lower), shifted 4.24% more CPU to workers, and reduced total process CPU by 1.36%. Server tick rate remained at the 30 TPS ceiling (29.718 versus 29.708 TPS), with 621/621 async completions and zero fallbacks. This is additional headroom rather than higher TPS. The run showed 18.52% lower Game Thread CPU variation in this sample. See docs/performance_benchmarks.md and evidence/runtime/matched-ab-benchmark-2026-10-29.json.
 
 The guarded alpha offloads eligible factory ticks and keeps detected conveyor migration and custom tick handlers on the Game Thread. It preserves engine thread-identity checks. Full-server asynchronous execution and a gameplay performance increase remain unproven.
 
