@@ -215,8 +215,7 @@ def main():
     
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(report, indent=2) + "
-")
+    out_path.write_text(json.dumps(report, indent=2) + chr(10))
     print(f"Benchmark written to {out_path}")
     print(json.dumps(report["analysis"], indent=2))
 

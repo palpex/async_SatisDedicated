@@ -1,0 +1,112 @@
+{
+  "phases": [
+    {
+      "mode": "async_enabled",
+      "enabled": 1,
+      "ticks": 621,
+      "dispatches": 621,
+      "completions": 621,
+      "fallbacks": 0,
+      "game_thread_cpu": {
+        "mean": 25.973,
+        "std": 0.8,
+        "min": 24.019,
+        "max": 26.989,
+        "n": 20
+      },
+      "worker_cpu": {
+        "mean": 88.377,
+        "std": 2.271,
+        "min": 85.321,
+        "max": 95.829,
+        "n": 20
+      },
+      "total_cpu": {
+        "mean": 114.351,
+        "std": 2.485,
+        "min": 110.488,
+        "max": 121.703,
+        "n": 20
+      },
+      "tps": {
+        "mean": 29.718,
+        "std": 0.025,
+        "min": 29.67,
+        "max": 29.763,
+        "n": 20
+      }
+    },
+    {
+      "mode": "vanilla_synchronous",
+      "enabled": 0,
+      "ticks": 621,
+      "dispatches": 0,
+      "completions": 0,
+      "fallbacks": 0,
+      "game_thread_cpu": {
+        "mean": 31.141,
+        "std": 0.675,
+        "min": 29.716,
+        "max": 32.571,
+        "n": 20
+      },
+      "worker_cpu": {
+        "mean": 84.782,
+        "std": 2.206,
+        "min": 79.584,
+        "max": 88.166,
+        "n": 20
+      },
+      "total_cpu": {
+        "mean": 115.923,
+        "std": 2.57,
+        "min": 110.267,
+        "max": 120.704,
+        "n": 20
+      },
+      "tps": {
+        "mean": 29.708,
+        "std": 0.019,
+        "min": 29.672,
+        "max": 29.752,
+        "n": 20
+      }
+    },
+    {
+      "mode": "async_restored",
+      "enabled": 1,
+      "ticks": 591,
+      "dispatches": 591,
+      "completions": 591,
+      "fallbacks": 0,
+      "game_thread_cpu": {
+        "mean": 27.433,
+        "std": 6.368,
+        "min": 24.906,
+        "max": 54.347,
+        "n": 19
+      },
+      "worker_cpu": {
+        "mean": 92.794,
+        "std": 20.305,
+        "min": 82.699,
+        "max": 178.399,
+        "n": 19
+      },
+      "total_cpu": {
+        "mean": 120.227,
+        "std": 26.619,
+        "min": 108.662,
+        "max": 232.746,
+        "n": 19
+      },
+      "tps": {
+        "mean": 29.589,
+        "std": 0.625,
+        "min": 26.941,
+        "max": 29.854,
+        "n": 19
+      }
+    }
+  ]
+}
