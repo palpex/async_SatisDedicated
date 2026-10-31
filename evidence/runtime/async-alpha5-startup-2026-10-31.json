@@ -1,0 +1,37 @@
+{
+  "scope": "Initial production startup verification; two-hour observation still running",
+  "server_started_at_utc": "2026-10-30T23:58:23Z",
+  "first_observation_at_utc": "2026-10-30T23:59:09Z",
+  "observation_deadline_utc": "2026-10-31T01:59:09Z",
+  "observation_complete": false,
+  "async_enabled": true,
+  "bridge_loaded": true,
+  "pipeline_guard_loaded": true,
+  "bridge_sha256": "f1d7a3182ce2e7161ad7bc00852f17b383b81c1988aacddb88a019d3f7811e68",
+  "pipeline_guard_sha256": "39236ea4c6c380819646a7691332c8a62971bdc01de5c99f1eb821c506872dac",
+  "service_restarts_since_requested_start": 0,
+  "api_port": 7777,
+  "api_health": "healthy",
+  "average_tick_rate": 29.809062957763672,
+  "connected_players": 0,
+  "async_counters": {
+    "intercepted": 531,
+    "dispatched": 531,
+    "completed": 531,
+    "inflight": 0,
+    "synchronous_fallbacks": 0
+  },
+  "fatal_log_matches": 0,
+  "automatic_recovery": {
+    "systemd_restart": "always",
+    "restart_delay_seconds": 10,
+    "supervisor_interval_seconds": 15,
+    "supervisor_duration_seconds": 7200,
+    "api_repair_supported": true
+  },
+  "limitations": [
+    "These are startup observations, not a completed two-hour stability result",
+    "No player dismantle action had yet exercised the pump guard in this process",
+    "API health on the LAN does not establish every external client connection"
+  ]
+}

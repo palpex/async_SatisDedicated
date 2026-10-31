@@ -1,0 +1,47 @@
+{
+  "scope": "Journal-based crash diagnosis, static binary inspection, synthetic native regression tests and bounded live deployment verification",
+  "crashes_utc": [
+    "2026-10-30T23:18:51Z",
+    "2026-10-30T23:20:14Z",
+    "2026-10-30T23:36:51Z"
+  ],
+  "assertion": "O != __null at FGDismantleInterface.gen.cpp:48",
+  "call_path": [
+    "UFGBuildGunStateDismantle::Server_DismantleActors_Implementation",
+    "UFGBuildGunStateDismantle::Internal_DismantleActor",
+    "AFGBuildablePipelineAttachment::Dismantle_Implementation",
+    "IFGDismantleInterface::Execute_CanDismantle"
+  ],
+  "last_crash_async_bridge_loaded": false,
+  "factorygame_sha256": "637c2c70e65f6386697a6a5f5746f64b187d2fcfeee56df1aeef3f172268c0c1",
+  "factorygame_gnu_build_id": "7dd11ed7c1cc5e43",
+  "static_evidence_id": "ev_abe974190f823a2f3042140eb94ac7dc3e8c5080f087b6c6814842b3032c64c5",
+  "repair": "When both named peers exist and either owner fails the pipeline class check, use stock base dismantle and skip optional pipe merging",
+  "guard_sha256": "39236ea4c6c380819646a7691332c8a62971bdc01de5c99f1eb821c506872dac",
+  "tests": {
+    "command": "python3 -m pytest -q tests/",
+    "passed": 16,
+    "native_regression_sanitizers": ["address", "undefined"]
+  },
+  "live_check_utc": "2026-10-30T23:51:11Z",
+  "live": {
+    "same_engine_process_since_guard_installation": true,
+    "service_active": true,
+    "async_bridge_loaded": false,
+    "pipeline_guard_loaded": true,
+    "live_replacement_installed": true,
+    "guard_checks": 0,
+    "guard_fallbacks": 0,
+    "fatal_log_matches_current_process": 0,
+    "expected_api_port_restored_without_game_restart": true,
+    "api_health": "healthy",
+    "approximate_tick_rate": 29.7,
+    "connected_players_last_api_sample": 0
+  },
+  "limitations": [
+    "No player dismantle action had exercised the installed guard at the recorded check",
+    "Journal confirms a null interface argument; the identity and original cause of the failed owner cast remain unobserved",
+    "Raw production logs are private and excluded because they contain player authentication material",
+    "Health checks from the LAN do not prove reachability through every external network or client"
+  ]
+}

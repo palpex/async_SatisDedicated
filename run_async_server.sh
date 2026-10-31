@@ -4,6 +4,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BUILD_DIR="${SATIS_BUILD_DIR:-${SCRIPT_DIR}/build}"
 BRIDGE_LIB="${SATIS_BRIDGE_LIB:-${BUILD_DIR}/libsatis_task_bridge.so}"
+PIPELINE_GUARD_LIB="${SATIS_PIPELINE_GUARD_LIB:-$(dirname -- "${BRIDGE_LIB}")/libsatis_pipeline_guard.so}"
 SERVER_DIR="${SATIS_SERVER_DIR:-${SCRIPT_DIR}/server}"
 SERVER_SCRIPT="${SATIS_SERVER_SCRIPT:-${SERVER_DIR}/FactoryServer.sh}"
 ASYNC_TICK="${SATIS_ASYNC_TICK:-1}"
@@ -23,16 +24,27 @@ if [[ ! -f "${BRIDGE_LIB}" ]]; then
     cmake -S "${SCRIPT_DIR}" -B "${BUILD_DIR}" -DCMAKE_BUILD_TYPE=RelWithDebInfo
     cmake --build "${BUILD_DIR}" -j$(nproc)
 fi
+if [[ ! -f "${PIPELINE_GUARD_LIB}" && -z ${SATIS_PIPELINE_GUARD_LIB:-} && -f "${SCRIPT_DIR}/CMakeLists.txt" ]]; then
+    echo ">> Building standalone pipeline dismantle guard..."
+    cmake -S "${SCRIPT_DIR}" -B "${BUILD_DIR}" -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    cmake --build "${BUILD_DIR}" --target satis_pipeline_guard -j"$(nproc)"
+    PIPELINE_GUARD_LIB="${BUILD_DIR}/libsatis_pipeline_guard.so"
+fi
+if [[ ! -r "${PIPELINE_GUARD_LIB}" ]]; then
+    echo "ERROR: pipeline guard library is missing or unreadable: ${PIPELINE_GUARD_LIB}" >&2
+    exit 1
+fi
 if [[ ! -r "${BRIDGE_LIB}" ]]; then
     echo "ERROR: library is not readable: ${BRIDGE_LIB}" >&2
     exit 1
 fi
 # The ELF loader splits LD_PRELOAD at spaces and colons without shell quoting.
-if [[ ${BRIDGE_LIB} =~ [[:space:]:] ]]; then
+if [[ ${BRIDGE_LIB} =~ [[:space:]:] || ${PIPELINE_GUARD_LIB} =~ [[:space:]:] ]]; then
     echo "ERROR: the library path must not contain spaces or colons (LD_PRELOAD limitation)." >&2
     exit 1
 fi
 BRIDGE_LIB=$(realpath -- "${BRIDGE_LIB}")
+PIPELINE_GUARD_LIB=$(realpath -- "${PIPELINE_GUARD_LIB}")
 
 if [[ ! -f "${SERVER_SCRIPT}" ]]; then
     echo "ERROR: ${SERVER_SCRIPT} not found!"
@@ -56,7 +68,7 @@ if [[ "${ASYNC_TICK}" != 0 && "${ASYNC_TICK}" != 1 && "${ASYNC_TICK}" != true &&
     echo "ERROR: SATIS_ASYNC_TICK must be 0, 1, true, or false."
     exit 1
 fi
-PRELOAD_VALUE="${BRIDGE_LIB}${LD_PRELOAD:+:${LD_PRELOAD}}"
+PRELOAD_VALUE="${PIPELINE_GUARD_LIB}:${BRIDGE_LIB}${LD_PRELOAD:+:${LD_PRELOAD}}"
 
 echo ">> Configuration:"
 echo "   - LD_PRELOAD: ${PRELOAD_VALUE}"

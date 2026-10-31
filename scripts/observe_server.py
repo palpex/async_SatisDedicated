@@ -21,7 +21,7 @@ COUNTERS = {"ticks": "_ZN12_GLOBAL__N_117intercepted_ticksE",
             "completed": "_ZN12_GLOBAL__N_121completed_async_ticksE",
             "fallbacks": "_ZN12_GLOBAL__N_114sync_fallbacksE",
             "pool_hits": "_ZN12_GLOBAL__N_19pool_hitsE",
-            "active_mutations": "_ZN12_GLOBAL__N_125active_buildable_mutationsE",
+            "active_mutations": "_ZN12_GLOBAL__N_126active_buildable_mutationsE",
             "mutation_waits": "_ZN12_GLOBAL__N_114mutation_waitsE",
             "enabled": "_ZN12_GLOBAL__N_118async_tick_enabledE"}
 
@@ -65,7 +65,8 @@ def bridge_counters(pid):
         for key, symbol in COUNTERS.items():
             if symbol in offsets:
                 memory.seek(base + offsets[symbol])
-                result[key] = int.from_bytes(memory.read(1 if key == "enabled" else 8), "little")
+                width = 1 if key == "enabled" else (4 if key == "active_mutations" else 8)
+                result[key] = int.from_bytes(memory.read(width), "little")
             else:
                 result[key] = None
     return result

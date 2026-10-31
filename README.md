@@ -1,6 +1,8 @@
 # async_SatisDedicated
 
-Installation and rollback: [`docs/installation.md`](docs/installation.md) · Latest release notes: [`v0.1.0-alpha.3`](docs/releases/v0.1.0-alpha.3.md)
+Installation and rollback: [`docs/installation.md`](docs/installation.md) · Latest release notes: [`v0.1.0-alpha.5`](docs/releases/v0.1.0-alpha.5.md)
+
+Pipeline attachment dismantle crash: [2026-10-31 findings and independent synchronous guard](docs/crash-investigation-2026-10-31.md). The launcher now loads this synchronous gameplay guard alongside the async bridge. The [fresh async startup](evidence/runtime/async-alpha5-startup-2026-10-31.json) completed 531/531 ticks at approximately 29.81 TPS; a two-hour observation is running until 2026-10-31 01:59:09 UTC and is not yet complete.
 
 **Asynchronous and Multithreaded Engine Architecture Bridge for the Official Satisfactory Dedicated Server (Unreal Engine 5).**
 
@@ -14,7 +16,7 @@ Even though certain internal sub-phases utilize `ParallelFor` calls, these are i
 
 This repository documents the reverse-engineering of the official Linux Dedicated Server and provides **`satis_task_bridge`**: a native C/C++ engine bridge that hooks directly into Unreal Engine 5's internal TaskGraph ABI (`AsyncTask`, `FBaseGraphTask`, `FFunctionGraphTask`) to experiment with asynchronous factory tick dispatch and Game Thread continuations. The official server already parallelizes some factory and pipe computation; this project changes tick scheduling, not the entire engine.
 
-> **Experimental alpha:** This bridge targets one validated Steam build (`25782485`). It keeps detected conveyor-migration ticks on the Game Thread and offloads eligible factory simulation ticks; other lifecycle paths remain under investigation. Review [the installation guide](docs/installation.md) and [the latest release notes](docs/releases/v0.1.0-alpha.3.md) before using it on a production server.
+> **Experimental alpha:** This bridge targets one validated Steam build (`25782485`). It keeps detected conveyor-migration ticks on the Game Thread and offloads eligible factory simulation ticks; other lifecycle paths remain under investigation. Review [the installation guide](docs/installation.md) and [the latest release notes](docs/releases/v0.1.0-alpha.5.md) before using it on a production server.
 
 ---
 
@@ -200,7 +202,7 @@ python3 scripts/run_scaling_sweep.py
 ```
 
 ### 7.4 Running the Dedicated Server with Async Bridge
-Use the provided launcher script to start the dedicated server with the asynchronous bridge preloaded:
+Use the provided launcher script to start the dedicated server with the standalone pipeline dismantle guard and asynchronous bridge preloaded:
 
 ```bash
 # Launch server with asynchronous task bridge enabled:

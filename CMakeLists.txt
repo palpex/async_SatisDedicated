@@ -7,6 +7,12 @@ target_compile_features(satis_task_bridge PRIVATE cxx_std_17)
 target_compile_options(satis_task_bridge PRIVATE -Wall -Wextra -Werror -fno-exceptions -fno-rtti)
 target_link_libraries(satis_task_bridge PRIVATE dl pthread)
 
+# Independent gameplay crash guard; contains no asynchronous tick interception.
+add_library(satis_pipeline_guard SHARED src/satis_pipeline_guard.cpp)
+target_compile_features(satis_pipeline_guard PRIVATE cxx_std_17)
+target_compile_options(satis_pipeline_guard PRIVATE -Wall -Wextra -Werror -fno-exceptions -fno-rtti)
+target_link_libraries(satis_pipeline_guard PRIVATE dl pthread)
+
 add_executable(satis_benchmark benchmarks/benchmark_simulation.cpp)
 target_compile_features(satis_benchmark PRIVATE cxx_std_17)
 target_compile_options(satis_benchmark PRIVATE -O3 -Wall -Wextra)

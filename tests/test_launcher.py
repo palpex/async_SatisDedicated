@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def launch(tmp_path):
     server = tmp_path / "server with spaces" / "FactoryServer.sh"
     server.parent.mkdir()
-    server.write_text('#!/usr/bin/env python3\nimport json,os,sys\nprint(json.dumps({"args":sys.argv[1:],"async":os.environ["SATIS_ASYNC_TICK"]}))\n')
+    server.write_text('#!/usr/bin/env python3\nimport json,os,sys\nprint(json.dumps({"args":sys.argv[1:],"async":os.environ["SATIS_ASYNC_TICK"],"preload":os.environ["LD_PRELOAD"]}))\n')
     server.chmod(0o755)
     env = dict(os.environ, SATIS_SERVER_DIR=str(server.parent), SATIS_BRIDGE_LIB=str(ROOT / "build/libsatis_task_bridge.so"), SATIS_ASYNC_TICK="0")
     env.pop("LD_PRELOAD", None)
@@ -33,7 +33,9 @@ def test_arguments_and_disabled_mode(launch):
     result = launch("-log", "value with spaces", "literal;$(not-executed)", SATIS_USER="service")
     assert result.returncode == 0, result.stderr
     data = json.loads(result.stdout.splitlines()[-1])
-    assert data == {"args": ["-log", "value with spaces", "literal;$(not-executed)"], "async": "0"}
+    assert data["args"] == ["-log", "value with spaces", "literal;$(not-executed)"]
+    assert data["async"] == "0"
+    assert data["preload"].split(":") == [str(ROOT / "build/libsatis_pipeline_guard.so"), str(ROOT / "build/libsatis_task_bridge.so")]
 
 def test_startup_cvars_are_forwarded(launch):
     result = launch("-log", SATIS_FACTORY_CVARS="t.ParallelTickGroupSize=100,t.UseParallelTick=1", SATIS_USER="service")
@@ -46,3 +48,25 @@ def test_root_and_invalid_input(launch):
         result = launch(**overrides)
         assert result.returncode != 0
         assert message in result.stdout + result.stderr
+
+
+def test_async_mode_keeps_pipeline_guard(launch):
+    result = launch(SATIS_USER="service", SATIS_ASYNC_TICK="1")
+    assert result.returncode == 0, result.stderr
+    data = json.loads(result.stdout.splitlines()[-1])
+    assert data["async"] == "1"
+    assert data["preload"].split(":")[:2] == [str(ROOT / "build/libsatis_pipeline_guard.so"), str(ROOT / "build/libsatis_task_bridge.so")]
+
+
+def test_existing_preload_is_preserved(launch):
+    previous = str(ROOT / "build/libsatis_pipeline_guard.so")
+    result = launch(SATIS_USER="service", LD_PRELOAD=previous)
+    assert result.returncode == 0, result.stderr
+    data = json.loads(result.stdout.splitlines()[-1])
+    assert data["preload"].split(":")[-1] == previous
+
+
+def test_missing_explicit_guard_is_rejected(launch):
+    result = launch(SATIS_USER="service", SATIS_PIPELINE_GUARD_LIB="/missing/guard.so")
+    assert result.returncode != 0
+    assert "pipeline guard library is missing or unreadable" in result.stderr
